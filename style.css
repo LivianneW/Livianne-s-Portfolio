@@ -1,0 +1,271 @@
+@font-face {
+  font-family: 'Larsseit';
+  src: url('fonts/Larsseit-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Larsseit', sans-serif;
+  padding: 40px;
+  margin: auto;
+  line-height: 1.6;
+  color: #333132;
+  background-color: #fff;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background-color: #fff; 
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000; 
+}
+
+header a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #7a6e76;
+  font-weight: 400;
+  transition: color 0.5s ease;
+}
+
+header nav a:hover {
+  color: #C48BB1;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.brand-name {
+  color: #333132; 
+}
+
+/* Hero Section */
+.hero {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-gif {
+  width: 700px;
+  max-width: 900px;
+  max-height: 600px;
+  height: auto;
+  border-radius: 20px;
+  display: block;
+  margin-bottom: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transform: 0
+}
+
+.hero-content {
+  margin: 0;
+  padding: 0;
+}
+
+.hero-content h1 {
+  font-size: 26px;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin: 4px 0 10px;
+}
+
+.hero-content p {
+  margin: 4px 0;
+  font-size: 16px;
+  font-weight: 300;
+  color: #444;
+  line-height: 1.4;
+}
+
+.hover-text-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #333132;
+  cursor: pointer;
+}
+
+.hover-text {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  font-weight: 400;
+}
+
+.hover-text .hover-text-hidden {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  color: #C48BB1;
+  font-weight: 400;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.hover-text:hover .default-text {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.hover-text:hover .hover-text-hidden {
+  opacity: 1;
+}
+
+.inspired-text {
+  font-weight: 400;
+  color: #333132;
+  white-space: nowrap;
+}
+
+/* Tags */
+.tags {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.tags a.tag-link {
+  display: inline-block;
+  padding: 8px 15px;
+  margin: 0 20px;
+  font-size: 18px;
+  font-weight: 400;
+  background: #fcf4f4;
+  color: #C48BB1;
+  border-radius: 18px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.tags a.tag-link:hover {
+  background: #C48BB1;
+  color: #FFD4EC;
+}
+
+/* Projects */
+.projects {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.project-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px 80px;
+  margin-bottom: 60px;
+  justify-content: flex-start;
+}
+
+.project-card {
+  flex: 1 1 400px;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #fff;
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-card img {
+  width: 100%;
+  max-height: 250px;
+  object-fit: fit;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+}
+
+.project-title {
+  font-size: 24px;
+  font-weight: 500;
+  color: #333132;
+  margin: 0;
+}
+
+.project-description {
+  font-size: 16px;
+  color: #7a6e76;
+  font-weight: 300;
+  margin-bottom: 20px;
+  text-align: justify;
+  margin-top: 0;
+}
+
+.project-tags {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.project-tags span {
+  background: #fcf4f4;
+  color: #C48BB1;
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 12px;
+  font-weight: 400;
+}
+
+.view-btn {
+  display: inline-block;
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #7a6e76;
+  background-color: #f1ecef;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.view-btn:hover {
+  background-color: #C48BB1;
+  color: #fff;
+}
+
+.title-and-tags {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 16px;
+  color: #7a6e76;
+}
+
+footer a {
+  color: #333132;
+  text-decoration: none;
+  margin: 0 10px;
+}
