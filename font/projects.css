@@ -1,9 +1,13 @@
-/* Load Larsseit font */
 @font-face {
   font-family: 'Larsseit';
-  src: url('fonts/Larsseit-Regular.woff2') format('woff2');
-  font-weight: normal;
+  src: url('font/Larsseit.woff2') format('woff2'),
+       url('font/Larsseit.woff') format('woff');
+  font-weight: 400;
   font-style: normal;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
