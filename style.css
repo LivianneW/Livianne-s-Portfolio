@@ -20,6 +20,7 @@ body {
 }
 
 header {
+  font-family: 'Larsseit', sans-serif;
   position: sticky;
   top: 0;
   background-color: #fff; 
@@ -31,6 +32,7 @@ header {
 }
 
 header a {
+  font-family: 'Larsseit', sans-serif;
   margin-left: 20px;
   text-decoration: none;
   color: #7a6e76;
@@ -50,6 +52,7 @@ header nav a:hover {
 
 /* Hero Section */
 .hero {
+  font-family: 'Larsseit', sans-serif;
   max-width: 1000px;
   margin: 0 auto;
   padding: 20px 0;
