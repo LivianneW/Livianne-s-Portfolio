@@ -61,17 +61,11 @@ header nav a:hover {
 /* Main Grid Layout */
 .resource-bridge-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr; 
   gap: 40px;
   align-items: start;
-  margin-top: -20px; 
 }
 
-/* Mmedia column aligns flush with header */
-.resource-media {
-  margin-top: 0; 
-  padding-top: 20px; /
-}
 /* Text Column */
 .resource-text {
   max-width: 700px;
