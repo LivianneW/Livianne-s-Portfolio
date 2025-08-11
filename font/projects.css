@@ -64,13 +64,13 @@ header nav a:hover {
   grid-template-columns: 1fr 1fr;
   gap: 40px;
   align-items: start;
-  margin-top: -20px; /* Pull up to align with nav */
+  margin-top: -20px; 
 }
 
-/* Ensure media column aligns flush with header */
+/* Mmedia column aligns flush with header */
 .resource-media {
-  margin-top: 0; /* Remove any extra offset */
-  padding-top: 20px; /* Matches header padding for balance */
+  margin-top: 0; 
+  padding-top: 20px; /
 }
 /* Text Column */
 .resource-text {
@@ -156,6 +156,7 @@ footer {
   padding: 40px 20px;
   font-size: 16px;
   color: #7a6e76;
+  margin-top: 50px;
 }
 
 footer a {
