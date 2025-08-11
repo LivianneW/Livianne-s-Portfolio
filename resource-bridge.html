@@ -10,24 +10,39 @@
 
   <!-- HEADER -->
   <header>
-    <div>
-      <a href="index.html"><strong><span class="brand-name">LIVIANNE WONG</span></strong></a>
-    </div>
-    <nav>
-      <a href="index.html">WORKS</a>
-      <a href="about.html">ABOUT</a>
-      <a href="https://drive.google.com/file/d/1oapfNvccTuqfSGTQbo49FFuMPb9QTcAW/view">RESUME</a>
-    </nav>
-  </header>
+  <div>
+    <a href="index.html"><strong><span class="brand-name">LIVIANNE WONG</span></strong></a>
+  </div>
+
+  <!-- Hamburger button -->
+  <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
+
+  <nav>
+    <a href="index.html">WORKS</a>
+    <a href="about.html">ABOUT</a>
+    <a href="https://drive.google.com/file/d/1oapfNvccTuqfSGTQbo49FFuMPb9QTcAW/view">RESUME</a>
+  </nav>
+</header>
+
+<script>
+  const navToggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('header nav');
+
+  navToggle.addEventListener('click', () => {
+    const expanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
+    navToggle.setAttribute('aria-expanded', !expanded);
+    nav.classList.toggle('active');
+  });
+</script>
 
   <!-- PAGE CONTENT -->
   <main class="page-container">
-    <section class="resource-bridge-grid">
+    <section class="grid">
 
       <!-- LEFT COLUMN: TEXT -->
-      <div class="resource-text">
+      <div class="text">
         <h1 class="project-title">
-          Resource Bridge <span class="tag">2025</span>
+          Resource Bridge</span>
         </h1>
 
         <p class="project-subtitle">
@@ -62,7 +77,7 @@
           </div>
         </div>
 
-        <div class="resource-tags-grid">
+        <div class="tags-grid">
           <div class="tag-group">
             <div class="tag-label">Timeline</div>
             <div class="tag-value">Feb – April 2025</div>
@@ -89,7 +104,7 @@
       </div>
 
       <!-- RIGHT COLUMN: MEDIA -->
-      <div class="resource-media">
+      <div class="media">
         <!-- PDF Slideshow -->
         <iframe
           width="695"

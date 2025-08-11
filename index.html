@@ -10,6 +10,10 @@
 
 <header>
   <div><a href="index.html"><strong><span class="brand-name">LIVIANNE WONG</span></strong></a></div>
+  
+  <!-- Hamburger button -->
+  <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
+  
   <nav>
     <a href="index.html">WORKS</a>
     <a href="about.html">ABOUT</a>
@@ -26,7 +30,7 @@
     <p class="hover-text-container">
       <span class="inspired-text">Inspired to</span>
       <span class="hover-text">
-        <span class="default-text">Explore. Dream. Discover.</span>
+        <span class="default-text" style="color: #7a6e76;">Explore. Dream. Discover.</span>
         <span class="hover-text-hidden">Research. Ideate. Iterate.</span>
       </span>
     </p>
@@ -110,6 +114,17 @@
     <a href="#">Scroll up ↑</a>
   </p>
 </footer>
+
+<script>
+  const navToggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('header nav');
+
+  navToggle.addEventListener('click', () => {
+    const expanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
+    navToggle.setAttribute('aria-expanded', !expanded);
+    nav.classList.toggle('active');
+  });
+</script>
 
 </body>
 </html>

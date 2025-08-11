@@ -9,67 +9,84 @@
 <body>
 
   <!-- HEADER -->
-  <header>
-    <div>
-      <a href="index.html"><strong><span class="brand-name">LIVIANNE WONG</span></strong></a>
-    </div>
-    <nav>
-      <a href="index.html">WORKS</a>
-      <a href="about.html">ABOUT</a>
-      <a href="https://drive.google.com/file/d/1oapfNvccTuqfSGTQbo49FFuMPb9QTcAW/view">RESUME</a>
-    </nav>
-  </header>
+<header>
+  <div>
+    <a href="index.html"><strong><span class="brand-name">LIVIANNE WONG</span></strong></a>
+  </div>
+
+  <!-- Hamburger button -->
+  <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
+
+  <nav>
+    <a href="index.html">WORKS</a>
+    <a href="about.html">ABOUT</a>
+    <a href="https://drive.google.com/file/d/1oapfNvccTuqfSGTQbo49FFuMPb9QTcAW/view">RESUME</a>
+  </nav>
+</header>
+
+<script>
+  const navToggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('header nav');
+
+  navToggle.addEventListener('click', () => {
+    const expanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
+    navToggle.setAttribute('aria-expanded', !expanded);
+    nav.classList.toggle('active');
+  });
+</script>
 
   <!-- PAGE CONTENT -->
   <main class="page-container">
-    <section class="resource-bridge-grid">
+    <section class="grid">
 
       <!-- LEFT COLUMN: TEXT -->
-      <div class="resource-text">
+      <div class="text">
         <h1 class="project-title">
-          Resource Bridge <span class="tag">2025</span>
+          Spoonify</span>
         </h1>
 
         <p class="project-subtitle">
-          <strong>Helping unhoused communities find essential resources through accessible design</strong>
+          <strong>Simplifying your cooking journey, one recipe at a time</strong>
         </p>
 
         <div class="section-row">
           <div class="section-label">Overview</div>
           <div class="section-body">
-            This project focused on designing a digital kiosk that helps to connect unhoused individuals with local resources like shelters, meals, and medical care. The team emphasized simplicity, visibility, and self-agency in the user experience.
+            Spoonify is a recipe app designed to make meal prep simple, fun, and interactive. Its intuitive interface helps users easily explore a variety of recipes, from desserts to quick one-pan meals. Daily challenges add a social twist, letting users compete with friends to build streaks,
+            while the custom recipe feature encourages sharing your own culinary creations and earning spoons as rewards
           </div>
         </div>
 
         <div class="section-row">
           <div class="section-label">The Problem</div>
           <div class="section-body">
-            Unhoused individuals often lack access to up-to-date and easy-to-use information about local services. Traditional resource lists are often times outdated, inaccessible, or overwhelming.
+            As a home cooking enthusiast, I often struggled to find the right recipe that matches the ingredients I have on hand. I’d jump between YouTube, Google, and various apps, wasting precious time that could be spent actually cooking. After chatting with friends and family, 
+            I discovered that this frustration is a common one. Spoonify aims to solve this by streamlining recipe discovery in one easy-to-use platform
           </div>
         </div>
 
         <div class="section-row">
           <div class="section-label">Process</div>
           <div class="section-body">
-            We conducted interviews, observed how people interacted with public services, and wireframed a minimal, easy-to-use interface.
+            I researched recipe apps, interviewed users, and created wireframes and prototypes in Figma. 
           </div>
         </div>
 
         <div class="section-row">
           <div class="section-label">Outcome</div>
           <div class="section-body">
-            A kiosk interface that lets users quickly filter for food, shelter, or assistance using large buttons, simple icons, and a map view.
+            A clean, easy-to-use app with fun features like daily challenges and recipe sharing, helping users spend less time searching and more time cooking
           </div>
         </div>
 
-        <div class="resource-tags-grid">
+        <div class="tags-grid">
           <div class="tag-group">
             <div class="tag-label">Timeline</div>
-            <div class="tag-value">Feb – April 2025</div>
+            <div class="tag-value">Aug – Nov 2024</div>
           </div>
           <div class="tag-group">
             <div class="tag-label">Team</div>
-            <div class="tag-value">3 Members</div>
+            <div class="tag-value">Individual</div>
           </div>
           <div class="tag-group">
             <div class="tag-label">Tools</div>
@@ -79,7 +96,6 @@
             <div class="tag-label">Skills</div>
             <div class="tag-value">
               Product Thinking<br>
-              User Testing<br>
               UX Research<br>
               UX/UI Design<br>
               Prototyping
@@ -89,13 +105,13 @@
       </div>
 
       <!-- RIGHT COLUMN: MEDIA -->
-      <div class="resource-media">
+      <div class="media">
         <!-- PDF Slideshow -->
         <iframe
           width="695"
           height="440"
           style="border: 1px solid rgba(0, 0, 0, 0.1); margin-top: 20px; border-radius: 8px;"
-          src="https://embed.figma.com/deck/rOp48Wi4GHFUHMYM8ytZW6/RESOURCE-BRIDGE?node-id=72-235&viewport=-159%2C-113%2C0.73&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&embed-host=share" 
+          src="https://embed.figma.com/deck/NiJAoxZDpcRiLVxRIwJMvf/SPOONIFY?node-id=1-25&viewport=-159%2C-89%2C0.73&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&embed-host=share"  
           allowfullscreen>
         </iframe>
 
@@ -104,7 +120,7 @@
           width="695"
           height="440"
           style="border: 1px solid rgba(0, 0, 0, 0.1); margin-top: 20px; border-radius: 8px;"
-          src="https://embed.figma.com/proto/hq1XZFQ1SVw6yUW0Brr3H8/Resource-Bridge-Interface?page-id=64%3A48&node-id=414-1966&starting-point-node-id=414%3A1966&embed-host=share"
+          src="https://embed.figma.com/proto/ePbiIrBOflCd8Tg3Z2rnDi/spoonify-final?page-id=129%3A4&node-id=150-704&p=f&viewport=382%2C105%2C0.28&scaling=scale-down&content-scaling=fixed&starting-point-node-id=129%3A15&embed-host=share"
           allowfullscreen>
         </iframe>
       </div>
