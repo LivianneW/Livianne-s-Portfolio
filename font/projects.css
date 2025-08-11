@@ -61,7 +61,7 @@ header nav a:hover {
 /* Main Grid Layout */
 .resource-bridge-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; 
+  grid-template-columns: 1fr 1fr;
   gap: 40px;
   align-items: start;
 }
