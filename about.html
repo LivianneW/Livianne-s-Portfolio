@@ -9,25 +9,38 @@
 <body>
 
   <!-- HEADER -->
-  <header>
-    <div>
-      <a href="index.html"><strong><span class="brand-name">LIVIANNE WONG</span></strong></a>
-    </div>
-    <nav>
-      <a href="index.html">WORKS</a>
-      <a href="about.html">ABOUT</a>
-      <a href="https://drive.google.com/file/d/1oapfNvccTuqfSGTQbo49FFuMPb9QTcAW/view">RESUME</a>
-    </nav>
-  </header>
+<header>
+  <div><a href="index.html"><strong><span class="brand-name">LIVIANNE WONG</span></strong></a></div>
+  
+  <!-- Hamburger button -->
+  <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
+  
+  <nav>
+    <a href="index.html">WORKS</a>
+    <a href="about.html">ABOUT</a>
+    <a href="https://drive.google.com/file/d/1oapfNvccTuqfSGTQbo49FFuMPb9QTcAW/view">RESUME</a>
+  </nav>
+</header>
 
     <!-- FOOTER -->
-  <footer>
-    <p>Thank you for viewing :D</p>
-    <p>
-      <a href="mailto:liviwong123@gmail.com">liviwong123@gmail.com</a> |
-      <a href="#">Scroll up ↑</a>
-    </p>
-  </footer>
+<footer>
+  <p>Thank you for viewing :D</p>
+  <p>
+    <a href="mailto:liviwong123@gmail.com">liviwong123@gmail.com</a> |
+    <a href="#">Scroll up ↑</a>
+  </p>
+</footer>
+
+<script>
+  const navToggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('header nav');
+
+  navToggle.addEventListener('click', () => {
+    const expanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
+    navToggle.setAttribute('aria-expanded', !expanded);
+    nav.classList.toggle('active');
+  });
+</script>
 
 </body>
 </html>
