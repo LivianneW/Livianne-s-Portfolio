@@ -5,15 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Livianne's Portfolio</title>
   <link rel="stylesheet" href="font/style.css" />
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/png">
 </head>
 <body>
 
 <header>
   <div><a href="index.html"><strong><span class="brand-name">LIVIANNE WONG</span></strong></a></div>
-  
+
   <!-- Hamburger button -->
   <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
-  
+
   <nav>
     <a href="index.html">WORKS</a>
     <a href="about.html">ABOUT</a>
@@ -23,7 +24,7 @@
 
 <section class="hero">
   <a href="https://iriswildros.squarespace.com/2024-animations" target="_blank" rel="noopener noreferrer">
-    <img src="GIF - Copy.gif" alt="Animated hero" class="hero-gif" />
+    <img src="images/GIF - Copy.gif" alt="Animated hero" class="hero-gif" />
   </a>
   <div class="hero-content">
     <h1>Hello, I’m Livianne</h1>
@@ -38,74 +39,80 @@
   </div>
 </section>
 
-<div class="tags">
-  <a href="#internship" class="tag-link">Internship</a>
-  <a href="#product-design" class="tag-link">Product Design</a>
-  <a href="#redesign" class="tag-link">Redesign</a>
-</div>
-
-<section class="projects">
-  <!-- Internship Row -->
-  <div id="internship" class="project-row">
-    <div class="project-card">
-      <img src="https://www.nasa.gov/wp-content/uploads/2024/02/x-59.jpg" alt="Quesst Project">
-      <div class="title-and-tags">
-        <h3 class="project-title">Quesst</h3>
-        <div class="project-tags">
-          <span>Internship</span>
-          <span>2025</span>
-        </div>
-      </div>
-      <p class="project-description">Designing for NASA's X-59 Project.</p>
-      <a class="view-btn" href="https://www.nasa.gov/news-release/nasa-grants-to-engage-students-in-quiet-supersonic-community-overflight/">View</a>
-    </div>
+<main class="page-container">
+  <!-- Filter/Sort Bar -->
+  <div class="filter-sort-bar">
+    <span class="filter-option"><a href="#internship" class="tag-link">Internship</a></span>
+    <span class="filter-option"><a href="#product-design" class="tag-link">Product Design</a></span>
+    <span class="filter-option"><a href="#redesign" class="tag-link">Redesign</a></span>
   </div>
 
-  <!-- Product Design Row -->
-  <div id="product-design" class="project-row">
-    <div class="project-card">
-      <img src="IPAD.png" alt="Resource Bridge">
-      <div class="title-and-tags">
-        <h3 class="project-title">Resource Bridge</h3>
-        <div class="project-tags">
-          <span>Product Design</span>
-          <span>2025</span>
+  <section class="projects">
+    <!-- Internship Row -->
+    <h2 id="internship" class="section-heading">Internship</h2>
+    <div class="project-row">
+      <div class="project-card">
+        <img src="https://www.nasa.gov/wp-content/uploads/2024/02/x-59.jpg" alt="Quesst Project">
+        <div class="title-and-tags">
+          <h3 class="project-title">Quesst</h3>
+          <div class="project-tags">
+            <span>Internship</span>
+            <span>2025</span>
+          </div>
         </div>
+        <p class="project-description">Designing for NASA's X-59 Project</p>
+        <a class="view-btn" href="https://www.nasa.gov/news-release/nasa-grants-to-engage-students-in-quiet-supersonic-community-overflight/">View</a>
       </div>
-      <p class="project-description">Creating a kiosk to help unhoused people find local resources.</p>
-      <a class="view-btn" href="resource-bridge.html">View</a>
     </div>
 
-    <div class="project-card">
-      <img src="SPOONIFY (1).png" alt="Spoonify">
-      <div class="title-and-tags">
-        <h3 class="project-title">Spoonify</h3>
-        <div class="project-tags">
-          <span>Product Design</span>
-          <span>2024</span>
+    <!-- Product Design Row -->
+    <h2 id="product-design" class="section-heading">Product Design</h2>
+    <div class="project-row">
+      <div class="project-card">
+        <img src="images/IPAD.png" alt="Resource Bridge">
+        <div class="title-and-tags">
+          <h3 class="project-title">Resource Bridge</h3>
+          <div class="project-tags">
+            <span>Product Design</span>
+            <span>2025</span>
+          </div>
         </div>
+        <p class="project-description">Creating a kiosk to help unhoused people find local resources</p>
+        <a class="view-btn" href="resource-bridge.html">View</a>
       </div>
-      <p class="project-description">A meal-sharing app that makes it easier to cook and connect.</p>
-      <a class="view-btn" href="spoonify.html">View</a>
-    </div>
-  </div>
 
-  <!-- Redesign Row -->
-  <div id="redesign" class="project-row">
-    <div class="project-card">
-      <img src="tastea.png" alt="Tastea">
-      <div class="title-and-tags">
-        <h3 class="project-title">Tastea</h3>
-        <div class="project-tags">
-          <span>Redesign</span>
-          <span>2024</span>
+      <div class="project-card">
+        <img src="images/SPOONIFY (1).png" alt="Spoonify">
+        <div class="title-and-tags">
+          <h3 class="project-title">Spoonify</h3>
+          <div class="project-tags">
+            <span>Product Design</span>
+            <span>2024</span>
+          </div>
         </div>
+        <p class="project-description">A meal-sharing app that makes it easier to cook and connect</p>
+        <a class="view-btn" href="spoonify.html">View</a>
       </div>
-      <p class="project-description">Refreshing a bubble tea brand's visual identity and user flow.</p>
-      <a class="view-btn" href="tastea.html">View</a>
     </div>
-  </div>
-</section>
+
+    <!-- Redesign Row -->
+    <h2 id="redesign" class="section-heading">Redesign</h2>
+    <div class="project-row">
+      <div class="project-card">
+        <img src="images/tastea.png" alt="Tastea">
+        <div class="title-and-tags">
+          <h3 class="project-title">Tastea</h3>
+          <div class="project-tags">
+            <span>Redesign</span>
+            <span>2024</span>
+          </div>
+        </div>
+        <p class="project-description">Refreshing a boba brand's visual identity and user flow</p>
+        <a class="view-btn" href="tastea.html">View</a>
+      </div>
+    </div>
+  </section>
+</main>
 
 <footer>
   <p>Thank you for viewing :D</p>
@@ -115,7 +122,9 @@
   </p>
 </footer>
 
+<!-- SCRIPTS -->
 <script>
+  // NAV TOGGLE
   const navToggle = document.querySelector('.nav-toggle');
   const nav = document.querySelector('header nav');
 
@@ -123,6 +132,51 @@
     const expanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
     navToggle.setAttribute('aria-expanded', !expanded);
     nav.classList.toggle('active');
+  });
+
+  // FILTER LINKS AND HEADER OFFSET
+  const filterLinks = document.querySelectorAll('.tag-link');
+  const sections = document.querySelectorAll('.section-heading');
+  const headerOffset = 80; // adjust if your header height is different
+
+  // SCROLL ON CLICK
+  filterLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+
+      const targetId = link.getAttribute('href').substring(1);
+      const targetHeading = document.getElementById(targetId);
+
+      if (targetHeading) {
+        const elementPosition = targetHeading.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // HIGHLIGHT ACTIVE FILTER ON SCROLL
+  window.addEventListener('scroll', () => {
+    let currentSectionId = '';
+
+    sections.forEach(section => {
+      const sectionTop = section.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+      if (window.pageYOffset >= sectionTop - 10) { // small buffer
+        currentSectionId = section.id;
+      }
+    });
+
+    filterLinks.forEach(link => {
+      if (link.getAttribute('href') === `#${currentSectionId}`) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
   });
 </script>
 

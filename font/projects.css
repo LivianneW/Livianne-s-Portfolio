@@ -12,8 +12,8 @@ html {
 
 body {
   font-family: 'Larsseit', sans-serif;
-  padding: 40px;
-  margin: auto;
+  padding: 0;
+  margin: 0;
   line-height: 1.6;
   font-weight: 300;
   color: #333132;
@@ -42,7 +42,7 @@ header a {
 }
 
 header nav a:hover {
-  color: #C48BB1;
+  color: #D3A0BB;
   cursor: pointer;
 }
 
@@ -114,24 +114,23 @@ header nav {
 }
 
 .original-site-link:hover {
-  color: #C48BB1;
+  color: #D3A0BB;
   text-decoration: underline;
   cursor: pointer;
 }
 
 /* Page Container */
 .page-container {
-  max-width: 1710px;
+  max-width: 1870px;  
   margin: 0 auto;
-  padding: 0;
+  padding: 0 40px; 
   box-sizing: border-box;
 }
-
 /* Main Grid Layout */
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 150px;
   align-items: start;
 }
 
@@ -156,7 +155,7 @@ header nav {
 .section-row {
   display: flex;
   gap: 24px;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
   align-items: flex-start;
 }
 

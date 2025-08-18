@@ -41,13 +41,13 @@ header a {
 }
 
 header nav a:hover {
-  color: #C48BB1;
+  color: #D3A0BB;
   cursor: pointer;
   transition: color 0.3s ease;
 }
 
 .brand-name {
-  color: #333132; 
+  color: #1a1a1a; 
 }
 
 /* Hamburger toggle button */
@@ -125,7 +125,6 @@ header nav {
   border-radius: 20px;
   display: block;
   margin-bottom: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
   transform: 0
 }
 
@@ -172,7 +171,7 @@ header nav {
   left: 0;
   right: 0;
   opacity: 0;
-  color: #C48BB1;
+  color: #D3A0BB;
   font-weight: 400;
   pointer-events: none;
   transition: opacity 0.4s ease;
@@ -194,6 +193,51 @@ header nav {
 }
 
 /* Tags */
+.page-container {
+  max-width: 1200px; 
+  margin: 0 auto;
+  padding: 36px;
+  box-sizing: border-box;
+}
+
+/* Filter bar */
+.filter-sort-bar {
+  display: flex;
+  flex-wrap: wrap;       
+  gap: 75px;              
+  justify-content: center;
+  align-items: center;
+  background-color: #f1ecef;
+  padding: 10px 20px;
+  border-radius: 15px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #7a6e76;
+  margin-top: 32px;
+  margin-bottom: 20px;
+}
+
+.filter-sort-bar span {
+  cursor: pointer;
+  user-select: none;
+}
+
+.filter-sort-bar a {
+  color: #7a6e76;
+  text-decoration: none;  /* remove underline */
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+.filter-sort-bar a:hover {
+  color: #D3A0BB;
+}
+
+.filter-option:hover,
+.sort-option:hover {
+  color: #D3A0BB;
+}
+
 .tags {
   text-align: center;
   margin-top: 30px;
@@ -206,7 +250,7 @@ header nav {
   font-size: 18px;
   font-weight: 400;
   background: #fcf4f4;
-  color: #C48BB1;
+  color: #D3A0BB;
   border-radius: 18px;
   text-decoration: none;
   cursor: pointer;
@@ -214,11 +258,24 @@ header nav {
 }
 
 .tags a.tag-link:hover {
-  background: #C48BB1;
+  background: #D3A0BB;
   color: #FFD4EC;
 }
 
+.tag-link.active {
+  color: #D3A0BB;  
+  font-weight: bold;
+}
+
 /* Projects */
+.section-heading {
+  font-size: 24px;
+  font-weight: 400;
+  margin: 100px 0 40px; 
+  color: #7a6e76;
+  text-align: left;
+}
+
 .projects {
   max-width: 1200px;
   margin: 60px auto;
@@ -285,7 +342,7 @@ header nav {
 
 .project-tags span {
   background: #fcf4f4;
-  color: #C48BB1;
+  color: #D3A0BB;
   padding: 6px 12px;
   font-size: 13px;
   border-radius: 12px;
@@ -305,7 +362,7 @@ header nav {
 }
 
 .view-btn:hover {
-  background-color: #C48BB1;
+  background-color: #D3A0BB;
   color: #fff;
 }
 
