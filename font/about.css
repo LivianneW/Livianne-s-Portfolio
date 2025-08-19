@@ -20,7 +20,7 @@ body {
   color: #333132;
   background-color: #fff;
   text-align: left;
-  max-width: 100%; /* prevent overflow */
+  max-width: 100%;
 }
 
 /* Header */
@@ -76,7 +76,7 @@ header nav {
 
 .about-text h1 {
   font-weight: 600;
-  font-size: clamp(28px, 5vw, 40px);  
+  font-size: clamp(28px, 5vw, 40px);
 }
 
 .about-text h2 {
@@ -127,9 +127,20 @@ h2 {
   align-items: start;
 }
 
+/* Cards */
 .card {
   display: flex;
   flex-direction: column;
+  flex: 1 1 280px;
+}
+
+/* Desktop fixed card size */
+@media (min-width: 1024px) {
+  .card {
+    width: 400px;      /* fixed width */
+    height: 450px;     /* fixed height */
+    flex: 0 0 auto;    /* no grow/shrink */
+  }
 }
 
 .card img {
@@ -158,10 +169,11 @@ h2 {
   color:  #7a6e76;
 }
 
+/* Filter bar */
 .filter-sort-bar {
   display: flex;
-  width: 1670px;
-  justify-content: space-between;
+  flex-wrap: wrap;       
+  justify-content: center;
   align-items: center;
   background-color: #f1ecef;  
   padding: 10px 20px;
@@ -169,14 +181,9 @@ h2 {
   font-size: 16px;
   font-weight: 400;
   color: #7a6e76;
-  margin: 32px auto 10px;   /* centers it */
-  flex-wrap: wrap;  
+  margin: 32px auto 10px;
   gap: 10px;
-
-  /* extra centering safety */
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
+  max-width: 100%;   /* responsive */
 }
 
 .filter-sort-bar span {
@@ -205,6 +212,14 @@ footer a {
 }
 
 /* Responsiveness */
+@media (max-width: 1024px) {
+  .grid {
+    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    justify-items: center;
+  }
+}
+
 @media (max-width: 900px) {
   .about-section {
     grid-template-columns: 1fr;
@@ -214,9 +229,6 @@ footer a {
   .about-image {
     justify-content: center;
     order: -1;
-  }
-  .grid {
-    gap: 40px;
   }
   header {
     padding: 15px 20px;
@@ -268,6 +280,7 @@ footer a {
   .filter-sort-bar {
     font-size: 14px;
     padding: 8px 12px;
+    gap: 5px;
   }
   footer {
     font-size: 12px;
