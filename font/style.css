@@ -1,3 +1,4 @@
+/* Fonts */
 @font-face {
   font-family: 'Larsseit';
   src: url('font/Larsseit.woff2') format('woff2'),
@@ -6,25 +7,27 @@
   font-style: normal;
 }
 
+/* Global */
 html {
   scroll-behavior: smooth;
 }
 
 body {
   font-family: 'Larsseit', sans-serif;
-  padding: 40px;
-  margin: auto;
+  padding: clamp(20px, 4vw, 40px);
+  margin: 0 auto;
   line-height: 1.6;
   color: #333132;
   background-color: #fff;
+  max-width: 1400px;
 }
 
+/* Header */
 header {
-  font-family: 'Larsseit', sans-serif;
   position: sticky;
   top: 0;
-  background-color: #fff; 
-  padding: 20px 40px;
+  background: #fff; 
+  padding: 16px clamp(16px, 4vw, 40px);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,27 +35,25 @@ header {
 }
 
 header a {
-  font-family: 'Larsseit', sans-serif;
   margin-left: 20px;
   text-decoration: none;
-  color: #7a6e76;
+  color: #1a1a1a;
   font-weight: 400;
-  transition: color 0.5s ease;
+  transition: color 0.3s ease;
 }
 
 header nav a:hover {
   color: #D3A0BB;
   cursor: pointer;
-  transition: color 0.3s ease;
 }
 
 .brand-name {
   color: #1a1a1a; 
 }
 
-/* Hamburger toggle button */
+/* Hamburger toggle */
 .nav-toggle {
-  display: none; /* hidden by default on desktop */
+  display: none;
   font-size: 28px;
   background: none;
   border: none;
@@ -66,40 +67,30 @@ header nav {
   gap: 20px;
 }
 
-/* Responsive for smaller screens */
+/* Mobile nav */
 @media (max-width: 768px) {
-  /* Show hamburger button */
   .nav-toggle {
     display: block;
   }
-
-  /* Hide nav by default */
   header nav {
     display: none;
     flex-direction: column;
     background: #fff;
     position: absolute;
-    top: 70px; /* below header */
-    right: 40px;
+    top: 70px;
+    right: 16px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     border-radius: 8px;
     padding: 10px 20px;
     min-width: 150px;
-    z-index: 1001;
   }
-
-  /* Show nav when active */
   header nav.active {
     display: flex;
   }
-
-  /* Nav links full width on mobile */
   header nav a {
     padding: 10px 0;
     border-bottom: 1px solid #eee;
-    color: #7a6e76;
   }
-
   header nav a:last-child {
     border-bottom: none;
   }
@@ -107,7 +98,6 @@ header nav {
 
 /* Hero Section */
 .hero {
-  font-family: 'Larsseit', sans-serif;
   max-width: 1000px;
   margin: 0 auto;
   padding: 20px 0;
@@ -118,43 +108,33 @@ header nav {
 }
 
 .hero-gif {
-  width: 700px;
-  max-width: 900px;
-  max-height: 600px;
+  width: 100%;
+  max-width: 700px;
   height: auto;
   border-radius: 20px;
-  display: block;
   margin-bottom: 16px;
-  transform: 0
-}
-
-.hero-content {
-  margin: 0;
-  padding: 0;
 }
 
 .hero-content h1 {
-  font-size: 26px;
+  font-size: clamp(22px, 3vw, 32px);
   font-weight: 500;
-  color: #1a1a1a;
   margin: 4px 0 10px;
 }
 
 .hero-content p {
   margin: 4px 0;
-  font-size: 16px;
+  font-size: clamp(14px, 2vw, 18px);
   font-weight: 300;
-  color: #1a1a1a;
   line-height: 1.4;
 }
 
+/* Hover text */
 .hover-text-container {
   display: inline-flex;
   align-items: center;
   gap: 4px;
   font-size: 16px;
   font-weight: 400;
-  color: #333132;
   cursor: pointer;
 }
 
@@ -162,24 +142,18 @@ header nav {
   position: relative;
   display: inline-block;
   white-space: nowrap;
-  font-weight: 400;
 }
 
 .hover-text .hover-text-hidden {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  inset: 0;
   opacity: 0;
   color: #D3A0BB;
-  font-weight: 400;
-  pointer-events: none;
   transition: opacity 0.4s ease;
 }
 
 .hover-text:hover .default-text {
   opacity: 0;
-  transition: opacity 0.4s ease;
 }
 
 .hover-text:hover .hover-text-hidden {
@@ -188,15 +162,14 @@ header nav {
 
 .inspired-text {
   font-weight: 400;
-  color: #333132;
   white-space: nowrap;
 }
 
-/* Tags */
+/* Page container */
 .page-container {
   max-width: 1200px; 
   margin: 0 auto;
-  padding: 36px;
+  padding: clamp(20px, 4vw, 36px);
   box-sizing: border-box;
 }
 
@@ -204,28 +177,26 @@ header nav {
 .filter-sort-bar {
   display: flex;
   flex-wrap: wrap;       
-  gap: 75px;              
+  gap: clamp(20px, 5vw, 75px);         
   justify-content: center;
   align-items: center;
-  background-color: #f1ecef;
-  padding: 10px 20px;
+  background: #f1ecef;
+  padding: 12px 20px;
   border-radius: 15px;
   font-size: 16px;
   font-weight: 400;
   color: #7a6e76;
-  margin-top: 32px;
-  margin-bottom: 20px;
+  margin: 32px auto 20px;
+  max-width: 100%;
 }
 
 .filter-sort-bar span {
   cursor: pointer;
-  user-select: none;
 }
 
 .filter-sort-bar a {
   color: #7a6e76;
-  text-decoration: none;  /* remove underline */
-  font-weight: 400;
+  text-decoration: none;
   transition: color 0.3s ease;
 }
 
@@ -233,11 +204,7 @@ header nav {
   color: #D3A0BB;
 }
 
-.filter-option:hover,
-.sort-option:hover {
-  color: #D3A0BB;
-}
-
+/* Tags */
 .tags {
   text-align: center;
   margin-top: 30px;
@@ -246,15 +213,13 @@ header nav {
 .tags a.tag-link {
   display: inline-block;
   padding: 8px 15px;
-  margin: 0 20px;
-  font-size: 18px;
-  font-weight: 400;
+  margin: 6px;
+  font-size: 16px;
   background: #fcf4f4;
   color: #D3A0BB;
   border-radius: 18px;
   text-decoration: none;
-  cursor: pointer;
-  transition: background-color 0.5s ease, color 0.5s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .tags a.tag-link:hover {
@@ -269,25 +234,25 @@ header nav {
 
 /* Projects */
 .section-heading {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 400;
-  margin: 100px 0 40px; 
+  margin: 80px 0 30px; 
   color: #7a6e76;
   text-align: left;
 }
 
 .projects {
   max-width: 1200px;
-  margin: 60px auto;
+  margin: 40px auto;
   padding: 0 20px;
 }
 
+/* Use grid for responsiveness */
 .project-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 60px 80px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
   margin-bottom: 60px;
-  justify-content: flex-start;
 }
 
 .project-card {
@@ -318,23 +283,22 @@ header nav {
 }
 
 .project-title {
-  font-size: 24px;
+  font-size: clamp(18px, 2vw, 24px);
   font-weight: 500;
-  color: #333132;
   margin: 0;
 }
 
 .project-description {
-  font-size: 16px;
+  font-size: clamp(14px, 1.6vw, 16px);
   color: #7a6e76;
   font-weight: 300;
-  margin-bottom: 20px;
+  margin: 10px 0 20px;
   text-align: justify;
-  margin-top: 0;
 }
 
 .project-tags {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
   justify-content: center;
   margin-bottom: 12px;
@@ -355,14 +319,14 @@ header nav {
   font-size: 14px;
   font-weight: 500;
   color: #7a6e76;
-  background-color: #f1ecef;
+  background: #f1ecef;
   border-radius: 12px;
   text-decoration: none;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .view-btn:hover {
-  background-color: #D3A0BB;
+  background: #D3A0BB;
   color: #fff;
 }
 
@@ -373,6 +337,7 @@ header nav {
   margin-bottom: 5px;
 }
 
+/* Footer */
 footer {
   text-align: center;
   padding: 40px 20px;
@@ -385,104 +350,4 @@ footer a {
   color: #333132;
   text-decoration: none;
   margin: 0 10px;
-}
-
-/* Responsive adjustments for tablets and phones */
-
-@media (max-width: 1024px) {
-  .projects {
-    max-width: 90%;
-    margin: 40px auto;
-    padding: 0 15px;
-  }
-
-  .project-row {
-    gap: 40px 40px;
-    justify-content: center;
-  }
-
-  .project-card {
-    max-width: 350px;
-    flex: 1 1 350px;
-  }
-
-  .project-card img {
-    max-height: 220px;
-  }
-
-  .project-title {
-    font-size: 20px;
-  }
-
-  .project-description {
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 768px) {
-  .projects {
-    margin: 30px auto;
-    padding: 0 10px;
-  }
-
-  .project-row {
-    flex-direction: column;
-    gap: 30px;
-    align-items: center;
-  }
-
-  .project-card {
-    max-width: 100%;
-    flex: none;
-  }
-
-  .project-card img {
-    max-height: 200px;
-  }
-
-  .project-title {
-    font-size: 18px;
-  }
-
-  .project-description {
-    font-size: 14px;
-    text-align: left;
-  }
-
-  .project-tags {
-    justify-content: flex-start;
-  }
-}
-
-@media (max-width: 480px) {
-  body {
-    padding: 20px 15px;
-  }
-
-  header {
-    padding: 15px 15px;
-  }
-
-  .projects {
-    margin: 20px auto;
-    padding: 0 5px;
-  }
-
-  .project-title {
-    font-size: 16px;
-  }
-
-  .project-description {
-    font-size: 13px;
-  }
-
-  .project-tags span {
-    font-size: 12px;
-    padding: 5px 10px;
-  }
-
-  .view-btn {
-    padding: 6px 15px;
-    font-size: 13px;
-  }
 }
