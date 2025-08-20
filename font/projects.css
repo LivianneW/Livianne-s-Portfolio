@@ -1,4 +1,6 @@
-/* Base Styles */
+/* ==========================
+   Base Styles
+========================== */
 @font-face {
   font-family: 'Larsseit';
   src: url('font/Larsseit.woff2') format('woff2'),
@@ -22,7 +24,9 @@ body {
   text-align: left;
 }
 
-/* Sticky Header */
+/* ==========================
+   Header
+========================== */
 header {
   position: sticky;
   top: 0;
@@ -67,58 +71,9 @@ header nav {
   gap: 20px;
 }
 
-/* Responsive styles */
-@media (max-width: 900px) {
-  /* Show hamburger */
-  .nav-toggle {
-    display: block;
-  }
-
-  header nav {
-    display: none;
-    flex-direction: column;
-    background: #fff;
-    position: absolute;
-    top: 70px; 
-    right: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    border-radius: 8px;
-    padding: 10px 20px;
-    min-width: 160px;
-    z-index: 1001;
-  }
-
-  /* Show nav when active */
-  header nav.active {
-    display: flex;
-  }
-
-  header nav a {
-    padding: 12px 0;
-    border-bottom: 1px solid #eee;
-    color: #7a6e76;
-  }
-
-  header nav a:last-child {
-    border-bottom: none;
-  }
-}
-
-.original-site-link {
-  font-size: 18px;
-  color: #7a6e76;
-  text-decoration: none;
-  margin-top: 4px;
-  display: inline-block;
-}
-
-.original-site-link:hover {
-  color: #D3A0BB;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-/* Page Container */
+/* ==========================
+   Page Container
+========================== */
 .page-container {
   max-width: 1820px;  
   margin: 0 auto;
@@ -126,7 +81,9 @@ header nav {
   box-sizing: border-box;
 }
 
-/* Main Grid Layout */
+/* ==========================
+   Main Grid Layout
+========================== */
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -134,7 +91,9 @@ header nav {
   align-items: start;
 }
 
-/* Text Column */
+/* ==========================
+   Text Column
+========================== */
 .text {
   max-width: 700px;
 }
@@ -173,7 +132,9 @@ header nav {
   margin-bottom: 16px;
 }
 
-/* Tags Grid - auto-fit for flexibility */
+/* ==========================
+   Tags Grid
+========================== */
 .tags-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -207,7 +168,9 @@ header nav {
   font-weight: 300;
 }
 
-/* Media Column */
+/* ==========================
+   Media Column
+========================== */
 .media {
   display: flex;
   flex-direction: column;
@@ -223,7 +186,26 @@ header nav {
   border-radius: 8px;
 }
 
-/* Footer */
+/* ==========================
+   Original Site Link
+========================== */
+.original-site-link {
+  font-size: 18px;
+  color: #7a6e76;
+  text-decoration: none;
+  margin-top: 4px;
+  display: inline-block;
+}
+
+.original-site-link:hover {
+  color: #D3A0BB;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ==========================
+   Footer
+========================== */
 footer {
   text-align: center;
   padding: 30px 20px;
@@ -238,15 +220,53 @@ footer a {
   margin: 0px;
 }
 
-/* Responsive adjustments */
+/* ==========================
+   Responsive Styles
+========================== */
 @media (max-width: 900px) {
+  /* Hamburger / nav */
+  .nav-toggle {
+    display: block;
+  }
+
+  header nav {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 10px 20px;
+    min-width: 160px;
+    z-index: 1001;
+  }
+
+  header nav.active {
+    display: flex;
+  }
+
+  header nav a {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    color: #7a6e76;
+  }
+
+  header nav a:last-child {
+    border-bottom: none;
+  }
+
+  /* Grid & text adjustments */
   .grid {
     grid-template-columns: 1fr;
     gap: 40px;
   }
+
   .project-title {
     font-size: 36px;
   }
+
   .project-subtitle {
     font-size: 20px;
     margin-bottom: 40px;
@@ -257,19 +277,24 @@ footer a {
   .page-container {
     padding: 0 15px;
   }
+
   .project-title {
     font-size: 28px;
   }
+
   .project-subtitle {
     font-size: 16px;
   }
+
   .section-label {
     min-width: auto;
     font-size: 15px;
   }
+
   .section-body {
     font-size: 15px;
   }
+
   footer {
     font-size: 12px;
   }

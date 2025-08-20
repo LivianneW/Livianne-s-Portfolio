@@ -1,4 +1,6 @@
-/* Fonts */
+/* ==========================
+   Fonts & Global
+========================== */
 @font-face {
   font-family: 'Larsseit';
   src: url('font/Larsseit.woff2') format('woff2'),
@@ -7,7 +9,6 @@
   font-style: normal;
 }
 
-/* Global */
 html {
   scroll-behavior: smooth;
 }
@@ -22,7 +23,9 @@ body {
   max-width: 1400px;
 }
 
-/* Header */
+/* ==========================
+   Header
+========================== */
 header {
   position: sticky;
   top: 0;
@@ -96,7 +99,9 @@ header nav {
   }
 }
 
-/* Hero Section */
+/* ==========================
+   Hero Section
+========================== */
 .hero {
   max-width: 1000px;
   margin: 0 auto;
@@ -167,7 +172,9 @@ header nav {
   white-space: nowrap;
 }
 
-/* Page container */
+/* ==========================
+   Page Container
+========================== */
 .page-container {
   max-width: 1200px; 
   margin: 0 auto;
@@ -175,7 +182,9 @@ header nav {
   box-sizing: border-box;
 }
 
-/* Filter bar */
+/* ==========================
+   Filter & Tags
+========================== */
 .filter-sort-bar {
   display: flex;
   flex-wrap: wrap;       
@@ -206,7 +215,6 @@ header nav {
   color: #D3A0BB;
 }
 
-/* Tags */
 .tags {
   text-align: center;
   margin-top: 30px;
@@ -234,7 +242,9 @@ header nav {
   font-weight: bold;
 }
 
-/* Projects */
+/* ==========================
+   Projects Section
+========================== */
 .section-heading {
   font-size: 20px;
   font-weight: 400;
@@ -249,7 +259,6 @@ header nav {
   padding: 0 20px;
 }
 
-/* Use grid for responsiveness */
 .project-row {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -279,9 +288,8 @@ header nav {
   width: 100%;
   max-height: 250px;
   object-fit: fit;
-  border-radius: 12px;
-  margin-bottom: 20px;
   border-radius: 15px;
+  margin-bottom: 20px;
 }
 
 .project-title {
@@ -339,7 +347,9 @@ header nav {
   margin-bottom: 5px;
 }
 
-/* Footer */
+/* ==========================
+   Footer
+========================== */
 footer {
   text-align: center;
   padding: 40px 20px;
