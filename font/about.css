@@ -178,12 +178,12 @@ h2 {
   background-color: #f1ecef;  
   padding: 10px 20px;
   border-radius: 15px;  
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 400;
   color: #7a6e76;
   margin: 32px auto 10px;
   gap: 10px;
-  max-width: 100%;   /* responsive */
+  max-width: 100%;    
 }
 
 .filter-sort-bar span {
