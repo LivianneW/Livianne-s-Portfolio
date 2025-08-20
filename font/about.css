@@ -113,18 +113,19 @@ h2 {
 
 /* Layout */
 .page-container {
-  max-width: 1725px;
+  max-width: 1750px;
   margin: 0 auto;
-  padding: 10px;
+  padding: 0 20px;  
   box-sizing: border-box;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 80px;
-  padding: 32px 0;
-  align-items: start;
+  gap: 145px; 
+  margin: 0; 
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Cards */
@@ -137,17 +138,18 @@ h2 {
 /* Desktop fixed card size */
 @media (min-width: 1024px) {
   .card {
-    width: 400px;      /* fixed width */
-    height: 450px;     /* fixed height */
-    flex: 0 0 auto;    /* no grow/shrink */
+    width: 400px;       
+    height: 450px;    
+    flex: 0 0 auto;     
   }
 }
 
 .card img {
-  width: 100%;
+  width: 80%;
   max-height: 400px;  
   object-fit: cover;
   border-radius: 20px;
+  margin-top: 24px;
 }
 
 .card-content h3 {
@@ -172,18 +174,19 @@ h2 {
 /* Filter bar */
 .filter-sort-bar {
   display: flex;
-  flex-wrap: wrap;       
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-between; /* stretch items across */
   align-items: center;
-  background-color: #f1ecef;  
-  padding: 10px 20px;
-  border-radius: 15px;  
+  background-color: #f1ecef;
+  padding: 10px 20px; /* inside padding for looks */
+  border-radius: 15px;
   font-size: 18px;
   font-weight: 400;
   color: #7a6e76;
-  margin: 32px auto 10px;
+  margin: 32px 0 10px;
+  width: 100%; /* match container width */
+  box-sizing: border-box;
   gap: 10px;
-  max-width: 100%;    
 }
 
 .filter-sort-bar span {
