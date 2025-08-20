@@ -174,7 +174,7 @@ h2 {
   display: flex;
   flex-wrap: wrap;       
   justify-content: center;
-  align-items: left;
+  align-items: center;
   background-color: #f1ecef;  
   padding: 10px 20px;
   border-radius: 15px;  
