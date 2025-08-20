@@ -127,6 +127,7 @@ header nav {
   font-size: clamp(14px, 2vw, 18px);
   font-weight: 300;
   line-height: 1.4;
+  margin-bottom: 16px;
 }
 
 /* Hover text */
