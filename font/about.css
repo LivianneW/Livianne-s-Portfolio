@@ -1,5 +1,5 @@
 /* ==========================
-   Base Styles
+   Fonts & Global
 ========================== */
 @font-face {
   font-family: 'Larsseit';
@@ -9,26 +9,18 @@
   font-style: normal;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
 html {
   scroll-behavior: smooth;
 }
 
 body {
   font-family: 'Larsseit', sans-serif;
-  padding: 20px;
+  padding: clamp(20px, 4vw, 40px);
   margin: 0 auto;
   line-height: 1.6;
-  font-weight: 300;
   color: #333132;
   background-color: #fff;
-  text-align: left;
-  max-width: 100%;
+  max-width: 1600px;
 }
 
 /* ==========================
@@ -37,8 +29,8 @@ body {
 header {
   position: sticky;
   top: 0;
-  background-color: #fff;
-  padding: 15px 20px;
+  background: #fff;
+  padding: 16px clamp(16px, 4vw, 40px);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -49,18 +41,20 @@ header a {
   margin-left: 20px;
   text-decoration: none;
   color: #1a1a1a;
-  font-weight: bolder;
-  transition: color 0.5s ease;
+  font-weight: 400;
+  transition: color 0.3s ease;
 }
 
 header nav a:hover {
   color: #D3A0BB;
+  cursor: pointer;
 }
 
 .brand-name {
-  color: #333132;
+  color: #1a1a1a;
 }
 
+/* Hamburger toggle */
 .nav-toggle {
   display: none;
   font-size: 28px;
@@ -70,9 +64,94 @@ header nav a:hover {
   color: #7a6e76;
 }
 
+/* Desktop nav */
 header nav {
   display: flex;
   gap: 20px;
+}
+
+/* Mobile nav */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+  header nav {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 70px;
+    right: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 10px 20px;
+    min-width: 150px;
+  }
+  header nav.active {
+    display: flex;
+  }
+  header nav a {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+  }
+  header nav a:last-child {
+    border-bottom: none;
+  }
+}
+
+/* ==========================
+   Page Containers & Alignment
+========================== */
+.page-container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding-left: clamp(16px, 4vw, 40px);
+  padding-right: clamp(16px, 4vw, 40px);
+  box-sizing: border-box;
+}
+
+/* Make about section flush with page container/header */
+.about-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: start;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  margin: 0 18px 0 18px;
+}
+
+/* About images */
+.about-text,
+.about-image {
+  width: 100%;
+}
+
+/* Grid */  
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  margin: 0;  
+  width: 100%;
+}
+
+/* Filter */
+.filter-sort-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;  
+  align-items: center;
+  background-color: #f1ecef;
+  padding: 10px 20px;
+  border-radius: 15px;
+  font-size: 18px;
+  font-weight: 400;
+  color: #7a6e76;
+  margin: 32px 0 10px;
+  gap: 10px;
+  max-width: 100%;  
+  box-sizing: border-box;
 }
 
 /* ==========================
@@ -83,7 +162,8 @@ header nav {
   grid-template-columns: 1fr 1fr;
   gap: 50px;
   align-items: start;
-  padding: 32px 0;
+  padding-top: 32px;
+  padding-bottom: 32px;
 }
 
 .about-text h1 {
@@ -97,6 +177,7 @@ header nav {
 
 .about-text p {
   font-size: 16px;
+  font-weight: 300;
   line-height: 1.6;
   margin-bottom: 40px;
   max-width: 700px;
@@ -124,24 +205,15 @@ h2 {
 }
 
 /* ==========================
-   Layout
+   Grid / Cards
 ========================== */
-.page-container {
-  max-width: 1750px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 170px;
+  gap: 100px;
   width: 100%;
 }
 
-/* ==========================
-   Cards
-========================== */
 .card {
   display: flex;
   flex-direction: column;
@@ -159,10 +231,6 @@ h2 {
   object-fit: cover;
 }
 
-.card-content {
-  width: 100%;
-}
-
 .card-content h3 {
   font-size: 20px;
   font-weight: 400;
@@ -172,6 +240,7 @@ h2 {
 
 .card-content p {
   font-size: 15px;
+  font-weight: 300;
   color: #555;
   margin: 12px 0 4px 0;
   line-height: 1.4;
@@ -217,19 +286,20 @@ h2 {
 footer {
   text-align: center;
   padding: 40px 20px;
-  font-size: 14px;
-  font-weight: 400;
+  font-size: 16px;
   color: #7a6e76;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 footer a {
   color: #333132;
   text-decoration: none;
+  margin: 0 10px;
 }
 
+
 /* ==========================
-   Responsiveness
+   Responsive
 ========================== */
 @media (max-width: 1024px) {
   .grid {
