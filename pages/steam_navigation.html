@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Livianne - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Steam Navigation - Livianne</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../project-styles.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container project-container">
         <div class="header">
             <h1>LIVIANNE</h1>
             <div class="hamburger-menu">
@@ -17,144 +18,188 @@
             </div>
         </div>
 
-        <div class="welcome-banner">
-            <img src="assets/WELCOMEBANNER.png" alt="Welcome Banner">
+        <div class="project-images">
+            <img src="../assets/steam-final1.png" alt="Steam Logo 1">
+            <img src="../assets/steam-final2.png" alt="Steam Logo 2">
         </div>
 
-        <div class="introduction">
-            <h2>Hello! I'm Livianne</h2>
-            <div class="subtitle">Product Design Student</div>
-            <p>
-                <span>currently studying</span> <strong>cognitive science</strong> <span>w/ a specialization in</span>
-                <strong>design and interaction</strong> <span>at</span> <strong>UCSD</strong>
-            </p>
+        <div class="project-content">
+        <div class="project-header">
+            <h2 class="project-title">Steam Navigation</h2>
+            <p class="project-subtitle">Redesign</p>
+            <p class="project-description">Working with a team of two others, I redesigned the Steam mobile app to fix a navigation system that often felt like a guessing game for users. We replaced Steam's disorganized layout with a hybrid design that pairs a familiar bottom navigation bar for daily tasks with a centralized profile hub for deeper account features like Steam Families. By following standard mobile design rules, we were able to cut down on mental effort and make it much faster for users to find their friends and games.</p>
+            <a href="https://www.figma.com/proto/T8qCYlmKyJohbXbCRdwBY9/Cogs-187a-Final-Project?page-id=67%3A1287&node-id=226-1772&viewport=821%2C-343%2C0.2&t=ftA7t25ghgidpxSa-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=226%3A1772&show-proto-sidebar=1" target="_blank" class="view-prototype-link">View the prototype</a>
         </div>
 
-        <div class="divider"></div>
+        <!-- Team Section -->
+        <div class="info-section">
+            <div class="info-tag">Team</div>
+            <div class="info-content">
+                <p class="team-lead">Livianne       Lead Product Designer</p>
+                <p class="team-member">Magnolia      UX Researcher & Strategist</p>
+                <p class="team-member">Valerie          UX Researcher & Documentarian</p>
+            </div>
+        </div>
 
-        <div class="projects">
-            <div class="categories">
-                <button class="category-btn active" data-category="all">All</button>
-                <button class="category-btn" data-category="internship">Internship</button>
-                <button class="category-btn" data-category="product-design">Product Design</button>
-                <button class="category-btn" data-category="redesign">Redesign</button>
+        <!-- Tools Section -->
+        <div class="info-section">
+            <div class="info-tag">Tools</div>
+            <div class="info-content">
+                <p>Figma</p>
+            </div>
+        </div>
+
+        <!-- Timeline Section -->
+        <div class="info-section">
+            <div class="info-tag">Timeline</div>
+            <div class="info-content">
+                <p>November 2025 - December 2025</p>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Problem Statement -->
+        <h3 class="section-heading">Problem Statement</h3>
+        <div class="section-content">
+            <p>The Steam mobile app suffers from a significant disconnect between its information architecture and standard mobile user expectations. It struggles to balance being a storefront, a social platform, and a news hub, resulting in a "guessing game" for users. High-value features are often buried under vague labels like "Community," leading to low discoverability and high cognitive load.</p>
+        </div>
+
+        <!-- Initial Research & Pain Points -->
+        <h3 class="section-heading">Initial Research & Pain Points</h3>
+        <div class="section-content">
+            <p>Through our primary user testing, we identified several critical pain points:</p>
+            <ul>
+                <li><strong>Low Discoverability:</strong> Users consistently made incorrect assumptions about where key features lived, such as looking for "Family Management" in the hamburger menu rather than the profile icon.</li>
+                <li><strong>Poor Information Trail:</strong> Unclear labeling, such as "Community," led users down the wrong "breadcrumb trails".</li>
+                <li><strong>Violated Platform Standards:</strong> Crucial tools like search filters were hidden within the search bar itself rather than next to it, violating platform standards and confusing users.</li>
+                <li><strong>High Cognitive Load:</strong> New users felt overwhelmed by information density, particularly when a lack of profile pictures or clear feedback icons made the interface feel unresponsive.</li>
+            </ul>
+        </div>
+
+        <!-- The Strategy -->
+        <h3 class="section-heading">The Strategy: A/B Testing Two Directions</h3>
+        <div class="section-content">
+            <p>We developed two distinct prototypes to test which model resonated most with users:</p>
+            <ul>
+                <li><strong>Prototype A (The Conventional):</strong> A standard bottom navigation bar prioritizing familiarity and one-tap access.</li>
+                <li><strong>Prototype B (The All-In-One):</strong> A centralized hub designed to reduce information scattering and consolidate features into a single entry point.</li>
+            </ul>
+        </div>
+
+        <!-- Prototype A -->
+        <div class="prototype-section">
+            <div class="prototype-label">Prototype A</div>
+            <div class="comparison-images">
+                <div class="comparison-image">
+                    <img src="../assets/steam-prototype-a.png" alt="Prototype A">
+                </div>
+            </div>
+        </div>
+
+        <!-- Prototype B -->
+        <div class="prototype-section">
+            <div class="prototype-label">Prototype B</div>
+            <div class="comparison-images">
+                <div class="comparison-image">
+                    <img src="../assets/steam-prototype-b1.png" alt="Prototype B Screen 1">
+                </div>
+                <div class="comparison-image">
+                    <img src="../assets/steam-prototype-b2.png" alt="Prototype B Screen 2">
+                </div>
+            </div>
+        </div>
+
+        <!-- The Turning Point -->
+        <h3 class="section-heading">The Turning Point</h3>
+        <div class="section-content">
+            <p>Our A/B testing revealed a clear "trade-off" between the two designs:</p>
+            <ul>
+                <li><strong>The Bottom Bar Win:</strong> Prototype A excelled at high-frequency tasks. Users accessed the Store and Library in roughly 6–10 seconds.</li>
+                <li><strong>The Hub Menu Win:</strong> Prototype B solved the "buried feature" problem. While users often failed to find "Family Management" in Prototype A, they located it in under 10 seconds using the Prototype B hub.</li>
+                <li><strong>User Preference:</strong> Interviewees favored Prototype A for its "nicer" layout and lack of subtabs, but appreciated the cleanliness and organization of Prototype B.</li>
+            </ul>
+        </div>
+
+        <!-- The Solution -->
+        <h3 class="section-heading">The Solution</h3>
+        <div class="section-content">
+            <p>Ultimately, we chose to combine the strongest elements of both layouts. By merging these concepts, we created a design that allows both approaches to shine:</p>
+            <ul>
+                <li><strong>Predictability:</strong> High-frequency social and shopping actions (Library, Friends, Store) are instantly accessible via a standard bottom bar to leverage established mental models.</li>
+                <li><strong>Efficiency:</strong> Complex account management (Steam Families, Settings) is consolidated into a streamlined profile hub, eliminating the disorganized "guessing game" of the original app.</li>
+                <li><strong>Clarity:</strong> We addressed redundancy by renaming ambiguous tags like changing "Community" to "Forums" and rearranging menus from most-used to least-used.</li>
+            </ul>
+        </div>
+
+        <!-- Final Version -->
+        <div class="prototype-section">
+            <div class="prototype-label">Final Version</div>
+            <div class="comparison-images">
+                <div class="comparison-image">
+                    <img src="../assets/steam-final1.png" alt="Final Version Screen 1">
+                </div>
+                <div class="comparison-image">
+                    <img src="../assets/steam-final2.png" alt="Final Version Screen 2">
+                </div>
+            </div>
+        </div>
+
+        <!-- Lessons Learned -->
+        <h3 class="section-heading">Lessons Learned</h3>
+        <div class="section-content">
+            <p>This project really put into perspective how important it is to distinguish between mobile and desktop experiences; you can't simply move desktop features into a mobile layout and expect a smooth user journey. It showed my team and me that even the smallest details, like renaming an ambiguous "Community" tag to "Forums" can help users more than we realized.</p>
+            <p>We saw firsthand that when these details are overlooked, it creates a massive "guessing game" for tasks that should be simple. It taught me that even if an issue seems minuscule, it's still important to account for it, because those small points are exactly what cause users to give up entirely.</p>
+        </div>
+
+        <div class="final-section-divider"></div>
+
+        <!-- For the Curious -->
+        <div class="curious-section">
+            <h3 class="curious-heading">For the Curious</h3>
+            <p class="curious-intro">For those interested, the images below show a visual comparison between our redesign and the original Steam app.</p>
+
+            <!-- First Comparison Row: Original vs Redesign -->
+            <div class="comparison-group">
+                <div class="comparison-labels-row">
+                    <div class="image-label original">Original App</div>
+                    <div class="image-label redesign">Our Redesign</div>
+                </div>
+                <div class="comparison-row-side-by-side">
+                    <div class="final-image">
+                        <img src="../assets/steam-original1.png" alt="Original Steam App">
+                    </div>
+                    <div class="final-image highlighted">
+                        <img src="../assets/steam-redesign1.png" alt="Steam Redesign">
+                    </div>
+                </div>
+                <p class="image-caption">Vague icons and buried menus were replaced with a labeled bottom navigation bar and a centralized profile hub, refocusing the experience around the shop, the app's primary use.</p>
             </div>
 
-            <div class="project-cards">
-                <!-- Steam Navigation Redesign -->
-                <div class="project-card" data-categories="all redesign">
-                    <div class="project-image steam-layout">
-                        <div class="team-badge">
-                            <span>3</span>
-                            <svg viewBox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7.2 10C7.2 10 8 10 8 9.16667C8 8.33333 7.2 5.83333 4 5.83333C0.8 5.83333 0 8.33333 0 9.16667C0 10 0.8 10 0.8 10H7.2ZM6.4 2.5C6.4 2.8283 6.33792 3.15339 6.21731 3.45671C6.0967 3.76002 5.91992 4.03562 5.69706 4.26777C5.4742 4.49991 5.20962 4.68406 4.91844 4.8097C4.62726 4.93534 4.31517 5 4 5C3.68483 5 3.37274 4.93534 3.08156 4.8097C2.79038 4.68406 2.5258 4.49991 2.30294 4.26777C2.08008 4.03562 1.9033 3.76002 1.78269 3.45671C1.66208 3.15339 1.6 2.8283 1.6 2.5C1.6 1.83696 1.85286 1.20107 2.30294 0.732233C2.75303 0.263392 3.36348 0 4 0C4.63652 0 5.24697 0.263392 5.69706 0.732233C6.14714 1.20107 6.4 1.83696 6.4 2.5Z" fill="white"/>
-                            </svg>
+            <!-- Second Comparison Row: Two Original Screens -->
+            <div class="comparison-group">
+                <div class="comparison-centered">
+                    <div class="image-label original centered">Original App</div>
+                    <div class="comparison-row-side-by-side">
+                        <div class="final-image">
+                            <img src="../assets/steam-original2.png" alt="Original Steam Menu">
                         </div>
-                        <div class="steam-phone-1">
-                            <img src="assets/STEAMFULL.png" alt="Steam Main Screen">
+                        <div class="final-image">
+                            <img src="../assets/steam-original3.png" alt="Original Steam Menu 2">
                         </div>
-                        <div class="steam-phone-2">
-                            <img src="assets/STEAMMAIN.png" alt="Steam Navigation Menu">
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <div class="project-meta">
-                            <span>FALL 2025</span>
-                            <span>Redesign</span>
-                        </div>
-                        <h3 class="project-title">Steam Navigation Redesign</h3>
-                        <p class="project-description">Simplifying feature discovery on the Steam mobile app</p>
-                        <button class="view-project-btn">View Project</button>
                     </div>
                 </div>
+            </div>
 
-                <!-- QUESST -->
-                <div class="project-card" data-categories="all internship">
-                    <div class="project-image quesst-image">
-                        <div class="team-badge">
-                            <span>3</span>
-                            <svg viewBox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7.2 10C7.2 10 8 10 8 9.16667C8 8.33333 7.2 5.83333 4 5.83333C0.8 5.83333 0 8.33333 0 9.16667C0 10 0.8 10 0.8 10H7.2ZM6.4 2.5C6.4 2.8283 6.33792 3.15339 6.21731 3.45671C6.0967 3.76002 5.91992 4.03562 5.69706 4.26777C5.4742 4.49991 5.20962 4.68406 4.91844 4.8097C4.62726 4.93534 4.31517 5 4 5C3.68483 5 3.37274 4.93534 3.08156 4.8097C2.79038 4.68406 2.5258 4.49991 2.30294 4.26777C2.08008 4.03562 1.9033 3.76002 1.78269 3.45671C1.66208 3.15339 1.6 2.8283 1.6 2.5C1.6 1.83696 1.85286 1.20107 2.30294 0.732233C2.75303 0.263392 3.36348 0 4 0C4.63652 0 5.24697 0.263392 5.69706 0.732233C6.14714 1.20107 6.4 1.83696 6.4 2.5Z" fill="white"/>
-                            </svg>
-                        </div>
-                        <img src="assets/QUESST.png" alt="QUESST Project">
-                    </div>
-                    <div class="project-info">
-                        <div class="project-meta">
-                            <span>SPRING 2025</span>
-                            <span>Internship</span>
-                        </div>
-                        <h3 class="project-title">QUESST</h3>
-                        <p class="project-description">Designing for NASA's X-59 Project</p>
-                        <button class="view-project-btn">View Project</button>
+            <!-- Third Comparison Row: Redesign Screen -->
+            <div class="comparison-group">
+                <div class="comparison-centered">
+                    <div class="image-label redesign centered">Our Redesign</div>
+                    <div class="final-image highlighted">
+                        <img src="../assets/steam-redesign2.png" alt="Steam Redesign Menu">
                     </div>
                 </div>
-
-                <!-- Resource Bridge -->
-                <div class="project-card" data-categories="all product-design">
-                    <div class="project-image">
-                        <div class="team-badge">
-                            <span>3</span>
-                            <svg viewBox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7.2 10C7.2 10 8 10 8 9.16667C8 8.33333 7.2 5.83333 4 5.83333C0.8 5.83333 0 8.33333 0 9.16667C0 10 0.8 10 0.8 10H7.2ZM6.4 2.5C6.4 2.8283 6.33792 3.15339 6.21731 3.45671C6.0967 3.76002 5.91992 4.03562 5.69706 4.26777C5.4742 4.49991 5.20962 4.68406 4.91844 4.8097C4.62726 4.93534 4.31517 5 4 5C3.68483 5 3.37274 4.93534 3.08156 4.8097C2.79038 4.68406 2.5258 4.49991 2.30294 4.26777C2.08008 4.03562 1.9033 3.76002 1.78269 3.45671C1.66208 3.15339 1.6 2.8283 1.6 2.5C1.6 1.83696 1.85286 1.20107 2.30294 0.732233C2.75303 0.263392 3.36348 0 4 0C4.63652 0 5.24697 0.263392 5.69706 0.732233C6.14714 1.20107 6.4 1.83696 6.4 2.5Z" fill="white"/>
-                            </svg>
-                        </div>
-                        <img src="assets/RESOURCEBRIDGE.png" alt="Resource Bridge">
-                    </div>
-                    <div class="project-info">
-                        <div class="project-meta">
-                            <span>WINTER 2025</span>
-                            <span>Product Design</span>
-                        </div>
-                        <h3 class="project-title">Resource Bridge</h3>
-                        <p class="project-description">Designing a kiosk to help unhoused people find local essential resources</p>
-                        <button class="view-project-btn">View Project</button>
-                    </div>
-                </div>
-
-                <!-- Spoonify -->
-                <div class="project-card" data-categories="all product-design">
-                    <div class="project-image">
-                        <div class="team-badge">
-                            <span>1</span>
-                            <svg viewBox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7.2 10C7.2 10 8 10 8 9.16667C8 8.33333 7.2 5.83333 4 5.83333C0.8 5.83333 0 8.33333 0 9.16667C0 10 0.8 10 0.8 10H7.2ZM6.4 2.5C6.4 2.8283 6.33792 3.15339 6.21731 3.45671C6.0967 3.76002 5.91992 4.03562 5.69706 4.26777C5.4742 4.49991 5.20962 4.68406 4.91844 4.8097C4.62726 4.93534 4.31517 5 4 5C3.68483 5 3.37274 4.93534 3.08156 4.8097C2.79038 4.68406 2.5258 4.49991 2.30294 4.26777C2.08008 4.03562 1.9033 3.76002 1.78269 3.45671C1.66208 3.15339 1.6 2.8283 1.6 2.5C1.6 1.83696 1.85286 1.20107 2.30294 0.732233C2.75303 0.263392 3.36348 0 4 0C4.63652 0 5.24697 0.263392 5.69706 0.732233C6.14714 1.20107 6.4 1.83696 6.4 2.5Z" fill="white"/>
-                            </svg>
-                        </div>
-                        <img src="assets/SPOONIFY.png" alt="Spoonify">
-                    </div>
-                    <div class="project-info">
-                        <div class="project-meta">
-                            <span>FALL 2024</span>
-                            <span>Product Design</span>
-                        </div>
-                        <h3 class="project-title">Spoonify</h3>
-                        <p class="project-description">A recipe app designed to simplify cooking for everyone</p>
-                        <button class="view-project-btn">View Project</button>
-                    </div>
-                </div>
-
-                <!-- Tastea -->
-                <div class="project-card" data-categories="all redesign">
-                    <div class="project-image">
-                        <div class="team-badge">
-                            <span>1</span>
-                            <svg viewBox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7.2 10C7.2 10 8 10 8 9.16667C8 8.33333 7.2 5.83333 4 5.83333C0.8 5.83333 0 8.33333 0 9.16667C0 10 0.8 10 0.8 10H7.2ZM6.4 2.5C6.4 2.8283 6.33792 3.15339 6.21731 3.45671C6.0967 3.76002 5.91992 4.03562 5.69706 4.26777C5.4742 4.49991 5.20962 4.68406 4.91844 4.8097C4.62726 4.93534 4.31517 5 4 5C3.68483 5 3.37274 4.93534 3.08156 4.8097C2.79038 4.68406 2.5258 4.49991 2.30294 4.26777C2.08008 4.03562 1.9033 3.76002 1.78269 3.45671C1.66208 3.15339 1.6 2.8283 1.6 2.5C1.6 1.83696 1.85286 1.20107 2.30294 0.732233C2.75303 0.263392 3.36348 0 4 0C4.63652 0 5.24697 0.263392 5.69706 0.732233C6.14714 1.20107 6.4 1.83696 6.4 2.5Z" fill="white"/>
-                            </svg>
-                        </div>
-                        <img src="assets/TASTEA.png" alt="Tastea">
-                    </div>
-                    <div class="project-info">
-                        <div class="project-meta">
-                            <span>FALL 2024</span>
-                            <span>Redesign</span>
-                        </div>
-                        <h3 class="project-title">Tastea</h3>
-                        <p class="project-description">Redesigning the bubble tea ordering experience</p>
-                        <button class="view-project-btn">View Project</button>
-                    </div>
-                </div>
+                <p class="image-caption">From two separate menus to a single, centralized hub, making content easier to find.</p>
             </div>
         </div>
 
@@ -215,12 +260,12 @@
             <button class="close-menu">&times;</button>
         </div>
         <div class="menu-items">
-            <a href="index.html">Home</a>
-            <a href="pages/about.html">About</a>
+            <a href="../index.html">Home</a>
+            <a href="about.html">About</a>
             <a href="https://drive.google.com/file/d/1oapfNvccTuqfSGTQbo49FFuMPb9QTcAW/view" target="_blank">Resume</a>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="../script.js"></script>
 </body>
 </html>
