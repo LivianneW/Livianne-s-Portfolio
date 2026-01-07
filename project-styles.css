@@ -27,7 +27,7 @@
 .project-images {
     display: flex;
     gap: 15px;
-    background: linear-gradient(180deg, #85b5df 0%, #f4fbff 100%);
+    background: linear-gradient(180deg, #2B5F8C 0%, #4A9FD8 100%);
     padding: 30px 20px;
     border-radius: 20px;
     margin-top: 30px;
@@ -79,7 +79,7 @@
 
 .project-subtitle {
     font-size: 24px;
-    font-weight: 400;
+    font-weight: 500;
     color: #585858;
     margin-top: 0;
     margin-bottom: 20px;
@@ -229,14 +229,18 @@
 .comparison-image {
     width: 166px;
     height: 337px;
-    border-radius: 10px;
+    border-radius: 25px;
     overflow: hidden;
+    position: relative;
 }
 
 .comparison-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
+    background: transparent;
+    transform: scale(1.28);
 }
 
 .final-section-divider {
@@ -312,7 +316,7 @@
 }
 
 .final-image {
-    width: 155px;
+    width: 166px;
     height: 337px;
     border-radius: 25px;
     overflow: hidden;
@@ -324,6 +328,9 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
+    background: transparent;
+    transform: scale(1.28);
 }
 
 .final-image.highlighted {

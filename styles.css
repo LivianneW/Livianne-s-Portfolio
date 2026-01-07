@@ -6,8 +6,23 @@
 
 @font-face {
     font-family: 'Larsseit';
-    src: url('font/Larsseit-Light.woff2') format('woff2'),
-        url('font/Larsseit-Light.woff') format('woff');
+    src: url('fonts/Larsseit-Thin.otf') format('opentype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Larsseit';
+    src: url('fonts/Larsseit-ThinItalic.otf') format('opentype');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Larsseit';
+    src: url('fonts/Larsseit-Light.otf') format('opentype');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -15,8 +30,15 @@
 
 @font-face {
     font-family: 'Larsseit';
-    src: url('font/Larsseit-Regular.woff2') format('woff2'),
-        url('font/Larsseit-Regular.woff') format('woff');
+    src: url('fonts/Larsseit-LightItalic.otf') format('opentype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Larsseit';
+    src: url('fonts/Larsseit.otf') format('opentype');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -24,8 +46,15 @@
 
 @font-face {
     font-family: 'Larsseit';
-    src: url('font/Larsseit-Medium.woff2') format('woff2'),
-        url('font/Larsseit-Medium.woff') format('woff');
+    src: url('fonts/Larsseit-Italic.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Larsseit';
+    src: url('fonts/Larsseit-Medium.otf') format('opentype');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -33,9 +62,24 @@
 
 @font-face {
     font-family: 'Larsseit';
-    src: url('font/Larsseit-Bold.woff2') format('woff2'),
-        url('font/Larsseit-Bold.woff') format('woff');
+    src: url('fonts/Larsseit-MediumItalic.otf') format('opentype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Larsseit';
+    src: url('fonts/Larsseit-Bold.otf') format('opentype');
     font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Larsseit';
+    src: url('fonts/Larsseit-ExtraBold.otf') format('opentype');
+    font-weight: 800;
     font-style: normal;
     font-display: swap;
 }
