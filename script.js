@@ -61,7 +61,7 @@ if (viewProjectButtons.length > 0) {
             const projectRoutes = {
                 'Steam Navigation Redesign': 'pages/steam_navigation.html',
                 'QUESST': null, // Coming soon
-                'Resource Bridge': null, // Coming soon
+                'Resource Bridge': 'pages/resource_bridge.html',
                 'Spoonify': null, // Coming soon
                 'Tastea': null // Coming soon
             };
