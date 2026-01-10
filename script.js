@@ -62,7 +62,7 @@ if (viewProjectButtons.length > 0) {
                 'Steam Navigation Redesign': 'pages/steam_navigation.html',
                 'QUESST': null, // Coming soon
                 'Resource Bridge': 'pages/resource_bridge.html',
-                'Spoonify': null, // Coming soon
+                'Spoonify': 'pages/spoonify.html',
                 'Tastea': null // Coming soon
             };
             
