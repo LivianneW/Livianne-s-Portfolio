@@ -32,7 +32,7 @@
         object-position: center;
         background: transparent;
         /* Lowered the scale slightly from 1.28 to 1.15 to prevent extreme clipping */
-        transform: scale(1.15); 
+        transform: scale(1.20); 
         transition: transform 0.3s ease;
     }
 
@@ -40,11 +40,6 @@
     /* This pushes the "zoom" focus to the bottom of the image */
     .final-image img.bottom-focus {
         object-position: bottom;
-    }
-
-    .final-image.highlighted {
-        outline: 3px solid #bfd999;
-        outline-offset: 0;
     }
 
     /* Labels */
@@ -89,7 +84,7 @@
         
         /* Reduce zoom on mobile to ensure nav bars are visible */
         .final-image img {
-            transform: scale(1.05); 
+            transform: scale(1.20); 
         }
     }
 </style>
