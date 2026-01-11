@@ -380,12 +380,21 @@
 
 @media (max-width: 480px) {
   .comparison-images {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;      /* keep images side by side */
+    flex-wrap: wrap;          /* allow wrapping if too wide */
+    justify-content: center;  /* center them nicely */
+    gap: 8px;                 /* spacing between images */
   }
 
   .comparison-row-side-by-side {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;      /* keep side-by-side layout */
+    flex-wrap: wrap;          /* optional if you have many images */
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .comparison-image {
+    flex: 1 1 45%; /* take ~45% width each so 2 images fit per row */
+    max-width: 160px; /* optional max size */
   }
 }
