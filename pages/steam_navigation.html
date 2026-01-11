@@ -6,55 +6,93 @@
     <title>Steam Navigation - Livianne</title>
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../project-styles.css">
-    <style>
-        /* This CSS ensures ALL prototype images use your preferred 'For the Curious' sizing */
+<style>
+    /* Unified Sizing logic */
+    .comparison-row-side-by-side {
+        display: flex;
+        gap: 13px;
+        justify-content: center;
+        margin-bottom: 0;
+        width: 100%;
+    }
+
+    .final-image {
+        width: 170px;
+        height: 337px;
+        border-radius: 25px;
+        overflow: hidden;
+        position: relative;
+        flex-shrink: 0; /* Prevents images from squishing on small screens */
+    }
+
+    .final-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        background: transparent;
+        /* Lowered the scale slightly from 1.28 to 1.15 to prevent extreme clipping */
+        transform: scale(1.15); 
+        transition: transform 0.3s ease;
+    }
+
+    /* Specifically fix Prototype A or Final Version if bottom buttons are missing */
+    /* This pushes the "zoom" focus to the bottom of the image */
+    .final-image img.bottom-focus {
+        object-position: bottom;
+    }
+
+    .final-image.highlighted {
+        outline: 3px solid #bfd999;
+        outline-offset: 0;
+    }
+
+    /* Labels */
+    .comparison-labels-row {
+        display: flex;
+        gap: 13px;
+        justify-content: center;
+        margin-bottom: 8px;
+    }
+
+    .image-label {
+        background: rgba(0, 0, 0, 0.05);
+        padding: 8px 0;
+        border-radius: 10px;
+        text-align: center;
+        font-size: 13px;
+        width: 170px; /* Matches the image width exactly */
+        margin: 12px 0;
+        font-weight: 400;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* MOBILE SPECIFIC FIXES */
+    @media (max-width: 480px) {
         .comparison-row-side-by-side {
-            display: flex;
-            gap: 13px;
-            justify-content: center;
-            margin-bottom: 0;
+            gap: 8px;
+            padding: 0 10px;
         }
 
         .final-image {
-            width: 170px;
-            height: 337px;
-            border-radius: 25px;
-            overflow: hidden;
-            position: relative;
-            margin: 0;
-        }
-
-        .final-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            background: transparent;
-            transform: scale(1.28); /* This is the zoom effect you liked */
-        }
-
-        /* Standardize the labels to match the Curious section */
-        .comparison-labels-row {
-            display: flex;
-            gap: 13px;
-            justify-content: center;
-            margin-bottom: 8px;
+            width: 46%; /* Uses percentage to fit all phone widths */
+            height: auto; /* Allows height to scale with width */
+            aspect-ratio: 9 / 18; /* Keeps the tall phone shape */
         }
 
         .image-label {
-            background: rgba(0, 0, 0, 0.05);
-            padding: 8px 43px;
-            border-radius: 10px;
-            text-align: center;
-            font-size: 13px;
-            width: auto;
-            margin: 12px 0;
-            font-weight: 400;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
+            width: 46%;
+            padding: 8px 10px;
         }
-    </style>
+        
+        /* Reduce zoom on mobile to ensure nav bars are visible */
+        .final-image img {
+            transform: scale(1.05); 
+        }
+    }
+</style>
 </head>
 <body>
     <div class="container project-container">
