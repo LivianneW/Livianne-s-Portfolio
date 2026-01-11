@@ -226,19 +226,19 @@
 }
 
 .comparison-image {
-  width: 160px;
-  height: 300px;
+  width: 100%;
+  max-width: 170px;
+  aspect-ratio: 9 / 16; /* phone frame */
   border-radius: 25px;
-  position: relative;
+  overflow: hidden; /* THIS is the key */
 }
 
 .comparison-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover;     /* crops instead of stretching */
   object-position: center;
-  background: transparent;
-  transform: scale(1.3);
+  transform: none;       /* remove scale() */
 }
 
 .comparison-group iframe {
@@ -364,9 +364,9 @@
 .figma-embed-wrapper {
     position: relative;
     width: 100%;
-    aspect-ratio: 4 / 3; /* iPad ratio */
-    border-radius: 12px;
+    margin: 0 auto;
     overflow: hidden;
+    border-radius: 16px;
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -378,23 +378,26 @@
     border: 0;
 }
 
-@media (max-width: 480px) {
-  .comparison-images {
-    flex-direction: row;      
-    flex-wrap: wrap;          
-    justify-content: center;  
-    gap: 4px;                 
-  }
+.figma-embed-wrapper.ipad {
+  max-width: 768px;
+  aspect-ratio: 4 / 3;
+}
 
+.figma-embed-wrapper.phone {
+  max-width: 360px;
+  aspect-ratio: 9 / 16;
+}
+
+@media (max-width: 480px) {
   .comparison-row-side-by-side {
-    flex-direction: row;      
-    flex-wrap: wrap;         
+    flex-direction: row;
+    flex-wrap: nowrap;
     justify-content: center;
-    gap: 4px;
+    gap: 8px;
   }
 
   .comparison-image {
-    flex: 1 1 45%; /* take ~45% width each so 2 images fit per row */
-    max-width: 160px; /* optional max size */
+    flex: 0 0 48%;
+    max-width: 170px;
   }
 }
