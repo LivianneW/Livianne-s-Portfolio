@@ -1,5 +1,6 @@
 /* Project Case Study Page Styles */
 
+/* General Container and Layout */
 .project-container {
   max-width: 393px;
   margin: 0 auto;
@@ -19,21 +20,44 @@
   padding: 0 22px;
 }
 
+/* Project Header */
 .project-header {
-  margin-top: 30px;
-  margin-bottom: 32px;
+  margin: 30px 0 32px;
 }
 
+.project-title {
+  font-size: 32px;
+  font-weight: 500;
+  color: #1c1c1c;
+  letter-spacing: 0.64px;
+  margin: 0 0 4px;
+  line-height: 1.2;
+}
+
+.project-subtitle {
+  font-size: 24px;
+  font-weight: 500;
+  color: #585858;
+  margin: 0 0 20px;
+  line-height: 1.2;
+}
+
+.project-description {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #1c1c1c;
+  font-weight: 300;
+  margin: 0 0 16px;
+}
+
+/* Project Images and Prototype */
 .project-images {
   display: flex;
   gap: 50px;
   background: rgba(0, 0, 0, 0.05);
   padding: 30px 20px;
   border-radius: 20px;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  margin-left: 22px;
-  margin-right: 22px;
+  margin: 30px 22px;
   position: relative;
   justify-content: center;
   align-items: center;
@@ -66,33 +90,7 @@
   box-shadow: 0 4px 12px rgba(191, 217, 153, 0.4);
 }
 
-.project-title {
-  font-size: 32px;
-  font-weight: 500;
-  color: #1c1c1c;
-  letter-spacing: 0.64px;
-  margin-bottom: 4px;
-  margin-top: 0;
-  line-height: 1.2;
-}
-
-.project-subtitle {
-  font-size: 24px;
-  font-weight: 500;
-  color: #585858;
-  margin-top: 0;
-  margin-bottom: 20px;
-  line-height: 1.2;
-}
-
-.project-description {
-  font-size: 15px;
-  line-height: 1.5;
-  color: #1c1c1c;
-  font-weight: 300;
-  margin: 0 0 16px 0;
-}
-
+/* Info Sections */
 .info-section {
   margin-bottom: 20px;
 }
@@ -104,8 +102,7 @@
   border-radius: 10px;
   font-size: 14px;
   color: #585858;
-  margin-bottom: 10px;
-  margin-top: 0;
+  margin: 0 0 10px;
   font-weight: 500;
 }
 
@@ -117,7 +114,7 @@
 }
 
 .info-content p {
-  margin: 0 0 8px 0;
+  margin: 0 0 8px;
 }
 
 .info-content p:last-child {
@@ -134,6 +131,7 @@
   font-weight: 300;
 }
 
+/* Sections and Dividers */
 .section-divider {
   width: 100%;
   height: 2px;
@@ -145,8 +143,7 @@
   font-size: 22px;
   font-weight: 500;
   color: #1c1c1c;
-  margin-bottom: 14px;
-  margin-top: 0;
+  margin: 0 0 14px;
   line-height: 1.3;
   position: relative;
   padding-left: 12px;
@@ -168,13 +165,13 @@
   font-size: 15px;
   line-height: 1.5;
   color: #1c1c1c;
-  margin: 0 0 36px 0;
+  margin: 0 0 36px;
   padding: 0;
   font-weight: 300;
 }
 
 .section-content p {
-  margin: 0 0 14px 0;
+  margin: 0 0 14px;
   padding: 0;
 }
 
@@ -185,7 +182,7 @@
 .section-content ul {
   list-style: disc;
   padding-left: 20px;
-  margin: 10px 0 0 0;
+  margin: 10px 0 0;
 }
 
 .section-content li {
@@ -203,6 +200,7 @@
   color: #1c1c1c;
 }
 
+/* Prototype and Comparisons */
 .prototype-section {
   margin-bottom: 40px;
 }
@@ -214,53 +212,34 @@
   text-align: center;
   font-size: 14px;
   color: #585858;
-  margin: 0 0 18px 0;
+  margin: 0 0 18px;
   font-weight: 500;
 }
 
 .comparison-images {
   display: flex;
   gap: 8px;
-  margin: 0 0 0 0;
+  margin: 0;
   justify-content: center;
 }
 
 .comparison-image {
   width: 100%;
-  max-width: 170px;
-  aspect-ratio: 9 / 16; /* phone frame */
-  border-radius: 25px;
-  overflow: hidden; /* THIS is the key */
+  max-width: 120px;
+  aspect-ratio: 9 / 16;
+  border-radius: 20px;
+  overflow: hidden;
 }
 
 .comparison-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;     /* crops instead of stretching */
+  object-fit: cover;
   object-position: center;
-  transform: none;       /* remove scale() */
 }
 
 .comparison-group iframe {
   max-width: 900px;
-}
-
-.final-section-divider {
-  width: 100%;
-  height: 2px;
-  background: rgba(239, 214, 208, 0.5);
-  margin: 36px 0;
-}
-
-.curious-section {
-  margin-top: 0;
-}
-
-.curious-heading {
-  font-size: 24px;
-  font-weight: 500;
-  color: #585858;
-  margin: 0 0 12px 0;
 }
 
 .comparison-group {
@@ -291,6 +270,35 @@
   align-items: center;
 }
 
+/* Final Sections */
+.final-section-divider {
+  width: 100%;
+  height: 2px;
+  background: rgba(239, 214, 208, 0.5);
+  margin: 36px 0;
+}
+
+.curious-section {
+  margin-top: 0;
+}
+
+.curious-heading {
+  font-size: 24px;
+  font-weight: 500;
+  color: #585858;
+  margin: 0 0 12px;
+}
+
+.curious-intro {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #585858;
+  margin: 0 0 16px;
+  padding: 0;
+  text-align: left;
+  font-weight: 300;
+}
+
 .image-label {
   background: rgba(0, 0, 0, 0.05);
   padding: 8px 43px;
@@ -298,9 +306,8 @@
   text-align: center;
   font-size: 13px;
   width: auto;
-  margin-top: 12px;
-  margin-bottom: 12px;
-  font-weight: 500;
+  margin: 12px 0;
+  font-weight: 400;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -315,7 +322,7 @@
 }
 
 .image-label.centered {
-  margin-bottom: 12 px;
+  margin-bottom: 12px;
 }
 
 .final-image {
@@ -345,37 +352,28 @@
   font-size: 14px;
   line-height: 1.4;
   color: #585858;
-  margin: 12px 0 0 0;
+  margin: 12px 0 0;
   padding: 0;
   text-align: left;
   font-weight: 300;
 }
 
-.curious-intro {
-  font-size: 14px;
-  line-height: 1.4;
-  color: #585858;
-  margin: 0 0 16px 0;
-  padding: 0;
-  text-align: left;
-  font-weight: 300;
-}
-
+/* Figma Embeds */
 .figma-embed-wrapper {
-    position: relative;
-    width: 100%;
-    margin: 0 auto;
-    overflow: hidden;
-    border-radius: 16px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .figma-embed-wrapper iframe {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 .figma-embed-wrapper.ipad {
@@ -388,6 +386,7 @@
   aspect-ratio: 9 / 16;
 }
 
+/* Mobile Responsiveness */
 @media (max-width: 480px) {
   .comparison-row-side-by-side {
     flex-direction: row;
@@ -398,6 +397,6 @@
 
   .comparison-image {
     flex: 0 0 48%;
-    max-width: 170px;
+    max-width: 120px;
   }
 }
