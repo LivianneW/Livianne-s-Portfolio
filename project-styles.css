@@ -27,7 +27,7 @@
 .project-images {
   display: flex;
   gap: 50px;
-  background: linear-gradient(180deg, #5985ac 0%, #edf8ff 100%);
+  background: rgba(0, 0, 0, 0.05);
   padding: 30px 20px;
   border-radius: 20px;
   margin-top: 30px;

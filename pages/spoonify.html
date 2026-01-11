@@ -6,6 +6,57 @@
     <title>Steam Navigation - Livianne</title>
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../project-styles.css">
+    <style>
+        .spoonify-hero {
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            height: 185px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 22px 30px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .spoonify-hero img {
+            height: 98%;
+            width: auto;
+            object-fit: cover;
+        } 
+
+        .comparison-images {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .comparison-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .curious-images {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+        margin-top: 20px;
+        }
+
+        .curious-images img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px; 
+        display: block;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-images {
+            grid-template-columns: 1fr;
+            }
+        }
+        </style>   
 </head>
 <body>
     <div class="container project-container">
@@ -19,9 +70,8 @@
             </div>
         </div>
 
-        <div class="project-images">
-            <img src="../assets/Spoonify Home.png" alt="Spoonify Home">
-            <img src="../assets/Spoonify-Opener.png" alt="Spoonify Opener">
+        <div class="spoonify-hero">
+            <img src="../assets/Spoonify-Showcase.png" alt="Spoonify Home">
         </div>
 
         <div class="project-content">
@@ -36,7 +86,7 @@
         <div class="info-section">
             <div class="info-tag">Team</div>
             <div class="info-content">
-                <p class="team-lead">Livianne       Product Designer</p>
+                <p class="team-lead">Livianne&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Product Designer</p>
             </div>
         </div>
 
@@ -89,67 +139,55 @@
         <!-- Design Features -->
         <h3 class="section-heading">Design Features</h3>
         <div class="section-content">
-            <p>We developed two distinct prototypes to test which model resonated most with users:</p>
+            <p>After conducting peer reviews, we identified three core features to focus on for our kiosk:</p>
             <ul>
-                <li><strong>Prototype A (The Conventional):</strong> A standard bottom navigation bar prioritizing familiarity and one-tap access.</li>
-                <li><strong>Prototype B (The All-In-One):</strong> A centralized hub designed to reduce information scattering and consolidate features into a single entry point.</li>
+                <li><strong>Cooking Mode: </strong> Instead of constantly scrolling, rewinding, or losing your place, Cooking Mode provides a clear, step-by-step guide that helps users easily navigate the cooking process from start to finish.</li>
+                <li><strong>Streamlining Recipe Searching:</strong> Considered as one of the most time-consuming parts of cooking, this feature simplifies discovery by tailoring recipes to each user’s preferences. Through personalization, curated playlists, and shared collections from other users, the app makes finding the right recipe quick and intuitive.</li>
+                <li><strong>Fostering a Community: </strong> Unsure what to cook? Users can see what their friends are enjoying, track cooking streaks to stay motivated, and interact through comments, sharing feedback, tips, or even praising a “secret” ingredient someone added. This feature turns cooking into a shared and engaging experience rather than a solo task.</li>
             </ul>
         </div>
 
         <!-- Prototype A -->
         <div class="prototype-section">
-            <div class="prototype-label">Prototype A</div>
+            <div class="prototype-label">Cooking Mode</div>
             <div class="comparison-images">
                 <div class="comparison-image">
-                    <img src="../assets/steam-prototype-a.png" alt="Prototype A">
+                    <img src="../assets/Spoonify-Instructions.png" alt="Spoonify Cooking Mode Screen">
+                </div>
+                <div class="comparison-image">
+                    <img src="../assets/Spoonify-Instructions2.png" alt="Spoonify Recipe Screen">
                 </div>
             </div>
         </div>
 
-        <!-- Prototype B -->
+        <!-- Streamlining Recipe Searching -->
         <div class="prototype-section">
-            <div class="prototype-label">Prototype B</div>
+            <div class="prototype-label">Streamlining Recipe Searching</div>
             <div class="comparison-images">
                 <div class="comparison-image">
-                    <img src="../assets/steam-prototype-b1.png" alt="Prototype B Screen 1">
+                    <img src="../assets/Spoonify-Search1.png" alt="Spoonify Search Screen">
                 </div>
                 <div class="comparison-image">
-                    <img src="../assets/steam-prototype-b2.png" alt="Prototype B Screen 2">
+                    <img src="../assets/Spoonify-Search2.png" alt="Spoonify Recipe Screen">
+                </div>
+                <div class="comparison-image">
+                    <img src="../assets/Spoonify-HomeSearch.png" alt="Spoonify Search2 Screen">
+                </div>
+                <div class="comparison-image">
+                    <img src="../assets/Spoonify-Recipe.png" alt="Spoonify Recipe Screen">
                 </div>
             </div>
         </div>
 
-        <!-- The Turning Point -->
-        <h3 class="section-heading">The Turning Point</h3>
-        <div class="section-content">
-            <p>Our A/B testing revealed a clear "trade-off" between the two designs:</p>
-            <ul>
-                <li><strong>The Bottom Bar Win:</strong> Prototype A excelled at high-frequency tasks. Users accessed the Store and Library in roughly 6–10 seconds.</li>
-                <li><strong>The Hub Menu Win:</strong> Prototype B solved the "buried feature" problem. While users often failed to find "Family Management" in Prototype A, they located it in under 10 seconds using the Prototype B hub.</li>
-                <li><strong>User Preference:</strong> Interviewees favored Prototype A for its "nicer" layout and lack of subtabs, but appreciated the cleanliness and organization of Prototype B.</li>
-            </ul>
-        </div>
-
-        <!-- The Solution -->
-        <h3 class="section-heading">The Solution</h3>
-        <div class="section-content">
-            <p>Ultimately, we chose to combine the strongest elements of both layouts. By merging these concepts, we created a design that allows both approaches to shine:</p>
-            <ul>
-                <li><strong>Predictability:</strong> High-frequency social and shopping actions (Library, Friends, Store) are instantly accessible via a standard bottom bar to leverage established mental models.</li>
-                <li><strong>Efficiency:</strong> Complex account management (Steam Families, Settings) is consolidated into a streamlined profile hub, eliminating the disorganized "guessing game" of the original app.</li>
-                <li><strong>Clarity:</strong> We addressed redundancy by renaming ambiguous tags like changing "Community" to "Forums" and rearranging menus from most-used to least-used.</li>
-            </ul>
-        </div>
-
-        <!-- Final Version -->
+        <!-- Fostering A Community -->
         <div class="prototype-section">
-            <div class="prototype-label">Final Version</div>
+            <div class="prototype-label">Fostering A Community</div>
             <div class="comparison-images">
-                <div class="comparison-image final-highlighted">
-                    <img src="../assets/steam-redesign2.png" alt="Final Version Screen 1">
+                <div class="comparison-image">
+                    <img src="../assets/Spoonify-Profile.png" alt="Spoonify Profile Screen">
                 </div>
-                <div class="comparison-image final-highlighted">
-                    <img src="../assets/steam-redesign1.png" alt="Final Version Screen 2">
+                <div class="comparison-image">
+                    <img src="../assets/Spoonify-Reviews.png" alt="Spoonify Reviews Screen">
                 </div>
             </div>
         </div>
@@ -157,15 +195,21 @@
         <!-- Lessons Learned -->
         <h3 class="section-heading">Lessons Learned</h3>
         <div class="section-content">
-            <p>This project really put into perspective how important it is to distinguish between mobile and desktop experiences; you can't simply move desktop features into a mobile layout and expect a smooth user journey. It showed my team and me that even the smallest details, like renaming an ambiguous "Community" tag to "Forums" can help users more than we realized.</p>
-            <p>We saw firsthand that when these details are overlooked, it creates a massive "guessing game" for tasks that should be simple. It taught me that even if an issue seems minuscule, it's still important to account for it, because those small points are exactly what cause users to give up entirely.</p>
+            <p><strong>Conducting competitive </strong>analyses played a key role in creating and ideating for Spoonify. This process allowed me address the gaps and user expectations for. It also helped me to understand the importance of aligning innovation with user needs, helping me distinguish the factors that elevate an app from being good to great.</p>
+            <p><strong>Small details make a big impact </strong>and it is the features like "Liked Recipes," easy sharing options, or clear nutritional information that make the app more practical and appealing. These thoughtful additions help ensure that the app is inclusive and appealing to everyone.</p>
+        </div>
+        <ul>
+            <p style="margin-top: 16px; margin-bottom: 4px; font-weight: 500; color: #95CF80;">Passion to Prototype</p>
+            <div class="section-content">
+            <p>All in all, I truly enjoyed creating this app from its start to finish. My love for cooking and hosting inspired this project, letting me explore a form of creativity rooted in creating experiences for others, not just designing interfaces.</p>
+        </ul>
         </div>
 
         <iframe
         style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 12px;"
         width="100%"
         height="650"
-        src="https://embed.figma.com/proto/T8qCYlmKyJohbXbCRdwBY9/Cogs-187a-Final-Project?node-id=67-1287&starting-point-node-id=226%3A1772&viewport=942%2C303%2C0.13&scaling=scale-down&content-scaling=fixed&embed-host=share"
+        src="https://embed.figma.com/proto/ePbiIrBOflCd8Tg3Z2rnDi/spoonify-final?page-id=858%3A133&node-id=858-186&viewport=133%2C242%2C0.26&scaling=scale-down&content-scaling=fixed&starting-point-node-id=858%3A160&embed-host=share"
         allowfullscreen>
         </iframe>
 
@@ -174,50 +218,11 @@
         <!-- For the Curious -->
         <div class="curious-section">
             <h3 class="curious-heading">For the Curious</h3>
-            <p class="curious-intro">For those interested, the images below show a visual comparison between our redesign and the original Steam app.</p>
-
-            <!-- First Comparison Row: Original vs Redesign -->
-            <div class="comparison-group">
-                <div class="comparison-labels-row">
-                    <div class="image-label original">Original App</div>
-                    <div class="image-label redesign">Our Redesign</div>
-                </div>
-                <div class="comparison-row-side-by-side">
-                    <div class="final-image">
-                        <img src="../assets/steam-original1.png" alt="Original Steam App">
-                    </div>
-                    <div class="final-image highlighted">
-                        <img src="../assets/steam-redesign2.png" alt="Steam Redesign">
-                    </div>
-                </div>
-                <p class="image-caption">Vague icons and buried menus were replaced with a labeled bottom navigation bar and a centralized profile hub, refocusing the experience around the shop, the app's primary use.</p>
-            </div>
-
-            <!-- Second Comparison Row: Two Original Screens -->
-            <div class="comparison-group">
-                <div class="comparison-centered">
-                    <div class="image-label original centered">Original App</div>
-                    <div class="comparison-row-side-by-side">
-                        <div class="final-image">
-                            <img src="../assets/steam-original2.png" alt="Original Steam Menu">
-                        </div>
-                        <div class="final-image">
-                            <img src="../assets/steam-original3.png" alt="Original Steam Menu 2">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Third Comparison Row: Redesign Screen -->
-            <div class="comparison-group">
-                <div class="comparison-centered">
-                    <div class="image-label redesign centered">Our Redesign</div>
-                    <div class="final-image highlighted">
-                        <img src="../assets/steam-redesign1.png" alt="Steam Redesign Menu">
-                    </div>
-                </div>
-                <p class="image-caption">From two separate menus to a single, centralized hub, making content easier to find.</p>
-            </div>
+            <p class="curious-intro">I created the logo myself! I knew I wanted to include a spoon in the design and ended up fitting two into the design... see if you can spot them!</p>
+        </div>
+        <div class="curious-images">
+            <img src="../assets/spoonify-logo2.png" alt="Spoonify logo concept 2">
+            <img src="../assets/spoonify-logo1.png" alt="Spoonify logo concept 1">
         </div>
 
         <div class="footer">
