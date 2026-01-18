@@ -404,7 +404,7 @@
     .figma-embed-wrapper.laptop {
       width: 100%;
       max-width: 1200px;      
-      aspect-ratio: 16 / 10;  
+      aspect-ratio: 3 / 2;  
       overflow: hidden;
       border-radius: 10px;
     }
@@ -445,4 +445,3 @@
     height: auto;
     object-fit: contain;
   }
-}
