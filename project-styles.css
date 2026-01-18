@@ -423,7 +423,7 @@
 
   @media (max-width: 768px) {
     .figma-embed-wrapper.laptop {
-      max-height: 300px;   
+      max-height: 600px;   
       aspect-ratio: 16 / 10; 
     }
   }
