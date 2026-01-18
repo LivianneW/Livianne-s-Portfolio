@@ -403,11 +403,10 @@
 
     .figma-embed-wrapper.laptop {
       width: 100%;
-      max-width: 900px;      
-      aspect-ratio: 16 / 9;  
+      max-width: 1200px;      
+      aspect-ratio: 16 / 10;  
       overflow: hidden;
-      border-radius: 16px;
-      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
     }
 
     .figma-embed-wrapper.laptop iframe {
