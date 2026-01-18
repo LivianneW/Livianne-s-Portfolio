@@ -1,1 +1,339 @@
-S
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tastea - Livianne</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../project-styles.css">
+<style>
+    .spoonify-hero {
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 10px;
+        height: 185px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 22px 30px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .spoonify-hero img {
+        height: 98%;
+        width: auto;
+        object-fit: cover;
+    }
+
+    /* Base Grid Setup */
+    .comparison-images {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Always 2 columns */
+        gap: 4px; /* Space between images */
+        justify-items: center;
+        margin: 0 auto;
+    }
+
+    .comparison-image {
+        width: 100%;
+        max-width: 100%; /* Allows image to fill its 50% slot */
+        height: 100%;
+        aspect-ratio: 3 / 2;
+        border-radius: 0px; 
+        overflow: hidden;
+    }
+
+    .comparison-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .curious-images {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        margin-top: 20px;
+    }
+
+    .curious-images img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        display: block;
+    }
+
+    /* Mobile Specific Tweaks */
+    @media (max-width: 768px) {
+        .project-content {
+            padding: 0 16px;
+        }
+        
+        .prototype-label {
+            padding: 10px 20px; 
+        }
+    }
+</style>
+</head>
+<body>
+    <div class="container project-container">
+        <div class="header">
+            <h1>LIVIANNE</h1>
+            <span class="page-indicator">/ Tastea</span>
+            <div class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <div class="spoonify-hero">
+            <img src="../assets/TASTEA.png" alt="Tastea Home">
+        </div>
+
+        <div class="project-content">
+        <div class="project-header">
+            <h2 class="project-title">Tastea</h2>
+            <p class="project-subtitle">Redesign</p>
+            <p class="project-description">I reimagined Tastea’s website, a boba shop staple in California, by bringing together its many different aesthetics into one cleaner, more cohesive design. The goal was to make the site feel easier to navigate and more visually consistent, while still keeping the fun and recognizable personality of the brand. By simplifying the layout and streamlining the visuals, the redesign creates a more enjoyable and intuitive experience that feels modern without losing what makes Tastea feel familiar.</p>
+            <a href="https://www.figma.com/proto/ePbiIrBOflCd8Tg3Z2rnDi/spoonify-final?page-id=858%3A133&node-id=858-186&viewport=49%2C416%2C0.75&t=q1gvmffYu2jbYrCX-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=858%3A160" target="_blank" class="view-prototype-link">View the prototype</a>
+        </div>
+
+        <!-- Team Section -->
+        <div class="info-section">
+            <div class="info-tag">Team</div>
+            <div class="info-content">
+                <p class="team-lead">Livianne&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Product Designer</p>
+            </div>
+        </div>
+
+        <!-- Tools Section -->
+        <div class="info-section">
+            <div class="info-tag">Tools</div>
+            <div class="info-content">
+                <p>Figma</p>
+                <p>Feathery</p>
+            </div>
+        </div>
+
+        <!-- Timeline Section -->
+        <div class="info-section">
+            <div class="info-tag">Timeline</div>
+            <div class="info-content">
+                <p>February 2024 - November 2024</p>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Problem Statement -->
+        <h3 class="section-heading">Problem Statement</h3>
+        <div class="section-content">
+            <p>I had always found Tastea’s website to be mundane and frustrating to use, mainly because it feels outdated and the menu, arguably their biggest selling point, is counterintuitive.</p>
+        </div>
+
+        <!-- Research & Pain Points -->
+        <h3 class="section-heading">Research & Pain Points</h3>
+        <div class="section-content">
+            <p>While I was aware of these issues from my own experience, I wasn’t sure if other users felt the same way. To gain better insight and validate these concerns, I created a questionnaire to gather feedback and better understand the overall user experience.</p>     
+            <p style="margin-top: 16px; margin-bottom: 4px;"><strong>User Needs & Challenges</strong></p>
+            <ul>
+                <li>The page is functional, but not engaging enough to encourage users to spend more time on it</li>
+                <li>Overall visual appeal is fair, but lacks excitement and personality</li>
+                <li>Menu access should be quicker, with clearer descriptions and pricing</li>
+                <li>The menu feels static and unengaging, relying heavily on black-and-white text and images</li>
+                <li>The website feels outdated compared to other modern boba shop websites</li>
+            </ul>
+            <p style="margin-top: 16px; margin-bottom: 4px;"><strong>User Highlights</strong></p>
+            <div class="section-content">
+            <ul>
+                <li>Users like being able to slide through different images of the drink options</li>
+                <li>The site makes it easy for users to quickly find what they are looking for</li>
+            </div>
+            <p style="margin-top: 16px; margin-bottom: 4px;"><strong>What Users Want</strong></p>
+            <div class="section-content">
+            <ul>
+                <li><strong>Clear menu access </strong>with drink images, descriptions, and visible pricing is essential</li>
+                <li><strong>Visual menus </strong>with photos of drinks and food improve decision-making</li>
+                <li><strong>Customer favorites</strong> or “most ordered” sections help guide choices</li>
+                <li><strong>Easy and intuitive drink customization</strong> is highly valued</li>
+                <li><strong>Clear section titles</strong> help users quickly find what they’re looking for</li>
+            </div>
+            <p style="margin-top: 16px; margin-bottom: 4px;"><strong>Competitive Analysis</strong></p>
+            <p>I then conducted a competitive analysis on popular boba shops in the area, including Sunright, Summerfield Tea Bar, and Bopomofo Cafe. By analyzing these brands, I was able to identify their strengths, weaknesses, and key differentiators, such as menu variety, branding, and overall customer experience, which helped inform my design decisions moving forward. </p>
+            <div class="section-content">
+            <ul>
+                <li><strong> #1 Sunright</strong> offers the strongest overall experience, with a clean UI, strong branding, and a visually engaging design. Drink images, descriptions, flavor profiles, and customer favorites make browsing enjoyable and informative. However, the top navigation can feel cluttered, and some sizing and scrolling inconsistencies appear throughout the site.</li>
+                <li><strong> #2 Bopomofo Café</strong> is clean and easy to navigate, with a particularly well-designed online ordering page. While functional, the experience feels visually bland, with small buttons and an inconsistent menu that lacks images, descriptions, and customer favorites in some areas.</li>
+                <li><strong> #3 Summerfield Tea Bar</strong> is clean and on brand, with easy access to the menu and included drink images. Minor usability issues include small text for prices and titles, missing drink descriptions, occasional navigation glitches, and excess unused space.</li>
+            </ul>
+            </div>
+            </div>
+
+        <!-- Design Features -->
+        <h3 class="section-heading">Design Features</h3>
+        <div class="section-content">
+            <p>While designing key features, I focused on addressing:</p>
+            <p><strong>Audience + Need</strong></p>
+            <p>How might we streamline Tastea’s ordering experience by creating a visually engaging, easy-to-navigate menu that allows thirsty customers to quickly find, customize, and order their drinks all in one place?
+            <p><strong>Goals</strong></p>
+            <ul>
+                <li>Update Tastea’s UI while staying on brand</li>
+                <li>Improve key UX gaps around menu navigation and ordering</li>
+                <li>Make the website more efficient and engaging</li>
+                <li>Users can find and order drinks more easily</li>
+                <li>Clearer, smoother overall experience</li>
+            </ul>
+        </div>
+
+                <!-- Design Features -->
+        <h3 class="section-heading">Design Highlights</h3>
+        <div class="section-content">
+         <p>Here is a comparison of Tastea’s original website design alongside my redesign, highlighting key improvements made to enhance the user experience.</p>
+            <p><strong>Original Tastea Website</strong></p>
+            <p>This is Tastea’s original design. While visually clean, it lacks several key elements necessary for improving the user experience and streamlining the ordering process. Missing features include prices, customer favorite items, and size options, can be crucial for helping customers decide on their order.</p>
+            <p>Additionally, the layout lacked a navigation bar, which would make it easier for users to quickly find specific items or categories without having to scroll through the entire page. </p>
+        </div>
+
+        <!-- Original Tastea Design -->
+        <div class="prototype-section">
+            <div class="prototype-label">Tastea's Version</div>
+            <div class="comparison-images">
+                <div class="comparison-image">
+                    <img src="../assets/Tastea-Menu1.png" alt="Tastea Menu Screen">
+                </div>
+                <div class="comparison-image">
+                    <img src="../assets/Tastea-Menu2.png" alt="Tastea Menu2 Screen">
+                </div>
+            </div>
+        </div>
+
+        <div class="section-content">
+            <p><strong>My Redesign</strong></p>
+            <p>In my design, I addressed these issues by refreshing the layout to better align with their visual aesthetics.</p>
+            <p>I also added a navigation bar, allowing customers to quickly find specific items. When clicked, it smoothly scrolls down to the relevant category.</p>
+        </div>
+
+        <!-- My Redesign -->
+        <div class="prototype-section">
+            <div class="prototype-label">My Redesign</div>
+            <div class="comparison-images">
+                <div class="comparison-image">
+                    <img src="../assets/Spoonify-Search1.png" alt="Spoonify Search Screen">
+                </div>
+                <div class="comparison-image">
+                    <img src="../assets/Spoonify-Search2.png" alt="Spoonify Recipe Screen">
+                </div>
+                <div class="comparison-image">
+                    <img src="../assets/Spoonify-HomeSearch.png" alt="Spoonify Search2 Screen">
+                </div>
+                <div class="comparison-image">
+                    <img src="../assets/Spoonify-Recipe.png" alt="Spoonify Recipe Screen">
+                </div>
+            </div>
+        </div>
+
+        <!-- Fostering A Community -->
+        <div class="prototype-section">
+            <div class="prototype-label">Fostering A Community</div>
+            <div class="comparison-images">
+                <div class="comparison-image">
+                    <img src="../assets/Spoonify-Profile.png" alt="Spoonify Profile Screen">
+                </div>
+                <div class="comparison-image"> 
+                    <img src="../assets/Spoonify-Reviews.png" alt="Spoonify Reviews Screen">
+                </div>
+            </div>
+        </div>
+
+        <!-- Lessons Learned -->
+        <h3 class="section-heading">Lessons Learned</h3>
+        <div class="section-content">
+            <p><strong>Consistency in branding:</strong> One of the biggest challenges was aligning the website with the brand's identity. Staying true to the brand's voice and visual aesthetics across all platforms helped make the website feel more cohesive and recognizable.</p>
+            <p><strong>Preserving What Works:</strong>  Since the core website already functioned well, there wasn’t a need for drastic changes, which made the design process a lot smoother. I learned to focus on preserving the aspects that are already working, while making thoughtful updates where necessary."</p>
+        <div>
+        </div>  
+        
+        <div class="figma-embed-wrapper laptop">
+        <iframe src="https://embed.figma.com/proto/YJXCY5Sf453gQSshF7mxvy/Tastea?page-id=304%3A129&node-id=304-130&viewport=498%2C285%2C0.36&scaling=scale-down&content-scaling=fixed&starting-point-node-id=304%3A130&embed-host=share" 
+        allowfullscreen>
+        </iframe>
+        </div>
+
+        <div class="final-section-divider"></div>
+        <!-- For the Curious -->
+        <div class="curious-section">
+            <h3 class="curious-heading">For the Curious</h3>
+            <p class="curious-intro">I created the logo myself! I knew I wanted to include a spoon in the design and ended up fitting two into the design... see if you can spot them!</p>
+        </div>
+        <div class="curious-images">
+            <img src="../assets/Spoonify-Logo2.png" alt="Spoonify logo concept 2">
+            <img src="../assets/Spoonify-Logo1.png" alt="Spoonify logo concept 1">
+        </div>
+
+        <div class="footer">
+            <!-- Left side: Social links -->
+            <div class="footer-left">
+                <a href="https://www.linkedin.com/in/livianne-wong-b3b724205/" target="_blank" class="footer-social-link">
+                    <div class="footer-icon-wrapper">
+                        <svg fill="none" preserveAspectRatio="none" viewBox="0 0 26 26">
+                            <g>
+                                <rect fill="rgba(239, 214, 208, 0.5)" height="26" rx="13" width="26" />
+                                <path d="M19.8571 5H6.13929C5.51071 5 5 5.51786 5 6.15357V19.8464C5 20.4821 5.51071 21 6.13929 21H19.8571C20.4857 21 21 20.4821 21 19.8464V6.15357C21 5.51786 20.4857 5 19.8571 5ZM9.83571 18.7143H7.46429V11.0786H9.83929V18.7143H9.83571ZM8.65 10.0357C7.88929 10.0357 7.275 9.41786 7.275 8.66071C7.275 7.90357 7.88929 7.28571 8.65 7.28571C9.40714 7.28571 10.025 7.90357 10.025 8.66071C10.025 9.42143 9.41071 10.0357 8.65 10.0357ZM18.725 18.7143H16.3536V15C16.3536 14.1143 16.3357 12.975 15.1214 12.975C13.8857 12.975 13.6964 13.9393 13.6964 14.9357V18.7143H11.325V11.0786H13.6V12.1214H13.6321C13.95 11.5214 14.725 10.8893 15.8786 10.8893C18.2786 10.8893 18.725 12.4714 18.725 14.5286V18.7143Z" fill="#585858" />
+                            </g>
+                        </svg>
+                    </div>
+                    <span class="footer-label">LinkedIn</span>
+                </a>
+                <a href="https://drive.google.com/file/d/1oapfNvccTuqfSGTQbo49FFuMPb9QTcAW/view" target="_blank" class="footer-social-link">
+                    <div class="footer-icon-wrapper">
+                        <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 26 26">
+                            <path clip-rule="evenodd" d="M0.549175 0.549256C0.9008 0.197625 1.37772 8.13603e-05 1.875 8.13603e-05H9.375C9.54076 8.13603e-05 9.69974 0.0659294 9.81694 0.18314L14.817 5.18314C14.9341 5.30034 15 5.45932 15 5.62508V15.6251C15 16.1223 14.8025 16.5993 14.4509 16.951C14.0992 17.3026 13.6222 17.5001 13.125 17.5001H1.875C1.37771 17.5001 0.9008 17.3026 0.549175 16.951C0.19755 16.5993 0 16.1223 0 15.6251V1.87508C0 1.37781 0.19755 0.900886 0.549175 0.549256ZM4.94475 4.93916C5.65191 4.93916 6.22517 4.36589 6.22517 3.65873C6.22517 2.95158 5.65191 2.37832 4.94475 2.37832C4.2376 2.37832 3.66434 2.95158 3.66434 3.65873C3.66434 4.36589 4.2376 4.93916 4.94475 4.93916ZM2.34474 10.625C2.3441 10.1936 2.69335 9.84378 3.12482 9.84378H11.8749C12.3062 9.84378 12.6566 10.1936 12.6572 10.625C12.6579 11.0565 12.3086 11.4063 11.8771 11.4063H3.12716C2.6957 11.4063 2.34539 11.0565 2.34474 10.625ZM2.34474 14.3751C2.3441 13.9436 2.69335 13.5938 3.12482 13.5938H8.12482C8.5563 13.5938 8.9066 13.9436 8.90725 14.3751C8.9079 14.8065 8.55865 15.1563 8.12717 15.1563H3.12716C2.6957 15.1563 2.34539 14.8065 2.34474 14.3751ZM4.94399 5.79262C4.0692 5.79262 3.27126 6.12159 2.66711 6.66257C2.3085 6.98367 2.58855 7.49984 3.06991 7.49984H6.81806C7.29942 7.49984 7.57946 6.98367 7.22086 6.66257C6.61671 6.12159 5.81876 5.79262 4.94399 5.79262Z" fill="#585858" fill-rule="evenodd" transform="translate(5.5, 4.25)" />
+                        </svg>
+                    </div>
+                    <span class="footer-label">Resume</span>
+                </a>
+                <a href="https://github.com/LivianneW" target="_blank" class="footer-social-link">
+                    <div class="footer-icon-wrapper">
+                        <svg fill="none" preserveAspectRatio="none" viewBox="0 0 26 26">
+                            <g>
+                                <rect fill="rgba(239, 214, 208, 0.5)" height="26" rx="13" width="26" />
+                                <path d="M13 3C7.475 3 3 7.35878 3 12.7403C3 17.0504 5.8625 20.6908 9.8375 21.9814C10.3375 22.0666 10.525 21.7744 10.525 21.5187C10.525 21.2874 10.5125 20.5204 10.5125 19.7046C8 20.1551 7.35 19.108 7.15 18.5601C7.0375 18.2801 6.55 17.4156 6.125 17.1843C5.775 17.0017 5.275 16.5512 6.1125 16.539C6.9 16.5268 7.4625 17.2452 7.65 17.5374C8.55 19.0106 9.9875 18.5966 10.5625 18.341C10.65 17.7078 10.9125 17.2817 11.2 17.0382C9.25 17.0017 7.02911 15.1754 7.02911 12.2289C7.02911 11.1697 7.3625 10.293 8 9.61122C7.9 9.36772 7.225 8.36934 7.775 7.03005C7.775 7.03005 8.6125 6.77436 10.525 8.02843C11.325 7.80927 12.175 7.69969 13.025 7.69969C13.875 7.69969 14.725 7.80927 15.525 8.02843C17.4375 6.76219 18.275 7.03005 18.275 7.03005C18.825 8.36934 18.1 9.45294 18 9.69645C18.6375 10.3783 18.9631 11.1575 18.9631 12.2289C18.9631 15.1754 16.75 17.0017 14.8375 17.0382C15.2 17.3426 15.5125 17.927 15.5125 18.8401C15.5125 20.1429 15.5 21.19 15.5 21.5187C15.5 21.7744 15.6875 22.0788 16.1875 21.9814C18.173 21.3291 19.8983 20.0865 21.1205 18.4287C22.3427 16.7708 23 14.7813 23 12.7403C23 7.35878 18.525 3 13 3Z" fill="#585858" />
+                            </g>
+                        </svg>
+                    </div>
+                    <span class="footer-label">Github</span>
+                </a>
+            </div>
+
+            <!-- Right side: Scroll up, thank you, and email positioned independently -->
+            <button class="scroll-up-btn">
+                <span>Scroll up</span>
+                <svg fill="none" preserveAspectRatio="none" viewBox="0 0 9.51388 7.36396">
+                    <path d="M0.146447 3.32843C-0.0488155 3.52369 -0.0488155 3.84027 0.146447 4.03553L3.32843 7.21751C3.52369 7.41278 3.84027 7.41278 4.03553 7.21751C4.2308 7.02225 4.2308 6.70567 4.03553 6.51041L1.20711 3.68198L4.03553 0.853553C4.2308 0.658291 4.2308 0.341709 4.03553 0.146447C3.84027 -0.0488154 3.52369 -0.0488154 3.32843 0.146447L0.146447 3.32843ZM0.5 3.68198V4.18198H9.51388V3.68198V3.18198H0.5V3.68198Z" fill="#A29FA0" />
+                </svg>
+            </button>
+            <p class="footer-thank-you">Thank you for viewing! :-)</p>
+            <a href="mailto:liviwong123@gmail.com" class="footer-email">
+                <span>liviwong123@gmail.com</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Menu Overlay and Panel -->
+    <div class="menu-overlay"></div>
+    <div class="menu-panel">
+        <div class="menu-header">
+            <h3>Menu</h3>
+            <button class="close-menu">&times;</button>
+        </div>
+        <div class="menu-items">
+            <a href="../index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="https://drive.google.com/file/d/1oapfNvccTuqfSGTQbo49FFuMPb9QTcAW/view" target="_blank">Resume</a>
+        </div>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>

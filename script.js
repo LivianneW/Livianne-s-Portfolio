@@ -63,7 +63,7 @@ if (viewProjectButtons.length > 0) {
                 'QUESST': null, // Coming soon
                 'Resource Bridge': 'pages/resource_bridge.html',
                 'Spoonify': 'pages/spoonify.html',
-                'Tastea': null // Coming soon
+                'Tastea': 'pages/tastea.html',
             };
             
             const route = projectRoutes[projectTitle];

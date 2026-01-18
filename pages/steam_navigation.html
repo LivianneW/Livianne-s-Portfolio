@@ -22,7 +22,7 @@
         border-radius: 25px;
         overflow: hidden;
         position: relative;
-        flex-shrink: 0; /* Prevents images from squishing on small screens */
+        flex-shrink: 0; 
     }
 
     .final-image img {
@@ -31,13 +31,10 @@
         object-fit: cover;
         object-position: center;
         background: transparent;
-        /* Lowered the scale slightly from 1.28 to 1.15 to prevent extreme clipping */
-        transform: scale(1.24); 
+        transform: scale(1.26); 
         transition: transform 0.3s ease;
     }
 
-    /* Specifically fix Prototype A or Final Version if bottom buttons are missing */
-    /* This pushes the "zoom" focus to the bottom of the image */
     .final-image img.bottom-focus {
         object-position: bottom;
     }
@@ -82,9 +79,8 @@
             padding: 8px 10px;
         }
         
-        /* Reduce zoom on mobile to ensure nav bars are visible */
         .final-image img {
-            transform: scale(1.24); 
+            transform: scale(1.25); 
         }
     }
 </style>
@@ -229,7 +225,7 @@
                 height="650"
                 src="https://embed.figma.com/proto/T8qCYlmKyJohbXbCRdwBY9/Cogs-187a-Final-Project?node-id=67-1287&starting-point-node-id=226%3A1772&viewport=942%2C303%2C0.13&scaling=scale-down&content-scaling=fixed&embed-host=share"
                 allowfullscreen>
-                </iframe>
+                </iframe> 
         </div>
 
         <div class="final-section-divider"></div>
