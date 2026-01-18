@@ -404,8 +404,8 @@
     .figma-embed-wrapper.laptop {
       width: 100%;
       max-width: 1200px;      
-      min-height: 600px;
-      aspect-ratio: 16 / 10;
+      min-height: 400px;
+      aspect-ratio: 16 / 9;
       overflow: hidden;
       border-radius: 10px;
     }
