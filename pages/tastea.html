@@ -25,22 +25,15 @@
         object-fit: cover;
     }
 
-    /* Base Grid Setup */
     .comparison-images {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Always 2 columns */
-        gap: 4px; /* Space between images */
-        justify-items: center;
-        margin: 0 auto;
+        max-width: 1200px;
+        width: 100%;
     }
 
     .comparison-image {
-        width: 100%;
-        max-width: 100%; /* Allows image to fill its 50% slot */
-        height: 100%;
-        aspect-ratio: 3 / 2;
-        border-radius: 0px; 
-        overflow: hidden;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
     }
 
     .comparison-image img {
