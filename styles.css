@@ -100,7 +100,7 @@ body {
 
 .container {
   width: 100%;
-  max-width: 393px;
+  max-width: 100%;
   background-color: #faf9f5;
   border-radius: 30px;
   overflow: hidden;
@@ -433,60 +433,6 @@ body {
   object-fit: contain;
 }
 
-.project-image.steam-layout {
-  display: block;
-  padding: 0;
-  background: linear-gradient(
-    0.285112deg,
-    rgba(255, 255, 255, 0.392) 0.31942%,
-    rgba(41, 139, 183, 0.74) 46.785%,
-    rgba(15, 38, 87, 0.87) 91.966%
-  );
-  border-radius: 15px;
-}
-
-.project-image.steam-layout .steam-phone-1 {
-  position: absolute;
-  left: 12%; /* instead of 32px */
-  top: 5%;  
-  width: 93px;
-  height: 191px;
-  transform: scale(1.02);
-}
-
-.project-image.steam-layout .steam-phone-1 img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  padding: 0;
-  transform: scale(1.02);
-}
-
-.project-image.steam-layout .steam-phone-2 {
-  position: absolute;
-  left: 55%; /* instead of 140px */
-  top: 5%;
-  width: 93px;
-  height: 191px;
-  transform: scale(1.02);  
-}
-
-.project-image.steam-layout .steam-phone-2 img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  padding: 0;
-  transform: scale(1.02);
-}
-
-.project-image.steam-layout .team-badge {
-  left: 264px;
-  top: 8px;
-  height: 19px;
-  width: 39px;
-  border-radius: 21px;
-}
-
 .project-info {
   position: relative;
 }
@@ -751,6 +697,8 @@ body {
   white-space: nowrap;
 }
 
+
+/* Phone */
 @media (max-width: 480px) {
   body {
     padding: 1rem;
@@ -758,5 +706,154 @@ body {
 
   .introduction h2 {
     font-size: 24px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .header-nav {
+    display: none;
+  }
+
+  .container,
+  .project-container {
+    max-width: 720px;
+    border-radius: 24px;
+  }
+
+  body {
+    padding: 3rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1280px) {
+
+/* about */
+  .about-intro {
+    padding: 48px 24px 0;
+  }
+
+  .intro-text {
+  font-size: 16px;
+  font-weight: 300;
+  color: #1c1c1c;
+  line-height: 165%;
+  width: 500px;
+  margin-bottom: 30px;
+ }
+
+  .greeting {
+    font-size: 40px;
+    font-weight: 500;
+    color: #d3a0a0;
+    margin-bottom: 25px;
+    line-height: normal;
+  }
+
+  .categories {
+    font-size: 16px;
+    justify-content: space-evenly;
+  }
+
+  .footer-label,
+  .footer-thank-you,
+  .footer-email span, 
+  .scroll-up-btn span {
+    font-size: 16px;
+  }
+
+  .container {
+    max-width: 1000px;
+    border-radius: 30px;
+  }
+
+  .profile-photo {
+    width: 180px;
+    height: 180px;
+    top: 30px;
+  }
+
+  body {
+    font-size: 18px;
+  }
+
+  .header h1 {
+    font-size: 24px;
+  }
+
+  .introduction h2 {
+    font-size: 42px;
+  }
+
+  .introduction .subtitle {
+    font-size: 20px;
+  }
+
+  .project-title {
+    font-size: 22px;
+  }
+
+  .project-description {
+    font-size: 14px;
+  }
+
+  .section-content,
+  .introduction p {
+    font-size: 16px;
+  }
+  
+  .hamburger-menu {
+    display: none;
+  }
+
+  .header {
+    align-items: center;
+    padding: 0 32px;
+  }
+
+  .welcome-banner {
+    height: 220px;
+    transform: scale (1.2);
+  }
+
+  .header-nav {
+    display: flex;
+    gap: 32px;
+    margin-left: auto;
+  }
+
+  .header-nav a {
+    font-size: 16px;
+    font-weight: 400;
+    color: #585858; 
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .header-nav a:hover {
+    color: #d3a0a0;
+  }
+
+  .project-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px;
+  }
+
+  .project-image {
+    height: 280px;
+  }
+
+  .photo-gallery {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    max-width: 840px;          /* controls overall gallery size */
+    justify-content: flex-end, space-evenly;                /* more space between images */
+  }
+
+  .photo-gallery img {
+    width: 85%;               /* 👈 shrink image */
+    margin: 0 auto;           /* center inside grid cell */
+    display: block;
   }
 }
