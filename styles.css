@@ -1,91 +1,14 @@
+/* ======================
+   BASE STYLES (Mobile First)
+   ====================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-@font-face {
-  font-family: "Larsseit";
-  src: url("fonts/Larsseit-Thin.otf") format("opentype");
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Larsseit";
-  src: url("fonts/Larsseit-ThinItalic.otf") format("opentype");
-  font-weight: 100;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Larsseit";
-  src: url("fonts/Larsseit-Light.otf") format("opentype");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Larsseit";
-  src: url("fonts/Larsseit-LightItalic.otf") format("opentype");
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Larsseit";
-  src: url("fonts/Larsseit.otf") format("opentype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Larsseit";
-  src: url("fonts/Larsseit-Italic.otf") format("opentype");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Larsseit";
-  src: url("fonts/Larsseit-Medium.otf") format("opentype");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Larsseit";
-  src: url("fonts/Larsseit-MediumItalic.otf") format("opentype");
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Larsseit";
-  src: url("fonts/Larsseit-Bold.otf") format("opentype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Larsseit";
-  src: url("fonts/Larsseit-ExtraBold.otf") format("opentype");
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-
 body {
-  font-family: "Larsseit";
+  font-family: "Larsseit", sans-serif;
   background-color: #faf9f5;
   display: flex;
   justify-content: center;
@@ -98,7 +21,8 @@ body {
   font-weight: 400;
 }
 
-.container {
+.container,
+.project-container {
   width: 100%;
   max-width: 100%;
   background-color: #faf9f5;
@@ -117,6 +41,7 @@ body {
   z-index: 100;
   display: flex;
   align-items: flex-end;
+  padding: 0 24px;
 }
 
 .header h1 {
@@ -126,19 +51,21 @@ body {
   color: #1c1c1c;
   line-height: 113.1% !important;
   letter-spacing: -0.02em;
-  margin: 0;
-  padding: 0;
 }
 
 .page-indicator {
-  font-family: "Larsseit", sans-serif;
   font-size: 15px;
   font-weight: 300;
   color: #a29fa0;
   margin-left: 4px;
 }
 
+.header-nav {
+  display: none;
+}
+
 .hamburger-menu {
+  display: block;
   position: absolute;
   top: 72px;
   right: 22px;
@@ -160,14 +87,14 @@ body {
   margin-bottom: 0;
 }
 
-/* Menu Overlay and Panel */
+/* Menu overlay */
 .menu-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0,0,0,0.5);
   display: none;
   z-index: 999;
 }
@@ -183,7 +110,7 @@ body {
   width: 280px;
   height: 100%;
   background-color: #faf9f5;
-  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
   transition: right 0.3s ease;
   z-index: 1000;
   padding: 24px;
@@ -199,15 +126,13 @@ body {
   align-items: center;
   margin-bottom: 32px;
   padding-bottom: 16px;
-  border-bottom: 1px solid rgba(246, 197, 185, 0.25);
+  border-bottom: 1px solid rgba(246,197,185,0.25);
 }
 
 .menu-header h3 {
   font-size: 20px;
   font-weight: 300;
   color: #1c1c1c;
-  line-height: 130%;
-  letter-spacing: 0.01em;
 }
 
 .close-menu {
@@ -232,15 +157,13 @@ body {
   color: #585858;
   text-decoration: none;
   transition: color 0.3s;
-  line-height: 130%;
-  letter-spacing: 0.01em;
 }
 
 .menu-items a:hover {
   color: #1c1c1c;
 }
 
-/* Index page specific styles */
+/* Welcome Banner */
 .welcome-banner {
   margin: 24px 8px 32px;
   height: 160px;
@@ -255,6 +178,7 @@ body {
   object-fit: contain;
 }
 
+/* Introduction */
 .introduction {
   padding: 0 24px 48px;
 }
@@ -265,17 +189,13 @@ body {
   color: #1c1c1c;
   margin-bottom: 4px;
   line-height: 130%;
-  letter-spacing: 0.01em;
 }
 
 .introduction .subtitle {
   font-size: 18px;
   font-weight: 400;
   color: #585858;
-  text-align: left;
   margin-bottom: 20px;
-  line-height: 100%;
-  letter-spacing: 0.01em;
 }
 
 .introduction p {
@@ -283,7 +203,6 @@ body {
   font-weight: 300;
   color: #585858;
   line-height: 130%;
-  letter-spacing: 0.01em;
 }
 
 .introduction p strong {
@@ -291,6 +210,7 @@ body {
   color: #1c1c1c;
 }
 
+/* Projects */
 .projects {
   padding: 0 24px 32px;
   margin-top: 40px;
@@ -300,11 +220,9 @@ body {
   display: flex;
   justify-content: space-between;
   padding-bottom: 10px;
-  border-bottom: 1px solid rgba(246, 197, 185, 0.25);
+  border-bottom: 1px solid rgba(246,197,185,0.25);
   margin-bottom: 32px;
   font-size: 14px;
-  line-height: 100%;
-  letter-spacing: 0.01em;
 }
 
 .categories button {
@@ -313,22 +231,14 @@ body {
   cursor: pointer;
   font-family: inherit;
   font-size: inherit;
-  padding: 0;
-  transition: all 0.3s;
 }
 
 .categories button.active {
-  font-weight: 400;
   color: #1c1c1c;
 }
 
 .categories button:not(.active) {
-  font-weight: 400;
   color: #a29fa0;
-}
-
-.categories button:hover {
-  color: #585858;
 }
 
 .project-cards {
@@ -340,10 +250,8 @@ body {
 .project-card {
   padding: 16px;
   border-radius: 24px;
-  border: 1px solid rgba(239, 214, 208, 0.5);
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  border: 1px solid rgba(239,214,208,0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card.hidden {
@@ -352,7 +260,7 @@ body {
 
 .project-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.08);
 }
 
 .project-image {
@@ -363,73 +271,20 @@ body {
   overflow: hidden;
   position: relative;
   margin-bottom: 20px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover .project-image {
   transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
 .project-image img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  object-position: center;
   padding: 16px;
-}
-
-.project-image.quesst-image img {
-  object-fit: cover;
-  padding: 0;
-}
-
-.project-image.resource-bridge-image img {
-  padding: 0;
-  transform: scale(1.3);
-}
-
-.team-badge {
-  position: absolute;
-  top: 9px;
-  right: 9px;
-  background-color: rgba(88, 88, 88, 0.5);
-  border-radius: 21px;
-  padding: 5px 10px;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  z-index: 10;
-}
-
-.team-badge span {
-  font-size: 12px;
-  font-weight: 500;
-  color: white;
-  line-height: 1;
-}
-
-.team-badge svg {
-  width: 8px;
-  height: 10px;
-  fill: white;
-}
-
-.project-image.dual-image {
-  display: flex;
-  gap: 8px;
-  padding: 12px;
-  background-color: #f5f5f5;
-}
-
-.project-image.dual-image img {
-  width: 48%;
-  height: auto;
-  border-radius: 8px;
-  object-fit: contain;
 }
 
 .project-info {
@@ -442,10 +297,7 @@ body {
   align-items: center;
   margin-bottom: 14px;
   font-size: 12px;
-  font-weight: 400;
   color: #9a9a9a;
-  line-height: 100%;
-  letter-spacing: 0.01em;
 }
 
 .project-title {
@@ -453,143 +305,16 @@ body {
   font-weight: 500;
   color: #1c1c1c;
   margin-bottom: 4px;
-  line-height: 130%;
-  letter-spacing: 0.01em;
 }
 
 .project-description {
   font-size: 14px;
   font-weight: 300;
   color: #7a7a7a;
-  line-height: 150%;
-  letter-spacing: 0.01em;
-  margin-bottom: 0;
   margin-top: 12px;
 }
 
-.view-project-btn {
-  background-color: rgba(239, 214, 208, 0.5);
-  border: none;
-  color: #585858;
-  font-size: 12px;
-  font-weight: 500;
-  cursor: pointer;
-  padding: 10px 18px;
-  margin-top: 24px;
-  text-decoration: none;
-  font-family: inherit;
-  line-height: normal;
-  letter-spacing: 0.01em;
-  transition: background-color 0.3s;
-  border-radius: 10px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
-}
-
-.view-project-btn:hover {
-  background-color: rgba(239, 214, 208, 0.7);
-}
-
-/* About page specific styles */
-.about-intro {
-  padding: 48px 24px 0;
-  position: relative;
-}
-
-.greeting {
-  font-size: 28px;
-  font-weight: 500;
-  color: #d3a0a0;
-  margin-bottom: 25px;
-  line-height: normal;
-}
-
-.profile-photo {
-  position: absolute;
-  right: 24px;
-  top: 15px;
-  width: 146px;
-  height: 146px;
-  border-radius: 50%;
-  overflow: hidden;
-  background-color: #5e3737;
-}
-
-.profile-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.intro-text {
-  font-size: 14px;
-  font-weight: 300;
-  color: #1c1c1c;
-  line-height: 130%;
-  width: 185px;
-  margin-bottom: 30px;
-}
-
-.section-header {
-  background-color: rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  padding: 8px 10px;
-  margin: 0 24px 15px;
-}
-
-.section-header h2 {
-  font-size: 16px;
-  font-weight: 500;
-  color: #585858;
-  line-height: normal;
-}
-
-.section-content {
-  font-size: 14px;
-  font-weight: 300;
-  color: #1c1c1c;
-  line-height: 130%;
-  padding: 0 24px;
-  margin-bottom: 40px;
-}
-
-.section-content p {
-  margin-bottom: 8px;
-}
-
-.section-content p:last-child {
-  margin-bottom: 0;
-}
-
-.bits-header {
-  font-size: 16px;
-  font-weight: 500;
-  color: #585858;
-  line-height: normal;
-  padding: 0 24px;
-  margin-bottom: 16px;
-}
-
-.photo-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* adjusts columns based on screen size */
-  gap: 8px; /* spacing between images */
-  margin: 0 24px 20px; /* padding on sides to fit mobile nicely */
-}
-
-.photo-gallery img {
-  width: 100%;
-  aspect-ratio: 4 / 4; /* keeps images proportional */
-  object-fit: cover;    /* fills the space without distortion */
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  display: block;       /* prevents inline spacing issues */
-}
-
-/* Footer styles (shared) */
+/* Footer */
 .footer {
   margin: 48px 24px 0;
   position: relative;
@@ -605,34 +330,11 @@ body {
   gap: 8px;
 }
 
-.footer-social-link {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  text-decoration: none;
-}
-
-.footer-icon-wrapper {
-  width: 26px;
-  height: 26px;
-  background-color: rgba(239, 214, 208, 0.5);
-  border-radius: 13px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.footer-icon-wrapper svg {
-  width: 26px;
-  height: 26px;
-}
-
-.footer-label {
-  font-size: 12px;
-  font-weight: 300;
-  color: #a29fa0;
-  line-height: normal;
+.footer-label,
+.footer-thank-you,
+.footer-email span,
+.scroll-up-btn span {
+  font-size: 14px;
 }
 
 .scroll-up-btn {
@@ -645,55 +347,15 @@ body {
   cursor: pointer;
   background: none;
   border: none;
-  padding: 0;
-  font-family: "Larsseit";
-}
-
-.scroll-up-btn span {
-  font-size: 12px;
-  font-weight: 500;
-  color: #585858;
-  line-height: normal;
 }
 
 .scroll-up-btn svg {
-  width: 9.514px;
-  height: 7.364px;
   transform: rotate(90deg);
 }
 
-.footer-thank-you {
-  position: absolute;
-  right: 0;
-  top: 46px;
-  font-size: 12px;
-  font-weight: 300;
-  color: #a29fa0;
-  line-height: normal;
-  text-align: right;
-}
-
-.footer-email {
-  position: absolute;
-  right: 0;
-  top: 66px;
-  background-color: rgba(239, 214, 208, 0.5);
-  border-radius: 10px;
-  padding: 4px 12px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 26px;
-  text-decoration: none;
-}
-
-.footer-email span {
-  font-size: 12px;
-  font-weight: 400;
-  color: #585858;
-  line-height: normal;
-  white-space: nowrap;
-}
+/* ======================
+   MEDIA QUERIES
+   ====================== */
 
 /* Tablet */
 @media (min-width: 768px) {
@@ -705,42 +367,53 @@ body {
 
   body {
     padding: 3rem;
+    font-size: 16px;
   }
 }
 
 /* Desktop */
 @media (min-width: 1140px) {
 
-/* about */
-  .about-intro {
-    padding: 48px 24px 100px;
+  .header-nav {
+    display: flex;
+    gap: 32px;
+    margin-left: auto;
+  }
+
+  .hamburger-menu {
+    display: none;
+  }
+
+  .container {
+    max-width: 1000px;
+    border-radius: 30px;
+  }
+
+  .welcome-banner {
+    height: 220px;
+    transform: scale(1.2);
+  }
+
+  .profile-photo {
+    width: 250px;
+    height: 250px;
+    top: 30px;
   }
 
   .intro-text {
-  font-size: 16px;
-  font-weight: 300;
-  color: #1c1c1c;
-  line-height: 165%;
-  width: 325px;
-  margin-bottom: 30px;
- }
+    width: 325px;
+    font-size: 16px;
+    line-height: 165%;
+  }
 
- .section-content {
-  font-size: 16px;
-  line-height: 165%;
-  width: 750px;
- }
-
- .section-header {
-  width: 700px;
- }
+  .section-content {
+    width: 750px;
+    font-size: 16px;
+    line-height: 165%;
+  }
 
   .greeting {
     font-size: 40px;
-    font-weight: 500;
-    color: #d3a0a0;
-    margin-bottom: 25px;
-    line-height: normal;
   }
 
   .categories {
@@ -755,39 +428,14 @@ body {
     font-size: 16px;
   }
 
-  .container {
-    max-width: 1000px;
-    border-radius: 30px;
-  }
-
-  .profile-photo {
-    width: 250px;
-    height: 250px;
-    top: 30px;
-  }
-
-  /* Landing Page */
-  .container {
-    max-width: 800px;
-    border-radius: 30px;
-  }
-  
-  .project-meta {
-    font-size: 14px;
-  }
-
-  body {
-    font-size: 18px;
-  }
-
   .header h1 {
     font-size: 24px;
   }
 
   .page-indicator {
-  font-size: 18px;
+    font-size: 18px;
   }
-  
+
   .introduction h2 {
     font-size: 42px;
   }
@@ -802,48 +450,6 @@ body {
 
   .project-description {
     font-size: 16px;
-    font-weight: 300;
-  }
-
-  .section-content,
-  .introduction p {
-    font-size: 16px;
-  }
-  
-  .hamburger-menu {
-    display: none;
-  }
-
-  .header {
-    align-items: center;
-    padding: 0 32px;
-  }
-
-  .welcome-banner {
-    height: 220px;
-    transform: scale(1.2);
-  }
-
-  .header-nav {
-    display: flex;
-    gap: 32px;
-    margin-left: auto;
-  }
-
-  .hamburger-menu {
-    display: none;
-  }
-
-  .header-nav a {
-    font-size: 16px;
-    font-weight: 400;
-    color: #585858; 
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-
-  .header-nav a:hover {
-    color: #d3a0a0;
   }
 
   .project-cards {
@@ -857,14 +463,12 @@ body {
   }
 
   .photo-gallery {
-    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    grid-template-columns: repeat(3, 1fr);
     max-width: 840px;     
-    justify-content: flex-end, space-evenly;              
   }
 
   .photo-gallery img {
-    width: 85%;              
-    margin: 0 auto;           
-    display: block;
+    width: 85%;
+    margin: 0 auto;
   }
 }
