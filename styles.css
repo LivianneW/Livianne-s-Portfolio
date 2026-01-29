@@ -701,6 +701,7 @@ body {
   .header-nav {
     display: none;
   }
+}
 
 /* Tablet */
 @media (min-width: 768px) {
