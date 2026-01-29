@@ -695,20 +695,8 @@ body {
   white-space: nowrap;
 }
 
-
-/* Phone */
-@media (min-width: 480px) {
-  .header-nav {
-    display: none;
-  }
-}
-
 /* Tablet */
 @media (min-width: 768px) {
-  .header-nav {
-    display: none;
-  }
-
   .container,
   .project-container {
     max-width: 650px;
@@ -738,7 +726,7 @@ body {
  }
 
  .section-content {
-  font-size: 16 px;
+  font-size: 16px;
   line-height: 165%;
   width: 750px;
  }
@@ -833,13 +821,17 @@ body {
 
   .welcome-banner {
     height: 220px;
-    transform: scale (1.2);
+    transform: scale(1.2);
   }
 
   .header-nav {
     display: flex;
     gap: 32px;
     margin-left: auto;
+  }
+
+  .hamburger-menu {
+    display: none;
   }
 
   .header-nav a {
