@@ -466,3 +466,14 @@
     object-fit: contain;
   }
 
+/* Desktop */
+@media (min-width: 1280px) {
+  .project-container {
+    max-width: 750px;
+    border-radius: 30px;
+  }
+  
+  .page-indicator {
+    font-size: 18px;
+  }
+}
