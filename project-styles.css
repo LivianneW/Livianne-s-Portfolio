@@ -1,11 +1,44 @@
     /* Project Case Study Page Styles */
 
     /* General Container and Layout */
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .header-nav {
+    display: none;
+  }
+
+  .hamburger-menu {
+    display: block;
+  } 
+
+  .highlighter{
+    background-color: #ffe1e1;
+    padding: 0 4px;
+  }
+
+  .header-nav a {
+    font-size: 16px;
+    font-weight: 400;
+    color: #585858; 
+    text-decoration: none;
+    transition: color 0.3s;
+    position: sticky;
+  }
+
+    .header-nav a:hover {
+        color: #d3a0a0;
+    }
+
     .project-container {
       max-width: 393px;
       margin: 0 auto;
       background: #faf9f5;
       padding: 0 0 40px;
+      overflow: visible;
     }
 
     .project-container .header {
@@ -13,7 +46,7 @@
     }
 
     .project-container .footer {
-      margin: 48px 22px 0;
+      margin: 140px 22px 0;
     }
 
     .project-content {
@@ -103,7 +136,7 @@
       font-size: 14px;
       color: #585858;
       margin: 0 0 10px;
-      font-weight: 500;
+      font-weight: 400;
     }
 
     .info-content {
@@ -176,7 +209,7 @@
     }
 
     .section-content p:last-child {
-      margin-bottom: 0;
+      margin-bottom: 36px;
     }
 
     .section-content ul {
@@ -192,7 +225,7 @@
     }
 
     .section-content li:last-child {
-      margin-bottom: 0;
+      margin-bottom: 36px;
     }
 
     .section-content strong {
@@ -202,7 +235,7 @@
 
     /* Prototype and Comparisons */
     .prototype-section {
-      margin-bottom: 40px;
+      margin-bottom: 36px;  
     }
 
     .prototype-label {
@@ -467,13 +500,121 @@
   }
 
 /* Desktop */
-@media (min-width: 1280px) {
+@media (min-width: 1140px) {
+  .header-nav {
+    display: flex;
+    gap: 32px;
+    margin-left: auto;
+  }
+
+  .hamburger-menu {
+    display: none;
+  }
+
   .project-container {
     max-width: 750px;
     border-radius: 30px;
+    padding-top: 70px;
   }
-  
+
+  .project-images {
+    height: 350px;
+    gap: 90px;
+  }
+
+  .project-images img {
+    width: 120px;
+    height: 240px;
+    transform: scale(1.4);
+  }
+    
   .page-indicator {
     font-size: 18px;
   }
+
+  /* Fonts */
+  .project-title {
+    font-size: 42px;
+  }
+
+  .project-subtitle {
+    font-size: 32px;
+  }
+
+  .project-description {
+    font-size: 16px;
+    line-height: 1.65;
+    overflow: visible;
+  }
+
+  .view-prototype-link {
+    font-size: 16px;
+    padding: 10px 22px;
+  }
+
+  .info-tag {
+    font-size: 16px;
+    margin: 0 0 16px;
+  }
+
+  .info-content {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .section-heading {
+    font-size: 28px;
+  }
+
+  .section-content {
+    font-size: 16px;
+    line-height: 1.65;
+    overflow: visible;
+  }
+
+  .section-content li {
+    line-height: 1.80;
+    overflow: visible;
+  }
+
+  .section-content p:last-child {
+      margin-bottom: 52px;
+  }
+
+  .section-content li:last-child {
+      margin-bottom: 52px;
+  }
+
+  .prototype-section {
+      margin-bottom: 52px;  
+  }
+
+  .prototype-label {
+      font-size: 16px;
+      padding: 12px 60px;
+      margin: 0 0 24px;
+  }
+
+  .curious-heading {
+      font-size: 28px;
+}
+
+  .curious-intro {
+      font-size: 16px;
+      line-height: 1.65;
+}
+.image-caption {
+      font-size: 16px;
+      line-height: 1.65;
+}
+
+.final-image {
+      width: 200px;
+      height: 400px;
+}
+
+.final-image img {
+      transform: scale(1.05);
+}
+
 }

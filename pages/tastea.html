@@ -29,25 +29,25 @@
 
     /* Comparison Images */
     .comparison-images {
-      max-width: 1200px;
-      width: 100%;
+      max-width: 1100px;
+      width: 90%;
     }
 
     .comparison-image {
-      width: 100%;
+      width: 90%;
       aspect-ratio: 16 / 10;
       overflow: hidden;
     }
 
     .comparison-image img {
-      width: 100%;
-      height: 100%;
+      width: 90%;
+      height: 90%;
       object-fit: cover;
     }
 
     .comparison-image.laptop-shot {
       aspect-ratio: 16 / 10;
-      max-width: 1200px;
+      max-width: 1100px;
       overflow: hidden;
     }
 
@@ -68,6 +68,7 @@
 
     /* Mobile Specific Tweaks */
     @media (max-width: 768px) {
+
       .project-content {
         padding: 0 16px;
       }
@@ -76,6 +77,14 @@
         padding: 10px 20px;
       }
     }
+    @media (min-width: 1024px) {
+    .spoonify-hero {
+      height: 320px;
+    }
+    .spoonify-hero img {
+      height: 80%; 
+  }
+}
   </style>
 </head>
 
@@ -87,10 +96,11 @@
       <span class="page-indicator">/ Tastea</span>
 
         <nav class="header-nav">
-            <a href="index.html">Work</a>
-            <a href="pages/about.html">About</a>
+            <a href="../index.html">Work</a>
+            <a href="../pages/about.html">About</a>
             <a href="https://drive.google.com/file/d/1oapfNvccTuqfSGTQbo49FFuMPb9QTcAW/view" target="_blank">Resume</a>
         </nav>
+
 
 
       <div class="hamburger-menu">
@@ -141,6 +151,14 @@
         <div class="info-content">
           <p>February 2024 - November 2024</p>
         </div>
+      </div>
+
+      <!-- Skills Section -->
+      <div class="info-section">
+            <div class="info-tag">Skills</div>
+            <div class="info-content">
+                <p>UX Research, User Interviews, Prototyping, Interaction Design</p>
+            </div>
       </div>
 
       <div class="section-divider"></div>
@@ -236,8 +254,8 @@
 
       <div class="section-content">
         <p><strong>My Redesign</strong></p>
-        <p>In my design, I addressed these issues by refreshing the layout to better align with their visual aesthetics.</p>
-        <p>I also added a navigation bar, allowing customers to quickly find specific items. When clicked, it smoothly scrolls down to the relevant category.</p>
+        <p>In my redesign, I addressed these issues by refining the layout to better align with the brand’s visual identity and improve overall clarity.</p>
+        <p>I introduced a navigation menu bar to help customers quickly locate specific menu items, reducing the need for excessive scrolling. Selecting a category smoothly scrolls users to the relevant section, creating a more seamless and intuitive browsing experience.</p>
       </div>
 
       <!-- My Redesign Screenshots -->

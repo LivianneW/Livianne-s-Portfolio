@@ -74,7 +74,7 @@
 
         .iteration-comparison img {
             width: 100%;
-            max-width: 280px;
+            max-width: 300px;
             border-radius: 10px;
             height: auto;
         }
@@ -125,6 +125,26 @@
         .photo-item {
             display: contents;
         }
+
+        @media (min-width: 1024px) {
+         .resource-bridge-hero {
+             height: 350px;    
+         }
+        .resource-bridge-hero img {
+                height: 130%;
+        }
+        .notable-iteration-badge {
+            font-size: 16px;
+            padding: 10px 60px;
+        }
+        .iteration-comparison img {
+            max-width: 400px;
+            height: auto;
+        }
+        .photo-gallery img {
+            height: 260px;
+        }
+    }
     </style>
 </head>
 <body>
@@ -133,11 +153,11 @@
             <h1>LIVIANNE</h1>
             <span class="page-indicator">/ Resource Bridge</span>
 
-            <nav class="header-nav">
-                <a href="index.html">Work</a>
-                <a href="pages/about.html">About</a>
-                <a href="https://drive.google.com/file/d/1oapfNvccTuqfSGTQbo49FFuMPb9QTcAW/view" target="_blank">Resume</a>
-            </nav>
+        <nav class="header-nav">
+            <a href="../index.html">Works</a>
+            <a href="../pages/about.html">About</a>
+            <a href="https://drive.google.com/file/d/1oapfNvccTuqfSGTQbo49FFuMPb9QTcAW/view" target="_blank">Resume</a>
+        </nav>
 
             
             <div class="hamburger-menu">
@@ -155,7 +175,7 @@
         <div class="project-header">
             <h2 class="project-title">Resource Bridge</h2>
             <p class="project-subtitle">Product Design</p>
-            <p class="project-description">Our team designed Resource Bridge, a community kiosk system aimed at providing a reliable lifeline for San Diego's unhoused population. We shifted the focus from the typical city kiosk's business directories to a more human-centered platform that offers real-time shelter availability and streamlined appointment scheduling. By integrating features like personalized digital profiles and icon-based navigation, we replaced a cycle of manual, repetitive paperwork with an accessible interface that simplifies the path to essential support.</p>
+            <p class="project-description"> Our team developed Resource Bridge, a community kiosk designed to address gaps in resource access for San Diego’s unhoused population. Moving beyond standard city kiosks that prioritize business directories, we built a human-centered platform focused on real-time shelter availability and essential service navigation. By replacing complex, repetitive paperwork with a streamlined digital interface, the kiosk simplifies the process and provides clear navigation with up-to-date, real-time information.</p>
             <a href="https://www.figma.com/proto/hq1XZFQ1SVw6yUW0Brr3H8/Resource-Bridge-Interface?page-id=64%3A48&node-id=414-1966&viewport=-1020%2C-741%2C0.4&t=7xVSNP8fFcIoeEIZ-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=414%3A1966&show-proto-sidebar=1" target="_blank" class="view-prototype-link">View the prototype</a>
         </div>
 
@@ -185,18 +205,26 @@
             </div>
         </div>
 
+        <!-- Skills Section -->
+        <div class="info-section">
+            <div class="info-tag">Skills</div>
+            <div class="info-content">
+                <p>UX Research, User Personas, Prototyping, Product Thinking, User Testing, Interaction Design</p>
+            </div>
+        </div>
+
         <div class="section-divider"></div>
 
         <!-- Problem Statement -->
         <h3 class="section-heading">Problem Statement</h3>
         <div class="section-content">
-            <p>San Diego faces a severe homelessness crisis with thousands of affected individuals, yet a massive gap exists in how people access life-saving resources. Current support systems rely heavily on inconsistent word-of-mouth or 2-1-1 referrals that suffer from long wait times and outdated information. For an unhoused individual, the lack of digital access and proper documentation becomes a wall, making it 10 times harder to secure food, healthcare, and shelter compared to the general population. Resource Bridge was designed to tear down this wall by providing a physical, reliable point of access in the heart of the community.</p>
+            <p>San Diego faces a severe homelessness crisis with thousands of affected individuals, yet a <span class="highlighter">massive gap exists</span> in how people access these life-saving resources. Current support systems rely heavily on inconsistent word-of-mouth or 2-1-1 referrals that suffer from long wait times and outdated information. For an unhoused individual, the lack of digital access and proper documentation becomes a wall, making it 10 times harder to secure food, healthcare, and shelter compared to the general population. Resource Bridge was designed to tear down this wall by providing a physical, reliable point of access in the heart of the community.</p>
         </div>
 
         <!-- Initial Research & Pain Points -->
         <h3 class="section-heading">Research & Pain Points</h3>
         <div class="section-content">
-            <p>Our group conducted extensive research through desk research, competitive analysis, and direct interviews with both unhoused individuals in downtown San Diego and program managers at PATH (People Assisting The Homeless)</p>
+            <p>Our group conducted extensive research through desk research, competitive analysis, and <span class="highlighter">direct interviews</span> with both unhoused individuals in downtown San Diego and program managers at PATH (People Assisting The Homeless)</p>
             <ul>
                 <li><strong>Limitations in Accessing Resources:</strong> Interviews revealed limited awareness of available resources, heavy reliance on 2-1-1 and word of mouth, long travel distances, extended wait times, and outdated or inaccurate information online.</li>
                 <li><strong>Barriers to Support:</strong> Individuals are disadvantaged due to limited digital literacy, language barriers, lack of translations, and the burden of extensive paperwork.</li>
@@ -207,7 +235,7 @@
         <!-- Design Features -->
         <h3 class="section-heading">Design Features</h3>
         <div class="section-content">
-            <p>After conducting peer reviews, we identified three core features to focus on for our kiosk</p>
+            <p>After conducting peer reviews, we identified <span class="highlighter">three core features</span> to focus on for our kiosk</p>
             <ul>
                 <li><strong>User-Centered Experience:</strong> Prioritizes quick access to essential services such as shelter, food, and healthcare. Users can scan a QR code to revisit information later, and clear, step-by-step instructions ensure usability across all literacy levels.</li>
                 <li><strong>Efficiency & Accessibility:</strong> Filters allow users to sort resources based on their specific needs, supported by a streamlined and intuitive interface for easy navigation. Multilingual support helps reduce language barriers and expands access for diverse communities.</li>
@@ -223,17 +251,24 @@
         <h3 class="section-heading">User Interviews</h3>
         <div class="section-content">
             <p>With our final set of design features, we created a high-fidelity prototype and conducted in-person interviews at a popular gathering area for unhoused individuals in downtown San Diego</p>
+            <p style="margin-top: 16px;"><strong><span class="highlighter">Patterns Identified:</span></strong></p>
             <ul>
-                <li><strong>Patterns Identified:</strong> All participants struggled to locate the filter button, frequently mistook information tags for buttons, and clicked the general content box instead of the intended action buttons, with some experiencing responsiveness issues; however, all found the kiosk visually appealing and helpful.</li>
+                <li> <strong>Low Filter Discoverability:</strong> Most participants struggled to find the filter button. </li>
+                <li> <strong>Conflicting Affordances:</strong> Users frequently mistook static information tags for interactive buttons and instinctively clicked on general content containers rather than specific action links. </li>  
+                <li> <strong>Interaction Friction:</strong> Occasional responsiveness issues and "false affordances" led to user frustration and repeated clicking during navigation. </li>
+                <li> <strong>Positive Aesthetic Response:</strong> Despite these usability hurdles, participants found the kiosk interface visually appealing and the content to be potentially helpful.</li>
             </ul>
 
-
-            <p style="margin-top: 16px;"><strong>Design Iterations:</strong></p>
+            <p style="margin-top: 16px;"><strong><span class="highlighter">Design Iterations:</span></strong></p>
             <ul>
                 <li><strong>Improve Filter Visibility:</strong> Increase the visibility of the filter button to make it easier to discover.</li>
                 <li><strong>Clarify Action Labels:</strong> Remove "Learn More," as users instinctively clicked the entire card; replace it with "Details" to better indicate interactivity and intent.</li>
                 <li><strong>Remove "Learn More":</strong> Users clicked the box instinctively; replace it with "Details" for clarity.</li>
             </ul>
+        </div>
+
+        <div class="design-features-container">
+            <img src="../assets/UpdatedDesign-Features.png" alt="Updated Design Features" class="design-features-image">
         </div>
 
         <span class="notable-iteration-badge">Notable Iteration</span>
