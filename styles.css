@@ -99,16 +99,16 @@
   background-color: #faf9f5;
   height: 115px;
   border-radius: 15px;
-  position: fixed; /* Changed from sticky */
+  position: fixed;  
   top: 0;
-  left: 50%; /* Center it if you want it aligned with your container */
-  transform: translateX(-50%); /* Centers the fixed element */
+  left: 50%;  
+  transform: translateX(-50%);  
   width: 100%;
-  max-width: 800px; /* Matches your .container max-width */
-  z-index: 1000; /* Ensure it stays above everything else */
+  max-width: 800px;  
+  z-index: 1000;  
   display: flex;
   align-items: flex-end;
-  padding: 0 24px 25px; /* Added padding so content doesn't hit edges */
+  padding: 0 24px 25px;  
 }
 
 .header-nav a {
@@ -139,7 +139,7 @@ body {
 }
 
 .container {
-  width: 100%;
+  width: 400;
   max-width: 100%;
   background-color: #faf9f5;
   border-radius: 30px;

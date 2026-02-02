@@ -34,11 +34,12 @@
     }
 
     .project-container {
-      max-width: 393px;
+      max-width: 400px;
       margin: 0 auto;
       background: #faf9f5;
       padding: 0 0 40px;
       overflow: visible;
+      padding-top: 70px;
     }
 
     .project-container .header {
