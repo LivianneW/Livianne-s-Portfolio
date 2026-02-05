@@ -120,7 +120,7 @@
     position: sticky;
   }
 
-.header-nav a:hover {
+.section-header.header-nav a:hover {
     color: #d3a0a0;
 }
 
@@ -564,7 +564,7 @@ body {
   font-weight: 300;
   color: #1c1c1c;
   line-height: 130%;
-  width: 185px;
+  width: 170px;
   margin-bottom: 30px;
 }
 
