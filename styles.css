@@ -139,7 +139,7 @@ body {
 }
 
 .container {
-  width: 900px;
+  width: 100%;
   background-color: #faf9f5;
   border-radius: 30px;
   overflow: hidden;
