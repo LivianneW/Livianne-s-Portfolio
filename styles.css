@@ -139,7 +139,7 @@ body {
 }
 
 .container {
-  width: 600px;
+  width: 900px;
   background-color: #faf9f5;
   border-radius: 30px;
   overflow: hidden;
@@ -540,7 +540,6 @@ body {
 }
 
 .profile-photo {
-
   position: absolute;
   right: 24px;
   top: 15px;
