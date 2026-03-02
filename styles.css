@@ -541,10 +541,10 @@ body {
 
 .profile-photo {
   position: absolute;
-  right: 8px;
+  right: 24px;
   top: 15px;
-  width: 146px;
-  height: 146px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
   overflow: hidden;
   background-color: #5e3737;
