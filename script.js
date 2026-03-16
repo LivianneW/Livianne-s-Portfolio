@@ -95,7 +95,7 @@ if (headerTitle && (window.location.pathname.includes('about.html') || window.lo
     headerTitle.addEventListener('click', () => {
         // Check if we're in a subdirectory
         if (window.location.pathname.includes('/pages/')) {
-            window.location.href = '../index.html';
+            window.location.href = 'index.html';
         } else {
             window.location.href = 'index.html';
         }
