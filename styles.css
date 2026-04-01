@@ -568,7 +568,7 @@ body {
 
 .profile-photo {
   position: absolute;
-  right: 24px;
+  right: 28px;
   top: 15px;
   width: 130px;
   height: 130px;
@@ -806,13 +806,13 @@ body {
   .intro-text {
     width: 325px;
     font-size: 16px;
-    line-height: 165%;
+    line-height: 170%;
     margin-bottom: 75px;
   }
 
   .small-intro  {
-    font-size: 16px !important;
-    line-height: 165%;
+    font-size: 18px !important;
+    line-height: 170%;
   }
 
   .section-content {
