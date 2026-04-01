@@ -803,6 +803,10 @@ body {
     top: 0px;
   }
 
+  .introduction p {
+  font-size: 16px;
+  }
+
   .intro-text {
     width: 325px;
     font-size: 16px;
