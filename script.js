@@ -64,6 +64,7 @@ if (viewProjectButtons.length > 0) {
                 'Resource Bridge': 'pages/resource_bridge.html',
                 'Spoonify': 'pages/spoonify.html',
                 'Tastea': 'pages/tastea.html',
+                'Pikmin Bloom Accessibility': 'pages/pikminbloom.html',
             };
             
             const route = projectRoutes[projectTitle];
