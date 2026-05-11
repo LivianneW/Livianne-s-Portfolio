@@ -3,30 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pikmin Bloom Accessibility Resdesign - Livianne</title>
+    <title>Pikmin Bloom Accessibility Redesign - Livianne</title>
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../project-styles.css">
+<style>
 
-       <div class="project-content">
-        <div class="project-header">
-            <h2 class="project-title">Pikmin Bloom Accessibility Redesign</h2>
-            <p class="project-subtitle">Redesign</p>
-            <p class="project-description"> Our team redesigned and extended features from Pikmin Bloom to create a more inclusive movement-tracking experience for users with mobility and dexterity impairments. Moving beyond step-based systems, we introduced distance-based tracking and simplified interaction modes so effort is measured more equitably and gameplay is accessible regardless of physical ability.</p>
-            <a href="https://www.figma.com/proto/hq1XZFQ1SVw6yUW0Brr3H8/Resource-Bridge-Interface?page-id=64%3A48&node-id=414-1966&viewport=-1020%2C-741%2C0.4&t=7xVSNP8fFcIoeEIZ-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=414%3A1966&show-proto-sidebar=1" target="_blank" class="view-prototype-link">View the prototype</a>
-        </div>
+    a {
+        text-decoration: none;    
+        color: inherit;        
+    }
+    
+    .comparison-row-side-by-side {
+        display: flex;
+        gap: 13px;
+        justify-content: center;
+        margin-bottom: 0;
+        width: 100%;
+    }
 
-        <!-- Team Section -->
-        <div class="info-section">
-            <div class="info-tag">Team</div>
-            <div class="info-content">
-                <p class="team-lead">Livianne&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Product Designer</p>
-                <p class="team-member">Valerie&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Product Designer</p>
-                <p class="team-member">Pavani&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Product Designer</p>
-                <p class="team-member">Neela&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Product Designer</p>
+    .final-image {
+        width: 170px;
+        height: 337px;
+        border-radius: 25px;
+        overflow: hidden;
+        position: relative;
+        flex-shrink: 0; 
+    }
+
+    .final-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        background: transparent;
+        transform: scale(1.26); 
+        transition: transform 0.3s ease;
+    }
+
+    .final-image img.bottom-focus {
+        object-position: bottom;
+    }
+
+    .comparison-labels-row {
+        display: flex;
+        gap: 13px;
+        justify-content: center;
+        margin-bottom: 8px;
+    }
+
+    .image-label {
+        background: rgba(0, 0, 0, 0.05);
+        padding: 8px 0;
+        border-radius: 10px;
+        text-align: center;
+        font-size: 13px;
+        width: 170px; /* Matches the image width exactly */
+        margin: 12px 0;
+        font-weight: 400;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* MOBILE SPECIFIC FIXES */
+    @media (max-width: 480px) {
+        .comparison-row-side-by-side {
+            gap: 8px;
+            padding: 0 10px;
+        }
+
+        .final-image {
+            width: 47%;  
+            height: auto;  
+            aspect-ratio: 9 / 18;  
+        }
+
+        .image-label {
+            width: 47%;
+            padding: 8px 10px;
+        }
+        
+        .final-image img {
+            transform: scale(1.25); 
+        }
+    }
+</style>
+</head>
+<body>
+    <div class="container project-container">
+        <div class="header">
+            <h1><a href="../index.html">LIVIANNE</a></h1> 
+            <span class="page-indicator">/ Pikmin Bloom Accessibility Redesign</span>
+
+        <nav class="header-nav">
+            <a href="../index.html">Works</a>
+            <a href="../pages/about.html">About</a>
+            <a href="https://drive.google.com/file/d/1uY5DvgihQv_6BxHrdHPwktoVfEQGerwh/view?usp=sharing" target="_blank">Resume</a>
+        </nav>
+
+            <div class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
 
-        <!-- Tools Section -->
+        <div class="project-images">
+            <img src="../assets/PIKMIN.png" alt="Steam Logo 1">
+        </div>
+
+        <div class="project-content">
+        <div class="project-header">
+            <h2 class="project-title">Pikmin Bloom Accessibility</h2>
+            <p class="project-subtitle">Redesign</p>
+            <div class="info-tag">‘Nothing About Us Without Us’</div>
+            <p class="project-description">is a principle from the disability rights movement that emphasizes designing alongside disabled communities rather than for them. Accessibility is more than a checklist of features; it requires understanding lived experiences and integrating those perspectives throughout the design process. Yet in AR gaming, disabled players are frequently overlooked, even as gaming remains a powerful motivator for physical activity and engagement.</p>
+            <a href="https://www.figma.com/proto/T8qCYlmKyJohbXbCRdwBY9/Cogs-187a-Final-Project?page-id=67%3A1287&node-id=226-1772&viewport=821%2C-343%2C0.2&t=ftA7t25ghgidpxSa-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=226%3A1772&show-proto-sidebar=1" target="_blank" class="view-prototype-link">View the prototype</a>
+        </div>
+
+        <div class="info-section">
+            <div class="info-tag">Team</div>
+            <div class="info-content">
+                <p class="team-lead">Livianne&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Product Designer</p>
+                <p class="team-member">Pavani&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Product Designer</p>
+                <p class="team-member">Valerie&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Product Designer</p>
+                <p class="team-member">Neela&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Product Designer</p>
+
+            </div>
+        </div>
+
         <div class="info-section">
             <div class="info-tag">Tools</div>
             <div class="info-content">
@@ -34,7 +139,6 @@
             </div>
         </div>
 
-        <!-- Timeline Section -->
         <div class="info-section">
             <div class="info-tag">Timeline</div>
             <div class="info-content">
@@ -46,45 +150,39 @@
         <div class="info-section">
             <div class="info-tag">Skills</div>
             <div class="info-content">
-                <p>UX Research, User Personas, Prototyping, Product Thinking, User Testing, Interaction Design</p>
+                <p>User Research, User Flows, Product Thinking, Prototyping</p>
             </div>
         </div>
 
         <div class="section-divider"></div>
 
-        <!-- Problem Statement -->
         <h3 class="section-heading">Problem Statement</h3>
         <div class="section-content">
-            <p>Individuals with mobility impairments are not motivated to move by using fitness walking games, 
-            as existing game features strictly compare footsteps to "effort" and rely on fine motor skills for progression.</p>
+            <p>Individuals with mobility impairments are not motivated to move by using fitness walking games, as existing game features strictly compare footsteps to "effort" and rely on fine motor skills for progression.</strong></p>
         </div>
 
-        <!-- Initial Research & Pain Points -->
         <h3 class="section-heading">Research & Pain Points</h3>
         <div class="section-content">
-            <p>We interviewed four participants who had experienced lower-body injuries or mobility-related conditions, including both users and non-users of Pikmin Bloom. Conversations focused on their daily movement, how they use (or don't use) activity tracking tools, and how those tools make them feel. Some participants also walked us through how they interact with apps in real time.</p>
+            <p>We interviewed four participants with lower-body injuries or mobility-related conditions, including both Pikmin Bloom users and non-users, and identified several key pain points:</p>
             <ul>
-                <li><strong>Step counts don't always reflect real effort:</strong> A big theme we heard was that “steps” don’t tell the full story.
-                People moving with injuries or mobility differences often work harder for the same number of steps—or sometimes even fewer steps—than others. Things like walking slowly, recovering from injury, or using assistive movement just aren’t captured well by current trackers.</li>
-                <li><strong>Tracking can feel motivating, but also discouraging:</strong> For some users, tracking movement is encouraging and helps them stay active. But for others, it can feel stressful or even guilt-inducing, especially on low-energy days. A few participants mentioned avoiding apps entirely when they already felt unmotivated, because seeing “low numbers” made them feel worse instead of better.</li>
-                <li><strong>People care more about the game than the steps:</strong> In Pikmin Bloom, most users weren’t really focused on step counts at all. What actually motivated them were the game mechanics—collecting items, completing expeditions, and joining community events. The steps were more of a background system than the main reason they played.</li>
-                <li><strong>Mobility changes break the tracking experience:</strong> Users with injuries or chronic conditions shared that tracking isn’t always reliable or consistent. Slower walking, different devices, or certain environments can lead to missed or inaccurate data. Sometimes the app even misreads movement entirely, which makes the experience feel disconnected from reality.</li>
-                <li><strong>Movement is bigger than walking:</strong> Across interviews, there was a strong desire for tracking systems to recognize more types of movement. Users mentioned things like strength training, upper-body exercises, indoor workouts, or even adapted movement on low-energy days. Right now, most of that effort is invisible.</li>
-                <li><strong>Progress systems drive engagement:</strong>Even when tracking wasn’t perfect, users kept coming back because of progression loops—collecting, completing tasks, and not wanting to “fall behind.” The sense of completion mattered more than perfectly accurate step tracking.</li>
+                <li><strong>Movement is bigger than just walking:</strong> Users want movement systems to recognize a wider range of activities beyond walking, including strength training, indoor workouts, and adapted exercises.</li>
+                <li><strong>Step counts don't always reflect real effort:</strong> People moving with injuries or mobility differences often work harder for the same number of steps, or sometimes even fewer steps, than others. Things like walking slowly, recovering from injury, or using assistive movement just aren’t captured well by current trackers.</li>
+                <li><strong>Movement tracking can feel discouraging:</strong>Movement tracking can feel discouraging, with low numbers often creating guilt instead of motivation.</li>
+                <li><strong>People care more about the game than the steps:</strong> Most users weren't really focused on step counts at all. Instead, it they cared more about gameplay progression, such as collecting items, completing expeditions, and participating in events, than step counts themselves.</li>
+                <li><strong>Mobility changes break the tracking experience:</strong> Mobility-related conditions can make tracking unreliable, leading to inaccurate or inconsistent movement data.</li>
+                <li><strong>Progress systems drive engagement:</strong> Even when tracking wasn't perfect, users kept coming back because of progression loops, collecting, completing tasks, and not wanting to “fall behind.” The sense of completion mattered more than perfectly accurate step tracking.</li>
             </ul>
         </div>
 
-        <!-- Design Features -->
-        <h3 class="section-heading">Design Features</h3>
+        <h3 class="section-heading">From "Motivation to Walk" to "Motivation to Move”</h3>
         <div class="section-content">
-            <p>After exploring user flows, we identified two core accessibility features to make movement-based gameplay more inclusive for users with mobility and dexterity impairments.</p>
+            <p>Beyond the traditional step-tracker, our team proposed the idea of “activity tracking.” Following the Accessible Player Experiences (APX) framework, we intend to replace the step count tracker with a motion-intensity tracker.</p>
             <ul>
-                <li><strong>Distance-Based Movement Tracking:</strong> Replaces step-count progression with distance-based tracking, allowing users who use wheelchairs or mobility aids to have their movement accurately reflected. This ensures that effort is measured equitably regardless of walking ability.”</li>
-                <li><strong>Dexterity-Friendly Interaction Mode:</strong> Simplifies in-game interactions for users with limited motor control by reducing reliance on precise gestures. Complex actions like tapping, swiping, and dragging are replaced with more accessible inputs such as single or double taps, making core gameplay (feeding, collecting, managing Pikmin) easier to perform. </li>
+                <li><strong>Distance-Based Movement Tracking:</strong> Replacing step-count progression with distance-based tracking, allows users who use wheelchairs or mobility aids to have their movement accurately reflected. This ensures that effort is measured equitably regardless of walking ability.</li>
+                <li><strong>Dexterity-Friendly Interaction Mode:</strong> Simplifying in-game interactions for users with limited motor control by reducing reliance on precise gestures. Complex actions like tapping, swiping, and dragging are replaced with more accessible inputs such as single or double taps, making core gameplay (feeding, collecting, managing Pikmin) easier to perform.</li>
             </ul>
         </div>
-        
-
+        </div>
 
 
         <div class="footer">
@@ -100,7 +198,7 @@
                     </div>
                     <span class="footer-label">LinkedIn</span>
                 </a>
-                <a href="https://drive.google.com/file/d/1oapfNvccTuqfSGTQbo49FFuMPb9QTcAW/view" target="_blank" class="footer-social-link">
+                <a href="https://drive.google.com/file/d/1uY5DvgihQv_6BxHrdHPwktoVfEQGerwh/view" target="_blank" class="footer-social-link">
                     <div class="footer-icon-wrapper">
                         <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 26 26">
                             <path clip-rule="evenodd" d="M0.549175 0.549256C0.9008 0.197625 1.37772 8.13603e-05 1.875 8.13603e-05H9.375C9.54076 8.13603e-05 9.69974 0.0659294 9.81694 0.18314L14.817 5.18314C14.9341 5.30034 15 5.45932 15 5.62508V15.6251C15 16.1223 14.8025 16.5993 14.4509 16.951C14.0992 17.3026 13.6222 17.5001 13.125 17.5001H1.875C1.37771 17.5001 0.9008 17.3026 0.549175 16.951C0.19755 16.5993 0 16.1223 0 15.6251V1.87508C0 1.37781 0.19755 0.900886 0.549175 0.549256ZM4.94475 4.93916C5.65191 4.93916 6.22517 4.36589 6.22517 3.65873C6.22517 2.95158 5.65191 2.37832 4.94475 2.37832C4.2376 2.37832 3.66434 2.95158 3.66434 3.65873C3.66434 4.36589 4.2376 4.93916 4.94475 4.93916ZM2.34474 10.625C2.3441 10.1936 2.69335 9.84378 3.12482 9.84378H11.8749C12.3062 9.84378 12.6566 10.1936 12.6572 10.625C12.6579 11.0565 12.3086 11.4063 11.8771 11.4063H3.12716C2.6957 11.4063 2.34539 11.0565 2.34474 10.625ZM2.34474 14.3751C2.3441 13.9436 2.69335 13.5938 3.12482 13.5938H8.12482C8.5563 13.5938 8.9066 13.9436 8.90725 14.3751C8.9079 14.8065 8.55865 15.1563 8.12717 15.1563H3.12716C2.6957 15.1563 2.34539 14.8065 2.34474 14.3751ZM4.94399 5.79262C4.0692 5.79262 3.27126 6.12159 2.66711 6.66257C2.3085 6.98367 2.58855 7.49984 3.06991 7.49984H6.81806C7.29942 7.49984 7.57946 6.98367 7.22086 6.66257C6.61671 6.12159 5.81876 5.79262 4.94399 5.79262Z" fill="#585858" fill-rule="evenodd" transform="translate(5.5, 4.25)" />
