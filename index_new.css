@@ -78,7 +78,6 @@ body {
   color: var(--accent-pink);
 }
 
-/* Standout button style for resume link */
 .resume-highlight {
   font-weight: 400;
 }
@@ -87,9 +86,7 @@ body {
   color: #d3a0a0;
 }
 
-/* ==========================================================================
-   3. STRUCTURAL DATA-DRIVEN HERO
-   ========================================================================== */
+/* HERO*/
 .recruiter-hero {
   padding-top: 8rem;
   padding-bottom: 8rem;
@@ -118,11 +115,23 @@ body {
   margin-bottom: 1rem;
 }
 
-/* Scannable Metadata Grid */
+/* ── MAIN HERO LAYOUT CONTAINER ── */
+.hero-container {
+  display: flex;
+  justify-content: space-between; /* Securely pins left items to the left, right items to the right */
+  align-items: center;
+  width: 100%;
+  max-width: 1400px;              /* Matches your expanded 1400px design boundary */
+  margin: 0 auto;
+  padding: 64px 0;                /* CRUCIAL: Set right/left padding to 0 so content can hit the exact edges */
+}
+
+/* ── MATRIX COLUMN CONTAINER (LEFT SIDE) ── */
 .scannable-matrix {
   display: flex;
   flex-direction: column;
-  gap: 5rem;
+  gap: 3.5rem;                    /* Balanced vertical spacing */
+  width: 100%;
   max-width: 500px;
 }
 
@@ -130,7 +139,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-  padding-left: 0rem;
 }
 
 .matrix-label {
@@ -144,19 +152,41 @@ body {
 .matrix-value {
   font-size: 1rem;
   color: var(--text-dark);
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.4;
 }
 
+/* ── GIF CONTAINER FRAME (RIGHT SIDE) ── */
 .gif-container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-end;      /* Snaps the inner contents tightly against the right wall */
+  align-items: center;
+  flex: 1;                        /* Allows the wrapper to expand fluidly to claim right-side room */
+  max-width: 1200px;               /* Keeps it proportionally balanced opposite the matrix column */
 }
 
 .hero-gif {
   width: 100%;
-  max-width: 440px;
+  height: auto;
+  max-width: 1200px;               /* Limits massive stretching while maintaining a clean footprint */
   border-radius: 12px;
+  object-fit: contain;
+  margin-right: 0;                /* Explicit guard against stray margins pushing it left */
+}
+
+/* ── RESPONSIVE TABLET & MOBILE VIEWPORTS ── */
+@media (max-width: 920px) {
+  .hero-container {
+    flex-direction: column;       /* Clean vertical stack for handheld devices */
+    gap: 40px;
+    padding: 48px 24px;           /* Re-introduces standard safety margins on mobile screens */
+    text-align: left;
+  }
+
+  .gif-container {
+    justify-content: center;      /* Centers your project animations beautifully on phone viewports */
+    max-width: 100%;
+  }
 }
 
 /* ==========================================================================
@@ -309,82 +339,61 @@ body {
   margin-top: 1.rem;
 }
 
-/* ==========================================================================
-   5. COMPACT CONTEXT FOOTER
-   ========================================================================== */
+/* Container framework */
 .footer {
-  max-width: 1400px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 3rem;  
-  padding-right: 3rem;
-  padding-top: 4rem;     
-  padding-bottom: 4rem;
-  border-top: 1px solid rgba(28, 28, 28, 0.05); 
-  
   display: flex;
-  justify-content: space-between; 
-  align-items: flex-start;
-  gap: 2rem;
+  flex-direction: column;
+  gap: 32px;          
+  width: 100%;
+  max-width: 1400px;   
+  margin: 0 auto;
+  padding: 64px 24px;  
+  border-top: 1px solid rgba(28, 28, 28, 0.05);  
 }
 
-/* LEFT SIDE */
-.footer-left {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 24px; 
+.footer-thank-you {
+  font-size: 20px;
+  font-weight: 300;
+  color: #a29fa0;
+  line-height: normal;
+  margin-left: 40px;
 }
 
-.footer-social-link {
+.footer-row {
   display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  width: 100%;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 24px;         
   align-items: center;
-  gap: 12px;
+}
+
+.footer-social-link, 
+.footer-email {
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
+  background-color: rgba(239, 214, 208, 0.25);
+  border: 1px solid rgba(239, 214, 208, 0.4);
+  color: #585858;
+  border-radius: 20px;
+  padding: 6px 16px;
   transition: opacity 0.2s ease;
 }
 
-.footer-icon-wrapper {
-  width: 40px; /* Slightly scaled down for crisper geometric proportions */
-  height: 40px;
-  background-color: rgba(239, 214, 208, 0.35); 
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.footer-icon-wrapper svg {
-  width: 32px; 
-  height: 32px;
-  transition: fill 0.2s ease;
-}
-
-.footer-label {
-  font-size: 16px;
-  font-weight: 400;
-  color: #a29fa0;
-  line-height: normal;
-  transition: color 0.2s ease;
-}
-
-.footer-social-link:hover .footer-icon-wrapper {
-  background-color: rgba(239, 214, 208, 0.7);
-  transform: translateY(-2px);
+.footer-social-link:hover, 
+.footer-email:hover {
+  background-color: rgba(239, 214, 208, 0.5);
+  border-color: rgba(239, 214, 208, 0.7);
+  transform: translateY(-1px);      
 }
 
 .footer-social-link:hover .footer-label {
-  color: #1c1c1c; /* Pulls recruiter's eyes clearly to focus targets */
-}
-
-/* RIGHT SIDE */
-.footer-right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;  
-  gap: 12px;             
-  text-align: right;
+  color: #1c1c1c;  
 }
 
 .scroll-up-btn {
@@ -418,45 +427,6 @@ body {
 
 .scroll-up-btn:hover svg {
   color: #d3a0a0;
-}
-
-.footer-thank-you {
-  font-size: 16px;
-  font-weight: 300;
-  color: #a29fa0;
-  line-height: normal;
-  margin: 2px 0; /* Tiny fine-tuning window space */
-}
-
-.footer-email {
-  background-color: rgba(239, 214, 208, 0.25);
-  border: 1px solid rgba(239, 214, 208, 0.4);
-  border-radius: 20px;
-  padding: 6px 16px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  margin-top: 4px; /* Gives the clickable pill badge a bit of extra breathing room */
-}
-
-.footer-email span {
-  font-size: 15px;
-  font-weight: 500;
-  color: #585858;
-  line-height: normal;
-  white-space: nowrap;
-}
-
-.footer-email:hover {
-  background-color: rgba(239, 214, 208, 0.5);
-  border-color: rgba(239, 214, 208, 0.7);
-  transform: translateY(-1px);
-}
-
-.footer-email:hover span {
-  color: #1c1c1c;
 }
 
 /* ==========================================================================
