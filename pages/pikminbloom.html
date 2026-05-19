@@ -1,190 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pikmin Bloom Accessibility Redesign - Livianne</title>
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="../project-styles.css">
-<style>
-
-    a {
-        text-decoration: none;    
-        color: inherit;        
-    }
-    
-    .comparison-row-side-by-side {
-        display: flex;
-        gap: 13px;
-        justify-content: center;
-        margin-bottom: 0;
-        width: 100%;
-    }
-
-    .final-image {
-        width: 170px;
-        height: 337px;
-        border-radius: 25px;
-        overflow: hidden;
-        position: relative;
-        flex-shrink: 0; 
-    }
-
-    .final-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        background: transparent;
-        transform: scale(1.26); 
-        transition: transform 0.3s ease;
-    }
-
-    .final-image img.bottom-focus {
-        object-position: bottom;
-    }
-
-    .comparison-labels-row {
-        display: flex;
-        gap: 13px;
-        justify-content: center;
-        margin-bottom: 8px;
-    }
-
-    .image-label {
-        background: rgba(0, 0, 0, 0.05);
-        padding: 8px 0;
-        border-radius: 10px;
-        text-align: center;
-        font-size: 13px;
-        width: 170px; /* Matches the image width exactly */
-        margin: 12px 0;
-        font-weight: 400;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    /* MOBILE SPECIFIC FIXES */
-    @media (max-width: 480px) {
-        .comparison-row-side-by-side {
-            gap: 8px;
-            padding: 0 10px;
-        }
-
-        .final-image {
-            width: 47%;  
-            height: auto;  
-            aspect-ratio: 9 / 18;  
-        }
-
-        .image-label {
-            width: 47%;
-            padding: 8px 10px;
-        }
-        
-        .final-image img {
-            transform: scale(1.25); 
-        }
-    }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pikmin Bloom Accessibility Redesign - Livianne</title>
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-    <div class="container project-container">
-        <div class="header">
-            <h1><a href="../index.html">LIVIANNE</a></h1> 
-            <span class="page-indicator">/ Pikmin Bloom Accessibility Redesign</span>
 
-        <nav class="header-nav">
-            <a href="../index.html">Works</a>
-            <a href="../pages/about.html">About</a>
-            <a href="https://drive.google.com/file/d/1uY5DvgihQv_6BxHrdHPwktoVfEQGerwh/view?usp=sharing" target="_blank">Resume</a>
+  <header class="navbar">
+    <div class="container nav-container">
+
+    <a href="../index.html" class="logo-link">
+      <span class="logo">LIVIANNE</span>
+      <span class="page-indicator">/ Pikmin Bloom Accessibility Redesign</span>
+    </a>
+      
+      <nav class="nav-links">
+        <a href="../index.html" class="nav-link">Work</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="https://drive.google.com/file/d/1uY5DvgihQv_6BxHrdHPwktoVfEQGerwh/view?usp=sharing" class="nav-link">Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-banner">
+    <div class="container hero-container">
+      <div class="hero-text-block">
+        <h1 class="hero-title">Pikmin Bloom Accessibility</h1>
+        <p class="hero-subtitle">Redesign</p>
+      </div>
+      <div class="hero-image-wrapper">
+        <img src="../assets/PIKMIN.png" alt="Pikmin Bloom characters illustration" class="hero-img" />
+      </div>
+    </div>
+  </section>
+
+  <div class="container body-container">
+    
+    <aside class="sidebar">
+      <!-- Sticky Back to Home Button -->
+      <a href="../index_copy.html" class="back-btn-sticky">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        Back to Home
+      </a>
+
+      <!-- Scrolling Elements -->
+      <div class="meta-section">
+        <div class="badge"><span>Team</span></div>
+        <div class="team-list">
+          <p class="team-member lead">Livianne&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Product Designer</p>
+          <p class="team-member">Valerie&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UX Researcher</p>
+          <p class="team-member">Magnolia&nbsp;&nbsp;&nbsp;UX Researcher & Strategist</p>
+        </div>
+      </div>
+
+      <div class="meta-section">
+        <div class="badge"><span>Tools</span></div>
+        <p class="timeline">Figma</p>
+      </div>
+
+      <div class="timeline">
+        <div class="badge"><span>Timeline</span></div>
+        <p class="meta-text">November 2025 – December 2025</p>
+      </div>
+
+      <div class="toc-sticky-container">
+        <!-- Sticky Table of Contents Links -->
+        <nav class="toc">
+          <a href="#overview" class="toc-link active">Overview</a>
+          <a href="#problem-statement" class="toc-link">Problem Statement</a>
+          <a href="#the-solution" class="toc-link">The Solution</a>
+          <a href="#research-pain-points" class="toc-link">Research & Pain Points</a>
+          <a href="#design-features" class="toc-link">Design Features</a>
+          <a href="#reflection" class="toc-link">Reflection</a>          
         </nav>
 
-            <div class="hamburger-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+        <!-- Sticky View Prototype Action Button -->
+        <a 
+          href="https://www.figma.com/proto/T8qCYlmKyJohbXbCRdwBY9/Cogs-187a-Final-Project?page-id=67%3A1287&node-id=226-1772&viewport=821%2C-343%2C0.2&t=ftA7t25ghgidpxSa-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=226%3A1772&show-proto-sidebar=1" 
+          target="_blank" 
+          rel="noreferrer" 
+          class="prototype-btn"
+        >
+          <span class="btn-text">View prototype</span>
+        </a>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      
+      <section id="overview" class="content-section">
+        <p class="section-label">OVERVIEW</p>
+        <h2 class="section-heading">Designing with, not just for</h2>
+        <div class="text-block">
+          <p>
+            True inclusion starts when we stop treating accessibility like a
+            secondary feature and start treating it as a fundamental human
+            connection. AR gaming has this ability to bring people together
+            and get us moving, yet disabled players are so often left out of
+            the narrative. This project was an effort to change that by
+            shifting from designing for a community, to listening, learning,
+            and creating alongside them.
+          </p>
+          <p>
+            Our team redesigned and extended features in Pikmin Bloom to
+            create a more inclusive, thoughtful, and accessible experience
+            by introducing both mobility and dexterity-accessible features.
+          </p>
         </div>
+      </section>
 
-        <div class="project-images">
-            <img src="../assets/PIKMIN.png" alt="Steam Logo 1">
-        </div>
+      <section id="problem-statement" class="content-section">
+        <p class="section-label">PROBLEM STATEMENT</p>
+        <h2 class="section-heading">The Problem</h2>
+        <p class="text-paragraph">
+          By tying game progression strictly to footsteps with a heavy
+          reliance on fine motor interactions, current platforms fail to
+          accommodate the diverse ways people move and interact, closing off
+          a path that should be open to everyone.
+        </p>
+      </section>
 
-        <div class="project-content">
-        <div class="project-header">
-            <h2 class="project-title">Pikmin Bloom Accessibility</h2>
-            <p class="project-subtitle">Redesign</p>
-            <div class="info-tag">‘Nothing About Us Without Us’</div>
-            <p class="project-description">is a principle from the disability rights movement that emphasizes designing alongside disabled communities rather than for them. Accessibility is more than a checklist of features; it requires understanding lived experiences and integrating those perspectives throughout the design process. Yet in AR gaming, disabled players are frequently overlooked, even as gaming remains a powerful motivator for physical activity and engagement.</p>
-            <a href="https://www.figma.com/proto/T8qCYlmKyJohbXbCRdwBY9/Cogs-187a-Final-Project?page-id=67%3A1287&node-id=226-1772&viewport=821%2C-343%2C0.2&t=ftA7t25ghgidpxSa-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=226%3A1772&show-proto-sidebar=1" target="_blank" class="view-prototype-link">View the prototype</a>
-        </div>
+      <section id="the-solution" class="content-section">
+        <p class="section-label">THE SOLUTION</p>
+        <h2 class="section-heading">From "Motivation to Walk" to "Motivation to Move"</h2>
+        <p class="text-paragraph">
+          Our team reimagined what it means to go on a "walk" by shifting
+          from a traditional step-counter, to an inclusive activity tracker.
+          Grounded in the Accessible Player Experiences (APX) framework,
+          our solution replaces step count with a motion-intensity tracker
+          that measures effort instead. Paired with redesigned,
+          dexterity-accessible interaction, this extension ensures that
+          players with mobility and fine motor impairments are able to
+          immerse themselves in the game with less friction.
+        </p>
+      </section>
 
-        <div class="info-section">
-            <div class="info-tag">Team</div>
-            <div class="info-content">
-                <p class="team-lead">Livianne&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Product Designer</p>
-                <p class="team-member">Pavani&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Product Designer</p>
-                <p class="team-member">Valerie&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Product Designer</p>
-                <p class="team-member">Neela&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Product Designer</p>
+      <section id="research-pain-points" class="content-section">
+        <p class="section-label">RESEARCH AND PAIN POINTS</p>
+        <h2 class="section-heading">Our insights</h2>
+        <p class="text-paragraph margin-bottom-large">
+          We interviewed four participants with lower-body injuries or
+          mobility-related conditions, including both Pikmin Bloom users and
+          non-users, and identified several key pain points:
+        </p>
+        <ul class="bullet-list">
+          <li>
+            <span class="font-medium">Step counts don't always reflect real effort:</span>
+            Step counts fail to reflect real physical exertion. Players
+            moving with injuries, slower paces, or assistive devices often
+            work harder for fewer recorded steps, leading to feelings of
+            guilt rather than motivation.
+          </li>
+          <li>
+            <span class="font-medium">People care more about the game than the steps:</span>
+            Users don't care about the steps themselves, rather, they care
+            about gameplay progression (collecting items, completing
+            expeditions, and completing tasks). The sense of momentum and
+            completion is what drives the actual engagement.
+          </li>
+          <li>
+            <span class="font-medium">Movement is bigger than just walking:</span>
+            Users want movement systems to recognize a wider range of
+            activities beyond walking, including strength training, indoor
+            workouts, and adapted exercises.
+          </li>
+        </ul>
+      </section>
 
-            </div>
-        </div>
+      <section id="design-features" class="content-section">
+        <p class="section-label">DESIGN FEATURES</p>
+        <h2 class="section-heading">Our insights</h2>
+        <p class="text-paragraph margin-bottom-small">
+          After exploring user flows, we identified two core accessibility
+          features to make movement-based gameplay more inclusive for users
+          with mobility and dexterity impairments:
+        </p>
+        <ul class="bullet-list">
+          <li>
+            <span class="font-medium">Distance-Based Movement Tracking:</span>
+            Replacing step-count progression with distance-based tracking,
+            allows users who use wheelchairs or mobility aids to have their
+            movement accurately reflected. This ensures that effort is
+            measured equitably regardless of walking ability.
+          </li>
+          <li>
+            <span class="font-medium">Dexterity-Friendly Interaction Mode:</span>
+            Simplifying in-game interactions for users with limited motor
+            control by reducing reliance on precise gestures. Complex
+            actions like tapping, swiping, and dragging are replaced with
+            more accessible inputs such as single or double taps, making
+            core gameplay (feeding, collecting, and managing Pikmin) easier
+            to perform.
+          </li>
+        </ul>
+      </section>
 
-        <div class="info-section">
-            <div class="info-tag">Tools</div>
-            <div class="info-content">
-                <p>Figma</p>
-            </div>
-        </div>
+      <section id="reflection" class="content-section padding-bottom-large">
+        <p class="section-label">REFLECTION</p>
+        <p class="text-placeholder">Coming soon.</p>
+      </section>
+    </main>
+  </div>
 
-        <div class="info-section">
-            <div class="info-tag">Timeline</div>
-            <div class="info-content">
-                <p>April 2026 - June 2026</p>
-            </div>
-        </div>
-
-        <!-- Skills Section -->
-        <div class="info-section">
-            <div class="info-tag">Skills</div>
-            <div class="info-content">
-                <p>User Research, User Flows, Product Thinking, Prototyping</p>
-            </div>
-        </div>
-
-        <div class="section-divider"></div>
-
-        <h3 class="section-heading">Problem Statement</h3>
-        <div class="section-content">
-            <p>Individuals with mobility impairments are not motivated to move by using fitness walking games, as existing game features strictly compare footsteps to "effort" and rely on fine motor skills for progression.</strong></p>
-        </div>
-
-        <h3 class="section-heading">Research & Pain Points</h3>
-        <div class="section-content">
-            <p>We interviewed four participants with lower-body injuries or mobility-related conditions, including both Pikmin Bloom users and non-users, and identified several key pain points:</p>
-            <ul>
-                <li><strong>Movement is bigger than just walking:</strong> Users want movement systems to recognize a wider range of activities beyond walking, including strength training, indoor workouts, and adapted exercises.</li>
-                <li><strong>Step counts don't always reflect real effort:</strong> People moving with injuries or mobility differences often work harder for the same number of steps, or sometimes even fewer steps, than others. Things like walking slowly, recovering from injury, or using assistive movement just aren’t captured well by current trackers.</li>
-                <li><strong>Movement tracking can feel discouraging:</strong>Movement tracking can feel discouraging, with low numbers often creating guilt instead of motivation.</li>
-                <li><strong>People care more about the game than the steps:</strong> Most users weren't really focused on step counts at all. Instead, it they cared more about gameplay progression, such as collecting items, completing expeditions, and participating in events, than step counts themselves.</li>
-                <li><strong>Mobility changes break the tracking experience:</strong> Mobility-related conditions can make tracking unreliable, leading to inaccurate or inconsistent movement data.</li>
-                <li><strong>Progress systems drive engagement:</strong> Even when tracking wasn't perfect, users kept coming back because of progression loops, collecting, completing tasks, and not wanting to “fall behind.” The sense of completion mattered more than perfectly accurate step tracking.</li>
-            </ul>
-        </div>
-
-        <h3 class="section-heading">From "Motivation to Walk" to "Motivation to Move”</h3>
-        <div class="section-content">
-            <p>Beyond the traditional step-tracker, our team proposed the idea of “activity tracking.” Following the Accessible Player Experiences (APX) framework, we intend to replace the step count tracker with a motion-intensity tracker.</p>
-            <ul>
-                <li><strong>Distance-Based Movement Tracking:</strong> Replacing step-count progression with distance-based tracking, allows users who use wheelchairs or mobility aids to have their movement accurately reflected. This ensures that effort is measured equitably regardless of walking ability.</li>
-                <li><strong>Dexterity-Friendly Interaction Mode:</strong> Simplifying in-game interactions for users with limited motor control by reducing reliance on precise gestures. Complex actions like tapping, swiping, and dragging are replaced with more accessible inputs such as single or double taps, making core gameplay (feeding, collecting, managing Pikmin) easier to perform.</li>
-            </ul>
-        </div>
-        </div>
-
-
+  <!-- ── COMPACT FOOTER ── -->
         <div class="footer">
             <div class="footer-left">
                 <a href="https://www.linkedin.com/in/livianne-wong-b3b724205/" target="_blank" class="footer-social-link">
@@ -219,32 +242,80 @@
                 </a>
             </div>
 
-            <button class="scroll-up-btn">
-                <span>Scroll up</span>
-                <svg fill="none" preserveAspectRatio="none" viewBox="0 0 9.51388 7.36396">
-                    <path d="M0.146447 3.32843C-0.0488155 3.52369 -0.0488155 3.84027 0.146447 4.03553L3.32843 7.21751C3.52369 7.41278 3.84027 7.41278 4.03553 7.21751C4.2308 7.02225 4.2308 6.70567 4.03553 6.51041L1.20711 3.68198L4.03553 0.853553C4.2308 0.658291 4.2308 0.341709 4.03553 0.146447C3.84027 -0.0488154 3.52369 -0.0488154 3.32843 0.146447L0.146447 3.32843ZM0.5 3.68198V4.18198H9.51388V3.68198V3.18198H0.5V3.68198Z" fill="#A29FA0" />
-                </svg>
+          <div class="footer-right">
+            <button class="scroll-up-btn" id="scrollUpBtn">
+              <span>Scroll up</span>
+              <svg viewBox="0 0 9.51388 7.36396" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0.146447 3.32843C-0.0488155 3.52369 -0.0488155 3.84027 0.146447 4.03553L3.32843 7.21751C3.52369 7.41278 3.84027 7.41278 4.03553 7.21751C4.2308 7.02225 4.2308 6.70567 4.03553 6.51041L1.20711 3.68198L4.03553 0.853553C4.2308 0.658291 4.2308 0.341709 4.03553 0.146447C3.84027 -0.0488154 3.52369 -0.0488154 3.32843 0.146447L0.146447 3.32843ZM0.5 3.68198V4.18198H9.51388V3.68198V3.18198H0.5V3.68198Z" fill="#A29FA0"/>
+              </svg>
             </button>
-            <p class="footer-thank-you">Thank you for viewing! :-)</p>
+            
+            <p class="footer-thank-you">Thank you for viewing! :D</p>
+            
             <a href="mailto:liviwong123@gmail.com" class="footer-email">
-                <span>liviwong123@gmail.com</span>
+              <span>liviwong123@gmail.com</span>
             </a>
+          </div>
         </div>
-    </div>
 
-    <div class="menu-overlay"></div>
-    <div class="menu-panel">
-        <div class="menu-header">
-            <h3>Menu</h3>
-            <button class="close-menu">&times;</button>
-        </div>
-        <div class="menu-items">
-            <a href="../index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="https://drive.google.com/file/d/1uY5DvgihQv_6BxHrdHPwktoVfEQGerwh/view" target="_blank">Resume</a>
-        </div>
-    </div>
+ <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    
+    // ── 1. DYNAMIC TABLE OF CONTENTS HIGHLIGHT SYSTEM ──
+    const sections = document.querySelectorAll('.content-section');
+    const tocLinks = document.querySelectorAll('.toc-link');
 
-    <script src="../script.js"></script>
+    // Configurations for the screen visibility trigger tracking windows
+    const options = {
+      root: null,
+      rootMargin: '-15% 0px -75% 0px', // Triggers focus when heading arrives near top of page
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const currentId = entry.target.getAttribute('id');
+          
+          tocLinks.forEach(link => {
+            // Extract target hash value safely
+            const linkHref = link.getAttribute('href');
+            if (linkHref && linkHref.includes('#')) {
+              const targetHash = linkHref.split('#')[1];
+              
+              if (targetHash === currentId) {
+                link.classList.add('active');
+              } else {
+                link.classList.remove('active');
+              }
+            }
+          });
+        }
+      });
+    }, options); // Clear closing block for options configuration array
+
+    // Activate the intersection observer tracking loop on all target sections
+    sections.forEach(section => observer.observe(section));
+
+
+    // ── 2. INDEX PAGE BACK TO TOP BUTTON ──
+    const scrollTopAction = document.getElementById('scrollTopAction');
+    if (scrollTopAction) {
+      scrollTopAction.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+
+    // ── 3. CASE STUDY PAGE SCROLL UP BUTTON ──
+    const scrollUpBtn = document.getElementById('scrollUpBtn');
+    if (scrollUpBtn) {
+      scrollUpBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+  });  
+</script>
 </body>
 </html>

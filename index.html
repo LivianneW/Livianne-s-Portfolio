@@ -1,209 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Livianne - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-<style>
-.welcome-banner a {
-  display: block;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-}
-
-.welcome-banner img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 15px;
-  transform: scale(.95);
-}
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Livianne — Product Designer</title>
+  <link rel="stylesheet" href="index_new.css">
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-        <h1>LIVIANNE</h1>
 
-        <nav class="header-nav">
-            <a href="index.html">Works</a>
-            <a href="pages/about.html">About</a>
-            <a href="https://drive.google.com/file/d/1uY5DvgihQv_6BxHrdHPwktoVfEQGerwh/view?usp=sharing" target="_blank">Resume</a>
-        </nav>
+  <!-- ── FUNCTIONAL DIRECT NAVBAR ── -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="site-brand">LIVIANNE</a>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link current">Work</a>
+        <a href="pages/about.html" class="nav-link">About</a>
+        <a href="https://drive.google.com/file/d/1uY5DvgihQv_6BxHrdHPwktoVfEQGerwh/view?usp=sharing" target="_blank" rel="noreferrer" class="nav-link resume-highlight">Resume</a>
+      </nav>
+    </div>
+  </header>
 
-        <div class="hamburger-menu">
-            <span></span>
-            <span></span>
-            <span></span>
+  <!-- ── SCANNER HERO BLOCK (The 3-Second Rule) ── -->
+  <section class="recruiter-hero">
+    <div class="hero-wrapper">
+      <div class="hero-left">
+        <h1 class="hero-headline">Welcome! I'm Livianne</h1>
+        <p class="hero-tagline">Product Designer</p>
+        
+        <!-- Quick-scan credentials table for recruiters -->
+        <div class="scannable-matrix">
+          <div class="matrix-item">
+          <span class="matrix-value">Creating accessible digital experiences shaped by human behavior, emotion, and connection</span>
+          </div>
+          <div class="matrix-item">
+            <span class="matrix-label">EDUCATION</span>
+            <span class="matrix-value">B.S. in Cognitive Science (Design & Interaction) @ UC San Diego</span>
+          </div>
         </div>
+      </div>
+      
+      <div class="hero-right">
+        <div class="gif-container">
+          <a href="https://foundation.app/@mae_1031_" target="_blank" rel="noreferrer">    
+            <img src="assets/WELCOMEBANNER.gif" alt="Livianne Welcome Banner" class="hero-gif">
+          </a>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="welcome-banner">
-        <a href="https://foundation.app/@mae_1031_">    
-            <img src="assets/WELCOMEBANNER.gif" alt="Welcome Banner"> </a>
-        </div>
+  <!-- ── SELECTED CASE STUDIES ── -->
+  <main class="gallery-wrapper">
+    <div class="gallery-header">
+      <h2 class="gallery-title">CASE STUDIES</h2>
+      <div class="filter-controls">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="redesign">Redesign</button>
+        <button class="filter-btn" data-filter="product-design">Product Design</button>
+        <button class="filter-btn" data-filter="internship">Internship</button>
+      </div>
+    </div>
 
-        <div class="introduction">
-            <h2>Hello! I'm Livianne</h2>
-           <div class="subtitle">Product Design Student</div>
-            <p>
-                <span>Studying</span> <strong>Cognitive Science</strong> 
-                <span>with a specialization in</span> <strong>Design and Interaction</strong> 
-                <span>at</span> <strong>UC San Diego</strong><br>
-                <span>Interested in <strong>UX</strong> and <strong>information architecture</strong></span>
-            </p>
-        </div>
-
-        <div class="divider"></div>
-
-        <div class="projects">
-            <div class="categories">
-                <button class="category-btn active" data-category="all">All</button>
-                <button class="category-btn" data-category="internship">Internship</button>
-                <button class="category-btn" data-category="product-design">Product Design</button>
-                <button class="category-btn" data-category="redesign">Redesign</button>
+    <!-- Direct Recruiter Layout Grid -->
+    <div class="works-matrix">
+      
+      <!-- PROJECT 1: PIKMIN BLOOM -->
+      <article class="work-card" data-cat="redesign">
+        <a href="pages/pikminbloom.html" class="card-inner-link">
+          <div class="work-media-container">
+            <img src="assets/PIKMIN.png" alt="Pikmin Bloom Case Study" class="work-asset">
+          </div>
+          <div class="work-details">
+            <div class="project-header-row">
+              <h3 class="work-title">Pikmin Bloom Accessibility Redesign</h3>
+              <span class="project-date">Spring 2026</span>
             </div>
-
-            <div class="project-cards">
-            <!-- Pikmin Bloom Redesign -->
-                <div class="project-card" data-categories="all redesign">
-                    <div class="project-image">
-                        <div class="team-badge">
-                            <span>4</span>
-                            <svg viewBox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7.2 10C7.2 10 8 10 8 9.16667C8 8.33333 7.2 5.83333 4 5.83333C0.8 5.83333 0 8.33333 0 9.16667C0 10 0.8 10 0.8 10H7.2ZM6.4 2.5C6.4 2.8283 6.33792 3.15339 6.21731 3.45671C6.0967 3.76002 5.91992 4.03562 5.69706 4.26777C5.4742 4.49991 5.20962 4.68406 4.91844 4.8097C4.62726 4.93534 4.31517 5 4 5C3.68483 5 3.37274 4.93534 3.08156 4.8097C2.79038 4.68406 2.5258 4.49991 2.30294 4.26777C2.08008 4.03562 1.9033 3.76002 1.78269 3.45671C1.66208 3.15339 1.6 2.8283 1.6 2.5C1.6 1.83696 1.85286 1.20107 2.30294 0.732233C2.75303 0.263392 3.36348 0 4 0C4.63652 0 5.24697 0.263392 5.69706 0.732233C6.14714 1.20107 6.4 1.83696 6.4 2.5Z" fill="white"/>
-                            </svg>
-                        </div>
-                        <img src="assets/PIKMIN.png" alt="Pikmin" style="transform: scale(1.3);">
-                    </div>
-                    <div class="project-info">
-                        <div class="project-meta">
-                            <span>SPRING 2026</span>
-                            <span>Redesign</span>
-                        </div>
-                        <h3 class="project-title">Pikmin Bloom Accessibility</h3>
-                        <p class="project-description">Designing accessible gameplay features focused on inclusive movement tracking and dexterity-friendly interactions.<br>  <br></p>
-                        <button class="view-project-btn">View Project</button>
-                    </div>
-                </div>
-
-                <!-- Steam Navigation Redesign -->
-                <div class="project-card" data-categories="all redesign">
-                    <div class="project-image">
-                        <div class="team-badge">
-                            <span>3</span>
-                            <svg viewBox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7.2 10C7.2 10 8 10 8 9.16667C8 8.33333 7.2 5.83333 4 5.83333C0.8 5.83333 0 8.33333 0 9.16667C0 10 0.8 10 0.8 10H7.2ZM6.4 2.5C6.4 2.8283 6.33792 3.15339 6.21731 3.45671C6.0967 3.76002 5.91992 4.03562 5.69706 4.26777C5.4742 4.49991 5.20962 4.68406 4.91844 4.8097C4.62726 4.93534 4.31517 5 4 5C3.68483 5 3.37274 4.93534 3.08156 4.8097C2.79038 4.68406 2.5258 4.49991 2.30294 4.26777C2.08008 4.03562 1.9033 3.76002 1.78269 3.45671C1.66208 3.15339 1.6 2.8283 1.6 2.5C1.6 1.83696 1.85286 1.20107 2.30294 0.732233C2.75303 0.263392 3.36348 0 4 0C4.63652 0 5.24697 0.263392 5.69706 0.732233C6.14714 1.20107 6.4 1.83696 6.4 2.5Z" fill="white"/>
-                            </svg>
-                        </div>
-                        <img src="assets/Steam-Showcase.png" alt="Steam" style="transform: scale(2);">
-                    </div>
-                    <div class="project-info">
-                        <div class="project-meta">
-                            <span>FALL 2025</span>
-                            <span>Redesign</span>
-                        </div>
-                        <h3 class="project-title">Steam Navigation Redesign</h3>
-                        <p class="project-description">Simplifying feature discovery on the Steam mobile app <br>  <br></p>
-                        <button class="view-project-btn">View Project</button>
-                    </div>
-                </div>
-
-                <!-- QUESST -->
-                <div class="project-card" data-categories="all internship">
-                    <div class="project-image quesst-image">
-                        <div class="team-badge">
-                            <span>3</span>
-                            <svg viewBox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7.2 10C7.2 10 8 10 8 9.16667C8 8.33333 7.2 5.83333 4 5.83333C0.8 5.83333 0 8.33333 0 9.16667C0 10 0.8 10 0.8 10H7.2ZM6.4 2.5C6.4 2.8283 6.33792 3.15339 6.21731 3.45671C6.0967 3.76002 5.91992 4.03562 5.69706 4.26777C5.4742 4.49991 5.20962 4.68406 4.91844 4.8097C4.62726 4.93534 4.31517 5 4 5C3.68483 5 3.37274 4.93534 3.08156 4.8097C2.79038 4.68406 2.5258 4.49991 2.30294 4.26777C2.08008 4.03562 1.9033 3.76002 1.78269 3.45671C1.66208 3.15339 1.6 2.8283 1.6 2.5C1.6 1.83696 1.85286 1.20107 2.30294 0.732233C2.75303 0.263392 3.36348 0 4 0C4.63652 0 5.24697 0.263392 5.69706 0.732233C6.14714 1.20107 6.4 1.83696 6.4 2.5Z" fill="white"/>
-                            </svg>
-                        </div>
-                        <img src="assets/QUESST.png" alt="QUESST Project">
-                    </div>
-                    <div class="project-info">
-                        <div class="project-meta">
-                            <span>SPRING 2025</span>
-                            <span>Internship</span>
-                        </div>
-                        <h3 class="project-title">QUESST</h3>
-                        <p class="project-description">Design Lead for NASA's X-59 Quiet Supersonic Project <br></br></p>
-                        <button class="view-project-btn">View Project</button>
-                    </div>
-                </div>
-
-                <!-- Resource Bridge -->
-                <div class="project-card" data-categories="all product-design">
-                    <div class="project-image resource-bridge-image">
-                        <div class="team-badge">
-                            <span>3</span>
-                            <svg viewBox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7.2 10C7.2 10 8 10 8 9.16667C8 8.33333 7.2 5.83333 4 5.83333C0.8 5.83333 0 8.33333 0 9.16667C0 10 0.8 10 0.8 10H7.2ZM6.4 2.5C6.4 2.8283 6.33792 3.15339 6.21731 3.45671C6.0967 3.76002 5.91992 4.03562 5.69706 4.26777C5.4742 4.49991 5.20962 4.68406 4.91844 4.8097C4.62726 4.93534 4.31517 5 4 5C3.68483 5 3.37274 4.93534 3.08156 4.8097C2.79038 4.68406 2.5258 4.49991 2.30294 4.26777C2.08008 4.03562 1.9033 3.76002 1.78269 3.45671C1.66208 3.15339 1.6 2.8283 1.6 2.5C1.6 1.83696 1.85286 1.20107 2.30294 0.732233C2.75303 0.263392 3.36348 0 4 0C4.63652 0 5.24697 0.263392 5.69706 0.732233C6.14714 1.20107 6.4 1.83696 6.4 2.5Z" fill="white"/>
-                            </svg>
-                        </div>
-                        <img src="assets/RESOURCEBRIDGE.png" alt="Resource Bridge">
-                    </div>
-                    <div class="project-info">
-                        <div class="project-meta">
-                            <span>WINTER 2025</span>
-                            <span>Product Design</span>
-                        </div>
-                        <h3 class="project-title">Resource Bridge</h3>
-                        <p class="project-description">Designing a kiosk to help unhoused people find local essential resources</p>
-                        <button class="view-project-btn">View Project</button>
-                    </div>
-                </div>
-
-                <!-- Spoonify -->
-                <div class="project-card" data-categories="all product-design">
-                    <div class="project-image">
-                        <div class="team-badge">
-                            <span>1</span>
-                            <svg viewBox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7.2 10C7.2 10 8 10 8 9.16667C8 8.33333 7.2 5.83333 4 5.83333C0.8 5.83333 0 8.33333 0 9.16667C0 10 0.8 10 0.8 10H7.2ZM6.4 2.5C6.4 2.8283 6.33792 3.15339 6.21731 3.45671C6.0967 3.76002 5.91992 4.03562 5.69706 4.26777C5.4742 4.49991 5.20962 4.68406 4.91844 4.8097C4.62726 4.93534 4.31517 5 4 5C3.68483 5 3.37274 4.93534 3.08156 4.8097C2.79038 4.68406 2.5258 4.49991 2.30294 4.26777C2.08008 4.03562 1.9033 3.76002 1.78269 3.45671C1.66208 3.15339 1.6 2.8283 1.6 2.5C1.6 1.83696 1.85286 1.20107 2.30294 0.732233C2.75303 0.263392 3.36348 0 4 0C4.63652 0 5.24697 0.263392 5.69706 0.732233C6.14714 1.20107 6.4 1.83696 6.4 2.5Z" fill="white"/>
-                            </svg>
-                        </div>
-                        <img src="assets/Spoonify-Showcase.png" alt="Spoonify" style="transform: scale(1.1);">
-                    </div>
-                    <div class="project-info">
-                        <div class="project-meta">
-                            <span>FALL 2024</span>
-                            <span>Product Design</span>
-                        </div>
-                        <h3 class="project-title">Spoonify</h3>
-                        <p class="project-description">A recipe app designed to simplify cooking for everyone</p>
-                        <button class="view-project-btn">View Project</button>
-                    </div>
-                </div>
-
-                <!-- Tastea -->
-                <div class="project-card" data-categories="all redesign">
-                    <div class="project-image">
-                        <div class="team-badge">
-                            <span>1</span>
-                            <svg viewBox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7.2 10C7.2 10 8 10 8 9.16667C8 8.33333 7.2 5.83333 4 5.83333C0.8 5.83333 0 8.33333 0 9.16667C0 10 0.8 10 0.8 10H7.2ZM6.4 2.5C6.4 2.8283 6.33792 3.15339 6.21731 3.45671C6.0967 3.76002 5.91992 4.03562 5.69706 4.26777C5.4742 4.49991 5.20962 4.68406 4.91844 4.8097C4.62726 4.93534 4.31517 5 4 5C3.68483 5 3.37274 4.93534 3.08156 4.8097C2.79038 4.68406 2.5258 4.49991 2.30294 4.26777C2.08008 4.03562 1.9033 3.76002 1.78269 3.45671C1.66208 3.15339 1.6 2.8283 1.6 2.5C1.6 1.83696 1.85286 1.20107 2.30294 0.732233C2.75303 0.263392 3.36348 0 4 0C4.63652 0 5.24697 0.263392 5.69706 0.732233C6.14714 1.20107 6.4 1.83696 6.4 2.5Z" fill="white"/>
-                            </svg>
-                        </div>
-                        <img src="assets/TASTEA.png" alt="Tastea">
-                    </div>
-                    <div class="project-info">
-                        <div class="project-meta">
-                            <span>FALL 2024</span>
-                            <span>Redesign</span>
-                        </div>
-                        <h3 class="project-title">Tastea</h3>
-                        <p class="project-description">Redesigning the bubble tea ordering experience</p>
-                        <button class="view-project-btn">View Project</button>
-                    </div>
-                </div>
+            
+            <!-- Skill/Context tags that recruiters screen for -->
+            <div class="recruiter-tags">
+              <span class="tag role">Product Designer</span>
+              <span class="tag scope">4-Person Team</span>
             </div>
-        </div>
+            
+            <p class="work-summary">Designing accessible gameplay features focused on inclusive movement tracking and dexterity-friendly interactions</p>
+          </div>
+        </a>
+      </article>
 
+      <!-- PROJECT 2: STEAM NAVIGATION -->
+      <article class="work-card" data-cat="redesign">
+        <a href="pages/steam_navigation.html" class="card-inner-link">
+          <div class="work-media-container">
+            <img src="assets/Steam-Showcase.png" alt="Steam Mobile Redesign Case Study" class="work-asset">
+          </div>
+          <div class="work-details">
+            <div class="project-header-row">
+              <h3 class="work-title">Steam Mobile App Navigation</h3>
+              <span class="project-date">Fall 2025</span>
+            </div>
+            <div class="recruiter-tags">
+              <span class="tag role">Product Designer</span>
+              <span class="tag framework">Information Architecture</span>
+              <span class="tag scope">3-Person Team</span>
+            </div>
+            <p class="work-summary">Redesigning the Steam mobile app to optimize discoverability pathways and solve navigation bottlenecks</p>
+          </div>
+        </a>
+      </article>
+
+      <!-- PROJECT 3: NASA QUESST -->
+      <article class="work-card" data-cat="internship">
+        <a href="pages/quesst.html" class="card-inner-link">
+          <div class="work-media-container">
+            <img src="assets/QUESST.png" alt="NASA QUESST Project Case Study" class="work-asset">
+          </div>
+          <div class="work-details">
+            <div class="project-header-row">
+              <h3 class="work-title">NASA QUESST</h3>
+              <span class="project-date">Spring 2025</span>
+            </div>
+            <div class="recruiter-tags">
+              <span class="tag role">Design Lead</span>
+              <span class="tag scope">3-Person Team</span>
+            </div>
+            <p class="work-summary">NASA's X-59 Quiet Supersonic Project</p>
+          </div>
+        </a>
+      </article>
+
+      <!-- PROJECT 4: RESOURCE BRIDGE -->
+      <article class="work-card" data-cat="product-design">
+        <a href="pages/resource_bridge.html" class="card-inner-link">
+          <div class="work-media-container">
+            <img src="assets/RESOURCEBRIDGE.png" alt="Resource Bridge Kiosk Case Study" class="work-asset">
+          </div>
+          <div class="work-details">
+            <div class="project-header-row">
+              <h3 class="work-title">Resource Bridge Support Kiosk</h3>
+              <span class="project-date">Winter 2025</span>
+            </div>
+            <div class="recruiter-tags">
+              <span class="tag role">Product Designer</span>
+              <span class="tag scope">3-Person Team</span>
+            </div>
+            <p class="work-summary">Designing a physical kiosk interface built to bridge information access for unhoused populations seeking local essential resources</p>
+          </div>
+        </a>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- ── COMPACT FOOTER ── -->
         <div class="footer">
-            <!-- Left side: Social links -->
             <div class="footer-left">
                 <a href="https://www.linkedin.com/in/livianne-wong-b3b724205/" target="_blank" class="footer-social-link">
                     <div class="footer-icon-wrapper">
@@ -237,34 +186,62 @@
                 </a>
             </div>
 
-            <!-- Right side: Scroll up, thank you, and email positioned independently -->
-            <button class="scroll-up-btn">
-                <span>Scroll up</span>
-                <svg fill="none" preserveAspectRatio="none" viewBox="0 0 9.51388 7.36396">
-                    <path d="M0.146447 3.32843C-0.0488155 3.52369 -0.0488155 3.84027 0.146447 4.03553L3.32843 7.21751C3.52369 7.41278 3.84027 7.41278 4.03553 7.21751C4.2308 7.02225 4.2308 6.70567 4.03553 6.51041L1.20711 3.68198L4.03553 0.853553C4.2308 0.658291 4.2308 0.341709 4.03553 0.146447C3.84027 -0.0488154 3.52369 -0.0488154 3.32843 0.146447L0.146447 3.32843ZM0.5 3.68198V4.18198H9.51388V3.68198V3.18198H0.5V3.68198Z" fill="#A29FA0" />
-                </svg>
+          <div class="footer-right">
+            <button class="scroll-up-btn" id="scrollUpBtn">
+              <span>Scroll up</span>
+              <svg viewBox="0 0 9.51388 7.36396" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0.146447 3.32843C-0.0488155 3.52369 -0.0488155 3.84027 0.146447 4.03553L3.32843 7.21751C3.52369 7.41278 3.84027 7.41278 4.03553 7.21751C4.2308 7.02225 4.2308 6.70567 4.03553 6.51041L1.20711 3.68198L4.03553 0.853553C4.2308 0.658291 4.2308 0.341709 4.03553 0.146447C3.84027 -0.0488154 3.52369 -0.0488154 3.32843 0.146447L0.146447 3.32843ZM0.5 3.68198V4.18198H9.51388V3.68198V3.18198H0.5V3.68198Z" fill="#A29FA0"/>
+              </svg>
             </button>
-            <p class="footer-thank-you">Thank you for viewing! :-)</p>
+            
+            <p class="footer-thank-you">Thank you for viewing! :D</p>
+            
             <a href="mailto:liviwong123@gmail.com" class="footer-email">
-                <span>liviwong123@gmail.com</span>
+              <span>liviwong123@gmail.com</span>
             </a>
+          </div>
         </div>
-    </div>
 
-    <!-- Menu Overlay and Panel -->
-    <div class="menu-overlay"></div>
-    <div class="menu-panel">
-        <div class="menu-header">
-            <h3>Menu</h3>
-            <button class="close-menu">&times;</button>
-        </div>
-        <div class="menu-items">
-            <a href="index.html">Home</a>
-            <a href="pages/about.html">About</a>
-            <a href="https://drive.google.com/file/d/1uY5DvgihQv_6BxHrdHPwktoVfEQGerwh/view" target="_blank">Resume</a>
-        </div>
-    </div>
+<script>
+        // ── 1. PORTFOLIO FILTER SYSTEM ──
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.work-card');
 
-    <script src="script.js"></script>
+        filterBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            document.querySelector('.filter-btn.active').classList.remove('active');
+            btn.classList.add('active');
+
+            const filterValue = btn.getAttribute('data-filter');
+            cards.forEach(card => {
+              // Safe check to handle if you used 'data-categories' or 'data-cat'
+              const cardCat = card.getAttribute('data-cat') || card.getAttribute('data-categories') || '';
+              
+              if (filterValue === 'all' || cardCat.includes(filterValue)) {
+                card.style.display = 'block';
+              } else {
+                card.style.display = 'none';
+              }
+            });
+          });
+        });
+
+        // ── 2. INDEX PAGE BACK TO TOP BUTTON ──
+        const scrollTopAction = document.getElementById('scrollTopAction');
+        if (scrollTopAction) {
+          scrollTopAction.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+        }
+
+        // ── 3. CASE STUDY PAGE SCROLL UP BUTTON ──
+        const scrollUpBtn = document.getElementById('scrollUpBtn');
+        if (scrollUpBtn) {
+          scrollUpBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+        }
+</script>
+
 </body>
 </html>
