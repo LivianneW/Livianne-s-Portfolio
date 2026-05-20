@@ -4,36 +4,54 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About — Livianne</title>
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../index.css">
+  <style>
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
 </head>
 <body>
 
-  <header class="navbar">
-    <div class="container nav-container">
-      <a href="../index.html" class="logo-link">
-        <span class="logo">LIVIANNE</span>
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="../index.html" class="logo-link site-brand">
+        <span>LIVIANNE</span>
         <span class="page-indicator">/ About</span>
       </a>
 
-      <nav class="nav-links">
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" style="display: none;">
+      
+      <label for="menu-toggle" class="hamburger-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <nav class="main-nav nav-links">
         <a href="../index.html" class="nav-link">Work</a>
-        <a href="about.html" class="nav-link active">About</a>
-        <a href="https://drive.google.com/file/d/1uY5DvgihQv_6BxHrdHPwktoVfEQGerwh/view?usp=sharing" target="_blank" rel="noreferrer" class="nav-link">Resume</a>
+        <a href="about.html" class="nav-link current">About</a>
+        <a href="https://drive.google.com/file/d/1uY5DvgihQv_6BxHrdHPwktoVfEQGerwh/view?usp=sharing" target="_blank" rel="noreferrer" class="nav-link resume-highlight">Resume</a>
       </nav>
     </div>
   </header>
 
-  <div class="container body-container about-layout">
+  <div class="container about-layout">
     
     <section class="about-hero">
       <div class="about-hero-text">
         <h1 class="about-greeting">Hi there!</h1>
         <p class="text-paragraph intro-pitch">
-          You probably already know my name by now, but I'm Livianne! I'm born and raised in Los Angeles, CA and currently a 4th year student at UC San Diego.
+          You probably already know my name by now, but I'm Livianne! I'm born and raised in Los Angeles, CA
+        and currently a 4th year student at UC San Diego.
         </p>
         <p class="text-paragraph">
-          My perspective on design started at home. Growing up and watching my older family members struggle with technology made me more aware of how inaccessible design can exclude people. It's what led me to focus on <strong>accessibility</strong> 
-          and <strong>information architecture</strong>. I design to try and untangle this frustration, building spaces that feel clear, calm, and kind to everyone.
+          My perspective on design started at home. Growing up and watching my older family members struggle
+          with technology made me more aware of how inaccessible design can exclude people.
+          It's what led me to focus on <span style="color: #8EBBC0; font-weight: 500;">accessibility</span>
+          and <span style="color: #8EBBC0; font-weight: 500;">information architecture</span >. 
+          I design to help untangle this frustration, hoping to shape experiences that feel supportive.
         </p>
       </div>
       <div class="about-hero-image">
@@ -49,9 +67,9 @@
           <span class="section-label">Iteration</span>
         </div>
         <div class="narrative-body text-block">
-          <h3 class="narrative-heading">Learning by Doing</h3>
-          <p>I started my journey in community college with nothing but a computer and a dream. At the time, I barely knew how to zoom in on Figma, but through curiosity, YouTube tutorials, and countless TikToks, I slowly taught myself design and prototyping from the ground up.</p>
-          <p>I still remember creating an outrageous looking burger and feeling like a creative genius. I didn't fully understand product design yet, I just knew I loved the building, learning, and improving aspects of it.</p>
+          <h3 class="narrative-heading" style="color: #70b074;">Learning by Doing</h3>
+          <p style="color: #1c1c1c;">I started my journey in community college with nothing but a computer and a dream. At the time, I barely knew how to zoom in on Figma, but through curiosity, YouTube tutorials, and countless TikToks, I slowly taught myself design and prototyping from the ground up.</p>
+          <p style="color: #1c1c1c;">I still remember creating an outrageous looking burger and feeling like a creative genius. I didn't fully understand product design yet, I just knew I loved the building, learning, and improving aspects of it.</p>
         </div>
       </div>
 
@@ -60,8 +78,8 @@
           <span class="section-label">Exploration</span>
         </div>
         <div class="narrative-body text-block">
-          <h3 class="narrative-heading">Outside the File</h3>
-          <p>When I'm not building projects, you'll usually find me cooking, baking, or experimenting in the kitchen! My love for food comes from the joy of bringing people together - something that also inspires the way I approach design and creativity. Whether through design, food, or music, I'm always exploring new ideas and turning them into meaningful, memorable experiences.</p>
+          <h3 class="narrative-heading" style="color: #d3a0a0;">Outside the File</h3>
+          <p style="color: #1c1c1c;">When I'm not building projects, you'll usually find me cooking, baking, or experimenting in the kitchen! My love for food comes from the joy of bringing people together - something that also inspires the way I approach design and creativity. Whether through design, food, or music, I'm always exploring new ideas and turning them into meaningful, memorable experiences.</p>
         </div>
       </div>
     </section>
@@ -89,63 +107,46 @@
         </div>
       </div>
     </section>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-row">
+      <p class="footer-thank-you">Thank you for viewing! :D</p>
+      
+      <button class="scroll-up-btn" id="scrollUpBtn">
+        <span>Scroll up</span>
+        <svg viewBox="0 0 9.51388 7.36396" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.146447 3.32843C-0.0488155 3.52369 -0.0488155 3.84027 0.146447 4.03553L3.32843 7.21751C3.52369 7.41278 3.84027 7.41278 4.03553 7.21751C4.2308 7.02225 4.2308 6.70567 4.03553 6.51041L1.20711 3.68198L4.03553 0.853553C4.2308 0.658291 4.2308 0.341709 4.03553 0.146447C3.84027 -0.0488154 3.52369 -0.0488154 3.32843 0.146447L0.146447 3.32843ZM0.5 3.68198V4.18198H9.51388V3.68198V3.18198H0.5V3.68198Z" fill="#A29FA0"/>
+        </svg>
+      </button>
     </div>
 
-<!-- FOOTER ── -->
-<footer class="footer">
-  
-  <div class="footer-row footer-header">
-    <p class="footer-thank-you">Thank you for viewing! :D</p>
-    
-    <button class="scroll-up-btn" id="scrollUpBtn">
-      <span>Scroll up</span>
-      <svg viewBox="0 0 9.51388 7.36396" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0.146447 3.32843C-0.0488155 3.52369 -0.0488155 3.84027 0.146447 4.03553L3.32843 7.21751C3.52369 7.41278 3.84027 7.41278 4.03553 7.21751C4.2308 7.02225 4.2308 6.70567 4.03553 6.51041L1.20711 3.68198L4.03553 0.853553C4.2308 0.658291 4.2308 0.341709 4.03553 0.146447C3.84027 -0.0488154 3.52369 -0.0488154 3.32843 0.146447L0.146447 3.32843ZM0.5 3.68198V4.18198H9.51388V3.68198V3.18198H0.5V3.68198Z" fill="#A29FA0"/>
-      </svg>
-    </button>
-  </div>
+    <div class="footer-row">
+      <nav class="footer-nav" aria-label="Footer Navigation Links">
+        <a href="https://www.linkedin.com/in/livianne-wong-b3b724205/" target="_blank" rel="noreferrer" class="footer-social-link">
+          <span class="footer-label">LinkedIn</span>
+        </a>
+        <a href="https://drive.google.com/file/d/1uY5DvgihQv_6BxHrdHPwktoVfEQGerwh/view" target="_blank" rel="noreferrer" class="footer-social-link">
+          <span class="footer-label">Resume</span>
+        </a>
+        <a href="https://github.com/LivianneW" target="_blank" rel="noreferrer" class="footer-social-link">
+          <span class="footer-label">Github</span>
+        </a>
+      </nav>
 
-  <!-- Bottom Section -->
-  <div class="footer-row footer-meta">
-    <nav class="footer-nav">
-      <a href="https://www.linkedin.com/in/livianne-wong-b3b724205/" target="_blank" rel="noreferrer" class="footer-social-link">
-        <div class="footer-icon-wrapper"><!-- LinkedIn SVG --></div>
-        <span class="footer-label">LinkedIn</span>
+      <a href="mailto:liviwong123@gmail.com" class="footer-email">
+        <span>liviwong123@gmail.com</span>
       </a>
-      <a href="https://drive.google.com/file/d/1uY5DvgihQv_6BxHrdHPwktoVfEQGerwh/view" target="_blank" rel="noreferrer" class="footer-social-link">
-        <div class="footer-icon-wrapper"><!-- Resume SVG --></div>
-        <span class="footer-label">Resume</span>
-      </a>
-      <a href="https://github.com/LivianneW" target="_blank" rel="noreferrer" class="footer-social-link">
-        <div class="footer-icon-wrapper"><!-- GitHub SVG --></div>
-        <span class="footer-label">Github</span>
-      </a>
-    </nav>
+    </div>
+  </footer>
 
-    <a href="mailto:liviwong123@gmail.com" class="footer-email">
-      <span>liviwong123@gmail.com</span>
-    </a>
-  </div>
-
-</footer>
-
-<script>
-        // ── 2. INDEX PAGE BACK TO TOP BUTTON ──
-        const scrollTopAction = document.getElementById('scrollTopAction');
-        if (scrollTopAction) {
-          scrollTopAction.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          });
-        }
-
-        // ── 3. CASE STUDY PAGE SCROLL UP BUTTON ──
-        const scrollUpBtn = document.getElementById('scrollUpBtn');
-        if (scrollUpBtn) {
-          scrollUpBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          });
-        }
-</script>
-
+  <script>
+    const scrollUpBtn = document.getElementById('scrollUpBtn');
+    if (scrollUpBtn) {
+      scrollUpBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+  </script>
 </body>
 </html>

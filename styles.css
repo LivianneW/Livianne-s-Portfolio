@@ -99,7 +99,7 @@ body {
   background-color: var(--color-bg-white);
   font-family: var(--font-primary);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden; /* Prevent horizontal layout spillovers */
+  overflow-x: hidden; 
 }
 
 /* ── LAYOUT UTILITIES ── */
@@ -112,7 +112,7 @@ body {
   padding-right: 2rem;
 }
 
-/* ── HEADER NAVIGATION (WITH HAMBURGER MECHANISM) ── */
+/* ── HEADER NAVIGATION ── */
 .navbar {
   position: sticky;
   top: 0;
@@ -170,7 +170,6 @@ body {
   color: var(--color-team-pink);
 }
 
-/* Hidden elements by default on desktop */
 .menu-toggle, .hamburger-icon {
   display: none;
 }
@@ -185,11 +184,12 @@ body {
 
 .hero-container {
   display: flex;
-  align-items: center;
-  justify-content: space-between;  
-  gap: 48px;                        
-  min-height: 460px;
-  padding: 64px 0;             
+  flex-direction: column; 
+  align-items: stretch;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 64px 2rem;                    
 }
 
 .hero-text-block {
@@ -238,7 +238,7 @@ body {
   width: 100%;
   max-width: 1400px;              
   margin: 40px auto 0 auto;
-  padding-top: 24px;
+  padding-top: 32px;
   border-top: 1px solid rgba(0, 0, 0, 0.06); 
 }
 
@@ -246,11 +246,11 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  flex: initial; 
+  flex: 1; 
 }
 
 .meta-dashboard-col.skills-col {
-  max-width: 380px; 
+  flex: 1.4; 
 }
 
 .meta-dashboard-label {
@@ -292,7 +292,7 @@ body {
   color: #A29FA0;
 }
 
-/* ── CASE STUDY CONTROLS & MAIN CONTENT CONTAINER ── */
+/* ── LAYOUT BODIES ── */
 .body-container {
   padding-top: 4rem;    
   padding-bottom: 4rem;
@@ -310,7 +310,7 @@ body {
 
 .toc-sticky-container {
   position: sticky;
-  top: 120px; 
+  top: 130px; 
   display: flex;
   flex-direction: column;
   gap: 2rem;   
@@ -366,7 +366,7 @@ body {
   align-items: center;
   justify-content: center;
   width: auto;             
-  min-width: 120px;
+  min-width: 70px;
   padding: 0 24px;          
   height: 44px;
   border-radius: 32px; 
@@ -395,7 +395,7 @@ body {
 
 .content-section {
   display: block;
-  scroll-margin-top: 120px;
+  scroll-margin-top: 130px;
 }
 
 .section-label {
@@ -437,7 +437,11 @@ body {
   line-height: 1.625;
 }
 
-/* ── FOOTER CONTAINER ── */
+.font-medium {
+  font-weight: 500;
+}
+
+/* ── FOOTER FRAMEWORKS ── */
 .footer {
   display: flex;
   flex-direction: column;
@@ -512,20 +516,26 @@ body {
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
-/* Spacing Helpers */
+/* Helpers */
 .margin-bottom-small { margin-bottom: 1rem; }
 .margin-bottom-large { margin-bottom: 1.5rem; }
 .padding-bottom-large { padding-bottom: 4rem; }
 
 
-/* ── GLOBAL RESPONSIVE MEDIA BREAKPOINT (920px VIEWPORT) ── */
+/* ── MOBILE OVERRIDES (920px BREAKPOINT) ── */
 @media (max-width: 920px) {
-  .container, .nav-container {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+  
+  .container, .nav-container, .hero-container, .footer {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
   }
 
-  /* Hamburger Icon */
+  /* 1. HIDES PAGE INDICATOR LOOP */
+  .page-indicator {
+    display: none !important;
+  }
+
+  /* 2. RNDERS PURE CSS HAMBURGER GRAPHICS */
   .hamburger-icon {
     display: flex;
     flex-direction: column;
@@ -542,7 +552,6 @@ body {
     transition: all 0.2s ease;
   }
 
-  /* Absolute Context Navigation Dropdown Overlay Card */
   .nav-links {
     position: absolute;
     top: 100px;
@@ -555,7 +564,7 @@ body {
     max-height: 0; 
     overflow: hidden;
     transition: max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
     z-index: 105;
   }
 
@@ -566,12 +575,10 @@ body {
     border-bottom: 1px solid rgba(0, 0, 0, 0.02);
   }
 
-  /* Checkbox State Driver Check */
   .menu-toggle:checked ~ .nav-links {
-    max-height: 300px; /* Expands open smoothly when the checkbox state is active */
+    max-height: 350px; 
   }
 
-  /* Transform Hamburger into an 'X' on Open */
   .menu-toggle:checked ~ .hamburger-icon span:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
   }
@@ -582,13 +589,17 @@ body {
     transform: translateY(-7px) rotate(-45deg);
   }
 
-  /* 3. Hero Section Responsive */
+  /* 3. HERO RESET FOR THE ELEMENTS LAYER */
   .hero-container {
-    flex-direction: column;       
-    text-align: center;            
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+
+  .hero-top-split {
+    flex-direction: column !important;
+    text-align: center;
     align-items: center;
     gap: 32px;
-    padding: 48px 1.5rem;
   }
   
   .hero-text-block {
@@ -603,17 +614,25 @@ body {
   .hero-image-wrapper {
     justify-content: center;      
     max-width: 320px;             
+    margin: 0 auto;
   }
   
   .hero-img {
-    max-height: 280px;
+    max-height: 260px;
   }
 
-  /* 4. Metadata Dashboard Stack */
+  /* 4. DASHBOARD RE-ALIGNMENT: FIXES DISTORTED OVERLAPS ON PHONES */
   .project-meta-dashboard {
     flex-direction: column;       
+    align-items: flex-start;
     gap: 24px;
-    padding: 24px 1.5rem 0 1.5rem;
+    padding-top: 32px;
+    margin-top: 32px;
+  }
+  
+  .meta-dashboard-col {
+    flex: none;
+    width: 100%;
   }
   
   .meta-dashboard-col.skills-col {
@@ -622,8 +641,10 @@ body {
   
   .meta-name {
     width: auto;                  
+    min-width: 70px;
   }
 
+  /* 5. STRIPS SIDEBAR ELEMENT MATRIX FROM FLOATING OVER FLOW CONTENTS */
   .body-container {
     flex-direction: column;
     gap: 3rem;
@@ -636,17 +657,13 @@ body {
   }
 
   .toc-sticky-container {
-    display: none !important;
+    display: none !important; /* Discards the sidebar anchors perfectly */
   }
 
-  .footer {
-    padding: 48px 1.5rem; 
-    gap: 40px;          
-  }
-
+  /* 6. Footer Stack Changes */
   .footer-row {
     flex-direction: column;
-    gap: 20px;              
+    gap: 24px;              
     text-align: center;
     justify-content: center;
   }

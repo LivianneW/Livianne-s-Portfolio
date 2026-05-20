@@ -7,6 +7,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --bg-canvas: #fffbfb;
   --text-dark: #1c1c1c;
@@ -24,9 +28,11 @@ body {
   background-color: var(--bg-canvas);
   color: var(--text-dark);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden; /* Guards layout edges against accidental side scrolling */
 }
 
 .container, .hero-wrapper, .gallery-wrapper, .footer-container {
+  width: 100%;
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
@@ -36,10 +42,12 @@ body {
 
 /* NAVBAR */
 .site-header {
+  position: sticky; /* Keeps the site navigation tracked at top of viewport scroll */
   top: 0;
   z-index: 100;
   background-color: var(--bg-canvas);
   backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(28, 28, 28, 0.02);
 }
 
 .nav-container {
@@ -47,6 +55,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 3rem;
@@ -56,7 +65,14 @@ body {
   font-size: 1.35rem;
   font-weight: 500;
   text-decoration: none;
-  color: var(--charcoal);
+  color: var(--text-dark);
+}
+
+.page-indicator {
+  font-size: 16px;
+  font-weight: 300;
+  color: #a29fa0;
+  margin-left: 8px;
 }
 
 .main-nav {
@@ -84,7 +100,12 @@ body {
   color: #d3a0a0;
 }
 
-/* HERO*/
+/* Hidden inputs by default on desktop viewports */
+.menu-toggle, .hamburger-icon {
+  display: none;
+}
+
+/* HERO */
 .recruiter-hero {
   padding-top: 8rem;
   padding-bottom: 8rem;
@@ -103,6 +124,7 @@ body {
   font-weight: 400;
   margin-bottom: 0rem;
   letter-spacing: -0.01em;
+  line-height: 1.15;
 }
 
 .hero-tagline {
@@ -159,35 +181,19 @@ body {
   display: flex;
   justify-content: flex-end;     
   align-items: center;
-  flex: 1;                         
-  max-width: 1200px;              
+  flex: 1;                                          
 }
 
 .hero-gif {
   width: 100%;
   height: auto;
-  max-width: 1200px;               
+  max-width: 440px;              
   border-radius: 12px;
   object-fit: contain;
   margin-right: 0;               
 }
 
-/* ── RESPONSIVE TABLET & MOBILE VIEWPORTS ── */
-@media (max-width: 920px) {
-  .hero-container {
-    flex-direction: column;    
-    gap: 40px;
-    padding: 48px 24px;         
-    text-align: left;
-  }
-
-  .gif-container {
-    justify-content: center;      /* Centers your project animations beautifully on phone viewports */
-    max-width: 100%;
-  }
-}
-
-/* PROJECT CASES */
+/* ── SELECTED WORK CARD MATRIX GALLERY ── */
 .gallery-wrapper {
   padding-top: 5rem;
   padding-bottom: 6rem;
@@ -202,12 +208,13 @@ body {
   
   /* Sticky properties */
   position: sticky;
-  top: 0px; 
+  top: 100px; 
   z-index: 40; 
   background-color: var(--bg-canvas);  
   padding-top: 1.5rem;  
   padding-bottom: 1.5rem;
   margin-top: -1.5rem;  
+  border-bottom: 1px solid rgba(28, 28, 28, 0.02);
 }
 
 .gallery-title {
@@ -219,6 +226,7 @@ body {
 .filter-controls {
   display: flex;
   gap: 0.75rem;
+  flex-wrap: wrap; 
 }
 
 .filter-btn {
@@ -321,7 +329,6 @@ body {
   color: var(--text-grey);
 }
 
-/* Distinguish your specific role via visual hierarchy */
 .tag.role {
   background-color: var(--color-btn-bg);
   color: var(--color-green-accent);
@@ -332,10 +339,140 @@ body {
   font-weight: 300;
   color: var(--text-grey);
   line-height: 1.5;
-  margin-top: 1.rem;
+  margin-top: 1rem;
 }
 
-/* Container framework */
+/* ABOUT PAGE LAYOUT */
+.about-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  padding-top: 5rem;
+  padding-bottom: 6rem;
+}
+
+.about-hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-greeting {
+  font-size: 48px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
+}
+
+.intro-pitch {
+  font-size: 22px;
+  line-height: 1.5;
+  color: var(--text-dark);
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+
+.text-paragraph {
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--text-dark);
+  font-weight: 300;
+}
+
+.about-image-frame {
+  width: 100%;
+  max-width: 380px;
+  margin-left: auto;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03);
+}
+
+.about-image-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.about-narrative {
+  display: flex;
+  flex-direction: column;
+  gap: 4.5rem;
+}
+
+.narrative-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2rem;
+  align-items: baseline;
+}
+
+.section-label {
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-light);
+}
+
+.narrative-heading {
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--text-dark);
+  margin-bottom: 0rem;
+  letter-spacing: -0.01em;
+}
+
+.text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--text-grey);
+  font-weight: 300;
+}
+
+/* Personal Snapshot Gallery */
+.bits-header {
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--text-dark);
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(28, 28, 28, 0.06);
+  padding-bottom: 0.75rem;
+}
+
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.25rem;
+}
+
+.photo-item {
+  background-color: rgba(28, 28, 28, 0.01);
+  border: 1px solid rgba(28, 28, 28, 0.03);
+  padding: 0.5rem;
+  border-radius: 16px;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.photo-item:hover {
+  transform: translateY(-4px);
+}
+
+.photo-item img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+/* ── FOOTER FRAMEWORK ── */
 .footer {
   display: flex;
   flex-direction: column;
@@ -343,12 +480,10 @@ body {
   width: 100%;
   max-width: 1400px;   
   margin: 0 auto;
-  /* 1. Reset horizontal padding to 0 so content aligns exactly with your 1400px grid edges */
   padding: 64px 0;  
   border-top: 1px solid rgba(28, 28, 28, 0.05);  
 }
 
-/* Base structural layout for desktop rows */
 .footer-row {
   display: flex;
   justify-content: space-between;
@@ -361,7 +496,7 @@ body {
   font-weight: 300;
   color: #a29fa0;
   line-height: normal;
-  margin-left: 40px;
+  margin-left: 40px; 
 }
 
 .footer-nav {
@@ -427,8 +562,149 @@ body {
   color: #d3a0a0;
 }
 
+/* RESPONSIVENESS */
 
-/* ── RESPONSIVE MOBILITY BREAKPOINT ── */
+/* TABLET AND LAPTOP COMPRESSION ZONE */
+@media (max-width: 1024px) {
+  .container, .hero-wrapper, .gallery-wrapper, .footer-container, .nav-container, .about-layout {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+  
+  .recruiter-hero {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .hero-wrapper {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+  
+  .hero-headline {
+    font-size: 42px;
+    margin: 0 auto;
+  }
+
+  .hero-image-wrapper, .gif-container {
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .gallery-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    top: 100px;
+  }
+  
+  .works-matrix {
+    grid-template-columns: 1fr; 
+    column-gap: 0;
+    row-gap: 4rem;
+  }
+  
+  .work-media-container {
+    height: 320px; 
+  }
+
+  /* About Page Tablet Re-alignments */
+  .about-hero {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  .about-image-frame {
+    margin: 0 auto;
+  }
+
+  .narrative-row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .photo-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* RESPONSIVE MOBILITY MOBILE BREAKPOINT (HAMBURGER ENGINES ACTIVE) */
+@media (max-width: 920px) {
+  .hero-container {
+    flex-direction: column;    
+    gap: 40px;
+    padding: 48px 24px;         
+    text-align: left;
+  }
+
+  .scannable-matrix {
+    max-width: 100%;
+    gap: 2.5rem;
+  }
+
+  /* ── MOBILE MENU SYSTEM INTERACTIVES ── */
+  .hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 110;
+  }
+
+  .hamburger-icon span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: var(--text-dark);
+    transition: all 0.2s ease;
+  }
+
+    /* 1. HIDES PAGE INDICATOR LOOP */
+  .page-indicator {
+    display: none !important;
+  }
+
+  .main-nav {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-canvas);
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    max-height: 0; 
+    overflow: hidden;
+    transition: max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    z-index: 105;
+  }
+
+  .nav-link {
+    width: 100%;
+    text-align: center;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.02);
+  }
+
+  .menu-toggle:checked ~ .main-nav {
+    max-height: 350px; 
+  }
+
+  .menu-toggle:checked ~ .hamburger-icon span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .menu-toggle:checked ~ .hamburger-icon span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle:checked ~ .hamburger-icon span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}
+
 @media (max-width: 820px) {
   .footer {
     padding: 48px 24px; 
@@ -453,21 +729,53 @@ body {
   }
 }
 
-/* RESPONSIVE BREAKPOINTS */
-@media (max-width: 1024px) {
-  .hero-wrapper, .works-matrix {
-    grid-template-columns: 1fr;
-    gap: 3rem;
+/* NARROW PHONE VIEWPORTS */
+@media (max-width: 480px) {
+  .container, .nav-container, .hero-container, .gallery-wrapper, .footer, .about-layout {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
   }
-  .gif-container {
-    justify-content: center;
+
+  .nav-container {
+    height: 80px;
   }
-  .container, .hero-wrapper, .gallery-wrapper, .footer-container {
-    padding: 0 2rem;
+
+  .main-nav {
+    top: 80px;
   }
-  .gallery-header {
+
+  .nav-link {
+    font-size: 1.05rem;
+  }
+
+  .hero-headline, .about-greeting {
+    font-size: 32px;
+  }
+
+  .hero-tagline, .intro-pitch {
+    font-size: 20px;
+  }
+  
+  .work-media-container {
+    height: 230px; 
+  }
+
+  .project-header-row {
     flex-direction: column;
     align-items: flex-start;
-    gap: 1rem;
+    gap: 4px;
+  }
+
+  .project-date {
+    padding-top: 0;
+    font-size: 0.9rem;
+  }
+
+  .photo-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-item img {
+    height: 260px;
   }
 }

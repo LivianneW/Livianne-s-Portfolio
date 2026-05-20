@@ -4,23 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Livianne — Product Designer</title>
-  <link rel="stylesheet" href="index_new.css">
+  <link rel="stylesheet" href="index.css">
+  <style>
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- ── FUNCTIONAL DIRECT NAVBAR ── -->
   <header class="site-header">
     <div class="nav-container">
       <a href="index.html" class="site-brand">LIVIANNE</a>
-      <nav class="main-nav">
+      
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" style="display: none;">
+      
+      <label for="menu-toggle" class="hamburger-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      
+      <nav class="main-nav nav-links">
         <a href="index.html" class="nav-link current">Work</a>
         <a href="pages/about.html" class="nav-link">About</a>
         <a href="https://drive.google.com/file/d/1uY5DvgihQv_6BxHrdHPwktoVfEQGerwh/view?usp=sharing" target="_blank" rel="noreferrer" class="nav-link resume-highlight">Resume</a>
       </nav>
+      
     </div>
   </header>
 
-  <!-- HERO !-->
   <section class="recruiter-hero">
     <div class="hero-wrapper">
       <div class="hero-left">
@@ -29,7 +43,7 @@
         
         <div class="scannable-matrix">
           <div class="matrix-item">
-          <span class="matrix-value">Creating accessible digital experiences shaped by human behavior, emotion, and connection</span>
+            <span class="matrix-value">Creating accessible digital experiences shaped by human behavior, emotion, and connection</span>
           </div>
           <div class="matrix-item">
             <span class="matrix-label">EDUCATION</span>
@@ -48,7 +62,6 @@
     </div>
   </section>
 
-  <!-- ── SELECTED CASE STUDIES ── -->
   <main class="gallery-wrapper">
     <div class="gallery-header">
       <h2 class="gallery-title">CASE STUDIES</h2>
@@ -60,10 +73,8 @@
       </div>
     </div>
 
-    <!-- Direct Recruiter Layout Grid -->
     <div class="works-matrix">
       
-      <!-- PROJECT 1: PIKMIN BLOOM -->
       <article class="work-card" data-cat="redesign">
         <a href="pages/pikminbloom.html" class="card-inner-link">
           <div class="work-media-container">
@@ -75,7 +86,6 @@
               <span class="project-date">Spring 2026</span>
             </div>
             
-            <!-- Skill/Context tags that recruiters screen for -->
             <div class="recruiter-tags">
               <span class="tag role">Product Designer</span>
               <span class="tag scope">4-Person Team</span>
@@ -86,7 +96,6 @@
         </a>
       </article>
 
-      <!-- PROJECT 2: STEAM NAVIGATION -->
       <article class="work-card" data-cat="redesign">
         <a href="pages/steam_navigation.html" class="card-inner-link">
           <div class="work-media-container">
@@ -107,7 +116,6 @@
         </a>
       </article>
 
-      <!-- PROJECT 3: NASA QUESST -->
       <article class="work-card" data-cat="internship">
         <a href="pages/quesst.html" class="card-inner-link">
           <div class="work-media-container">
@@ -127,7 +135,6 @@
         </a>
       </article>
 
-      <!-- PROJECT 4: RESOURCE BRIDGE -->
       <article class="work-card" data-cat="product-design">
         <a href="pages/resource_bridge.html" class="card-inner-link">
           <div class="work-media-container">
@@ -150,84 +157,68 @@
     </div>
   </main>
 
-<!-- FOOTER ── -->
-<footer class="footer">
-  
-  <div class="footer-row footer-header">
-    <p class="footer-thank-you">Thank you for viewing! :D</p>
+  <footer class="footer">
     
-    <button class="scroll-up-btn" id="scrollUpBtn">
-      <span>Scroll up</span>
-      <svg viewBox="0 0 9.51388 7.36396" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0.146447 3.32843C-0.0488155 3.52369 -0.0488155 3.84027 0.146447 4.03553L3.32843 7.21751C3.52369 7.41278 3.84027 7.41278 4.03553 7.21751C4.2308 7.02225 4.2308 6.70567 4.03553 6.51041L1.20711 3.68198L4.03553 0.853553C4.2308 0.658291 4.2308 0.341709 4.03553 0.146447C3.84027 -0.0488154 3.52369 -0.0488154 3.32843 0.146447L0.146447 3.32843ZM0.5 3.68198V4.18198H9.51388V3.68198V3.18198H0.5V3.68198Z" fill="#A29FA0"/>
-      </svg>
-    </button>
-  </div>
+    <div class="footer-row">
+      <p class="footer-thank-you">Thank you for viewing! :D</p>
+      
+      <button class="scroll-up-btn" id="scrollUpBtn">
+        <span>Scroll up</span>
+        <svg viewBox="0 0 9.51388 7.36396" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.146447 3.32843C-0.0488155 3.52369 -0.0488155 3.84027 0.146447 4.03553L3.32843 7.21751C3.52369 7.41278 3.84027 7.41278 4.03553 7.21751C4.2308 7.02225 4.2308 6.70567 4.03553 6.51041L1.20711 3.68198L4.03553 0.853553C4.2308 0.658291 4.2308 0.341709 4.03553 0.146447C3.84027 -0.0488154 3.52369 -0.0488154 3.32843 0.146447L0.146447 3.32843ZM0.5 3.68198V4.18198H9.51388V3.68198V3.18198H0.5V3.68198Z" fill="#A29FA0"/>
+        </svg>
+      </button>
+    </div>
 
-  <!-- Bottom Section -->
-  <div class="footer-row footer-meta">
-    <nav class="footer-nav">
-      <a href="https://www.linkedin.com/in/livianne-wong-b3b724205/" target="_blank" rel="noreferrer" class="footer-social-link">
-        <div class="footer-icon-wrapper"><!-- LinkedIn SVG --></div>
-        <span class="footer-label">LinkedIn</span>
+    <div class="footer-row">
+      <nav class="footer-nav" aria-label="Global profile external channels directory">
+        <a href="https://www.linkedin.com/in/livianne-wong-b3b724205/" target="_blank" rel="noreferrer" class="footer-social-link">
+          <span class="footer-label">LinkedIn</span>
+        </a>
+        <a href="https://drive.google.com/file/d/1uY5DvgihQv_6BxHrdHPwktoVfEQGerwh/view" target="_blank" rel="noreferrer" class="footer-social-link">
+          <span class="footer-label">Resume</span>
+        </a>
+        <a href="https://github.com/LivianneW" target="_blank" rel="noreferrer" class="footer-social-link">
+          <span class="footer-label">Github</span>
+        </a>
+      </nav>
+
+      <a href="mailto:liviwong123@gmail.com" class="footer-email">
+        <span>liviwong123@gmail.com</span>
       </a>
-      <a href="https://drive.google.com/file/d/1uY5DvgihQv_6BxHrdHPwktoVfEQGerwh/view" target="_blank" rel="noreferrer" class="footer-social-link">
-        <div class="footer-icon-wrapper"><!-- Resume SVG --></div>
-        <span class="footer-label">Resume</span>
-      </a>
-      <a href="https://github.com/LivianneW" target="_blank" rel="noreferrer" class="footer-social-link">
-        <div class="footer-icon-wrapper"><!-- GitHub SVG --></div>
-        <span class="footer-label">Github</span>
-      </a>
-    </nav>
+    </div>
+  </footer>
 
-    <a href="mailto:liviwong123@gmail.com" class="footer-email">
-      <span>liviwong123@gmail.com</span>
-    </a>
-  </div>
+  <script>
+    // ── 1. PORTFOLIO FILTER ENGINE ──
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.work-card');
 
-</footer>
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelector('.filter-btn.active').classList.remove('active');
+        btn.classList.add('active');
 
-<script>
-        // ── 1. PORTFOLIO FILTER SYSTEM ──
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const cards = document.querySelectorAll('.work-card');
-
-        filterBtns.forEach(btn => {
-          btn.addEventListener('click', () => {
-            document.querySelector('.filter-btn.active').classList.remove('active');
-            btn.classList.add('active');
-
-            const filterValue = btn.getAttribute('data-filter');
-            cards.forEach(card => {
-              // Safe check to handle if you used 'data-categories' or 'data-cat'
-              const cardCat = card.getAttribute('data-cat') || card.getAttribute('data-categories') || '';
-              
-              if (filterValue === 'all' || cardCat.includes(filterValue)) {
-                card.style.display = 'block';
-              } else {
-                card.style.display = 'none';
-              }
-            });
-          });
+        const filterValue = btn.getAttribute('data-filter');
+        cards.forEach(card => {
+          const cardCat = card.getAttribute('data-cat') || card.getAttribute('data-categories') || '';
+          
+          if (filterValue === 'all' || cardCat === filterValue) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
         });
+      });
+    });
 
-        // ── 2. INDEX PAGE BACK TO TOP BUTTON ──
-        const scrollTopAction = document.getElementById('scrollTopAction');
-        if (scrollTopAction) {
-          scrollTopAction.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          });
-        }
-
-        // ── 3. CASE STUDY PAGE SCROLL UP BUTTON ──
-        const scrollUpBtn = document.getElementById('scrollUpBtn');
-        if (scrollUpBtn) {
-          scrollUpBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          });
-        }
-</script>
-
+    // ── 2. GLOBAL BACK TO TOP SCROLL ANIMATION ACTION CONTROLS ──
+    const scrollUpBtn = document.getElementById('scrollUpBtn');
+    if (scrollUpBtn) {
+      scrollUpBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+  </script>
 </body>
 </html>
