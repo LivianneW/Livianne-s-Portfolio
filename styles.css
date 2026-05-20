@@ -87,7 +87,7 @@ html {
   --color-muted-grey: #585858;
   --color-light-grey: #a29fa0;
   --color-border-fade: rgba(0, 0, 0, 0.05);
-  --color-bg-banner: rgba(0, 0, 0, 0.05);
+  --color-bg-banner: rgba(0, 0, 0, 0.02);
   --color-team-pink: #d3a0a0;
   --color-green-accent: #70b074;
   --color-btn-bg: rgba(191, 217, 153, 0.5);
@@ -240,17 +240,31 @@ body {
   margin: 40px auto 0 auto;
   padding-top: 32px;
   border-top: 1px solid rgba(0, 0, 0, 0.06); 
+
 }
 
 .meta-dashboard-col {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  flex: 1; 
+  flex-grow: 0;        
+  flex-shrink: 1;     
 }
 
-.meta-dashboard-col.skills-col {
-  flex: 1.4; 
+.meta-dashboard-col.col-team {
+  flex-basis: 25%
+}
+
+.meta-dashboard-col.col-skills {
+  flex-basis: 30%;   
+}
+
+.meta-dashboard-col.col-tools {
+  flex-basis: 25%; 
+}
+
+.meta-dashboard-col.col-timeline {
+  flex-basis: 20%;   
 }
 
 .meta-dashboard-label {
@@ -262,8 +276,9 @@ body {
 
 .meta-dashboard-text {
   font-size: 16px;
+  font-weight: 300;
   line-height: 1.5;
-  color: #585858;
+  color: #1c1c1c;
   margin: 0;
 }
 
@@ -403,6 +418,32 @@ body {
   font-size: 20px; 
   font-weight: 300;
   margin-bottom: 2rem;  
+}
+
+.image-label-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  
+  /* Lighter background combined with a soft border for clean definition */
+  background-color: rgba(28, 28, 28, 0.03);
+  border: 1px solid rgba(28, 28, 28, 0.06);
+  
+  /* Proportional padding: more space on the sides makes it look premium */
+  padding: 10px 20px;
+  border-radius: 12px;
+  
+  /* Clean typography spacing */
+  font-size: 15px; 
+  font-weight: 400;
+  color: var(--text-grey);
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  
+  /* Fits snugly around the content rather than stretching too far */
+  width: fit-content;
+  max-width: 100%;
 }
 
 .section-heading {

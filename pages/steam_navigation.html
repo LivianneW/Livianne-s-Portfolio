@@ -156,7 +156,7 @@
 
         <div class="meta-dashboard-col">
           <span class="meta-dashboard-label">Tools</span>
-          <p class="meta-dashboard-text">Figma</p>
+          <p class="meta-dashboard-text" style="color: #1c1c1c;">Figma</p>
         </div>
 
         <div class="meta-dashboard-col">
@@ -213,7 +213,7 @@
             Working with a team of two others, we redesigned the Steam mobile app to fix a navigation system that 
             often felt like a guessing game for users. We replaced Steam's disorganized layout with a hybrid design 
             that pairs a familiar bottom navigation bar for daily tasks with a centralized profile hub for deeper account
-             features like Steam Families. 
+            features like Steam Families. 
           </p>
           <p>
             By following standard mobile design rules, we were able to cut down on mental
@@ -266,29 +266,39 @@
           </li>
         </ul>
       </section>
-
+        
       <section id="strategy" class="content-section">
         <p class="section-label">THE STRATEGY</p>
         <h2 class="section-heading">A/B Testing Two Directions</h2>
         <p class="text-paragraph margin-bottom-large">
           We developed two distinct prototypes to test which model resonated most with users:
         </p>
-        
-        <div style="margin-bottom: 24px;">
-          <h4 style="font-weight: 500; margin-bottom: 4px;">Prototype A (The Conventional)</h4>
-          <p class="text-paragraph">A standard bottom navigation bar prioritizing familiarity and one-tap access.</p>
-          <div class="comparison-row-side-by-side" style="margin-top: 12px; justify-content: flex-start;">
+
+        <div class="prototype-showcase-block" style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; gap: 16px; margin-bottom: 5rem;">
+          <div class="image-label-badge">
+            Prototype A (The Conventional Approach)
+          </div>
+          
+          <p class="text-paragraph" style="max-width: 600px; margin: 0; font-size: 16px; color: #585858;">
+            A standard bottom navigation bar prioritizing familiarity and one-tap access to key features.
+          </p>
+          
+          <div class="comparison-row-side-by-side" style="display: flex; justify-content: center; width: 100%; margin-top: 12px;">
             <div class="final-image">
               <img src="../assets/steam-prototype-a.png" alt="Prototype A Interface Layout Mockup">
             </div>
           </div>
-        </div>
-
-        <div>
-          <h4 style="font-weight: 500; margin-bottom: 4px;">Prototype B (The All-In-One)</h4>
-          <p class="text-paragraph">A centralized hub designed to reduce information scattering and consolidate features into a single entry point.</p>
-          <div class="comparison-row-side-by-side" style="margin-top: 12px; justify-content: flex-start;">
-            <div class="final-image" style="margin-right: 8px;">
+        </div> <div class="prototype-showcase-block" style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; gap: 16px; margin-bottom: 2rem;">
+          <div class="image-label-badge">
+            Prototype B (The All-In-One Hub)
+          </div>   
+          
+          <p class="text-paragraph" style="max-width: 600px; margin: 0; font-size: 16px; color: #585858;">
+            A centralized hub designed to reduce information scattering and consolidate features into a single entry point.
+          </p> 
+          
+          <div class="comparison-row-side-by-side" style="margin-top: 12px; display: flex; justify-content: center; gap: 12px; width: 100%;">
+            <div class="final-image">
               <img src="../assets/steam-prototype-b1.png" alt="Prototype B Centralized Screen 1">
             </div>
             <div class="final-image">
@@ -296,27 +306,35 @@
             </div>
           </div>
         </div>
+
       </section>
 
       <section id="solution" class="content-section">
         <p class="section-label">THE SOLUTION</p>
-        <h2 class="section-heading">The Turning Point & Final Design Choices</h2>
+        <h2 class="section-heading" style="color: #70b074; font-size: 32px;">Finding the Meta (Ground)</h2>
         <div class="text-block">
-          <p>Our A/B testing revealed a clear trade-off: Prototype A excelled at high-frequency tasks
-             (Store and Library actions resolved within 6–10 seconds), while Prototype B solved the buried 
-             feature problem by organizing complex tools inside a functional dashboard. Interviewees favored 
-             Prototype A's overall simplicity but preferred Prototype B's item taxonomy.</p>
-          <p>Ultimately, we chose to <strong>combine </strong>the strongest elements of both layouts:</p>
+          <p>Our A/B testing revealed a clear trade-off: <span style="color: #7cabb0; font-weight: 500;"> Prototype A </span> performed well at high-frequency tasks,
+            with users completing Store and Library actions in roughly 6-10 seconds. On the other hand, <span style="color: #7cabb0; font-weight: 500;"> Prototype B </span> proved better at
+            addressing the issue of hidden functionality by organizing complex tools into a more structured, centralized dashboard.</p>
+            <p>In our interviews, users consistently preferred Prototype A for its simplicity and familiarity, while appreciating 
+            Prototype B's clearer information hierarchy and more intentional grouping of features.</p>
+          <p style="margin-top: 16px; margin-bottom: 16px; font-size: 20px;">Ultimately, we chose to <span style="color: #7cabb0; font-weight: 500;">combine </span>the strongest elements of both layouts:</p>
         </div>
         <ul class="bullet-list">
           <li>
-            <span class="font-medium">Intuitiveness:</span> High-frequency social and shopping actions (Library, Friends, Store) are instantly accessible via a standard bottom bar to leverage established mental models.
+            <span class="font-medium">Intuitiveness:</span>
+            High-frequency actions like Library, Friends, and Store are kept 
+            instantly accessible through a familiar bottom navigation bar, which better aligns
+            with established user mental models.
           </li>
           <li>
-            <span class="font-medium">Efficiency:</span> Complex account management (Steam Families, Settings) is consolidated into a streamlined profile hub, eliminating the disorganized "guessing game" of the original app.
+            <span class="font-medium">Efficiency:</span> 
+            Less frequently used but complex features like Steam Families and Settings, are consolidated into a dedicated profile hub, 
+            removing the “guessing game” caused by scattered placement in the original design.
           </li>
           <li>
-            <span class="font-medium">Clarity:</span> We addressed redundancy by renaming ambiguous tags like changing "Community" to "Forums" and rearranging menus from most-used to least-used.
+            <span class="font-medium">Clarity:</span> We addressed redundancy by renaming ambiguous tags like 
+            changing "Community" to "Forums" and reorganizing menu structure based on usage priority, from most to least frequent.
           </li>
         </ul>
 
@@ -338,14 +356,16 @@
             This project really put into perspective how important it is to distinguish between mobile and desktop experiences; you can't simply move desktop features into a mobile layout and expect a smooth user journey. It showed my team and me that even the smallest details, like renaming an ambiguous "Community" tag to "Forums" can help users more than we realized.
           </p>
           <p>
-            We saw firsthand that when these details are overlooked, it creates a massive "guessing game" for tasks that should be simple. It taught me that even if an issue seems minuscule, it's still important to account for it, because those small points are exactly what cause users to give up entirely.
+            We saw firsthand that when these details are overlooked, it can easily snowball into a "guessing game" for tasks that should be simple.
+            It taught me that even if an issue may seem minuscule at first glance, it's still important to account for it, 
+            because those “small” issues are the exact moments where people decide to give up.
           </p>
         </div>
       </section>
 
       <section id="prototype" class="content-section">
         <p class="section-label">INTERACTIVE PROTOTYPE</p>
-        <h2 class="section-heading">High-Fidelity Interaction Stream</h2>
+        <h2 class="section-heading">High-Fidelity Prototype</h2>
         <div class="figma-embed-container" style="margin-top: 16px;">
           <iframe
             width="100%"
@@ -357,17 +377,18 @@
         </div>
       </section>
 
-      <section id="curious" class="content-section padding-bottom-large">
+<section id="curious" class="content-section padding-bottom-large">
         <p class="section-label">FOR THE CURIOUS</p>
-        <h2 class="section-heading">Visual Comparison Matrices</h2>
-        <p class="text-paragraph">The graphics below trace a side-by-side visual mapping between our interactive layout choices and the original ecosystem interface elements.</p>
+        <h2 class="section-heading">Visual Comparison</h2>
+        <p class="text-paragraph">The images below showcase a side-by-side visual between our interactive layout choices and the original system interface.</p>
 
-        <div class="comparison-group" style="margin-top: 32px;">
-          <div class="comparison-labels-row">
-            <div class="image-label original">Original App</div>
-            <div class="image-label redesign">Our Redesign</div>
+        <div class="comparison-group" style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; gap: 16px; margin-top: 4rem; margin-bottom: 5rem;">
+          <div class="comparison-labels-row" style="display: flex; gap: 13px; justify-content: center; width: 100%;">
+            <div class="image-label-badge" style="background-color: rgba(28, 28, 28, 0.04); padding: 8px 20px; border-radius: 10px; font-size: 14px; width: 170px;">Original App</div>
+            <div class="image-label-badge" style="background-color: var(--color-btn-bg); color: var(--color-green-accent); padding: 8px 20px; border-radius: 10px; font-size: 14px; width: 170px; font-weight: 500;">Our Redesign</div>
           </div>
-          <div class="comparison-row-side-by-side">
+          
+          <div class="comparison-row-side-by-side" style="display: flex; justify-content: center; gap: 13px; width: 100%;">
             <div class="final-image">
               <img src="../assets/steam-original1.png" alt="Original Steam App">
             </div>
@@ -375,33 +396,41 @@
               <img src="../assets/steam-redesign2.png" alt="Steam Redesign">
             </div>
           </div>
-          <p class="image-caption" style="font-size: 13px; color: #585858; margin-top: 12px; text-align: center; max-width: 360px; margin-left: auto; margin-right: auto;">Vague icons and buried menus were replaced with a labeled bottom navigation bar and a centralized profile hub, refocusing the experience around the shop, the app's primary use.</p>
+          
+          <p class="image-caption" style="font-size: 14px; color: var(--text-grey); margin-top: 8px; text-align: center; max-width: 550px; line-height: 1.4; font-weight: 300;">
+            Vague icons and buried menus were replaced with a labeled bottom navigation bar and a centralized profile hub, refocusing the experience around the shop, the app's primary use.
+          </p>
         </div>
 
-        <div class="comparison-group" style="margin-top: 32px;">
-          <div class="comparison-centered">
-            <div class="image-label original centered" style="margin: 12px auto; display: flex;">Original App</div>
-            <div class="comparison-row-side-by-side">
-              <div class="final-image">
-                <img src="../assets/steam-original2.png" alt="Original Steam Menu">
-              </div>
-              <div class="final-image">
-                <img src="../assets/steam-original3.png" alt="Original Steam Menu 2">
-              </div>
+        <div class="comparison-group" style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; gap: 16px; margin-bottom: 5rem;">
+          <div class="image-label-badge" style="background-color: rgba(28, 28, 28, 0.04); padding: 8px 20px; border-radius: 10px; font-size: 14px; width: 170px; margin-bottom: 4px;">
+            Original App
+          </div>
+          
+          <div class="comparison-row-side-by-side" style="display: flex; justify-content: center; gap: 13px; width: 100%;">
+            <div class="final-image">
+              <img src="../assets/steam-original2.png" alt="Original Steam Menu">
+            </div>
+            <div class="final-image">
+              <img src="../assets/steam-original3.png" alt="Original Steam Menu 2">
             </div>
           </div>
         </div>
 
-        <div class="comparison-group" style="margin-top: 32px;">
-          <div class="comparison-centered">
-            <div class="image-label redesign centered" style="margin: 12px auto; display: flex;">Our Redesign</div>
-            <div class="comparison-row-side-by-side">
-              <div class="final-image highlighted">
-                <img src="../assets/steam-redesign1.png" alt="Steam Redesign Menu">
-              </div>
+        <div class="comparison-group" style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; gap: 16px; margin-bottom: 2rem;">
+          <div class="image-label-badge" style="background-color: var(--color-btn-bg); color: var(--color-green-accent); padding: 8px 20px; border-radius: 10px; font-size: 14px; width: 170px; font-weight: 500; margin-bottom: 4px;">
+            Our Redesign
+          </div>
+          
+          <div class="comparison-row-side-by-side" style="display: flex; justify-content: center; width: 100%;">
+            <div class="final-image highlighted">
+              <img src="../assets/steam-redesign1.png" alt="Steam Redesign Menu">
             </div>
           </div>
-          <p class="image-caption" style="font-size: 13px; color: #585858; margin-top: 12px; text-align: center;">From two separate menus to a single, centralized hub, making content easier to find.</p>
+          
+          <p class="image-caption" style="font-size: 14px; color: var(--text-grey); margin-top: 8px; text-align: center; max-width: 550px; line-height: 1.4; font-weight: 300;">
+            From two separate menus to a single, centralized hub, making content easier to find.
+          </p>
         </div>
       </section>
 

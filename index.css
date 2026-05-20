@@ -19,6 +19,7 @@ html {
   --tag-bg: rgba(28, 28, 28, 0.04);
   --accent-pink: #d3a0a0;
   --color-green-accent: #70b074;
+  --accent-pink-bg: rgba(239, 214, 208, 0.25);
   --color-btn-bg: rgba(191, 217, 153, 0.5);
   --font-main: "Larsseit", -apple-system, sans-serif;
 }
@@ -329,9 +330,14 @@ body {
   color: var(--text-grey);
 }
 
-.tag.role {
+.tag.framework {
   background-color: var(--color-btn-bg);
   color: var(--color-green-accent);
+}
+
+.tag.role {
+  background-color: var(--accent-pink-bg);
+  color: var(--accent-pink);
 }
 
 .work-summary {
