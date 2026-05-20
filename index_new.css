@@ -34,9 +34,7 @@ body {
   padding-right: 3rem;
 }
 
-/* ==========================================================================
-   2. STICKY ACTIONABLE NAVBAR
-   ========================================================================== */
+/* NAVBAR */
 .site-header {
   top: 0;
   z-index: 100;
@@ -101,36 +99,36 @@ body {
 }
 
 .hero-headline {
-  font-size: 2.5rem;
+  font-size: 52px;
   font-weight: 400;
   margin-bottom: 0rem;
   letter-spacing: -0.01em;
 }
 
 .hero-tagline {
-  font-size: 1.2rem;
+  font-size: 28px;
   font-weight: 400;
   color: var(--text-grey);
   line-height: 1.4;
   margin-bottom: 1rem;
 }
 
-/* ── MAIN HERO LAYOUT CONTAINER ── */
+/* ── HERO CONTAINER ── */
 .hero-container {
   display: flex;
-  justify-content: space-between; /* Securely pins left items to the left, right items to the right */
+  justify-content: space-between;  
   align-items: center;
   width: 100%;
-  max-width: 1400px;              /* Matches your expanded 1400px design boundary */
+  max-width: 1400px;            
   margin: 0 auto;
-  padding: 64px 0;                /* CRUCIAL: Set right/left padding to 0 so content can hit the exact edges */
+  padding: 64px 0;             
 }
 
 /* ── MATRIX COLUMN CONTAINER (LEFT SIDE) ── */
 .scannable-matrix {
   display: flex;
   flex-direction: column;
-  gap: 3.5rem;                    /* Balanced vertical spacing */
+  gap: 3.5rem;                     
   width: 100%;
   max-width: 500px;
 }
@@ -142,7 +140,7 @@ body {
 }
 
 .matrix-label {
-  font-size: 0.8rem;
+  font-size: 16px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--text-light);
@@ -150,7 +148,7 @@ body {
 }
 
 .matrix-value {
-  font-size: 1rem;
+  font-size: 17px;
   color: var(--text-dark);
   font-weight: 300;
   line-height: 1.4;
@@ -159,27 +157,27 @@ body {
 /* ── GIF CONTAINER FRAME (RIGHT SIDE) ── */
 .gif-container {
   display: flex;
-  justify-content: flex-end;      /* Snaps the inner contents tightly against the right wall */
+  justify-content: flex-end;     
   align-items: center;
-  flex: 1;                        /* Allows the wrapper to expand fluidly to claim right-side room */
-  max-width: 1200px;               /* Keeps it proportionally balanced opposite the matrix column */
+  flex: 1;                         
+  max-width: 1200px;              
 }
 
 .hero-gif {
   width: 100%;
   height: auto;
-  max-width: 1200px;               /* Limits massive stretching while maintaining a clean footprint */
+  max-width: 1200px;               
   border-radius: 12px;
   object-fit: contain;
-  margin-right: 0;                /* Explicit guard against stray margins pushing it left */
+  margin-right: 0;               
 }
 
 /* ── RESPONSIVE TABLET & MOBILE VIEWPORTS ── */
 @media (max-width: 920px) {
   .hero-container {
-    flex-direction: column;       /* Clean vertical stack for handheld devices */
+    flex-direction: column;    
     gap: 40px;
-    padding: 48px 24px;           /* Re-introduces standard safety margins on mobile screens */
+    padding: 48px 24px;         
     text-align: left;
   }
 
@@ -189,9 +187,7 @@ body {
   }
 }
 
-/* ==========================================================================
-   4. NO-NONSENSE PROJECT CASES SYSTEM
-   ========================================================================== */
+/* PROJECT CASES */
 .gallery-wrapper {
   padding-top: 5rem;
   padding-bottom: 6rem;
@@ -332,8 +328,8 @@ body {
 }
 
 .work-summary {
-  font-size: 1rem;
-  font-weight: 400;
+  font-size: 17px;
+  font-weight: 300;
   color: var(--text-grey);
   line-height: 1.5;
   margin-top: 1.rem;
@@ -347,8 +343,17 @@ body {
   width: 100%;
   max-width: 1400px;   
   margin: 0 auto;
-  padding: 64px 24px;  
+  /* 1. Reset horizontal padding to 0 so content aligns exactly with your 1400px grid edges */
+  padding: 64px 0;  
   border-top: 1px solid rgba(28, 28, 28, 0.05);  
+}
+
+/* Base structural layout for desktop rows */
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  width: 100%;
 }
 
 .footer-thank-you {
@@ -357,13 +362,6 @@ body {
   color: #a29fa0;
   line-height: normal;
   margin-left: 40px;
-}
-
-.footer-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center; 
-  width: 100%;
 }
 
 .footer-nav {
@@ -382,7 +380,7 @@ body {
   color: #585858;
   border-radius: 20px;
   padding: 6px 16px;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
 .footer-social-link:hover, 
@@ -417,8 +415,8 @@ body {
 .scroll-up-btn svg {
   width: 16px;
   height: 16px;
-  transform: rotate(90deg); /* Explicitly points the chevron upward */
-  transition: transform 0.2s ease;
+  transform: rotate(90deg); 
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .scroll-up-btn:hover span {
@@ -429,9 +427,33 @@ body {
   color: #d3a0a0;
 }
 
-/* ==========================================================================
-   6. RESPONSIVE BREAKPOINTS
-   ========================================================================== */
+
+/* ── RESPONSIVE MOBILITY BREAKPOINT ── */
+@media (max-width: 820px) {
+  .footer {
+    padding: 48px 24px; 
+    gap: 40px;        
+  }
+
+  .footer-row {
+    flex-direction: column;
+    gap: 20px;              
+    text-align: center;
+    justify-content: center;
+  }
+
+  .footer-row:first-child {
+    flex-direction: column;
+  }
+
+  .footer-nav {
+    flex-wrap: wrap;        
+    justify-content: center;
+    gap: 12px;            
+  }
+}
+
+/* RESPONSIVE BREAKPOINTS */
 @media (max-width: 1024px) {
   .hero-wrapper, .works-matrix {
     grid-template-columns: 1fr;
