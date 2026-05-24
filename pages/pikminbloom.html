@@ -10,6 +10,79 @@
       text-decoration: none;
       color: inherit;
     }
+    /* IMAGE COMPARISON MATRICES */
+    .comparison-row-side-by-side {
+      display: flex;
+      gap: 13px;
+      justify-content: center;
+      margin-bottom: 0;
+      width: 100%;
+    }
+
+    .final-image {
+      width: 170px;
+      height: 100%;
+      border-radius: 25px;
+      overflow: hidden;
+      position: relative;
+      flex-shrink: 0; 
+    }
+
+    .final-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      background: transparent;
+      transition: transform 0.3s ease;
+    }
+
+    .final-image img.bottom-focus {
+      object-position: bottom;
+    }
+
+    .comparison-labels-row {
+      display: flex;
+      gap: 13px;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+
+    .image-label {
+      background: rgba(0, 0, 0, 0.05);
+      padding: 8px 0;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 13px;
+      width: 175px; 
+      margin: 12px 0;
+      font-weight: 400;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 480px) {
+      .comparison-row-side-by-side {
+        gap: 8px;
+        padding: 0 10px;
+      }
+
+      .final-image {
+        width: 47%;  
+        height: auto;  
+        aspect-ratio: 9 / 18;  
+      }
+
+      .image-label {
+        width: 47%;
+        padding: 8px 10px;
+      }
+      
+      .final-image img {
+        object-fit: contain;
+      }
+    }
   </style>
 </head>
 <body>
@@ -112,10 +185,11 @@
           <a href="#research-pain-points" class="toc-link">Research & Pain Points</a>
           <a href="#design-features" class="toc-link">Design Features</a>
           <a href="#reflection" class="toc-link">Reflection</a>          
+          <a href="#prototype" class="toc-link">Interactive Prototype</a>  
         </nav>
 
         <a 
-          href="https://www.figma.com/proto/T8qCYlmKyJohbXbCRdwBY9/Cogs-187a-Final-Project?page-id=67%3A1287&node-id=226-1772&viewport=821%2C-343%2C0.2&t=ftA7t25ghgidpxSa-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=226%3A1772&show-proto-sidebar=1" 
+          href="https://www.figma.com/proto/cOjpCHb9x0du3JY0SKyzNp/COGS-127-Prototype?node-id=309-22&viewport=948%2C-2028%2C0.29&t=ht5vdGfgLE0NN85h-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=309%3A22&page-id=0%3A1" 
           target="_blank" 
           rel="noreferrer" 
           class="prototype-btn"        
@@ -148,7 +222,7 @@
 
       <section id="problem-statement" class="content-section">
         <p class="section-label">PROBLEM STATEMENT</p>
-        <h2 class="section-heading">The Problem</h2>
+        <h2 class="section-heading">Accessibility Barriers in Gameplay</h2>
         <p class="text-paragraph">
           By tying game progression strictly to footsteps with a heavy
           reliance on fine motor interactions, the current game fails to
@@ -202,26 +276,26 @@
             workouts, and adapted exercises.
           </li>
         </ul>
-      </section>
+       </section> 
 
       <section id="design-features" class="content-section">
         <p class="section-label">DESIGN FEATURES</p>
-        <h2 class="section-heading">Our insights</h2>
+        <h2 class="section-heading">Our Approach</h2>
         <p class="text-paragraph margin-bottom-small">
           After exploring user flows, we identified  <span style="color: #7cabb0; font-weight: 500;">two core accessibility</span>
-          features to make movement-based gameplay more inclusive for users
+          features to make gameplay more inclusive for users
           with mobility and dexterity impairments:
         </p>
         <ul class="bullet-list">
           <li>
-            <span class="font-medium">People care more about the game than the steps:</span>
-            Allowing the option to replace step-count progression with distance-based tracking such as miles,
+            <span class="font-medium">Movement Beyond Steps:</span>
+            Allowing the option to replace step-count progression with distance-based tracking, such as miles,
             allows users who use wheelchairs or mobility aids to have their
             movement more accurately reflected. This ensures that effort is
             measured equitably regardless of walking ability.
           </li>
           <li>
-            <span class="font-medium">People care more about the game than the steps:</span>
+            <span class="font-medium">Dexterity-Friendly Interactions:</span>
             Simplifying in-game interactions for users with limited motor
             control by reducing reliance on precise gestures like complex
             actions like tapping, swiping, and dragging are replaced with
@@ -232,10 +306,48 @@
         </ul>
       </section>
 
+  <section id="curious" class="content-section padding-bottom-large">
+  <div class="comparison-row-side-by-side" style="display: flex; justify-content: center; gap: 48px; width: 100%; margin-top: 0rem; margin-bottom: 5rem; flex-wrap: wrap;">
+    
+    <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
+      <div class="image-label-badge" style="background-color: rgba(28, 28, 28, 0.04); padding: 8px 20px; border-radius: 10px; font-size: 14px; width: 200px; text-align: center; margin: 0;">
+        Original App
+      </div>
+      <div class="final-image" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 25px; overflow: hidden; margin: 0;">
+        <img src="../assets/PIKMIN OG Accessibility and Language.png" alt="Original Pikmin Bloom App Layout" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
+      </div>
+    </div>
+
+    <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
+      <div class="image-label-badge" style="background-color: var(--color-btn-bg); color: var(--color-green-accent); padding: 8px 20px; border-radius: 10px; font-size: 14px; width: 200px; font-weight: 500; text-align: center; margin: 0;">
+        Our Redesign
+      </div>
+      <div class="final-image highlighted" style="width: 235px; height: 475px; flex-shrink: 0; overflow: hidden; margin: 0;">
+        <img src="../assets/PIKMIN Accessibility and Language.png" alt="Pikmin Bloom Accessibility Redesign" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
+      </div>
+    </div>
+
+  </div>
+</section>
+
       <section id="reflection" class="content-section padding-bottom-large">
         <p class="section-label">REFLECTION</p>
-      </section>
-    </main>
+  </section>
+
+  <section id="prototype" class="content-section">
+        <p class="section-label">INTERACTIVE PROTOTYPE</p>
+        <h2 class="section-heading">High-Fidelity Prototype</h2>
+        <div class="figma-embed-container" style="margin-top: 16px;">
+          <iframe
+            width="100%"
+            height="650"
+            src="https://embed.figma.com/proto/cOjpCHb9x0du3JY0SKyzNp/COGS-127-Prototype?node-id=309-22&viewport=948%2C-2028%2C0.29&scaling=scale-down&content-scaling=fixed&starting-point-node-id=309%3A22&page-id=0%3A1&embed-host=share"
+            allowfullscreen
+            style="border: none; border-radius: 12px; background: rgba(0,0,0,0.02);">
+          </iframe> 
+        </div>
+  </section>
+  </main>
   </div>
 
   <footer class="footer">
