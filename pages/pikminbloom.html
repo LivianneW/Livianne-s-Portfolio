@@ -9,7 +9,14 @@
     a {
       text-decoration: none;
       color: inherit;
-    }
+      }
+      .comparison-row-side-by-side {
+      display: flex;
+      gap: 13px;
+      justify-content: center;
+      margin-bottom: 0;
+      width: 100%;
+    }  
   </style>
 </head>
 <body>
@@ -112,10 +119,11 @@
           <a href="#research-pain-points" class="toc-link">Research & Pain Points</a>
           <a href="#design-features" class="toc-link">Design Features</a>
           <a href="#reflection" class="toc-link">Reflection</a>          
+          <a href="#prototype" class="toc-link">Interactive Prototype</a>  
         </nav>
 
         <a 
-          href="https://www.figma.com/proto/T8qCYlmKyJohbXbCRdwBY9/Cogs-187a-Final-Project?page-id=67%3A1287&node-id=226-1772&viewport=821%2C-343%2C0.2&t=ftA7t25ghgidpxSa-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=226%3A1772&show-proto-sidebar=1" 
+          href="https://www.figma.com/proto/cOjpCHb9x0du3JY0SKyzNp/127---High-Fidelity-Mockups?node-id=309-22&viewport=948%2C-2028%2C0.29&t=ht5vdGfgLE0NN85h-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=309%3A22&page-id=0%3A1" 
           target="_blank" 
           rel="noreferrer" 
           class="prototype-btn"        
@@ -148,7 +156,7 @@
 
       <section id="problem-statement" class="content-section">
         <p class="section-label">PROBLEM STATEMENT</p>
-        <h2 class="section-heading">The Problem</h2>
+        <h2 class="section-heading">Accessibility Barriers in Gameplay</h2>
         <p class="text-paragraph">
           By tying game progression strictly to footsteps with a heavy
           reliance on fine motor interactions, the current game fails to
@@ -232,11 +240,45 @@
         </ul>
       </section>
 
+      <section id="curious" class="content-section padding-bottom-large">
+      <div class="comparison-group" style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; gap: 16px; margin-top: 4rem; margin-bottom: 5rem;">
+          <div class="comparison-labels-row" style="display: flex; gap: 13px; justify-content: center; width: 100%;">
+            <div class="image-label-badge" style="background-color: rgba(28, 28, 28, 0.04); padding: 8px 20px; border-radius: 10px; font-size: 14px; width: 170px;">Original App</div>
+            <div class="image-label-badge" style="background-color: var(--color-btn-bg); color: var(--color-green-accent); padding: 8px 20px; border-radius: 10px; font-size: 14px; width: 170px; font-weight: 500;">Our Redesign</div>
+          </div>
+          
+          <div class="comparison-row-side-by-side" style="display: flex; justify-content: center; gap: 13px; width: 100%;">
+            <div class="final-image">
+              <img src="../assets/PIKMIN OG Accessibility and Language.png" alt="Original Pikmin Bloom App">
+            </div>
+            <div class="final-image highlighted">
+              <img src="../assets/PIKMIN Accessibility and Language.png" alt="Pikmin Bloom Redesign">
+            </div>
+          </div>
+          
+          <p class="image-caption" style="font-size: 14px; color: var(--text-grey); margin-top: 8px; text-align: center; max-width: 550px; line-height: 1.4; font-weight: 300;">
+            Vague icons and buried menus were replaced with a labeled bottom navigation bar and a centralized profile hub, refocusing the experience around the shop, the app's primary use.
+          </p>
+        </div>
+      </section> 
+
       <section id="reflection" class="content-section padding-bottom-large">
         <p class="section-label">REFLECTION</p>
       </section>
-    </main>
-  </div>
+
+      <section id="prototype" class="content-section">
+        <p class="section-label">INTERACTIVE PROTOTYPE</p>
+        <h2 class="section-heading">High-Fidelity Prototype</h2>
+        <div class="figma-embed-container" style="margin-top: 16px;">
+          <iframe
+            width="100%"
+            height="650"
+            src="https://embed.figma.com/proto/cOjpCHb9x0du3JY0SKyzNp/127---High-Fidelity-Mockups?node-id=309-22&viewport=948%2C-2028%2C0.29&scaling=scale-down&content-scaling=fixed&starting-point-node-id=309%3A22&page-id=0%3A1&embed-host=share"
+            allowfullscreen
+            style="border: none; border-radius: 12px; background: rgba(0,0,0,0.02);">
+          </iframe> 
+        </div>
+      </section>
 
   <footer class="footer">
     <div class="footer-row">
