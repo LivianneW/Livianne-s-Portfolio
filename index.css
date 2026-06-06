@@ -26,7 +26,7 @@ body {
   background-color: var(--bg-canvas);
   color: var(--text-dark);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden; /* Guards layout edges against accidental side scrolling */
+  overflow-x: hidden; 
 }
 
 .container, .hero-wrapper, .gallery-wrapper, .footer-container {

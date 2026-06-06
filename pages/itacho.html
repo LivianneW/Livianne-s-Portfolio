@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Itacho Sushi Redesign - Livianne</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    .comparison-row-side-by-side {
+      display: flex;
+      gap: 13px;
+      justify-content: center;
+      margin-bottom: 0;
+      width: 100%;
+    }
+
+    .final-image {
+      width: 170px;
+      height: 100%;
+      border-radius: 25px;
+      overflow: hidden;
+      position: relative;
+      flex-shrink: 0; 
+    }
+
+    .final-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      background: transparent;
+      transition: transform 0.3s ease;
+    }
+
+    .final-image img.bottom-focus {
+      object-position: bottom;
+    }
+
+    .comparison-labels-row {
+      display: flex;
+      gap: 13px;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+
+    .image-label {
+      background: rgba(0, 0, 0, 0.05);
+      padding: 8px 0;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 13px;
+      width: 175px; 
+      margin: 12px 0;
+      font-weight: 400;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 480px) {
+      .comparison-row-side-by-side {
+        gap: 8px;
+        padding: 0 10px;
+      }
+
+      .final-image {
+        width: 47%;  
+        height: auto;  
+        aspect-ratio: 9 / 18;  
+      }
+
+      .image-label {
+        width: 47%;
+        padding: 8px 10px;
+      }
+      
+      .final-image img {
+        object-fit: contain;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="../index.html" class="logo-link">
+        <span class="logo">LIVIANNE</span>
+        <span class="page-indicator">/ Itacho Sushi Redesign</span>
+      </a>
+      
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" style="display: none;">
+      
+      <label for="menu-toggle" class="hamburger-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      
+      <nav class="nav-links">
+        <a href="../index.html" class="nav-link">Work</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="https://drive.google.com/file/d/1uY5DvgihQv_6BxHrdHPwktoVfEQGerwh/view?usp=sharing" class="nav-link" target="_blank" rel="noreferrer">Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-banner">
+    <div class="container hero-container">
+      
+      <div class="hero-top-split" style="display: flex; width: 100%; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 32px;">
+        <div class="hero-text-block">
+          <h1 class="hero-title">Itacho Sushi</h1>
+          <p class="hero-subtitle">Contract</p>
+        </div>
+        <div class="hero-image-wrapper">
+          <img src="../assets/PIKMIN.png" alt="Pikmin Bloom characters illustration" class="hero-img" />
+        </div>
+      </div>
+    
+      <div class="project-meta-dashboard">
+        
+        <div class="meta-dashboard-col">
+          <span class="meta-dashboard-label">Team</span>
+          <div class="meta-dashboard-list">
+            <div class="meta-dashboard-row">
+              <span class="meta-name" style="color: var(--color-team-pink); font-weight: 500;">Livianne</span>
+              <span class="meta-role" style="color: var(--color-team-pink); font-weight: 500;">Product Designer</span>
+            </div>
+            <div class="meta-dashboard-row">
+              <span class="meta-name">Magnolia</span>
+              <span class="meta-role">Product Designer</span>
+            </div>
+            <div class="meta-dashboard-row">
+              <span class="meta-name">Valerie</span>
+              <span class="meta-role">Product Designer</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="meta-dashboard-col skills-col">
+          <span class="meta-dashboard-label">Skills</span>
+          <p class="meta-dashboard-text">Branding, User Flows, Product Thinking, Prototyping</p>
+        </div>
+
+        <div class="meta-dashboard-col">
+          <span class="meta-dashboard-label">Tools</span>
+          <p class="meta-dashboard-text">Figma</p>
+        </div>
+
+        <div class="meta-dashboard-col">
+          <span class="meta-dashboard-label">Timeline</span>
+          <p class="meta-dashboard-text">April 2026 - June 2026</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="container body-container">
+    
+    <aside class="sidebar">
+      <div class="toc-sticky-container">
+        <a href="../index_copy.html" class="back-btn-sticky">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Back to Home
+        </a>
+
+        <nav class="toc">
+          <a href="#overview" class="toc-link active">Overview</a>
+          <a href="#problem-statement" class="toc-link">Problem Statement</a>
+          <a href="#the-solution" class="toc-link">The Solution</a>
+          <a href="#research-pain-points" class="toc-link">Research & Pain Points</a>
+          <a href="#design-features" class="toc-link">Design Features</a>
+          <a href="#reflection" class="toc-link">Reflection</a>          
+          <a href="#prototype" class="toc-link">Interactive Prototype</a>  
+        </nav>
+
+        <a 
+          href="https://www.figma.com/proto/cOjpCHb9x0du3JY0SKyzNp/COGS-127-Prototype?node-id=309-22&viewport=948%2C-2028%2C0.29&t=ht5vdGfgLE0NN85h-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=309%3A22&page-id=0%3A1" 
+          target="_blank" 
+          rel="noreferrer" 
+          class="prototype-btn"        
+          style="margin-top: 20px; width: 70%; box-sizing: border-box;">
+          <span class="btn-text">View Prototype</span>
+        </a>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      
+      <section id="overview" class="content-section">
+        <p class="section-label">OVERVIEW</p>
+        <h2 class="section-heading" style="color: #70b074; font-size: 32px;">Designing with, not just for</h2>
+        <div class="text-block">
+          <p>
+            True inclusion starts when designers stop treating accessibility like a
+            secondary feature and approach it as a means of creating better experiences for everyone. AR gaming has this ability to bring people together
+            and encourage movement, yet disabled players are often left out of
+            this experience. This project was an effort to change that by
+            shifting from designing for a community, to listening, learning,
+            and creating alongside them.
+          </p>
+          <p>
+            Our team redesigned and extended features in Pikmin Bloom to
+            create a more inclusive and thoughtful experience by introducing accessibility features that support both mobility and dexterity needs.
+          </p>
+        </div>
+      </section>
+
+      <section id="problem-statement" class="content-section">
+        <p class="section-label">PROBLEM STATEMENT</p>
+        <h2 class="section-heading">Accessibility Barriers in Gameplay</h2>
+        <p class="text-paragraph">
+          By tying game progression strictly to footsteps with a heavy
+          reliance on fine motor interactions, the current game fails to
+          accommodate the diverse ways people move and interact, closing off
+          a path that should be open to everyone.
+        </p>
+      </section>
+
+      <section id="the-solution" class="content-section">
+        <p class="section-label">THE SOLUTION</p>
+        <h2 class="section-heading" style="color: #70b074; font-size: 32px;">From "Motivation to Walk" to "Motivation to Move"</h2>
+        <p class="text-paragraph">
+          Our team reimagined what it means to go on a "walk" by shifting
+          from a traditional step-counter to an inclusive activity tracker.
+          Grounded in the <span style="color: #7cabb0; font-weight: 500;">Accessible Player Experiences framework (APX)</span>  ,
+          our solution replaces step count with a motion-intensity tracker
+          that measures effort instead. Paired with redesigned
+          dexterity-accessible interaction, this extension ensures that
+          players with mobility and fine motor impairments are able to
+          immerse themselves in the game comfortably and confidently.
+        </p>
+      </section>
+
+      <section id="research-pain-points" class="content-section">
+        <p class="section-label">RESEARCH AND PAIN POINTS</p>
+        <h2 class="section-heading">Our insights</h2>
+        <p class="text-paragraph margin-bottom-large">
+          We interviewed <span style="color: #7cabb0; font-weight: 500;">four participants</span> with lower-body injuries or
+          mobility-related conditions, including both Pikmin Bloom users and
+          non-users, and identified several key pain points:
+        </p>
+        <ul class="bullet-list">
+          <li>
+            <span class="font-medium">People care more about the game than the steps:</span>
+            Step counts fail to reflect real physical exertion. Players
+            moving with injuries, slower paces, or assistive devices often
+            work harder for fewer recorded steps, leading to feelings of
+            guilt rather than motivation.
+          </li>
+          <li>
+            <span class="font-medium">People care more about the game than the steps:</span>
+            Users don't care about the steps themselves, rather, they care
+            about gameplay progression (collecting items, completing
+            expeditions, and completing tasks). The sense of momentum and
+            completion is what drives the actual engagement.
+          </li>
+          <li>
+            <span class="font-medium">Movement is bigger than just walking:</span>
+            Users want movement systems to recognize a wider range of
+            activities beyond walking, including strength training, indoor
+            workouts, and adapted exercises.
+          </li>
+        </ul>
+       </section> 
+
+      <section id="design-features" class="content-section">
+        <p class="section-label">DESIGN FEATURES</p>
+        <h2 class="section-heading">Our Approach</h2>
+        <p class="text-paragraph margin-bottom-small">
+          After exploring user flows, we identified  <span style="color: #7cabb0; font-weight: 500;">two core accessibility</span>
+          features to make gameplay more inclusive for users
+          with mobility and dexterity impairments:
+        </p>
+        <ul class="bullet-list">
+          <li>
+            <span class="font-medium">Movement Beyond Steps:</span>
+            Allowing the option to replace step-count progression with distance-based tracking, such as miles,
+            allows users who use wheelchairs or mobility aids to have their
+            movement more accurately reflected. This ensures that effort is
+            measured equitably regardless of walking ability.
+          </li>
+          <li>
+            <span class="font-medium">Dexterity-Friendly Interactions:</span>
+            Simplifying in-game interactions for users with limited motor
+            control by reducing reliance on precise gestures like complex
+            actions like tapping, swiping, and dragging are replaced with
+            more accessible inputs such as single or double taps, making
+            core gameplay (feeding, collecting, and managing Pikmin) easier
+            to perform.
+          </li>
+        </ul>
+      </section>
+
+  <section id="curious" class="content-section padding-bottom-large">
+  <div class="comparison-row-side-by-side" style="display: flex; justify-content: center; gap: 48px; width: 100%; margin-top: 0rem; margin-bottom: 5rem; flex-wrap: wrap;">
+    
+    <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
+      <div class="image-label-badge" style="background-color: rgba(28, 28, 28, 0.04); padding: 8px 20px; border-radius: 10px; font-size: 14px; width: 200px; text-align: center; margin: 0;">
+        Original App
+      </div>
+      <div class="final-image" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 25px; overflow: hidden; margin: 0;">
+        <img src="../assets/PIKMIN OG Accessibility and Language.png" alt="Original Pikmin Bloom App Layout" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
+      </div>
+    </div>
+
+    <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
+      <div class="image-label-badge" style="background-color: var(--color-btn-bg); color: var(--color-green-accent); padding: 8px 20px; border-radius: 10px; font-size: 14px; width: 200px; font-weight: 500; text-align: center; margin: 0;">
+        Our Redesign
+      </div>
+      <div class="final-image highlighted" style="width: 235px; height: 475px; flex-shrink: 0; overflow: hidden; margin: 0;">
+        <img src="../assets/PIKMIN Accessibility and Language.png" alt="Pikmin Bloom Accessibility Redesign" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+      <section id="reflection" class="content-section padding-bottom-large">
+        <p class="section-label">REFLECTION</p>
+  </section>
+
+  <section id="prototype" class="content-section">
+        <p class="section-label">INTERACTIVE PROTOTYPE</p>
+        <h2 class="section-heading">High-Fidelity Prototype</h2>
+        <div class="figma-embed-container" style="margin-top: 16px;">
+          <iframe
+            width="100%"
+            height="650"
+            src="https://embed.figma.com/proto/cOjpCHb9x0du3JY0SKyzNp/COGS-127-Prototype?node-id=309-22&viewport=948%2C-2028%2C0.29&scaling=scale-down&content-scaling=fixed&starting-point-node-id=309%3A22&page-id=0%3A1&embed-host=share"
+            allowfullscreen
+            style="border: none; border-radius: 12px; background: rgba(0,0,0,0.02);">
+          </iframe> 
+        </div>
+  </section>
+  </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-row">
+      <p class="footer-thank-you">Thank you for viewing! :-)</p>
+      
+      <button class="scroll-up-btn" id="scrollUpBtn">
+        <span>Scroll up</span>
+        <svg fill="none" preserveAspectRatio="none" viewBox="0 0 9.51388 7.36396">
+          <path d="M0.146447 3.32843C-0.0488155 3.52369 -0.0488155 3.84027 0.146447 4.03553L3.32843 7.21751C3.52369 7.41278 3.84027 7.41278 4.03553 7.21751C4.2308 7.02225 4.2308 6.70567 4.03553 6.51041L1.20711 3.68198L4.03553 0.853553C4.2308 0.658291 4.2308 0.341709 4.03553 0.146447C3.84027 -0.0488154 3.52369 -0.0488154 3.32843 0.146447L0.146447 3.32843ZM0.5 3.68198V4.18198H9.51388V3.68198V3.18198H0.5V3.68198Z" fill="#A29FA0" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="footer-row">
+      <nav class="footer-nav" aria-label="Footer Navigation Links">
+        <a href="https://www.linkedin.com/in/livianne-wong-b3b724205/" target="_blank" rel="noreferrer" class="footer-social-link">
+          <span class="footer-label">LinkedIn</span>
+        </a>
+        <a href="https://drive.google.com/file/d/1uY5DvgihQv_6BxHrdHPwktoVfEQGerwh/view" target="_blank" rel="noreferrer" class="footer-social-link">
+          <span class="footer-label">Resume</span>
+        </a>
+        <a href="https://github.com/LivianneW" target="_blank" rel="noreferrer" class="footer-social-link">
+          <span class="footer-label">Github</span>
+        </a>
+      </nav>
+      <a href="mailto:liviwong123@gmail.com" class="footer-email">
+        <span>liviwong123@gmail.com</span>
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('.content-section');
+      const tocLinks = document.querySelectorAll('.toc-link');
+
+      const options = { root: null, rootMargin: '-15% 0px -75% 0px', threshold: 0 };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const currentId = entry.target.getAttribute('id');
+            tocLinks.forEach(link => {
+              const linkHref = link.getAttribute('href');
+              if (linkHref && linkHref.includes('#')) {
+                if (linkHref.split('#')[1] === currentId) {
+                  link.classList.add('active');
+                } else {
+                  link.classList.remove('active');
+                }
+              }
+            });
+          }
+        });
+      }, options);
+
+      sections.forEach(section => observer.observe(section));
+
+      const scrollUpBtn = document.getElementById('scrollUpBtn');
+      if (scrollUpBtn) {
+        scrollUpBtn.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    });  
+  </script>
+</body>
+</html>

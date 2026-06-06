@@ -37,6 +37,24 @@
       transition: transform 0.3s ease;
     }
 
+    .nectar-demo {
+      width: 170px;
+      height: 100%;
+      border-radius: 25px;
+      overflow: hidden;
+      position: relative;
+      flex-shrink: 0; 
+    }
+
+    .nectar-demo video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      background: transparent;
+      transition: transform 0.3s ease;
+    }
+
     .final-image img.bottom-focus {
       object-position: bottom;
     }
@@ -256,7 +274,7 @@
         </p>
         <ul class="bullet-list">
           <li>
-            <span class="font-medium">People care more about the game than the steps:</span>
+            <span class="font-medium">Effort does not translate to steps:</span>
             Step counts fail to reflect real physical exertion. Players
             moving with injuries, slower paces, or assistive devices often
             work harder for fewer recorded steps, leading to feelings of
@@ -294,6 +312,26 @@
             movement more accurately reflected. This ensures that effort is
             measured equitably regardless of walking ability.
           </li>
+      <div class="comparison-row-side-by-side" style="display: flex; justify-content: center; gap: 48px; width: 100%; margin-top: 0rem; margin-bottom: 5rem; flex-wrap: wrap;"> 
+          <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
+            <div class="image-label-badge" style="background-color: rgba(28, 28, 28, 0.04); padding: 8px 20px; border-radius: 10px; font-size: 14px; width: 200px; text-align: center; margin: 0;">
+              Original App
+            </div>
+            <div class="final-image" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 25px; overflow: hidden; margin: 0;">
+              <img src="../assets/PIKMIN OG Accessibility and Language.png" alt="Original Pikmin Bloom App Layout" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
+            </div>
+          </div>
+
+          <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
+            <div class="image-label-badge" style="background-color: var(--color-btn-bg); color: var(--color-green-accent); padding: 8px 20px; border-radius: 10px; font-size: 14px; width: 200px; font-weight: 500; text-align: center; margin: 0;">
+              Our Redesign
+            </div>
+            <div class="final-image highlighted" style="width: 235px; height: 475px; flex-shrink: 0; overflow: hidden; margin: 0;">
+              <img src="../assets/PIKMIN Accessibility and Language.png" alt="Pikmin Bloom Accessibility Redesign" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
+            </div>
+          </div>
+
+        </div>
           <li>
             <span class="font-medium">Dexterity-Friendly Interactions:</span>
             Simplifying in-game interactions for users with limited motor
@@ -302,32 +340,37 @@
             more accessible inputs such as single or double taps, making
             core gameplay (feeding, collecting, and managing Pikmin) easier
             to perform.
+
+           <div class="comparison-row-side-by-side" style="display: flex; justify-content: center; gap: 48px; width: 100%; margin-top: 2rem; margin-bottom: 5rem; flex-wrap: wrap;">
+    
+            <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
+              <div class="image-label-badge" style="background-color: rgba(28, 28, 28, 0.04); padding: 8px 20px; border-radius: 10px; font-size: 14px; width: 200px; text-align: center; margin: 0;">
+                Original App
+              </div>
+              <div class="nectar-demo" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 25px; overflow: hidden; margin: 0;">
+                <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;">
+                  <source src="../assets/NectarDemo.mp4" type="video/mp4">
+                  <img src="../assets/DexterityOriginal.png" alt="Original complex dragging interaction" style="width: 100%; height: 100%; object-fit: cover;">
+                </video>
+              </div>
+            </div>
+
+            <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
+              <div class="image-label-badge" style="background-color: var(--color-btn-bg); color: var(--color-green-accent); padding: 8px 20px; border-radius: 10px; font-size: 14px; width: 200px; font-weight: 500; text-align: center; margin: 0;">
+                Our Redesign
+              </div>
+              <div class="nectar-demo" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 25px; overflow: hidden; margin: 0;">
+                <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;">
+                  <source src="../assets/DexterityRedesign.mp4" type="video/mp4">
+                  <img src="../assets/DexterityRedesign.png" alt="Redesigned simple tap interaction" style="width: 100%; height: 100%; object-fit: cover;">
+                </video>
+              </div>
+            </div>
+
+          </div> 
           </li>
         </ul>
       </section>
-
-  <section id="curious" class="content-section padding-bottom-large">
-  <div class="comparison-row-side-by-side" style="display: flex; justify-content: center; gap: 48px; width: 100%; margin-top: 0rem; margin-bottom: 5rem; flex-wrap: wrap;">
-    
-    <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
-      <div class="image-label-badge" style="background-color: rgba(28, 28, 28, 0.04); padding: 8px 20px; border-radius: 10px; font-size: 14px; width: 200px; text-align: center; margin: 0;">
-        Original App
-      </div>
-      <div class="final-image" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 25px; overflow: hidden; margin: 0;">
-        <img src="../assets/PIKMIN OG Accessibility and Language.png" alt="Original Pikmin Bloom App Layout" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
-      </div>
-    </div>
-
-    <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
-      <div class="image-label-badge" style="background-color: var(--color-btn-bg); color: var(--color-green-accent); padding: 8px 20px; border-radius: 10px; font-size: 14px; width: 200px; font-weight: 500; text-align: center; margin: 0;">
-        Our Redesign
-      </div>
-      <div class="final-image highlighted" style="width: 235px; height: 475px; flex-shrink: 0; overflow: hidden; margin: 0;">
-        <img src="../assets/PIKMIN Accessibility and Language.png" alt="Pikmin Bloom Accessibility Redesign" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
-      </div>
-    </div>
-
-  </div>
 </section>
 
       <section id="reflection" class="content-section padding-bottom-large">
