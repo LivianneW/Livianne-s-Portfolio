@@ -425,23 +425,15 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  
-  /* Lighter background combined with a soft border for clean definition */
   background-color: rgba(28, 28, 28, 0.03);
   border: 1px solid rgba(28, 28, 28, 0.06);
-  
-  /* Proportional padding: more space on the sides makes it look premium */
   padding: 10px 20px;
   border-radius: 12px;
-  
-  /* Clean typography spacing */
   font-size: 15px; 
   font-weight: 400;
   color: var(--text-grey);
   letter-spacing: -0.01em;
   line-height: 1.4;
-  
-  /* Fits snugly around the content rather than stretching too far */
   width: fit-content;
   max-width: 100%;
 }
@@ -480,6 +472,18 @@ body {
 
 .font-medium {
   font-weight: 500;
+}
+
+.numbered-list {
+  list-style-type: decimal;
+  padding-left: 1.5rem; 
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; 
+  color: var(--color-dark-charcoal);
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.625;
 }
 
 /* ── FOOTER FRAMEWORKS ── */
