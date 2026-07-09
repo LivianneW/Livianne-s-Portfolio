@@ -345,6 +345,11 @@ body {
   margin-top: 1rem;
 }
 
+.itacho-card .work-asset {
+  width: 100%;
+  height: 100%;
+}
+
 /* ABOUT PAGE LAYOUT */
 .about-layout {
   display: flex;
@@ -461,13 +466,13 @@ body {
 
 .doodle-green-flower {
   left: -120px;
-  bottom: 20px;
+  bottom: -45px;
   width: 65px;
 }
 
 .doodle-seal {
-  left: -50px;
-  bottom: -30px;
+  left: -20px;
+  bottom: -100px;
   width: 250px;
   z-index: 2; 
 }
