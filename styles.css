@@ -1,4 +1,3 @@
-/* ── RESET & GLOBAL BASELINE ── */
 * {
   margin: 0;
   padding: 0;
@@ -9,7 +8,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Larsseit Font Declarations */
+/* Larsseit */
 @font-face {
   font-family: "Larsseit";
   src: url("fonts/Larsseit-Thin.otf") format("opentype");
@@ -666,7 +665,6 @@ body {
     max-height: 260px;
   }
 
-  /* 4. DASHBOARD RE-ALIGNMENT: FIXES DISTORTED OVERLAPS ON PHONES */
   .project-meta-dashboard {
     flex-direction: column;       
     align-items: flex-start;
@@ -689,7 +687,6 @@ body {
     min-width: 70px;
   }
 
-  /* 5. STRIPS SIDEBAR ELEMENT MATRIX FROM FLOATING OVER FLOW CONTENTS */
   .body-container {
     flex-direction: column;
     gap: 3rem;
@@ -718,4 +715,84 @@ body {
     justify-content: center;
     gap: 12px;            
   }
+
+.comparison-row-side-by-side {
+  display: flex;
+  gap: 48px;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.comparison-column-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.insight-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-bottom: 1rem;
+}
+
+/* ── IMAGE CARDS ── */
+.final-image {
+  width: 235px;
+  height: 475px;
+  border-radius: 25px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  border: 1px solid rgba(28, 28, 28, 0.08);
+  background-color: rgba(28, 28, 28, 0.01);
+}
+
+.final-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.final-image:hover img {
+  transform: scale(1.02);
+}
+
+/* ── RESPONSIVE COMPRESSION (MOBILE RETROFIT) ── */
+@media (max-width: 600px) {
+  .comparison-row-side-by-side {
+    gap: 16px;
+    padding: 0 4px;
+  }
+
+  .comparison-column-unit {
+    flex: 1;
+    min-width: 140px;
+    gap: 12px;
+  }
+
+  .image-label-badge {
+    width: 100% !important;
+    font-size: 13px !important;
+    padding: 8px 12px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .final-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 9 / 18; 
+    border-radius: 18px;
+  }  
+}
 }
