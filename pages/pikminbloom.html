@@ -10,95 +10,217 @@
       text-decoration: none;
       color: inherit;
     }
-    /* IMAGE COMPARISON MATRICES */
-    .comparison-row-side-by-side {
+
+    .unified-comparison-container {
       display: flex;
-      gap: 13px;
+      flex-wrap: wrap;
       justify-content: center;
-      margin-bottom: 0;
+      align-items: flex-start;
       width: 100%;
+      max-width: 800px;
+      gap: 32px;
+      padding: 20px 0;
+      margin: 0 auto;
     }
 
-    .final-image {
-      width: 170px;
-      height: 100%;
-      border-radius: 25px;
-      overflow: hidden;
-      position: relative;
-      flex-shrink: 0; 
-    }
-
-    .final-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      background: transparent;
-      transition: transform 0.3s ease;
-    }
-
-    .nectar-demo {
-      width: 170px;
-      height: 100%;
-      border-radius: 25px;
-      overflow: hidden;
-      position: relative;
-      flex-shrink: 0; 
-    }
-
-    .nectar-demo video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      background: transparent;
-      transition: transform 0.3s ease;
-    }
-
-    .final-image img.bottom-focus {
-      object-position: bottom;
-    }
-
-    .comparison-labels-row {
+    .comparison-column {
+      flex: 1;
+      min-width: 280px;
       display: flex;
-      gap: 13px;
-      justify-content: center;
-      margin-bottom: 8px;
+      flex-direction: column;
+      align-items: center;
     }
 
-    .image-label {
-      background: rgba(0, 0, 0, 0.05);
-      padding: 8px 0;
-      border-radius: 10px;
-      text-align: center;
-      font-size: 13px;
-      width: 175px; 
-      margin: 12px 0;
-      font-weight: 400;
+    /* Standardized Layout Badges */
+    .image-label-badge {
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      text-align: center;
+      background-color: rgba(28, 28, 28, 0.04);
+      padding: 8px 20px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 400;
+      width: 220px;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+      line-height: 1.4;
     }
 
+    .comparison-column:nth-child(2) .image-label-badge {
+      background-color: var(--color-btn-bg, #e8f5e9);
+      color: var(--color-green-accent, #4CAF50);
+    }
+
+    .comparison-column-unit .image-label-badge {
+      padding: 8px 20px;
+      border-radius: 10px;
+      font-size: 14px;
+      width: 200px;
+      text-align: center;
+      margin: 0;
+    }
+
+    .badge-redesign-accent {
+      background-color: var(--color-btn-bg);
+      color: var(--color-green-accent);
+      font-weight: 500;
+    }
+
+    .media-frame, .final-image, .nectar-demo {
+      width: 235px;
+      aspect-ratio: 235 / 475;
+      flex-shrink: 0;
+      border-radius: 25px;
+      overflow: hidden;
+      margin: 0;
+    }
+
+    .frame-redesign, .media-frame:has(.nectar-demo) {
+      border-radius: 38px;
+    }
+
+    .media-frame img, .final-image img, .nectar-demo img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+    }
+
+    .bullet-list-takeaway {
+      list-style-type: none !important;
+      padding-left: 0 !important;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem; 
+    }
+
+    .bullet-list-takeaway li {
+      font-size: 14px;
+      line-height: 1.65; /* Increased for airy, highly scannable reading */
+      color: rgba(28, 28, 28, 0.7);
+      position: relative;
+      padding-left: 1.25rem;
+    }
+
+    .bullet-list-takeaway li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--color-light-grey, #a29fa0);
+      font-weight: bold;
+    }
+
+    .comparison-column:nth-child(2) .bullet-list-takeaway li::before {
+      color: var(--color-green-accent, #70b074);
+    }
+
+    .bullet-list-takeaway strong {
+      color: var(--color-dark-charcoal, #1c1c1c);
+      font-weight: 500;
+    }
+  
+    .media-caption {
+      width: 350px;
+      max-width: 100%;
+      margin-top: 1rem;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.5;
+      color: rgba(28, 28, 28, 0.7);
+      text-align: left;
+    }
+
+    .comparison-row-side-by-side {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      width: 100%;
+      margin-top: 2rem;
+      margin-bottom: 5rem;
+      flex-wrap: wrap;
+    }
+
+    .comparison-column-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+    }
+
+    /* ── PAGE LAYOUT ELEMENTS & OVERRIDES ── */
+    .hero-top-split {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+
+    .meta-team-highlight {
+      color: var(--color-team-pink);
+      font-weight: 500;
+    }
+
+    .sidebar-sticky-btn {
+      margin-top: 20px;
+      width: 70%;
+      box-sizing: border-box;
+    }
+
+    .section-heading-accent {
+      color: #70b074;
+      font-size: 32px;
+    }
+
+    .apx-text-highlight {
+      color: #7cabb0;
+      font-weight: 500;
+    }
+
+    .figma-embed-container {
+      margin-top: 16px;
+    }
+
+    .figma-embed-container iframe {
+      border: none;
+      border-radius: 12px;
+      background: rgba(0,0,0,0.02);
+    }
+
+    .center-section-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    /* ── RESPONSIVE ADAPTATIONS (MOBILE RETROFIT) ── */
     @media (max-width: 480px) {
       .comparison-row-side-by-side {
         gap: 8px;
         padding: 0 10px;
+        margin-bottom: 2rem;
       }
 
-      .final-image {
+      .final-image, .media-frame, .nectar-demo {
         width: 47%;  
         height: auto;  
         aspect-ratio: 9 / 18;  
       }
 
-      .image-label {
-        width: 47%;
+      .image-label-badge, .comparison-column-unit .image-label-badge {
+        width: 100%;
         padding: 8px 10px;
+        font-size: 13px;
       }
       
-      .final-image img {
-        object-fit: contain;
+      .final-image img, .media-frame img, .nectar-demo img {
+        object-fit: contain !important;
       }
     }
   </style>
@@ -131,7 +253,7 @@
   <section class="hero-banner">
     <div class="container hero-container">
       
-      <div class="hero-top-split" style="display: flex; width: 100%; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 32px;">
+      <div class="hero-top-split">
         <div class="hero-text-block">
           <h1 class="hero-title">Pikmin Bloom Accessibility</h1>
           <p class="hero-subtitle">Redesign</p>
@@ -147,8 +269,8 @@
           <span class="meta-dashboard-label">Team</span>
           <div class="meta-dashboard-list">
             <div class="meta-dashboard-row">
-              <span class="meta-name" style="color: var(--color-team-pink); font-weight: 500;">Livianne</span>
-              <span class="meta-role" style="color: var(--color-team-pink); font-weight: 500;">Product Designer</span>
+              <span class="meta-name meta-team-highlight">Livianne</span>
+              <span class="meta-role meta-team-highlight">Product Designer</span>
             </div>
             <div class="meta-dashboard-row">
               <span class="meta-name">Neela</span>
@@ -210,8 +332,7 @@
           href="https://www.figma.com/proto/cOjpCHb9x0du3JY0SKyzNp/COGS-127-Prototype?node-id=309-22&viewport=948%2C-2028%2C0.29&t=ht5vdGfgLE0NN85h-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=309%3A22&page-id=0%3A1" 
           target="_blank" 
           rel="noreferrer" 
-          class="prototype-btn"        
-          style="margin-top: 20px; width: 70%; box-sizing: border-box;">
+          class="prototype-btn sidebar-sticky-btn">
           <span class="btn-text">View Prototype</span>
         </a>
       </div>
@@ -221,7 +342,7 @@
       
       <section id="overview" class="content-section">
         <p class="section-label">OVERVIEW</p>
-        <h2 class="section-heading" style="color: #70b074; font-size: 32px;">Designing with, not just for</h2>
+        <h2 class="section-heading section-heading-accent">Designing with, not just for</h2>
         <div class="text-block">
           <p>
             True inclusion starts when designers stop treating accessibility like a
@@ -251,11 +372,11 @@
 
       <section id="the-solution" class="content-section">
         <p class="section-label">THE SOLUTION</p>
-        <h2 class="section-heading" style="color: #70b074; font-size: 32px;">From "Motivation to Walk" to "Motivation to Move"</h2>
+        <h2 class="section-heading section-heading-accent">From "Motivation to Walk" to "Motivation to Move"</h2>
         <p class="text-paragraph">
           Our team reimagined what it means to go on a "walk" by shifting
           from a traditional step-counter to an inclusive activity tracker.
-          Grounded in the <span style="color: #7cabb0; font-weight: 500;">Accessible Player Experiences framework (APX)</span>  ,
+          Grounded in the <span class="apx-text-highlight">Accessible Player Experiences framework (APX)</span>  ,
           our solution replaces step count with a motion-intensity tracker
           that measures effort instead. Paired with redesigned
           dexterity-accessible interaction, this extension ensures that
@@ -268,7 +389,7 @@
         <p class="section-label">RESEARCH AND PAIN POINTS</p>
         <h2 class="section-heading">Our insights</h2>
         <p class="text-paragraph margin-bottom-large">
-          We interviewed <span style="color: #7cabb0; font-weight: 500;">four participants</span> with lower-body injuries or
+          We interviewed <span class="apx-text-highlight">four participants</span> with lower-body injuries or
           mobility-related conditions, including both Pikmin Bloom users and
           non-users, and identified several key pain points:
         </p>
@@ -297,114 +418,103 @@
        </section> 
 
 <section id="design-features" class="content-section">
-  <p class="section-label">DESIGN FEATURES</p>
-  <h2 class="section-heading">Our Approach</h2>
-  <p class="text-paragraph margin-bottom-small">
-    After exploring user flows, we identified <span style="color: #7cabb0; font-weight: 500;">two core accessibility</span> features to make gameplay more inclusive for users with mobility and dexterity impairments:
-  </p>
-  
-<ol class="numbered-list" style="list-style-type: decimal; padding-left: 1.5rem; display: flex; flex-direction: column; gap: 1.5rem; color: var(--color-dark-charcoal); font-size: 18px; font-weight: 300; line-height: 1.625;">
-  <li>
-    <span class="font-medium" style="font-weight: 500;">Movement Beyond Steps:</span>
-    Allowing the option to replace step-count progression with distance-based tracking, such as miles, 
-    allows users who use wheelchairs or mobility aids to have their movement more accurately reflected. 
-    This ensures that effort is measured equitably regardless of walking ability.
-  </li>
+        <p class="section-label">DESIGN FEATURES</p>
+        <h2 class="section-heading">Our Approach</h2>
+        <p class="text-paragraph margin-bottom-small">
+          After exploring user flows, we identified <span class="apx-text-highlight">two core accessibility</span> features to make gameplay more inclusive for users with mobility and dexterity impairments:
+        </p>
+        
+        <ol class="numbered-list">
+          <li>
+            <span class="font-medium">Movement Beyond Steps:</span>
+            Allowing the option to replace step-count progression with distance-based tracking, such as miles, 
+            allows users who use wheelchairs or mobility aids to have their movement more accurately reflected. 
+            This ensures that effort is measured equitably regardless of walking ability.
+          </li>
 
-  <!-- ── FEATURE 1 MEDIA COMPARISON (Movement Beyond Steps) ── -->
-  <div class="comparison-row-side-by-side" style="display: flex; justify-content: center; gap: 48px; width: 100%; margin-top: 2rem; margin-bottom: 5rem; flex-wrap: wrap;"> 
-    <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
-      <div class="image-label-badge" style="background-color: rgba(28, 28, 28, 0.04); padding: 8px 20px; border-radius: 10px; font-size: 14px; width: 200px; text-align: center; margin: 0;">
-        Original App
-      </div>
-      <div class="final-image" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 25px; overflow: hidden; margin: 0;">
-        <img src="../assets/PIKMIN OG Accessibility and Language.png" alt="Original Pikmin Bloom App Layout" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
-      </div>
-    </div>
+          <!-- ── FEATURE 1 MEDIA COMPARISON (Movement Beyond Steps) ── -->
+          <div class="center-section-wrapper">
+            <div class="unified-comparison-container"> 
+              <div class="comparison-column">
+                <div class="image-label-badge">Original App</div>
+                <div class="media-frame">
+                  <img src="../assets/PIKMIN OG Accessibility and Language.png" alt="Original Pikmin Bloom App Layout">
+                </div>
+              </div>
 
-    <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
-      <div class="image-label-badge" style="background-color: var(--color-btn-bg); color: var(--color-green-accent); padding: 8px 20px; border-radius: 10px; font-size: 14px; width: 200px; font-weight: 500; text-align: center; margin: 0;">
-        Our Redesign
-      </div>
-      <div class="final-image highlighted" style="width: 235px; height: 475px; flex-shrink: 0; overflow: hidden; margin: 0;">
-        <img src="../assets/PIKMIN Accessibility and Language.png" alt="Pikmin Bloom Accessibility Redesign" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
-      </div>
-    </div>
-  </div>
+              <div class="comparison-column">
+                <div class="image-label-badge">Our Redesign</div>
+                <div class="media-frame frame-redesign">
+                  <img src="../assets/NectarDemo2.gif" alt="Redesign interaction demo">
+                </div>
+              </div>
+            </div>
+          </div>
 
-<li>
-    <span class="font-medium" style="font-weight: 500;">Dexterity-Friendly Interactions:</span>
-    Simplifying in-game interactions for users with limited motor control by reducing reliance on precise 
-    gestures. Complex actions like swiping and dragging are replaced with more accessible inputs such as 
-    single or double taps, making core gameplay (feeding, collecting, and managing Pikmin) easier to perform.
-  </li>
+          <li>
+            <span class="font-medium">Dexterity-Friendly Interactions:</span>
+            Simplifying in-game interactions for users with limited motor control by reducing reliance on precise 
+            gestures. Complex actions like swiping and dragging are replaced with more accessible inputs such as 
+            single or double taps, making core gameplay (feeding, collecting, and managing Pikmin) easier to perform.
+          </li>
+        </ol>
 
-</ol>
-<div class="original-app-unified-block" style="display: flex; flex-direction: column; align-items: center; width: 100%; margin-top: 2rem; margin-bottom: 3rem;">
-    
-    <div class="image-label-badge" style="background-color: rgba(28, 28, 28, 0.04); padding: 8px 20px; border-radius: 10px; font-size: 14px; width: 100%; max-width: 518px; text-align: center; margin-bottom: 2rem;">
-      Original App
-    </div>
+        <!-- ── FEATURE 2 MEDIA COMPARISON (Dexterity Friendly Interactions) ── -->
+        <div class="center-section-wrapper">
+          <div class="unified-comparison-container">
+            
+            <div class="comparison-column">   
+              <div class="image-label-badge">Original App</div>
+              <div class="media-frame">
+                <img src="../assets/NectarOG1.png" alt="Original Pikmin Bloom App Layout">
+              </div>
+              <ul class="media-caption bullet-list-takeaway">
+                  <li><strong>Repetitive Tasks:</strong> Required feeding Pikmin one-by-one with no visible support for batch actions</li>
+                  <li><strong>Hidden Gestures:</strong> A drag-to-select shortcut went completely unnoticed during user testing</li>
+                  <li><strong>Dexterity Barrier:</strong> High physical demand created a clear barrier for users with limited motor control</li>
+                </ul>
+            </div>
 
-    <div class="mockup-row" style="display: flex; justify-content: center; gap: 48px; width: 100%; flex-wrap: wrap;">
-      <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center;">
-        <div class="final-image" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 25px; overflow: hidden; margin: 0;">
-          <img src="../assets/NectarOG1.png" alt="Original Pikmin Bloom App Layout" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
+            <div class="comparison-column">
+              <div class="image-label-badge">Our Redesign</div>
+              <div class="media-frame frame-redesign">
+                <img class="nectar-demo" src="../assets/NectarDemo.gif" alt="Redesign interaction demo">
+              </div>
+              <ul class="media-caption bullet-list-takeaway">
+                  <li><strong>Bulk Feed Flow:</strong> Streamlines repetitive feeding tasks into a clear, step-by-step process</li>
+                  <li><strong>Tap Interactions:</strong> Replaces precise dragging or rapid swiping with accessible target inputs</li>
+                  <li><strong>Reduced Load:</strong> Significantly lowers both physical execution effort and cognitive strain</li>
+                </ul>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center;">
-        <div class="final-image highlighted" style="width: 235px; height: 475px; flex-shrink: 0; overflow: hidden; margin: 0;">
-          <img src="../assets/NectarOG2.png" alt="Original Pikmin Bloom Counter Dialog Layout" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Bottom Level: Our Redesign Display (Video Feature Center) -->
-  <div class="comparison-row-side-by-side" style="display: flex; justify-content: center; gap: 48px; width: 100%; margin-top: 0rem; margin-bottom: 5rem; flex-wrap: wrap;">
-    <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
-      <div class="image-label-badge" style="background-color: var(--color-btn-bg); color: var(--color-green-accent); padding: 8px 20px; border-radius: 10px; font-size: 14px; width: 200px; font-weight: 500; text-align: center; margin: 0;">
-        Our Redesign
-      </div>
-      <div class="nectar-demo" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 38px; overflow: hidden; margin: 0;">
-        <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;">
-          <source src="../assets/NectarDemo.mp4" type="video/mp4">
-          <img src="../assets/DexterityOriginal.png" alt="Original complex dragging interaction" style="width: 100%; height: 100%; object-fit: cover;">
-        </video>
-      </div>
-    </div>
-  </div>
-</section>
-
-      <section id="reflection" class="content-section padding-bottom-large">
+      </section>
+      
+      <section id="reflection" class="content-section">
         <p class="section-label">REFLECTION</p>
         <div class="text-block">
-        <p>
-            If this project taught me anything, it's that no matter how hard you try to step into someone else's shoes, it will never replace nor replicate their actual lived experiences.
-            As designers, we can try to anticipate every single use case and roadblock, but user research will always throw you a curveball that completely changes your perspective.
-        </p>
-        <p>
-            More than anything, this project reminded me why I chose to pursue UX/UI design and why it matters to me. Technology and digital experiences should be accessible to
-            everyone, regardless of one's abilities, backgrounds, or life experiences. True accessibility comes from designing with people, not just for them, by including their voices and experiences throughout the design process.
+          <p>
+            If this project taught me anything, it's that no matter how hard you try to step into someone else's shoes, it will never replace nor replicate their actual lived experiences. As designers, we can try to anticipate every single use case and roadblock, but user research will always throw you a curveball that completely changes your perspective.
+          </p>
+          <p>
+            More than anything, this project reminded me why I chose to pursue UX/UI design and why it matters to me. Technology and digital experiences should be accessible to everyone, regardless of one's abilities, backgrounds, or life experiences. True accessibility comes from designing with people, not just for them, by including their voices and experiences throughout the design process.
           </p>
         </div>
-  </section>
+      </section>
 
-  <section id="prototype" class="content-section">
+      <section id="prototype" class="content-section">
         <p class="section-label">INTERACTIVE PROTOTYPE</p>
         <h2 class="section-heading">High-Fidelity Prototype</h2>
-        <div class="figma-embed-container" style="margin-top: 16px;">
+        <div class="figma-embed-container">
           <iframe
             width="100%"
             height="650"
             src="https://embed.figma.com/proto/cOjpCHb9x0du3JY0SKyzNp/COGS-127-Prototype?node-id=309-22&viewport=948%2C-2028%2C0.29&scaling=scale-down&content-scaling=fixed&starting-point-node-id=309%3A22&page-id=0%3A1&embed-host=share"
-            allowfullscreen
-            style="border: none; border-radius: 12px; background: rgba(0,0,0,0.02);">
+            allowfullscreen>
           </iframe> 
         </div>
-  </section>
-  </main>
+      </section>
+    </main>
   </div>
 
   <footer class="footer">
