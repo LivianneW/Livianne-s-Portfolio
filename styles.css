@@ -8,7 +8,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Larsseit */
+/* ── FONTS ── */
 @font-face {
   font-family: "Larsseit";
   src: url("fonts/Larsseit-Thin.otf") format("opentype");
@@ -188,11 +188,11 @@ body {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 64px 2rem;                    
+  padding: 64px 2rem;                             
 }
 
 .hero-text-block {
-  flex: 1;                        
+  flex: 1;                                
   display: flex;
   flex-direction: column;
 }
@@ -214,7 +214,7 @@ body {
 }
 
 .hero-image-wrapper {
-  flex: 1;                        
+  flex: 1;                                
   max-width: 500px;                
   width: 100%;
   display: flex;
@@ -239,7 +239,6 @@ body {
   margin: 40px auto 0 auto;
   padding-top: 32px;
   border-top: 1px solid rgba(0, 0, 0, 0.06); 
-
 }
 
 .meta-dashboard-col {
@@ -250,21 +249,10 @@ body {
   flex-shrink: 1;     
 }
 
-.meta-dashboard-col.col-team {
-  flex-basis: 25%
-}
-
-.meta-dashboard-col.col-skills {
-  flex-basis: 30%;   
-}
-
-.meta-dashboard-col.col-tools {
-  flex-basis: 25%; 
-}
-
-.meta-dashboard-col.col-timeline {
-  flex-basis: 20%;   
-}
+.meta-dashboard-col:nth-child(1) { flex-basis: 25%; }
+.meta-dashboard-col.skills-col  { flex-basis: 30%; }
+.meta-dashboard-col:nth-child(3) { flex-basis: 25%; }
+.meta-dashboard-col:nth-child(4) { flex-basis: 20%; }
 
 .meta-dashboard-label {
   font-size: 14px;
@@ -430,7 +418,7 @@ body {
   border-radius: 12px;
   font-size: 15px; 
   font-weight: 400;
-  color: var(--text-grey);
+  color: var(--color-muted-grey);
   letter-spacing: -0.01em;
   line-height: 1.4;
   width: fit-content;
@@ -485,6 +473,55 @@ body {
   line-height: 1.625;
 }
 
+/* ── COMPONENT UTILITIES ── */
+.insight-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-bottom: 1rem;
+}
+
+.comparison-row-side-by-side {
+  display: flex;
+  gap: 48px;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.comparison-column-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ── IMAGE / MEDIA FRAMES ── */
+.final-image {
+  width: 235px;
+  height: 475px;
+  border-radius: 25px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.final-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.final-image:hover img {
+  transform: scale(1.02);
+}
+
 /* ── FOOTER FRAMEWORKS ── */
 .footer {
   display: flex;
@@ -514,7 +551,7 @@ body {
 
 .footer-nav {
   display: flex;
-  gap: 24px;         
+  gap: 24px;          
   align-items: center;
 }
 
@@ -565,21 +602,17 @@ body {
 .margin-bottom-large { margin-bottom: 1.5rem; }
 .padding-bottom-large { padding-bottom: 4rem; }
 
-
-/* ── MOBILE OVERRIDES (920px BREAKPOINT) ── */
+/* ── RESPONSIVE RESPONSIVENESS (920px BREAKPOINT) ── */
 @media (max-width: 920px) {
-  
   .container, .nav-container, .hero-container, .footer {
     padding-left: 1.5rem !important;
     padding-right: 1.5rem !important;
   }
 
-  /* 1. HIDES PAGE INDICATOR LOOP */
   .page-indicator {
     display: none !important;
   }
 
-  /* 2. RNDERS PURE CSS HAMBURGER GRAPHICS */
   .hamburger-icon {
     display: flex;
     flex-direction: column;
@@ -633,7 +666,6 @@ body {
     transform: translateY(-7px) rotate(-45deg);
   }
 
-  /* 3. HERO RESET FOR THE ELEMENTS LAYER */
   .hero-container {
     padding-top: 48px !important;
     padding-bottom: 48px !important;
@@ -678,10 +710,6 @@ body {
     width: 100%;
   }
   
-  .meta-dashboard-col.skills-col {
-    max-width: 100%; 
-  }
-  
   .meta-name {
     width: auto;                  
     min-width: 70px;
@@ -699,10 +727,9 @@ body {
   }
 
   .toc-sticky-container {
-    display: none !important; /* Discards the sidebar anchors perfectly */
+    display: none !important;
   }
 
-  /* 6. Footer Stack Changes */
   .footer-row {
     flex-direction: column;
     gap: 24px;              
@@ -715,55 +742,6 @@ body {
     justify-content: center;
     gap: 12px;            
   }
-
-.comparison-row-side-by-side {
-  display: flex;
-  gap: 48px;
-  justify-content: center;
-  align-items: flex-start;
-  width: 100%;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
-}
-
-.comparison-column-unit {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-}
-
-.insight-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding-bottom: 1rem;
-}
-
-/* ── IMAGE CARDS ── */
-.final-image {
-  width: 235px;
-  height: 475px;
-  border-radius: 25px;
-  overflow: hidden;
-  position: relative;
-  flex-shrink: 0;
-  border: 1px solid rgba(28, 28, 28, 0.08);
-  background-color: rgba(28, 28, 28, 0.01);
-}
-
-.final-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.final-image:hover img {
-  transform: scale(1.02);
 }
 
 /* ── RESPONSIVE COMPRESSION (MOBILE RETROFIT) ── */
@@ -794,5 +772,4 @@ body {
     aspect-ratio: 9 / 18; 
     border-radius: 18px;
   }  
-}
 }

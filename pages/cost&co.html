@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cost&Co Companion App - Livianne</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    /* ── DESIGN SYSTEM VARIABLES ── */
+    :root {
+      --color-brand-green: #70b074;
+      --color-accent-teal: #7cabb0;
+      --color-dark-charcoal: #1c1c1c;
+      --color-muted-grey: #585858;
+      --color-light-grey: #a29fa0;
+      --card-bg: rgba(28, 28, 28, 0.02);
+      --card-border: rgba(28, 28, 28, 0.05);
+    }
+
+    /* ── BASE REOVERRIDES ── */
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    /* ── LAYOUT UTILITIES ── */
+    .hero-top-split {
+      display: flex; 
+      width: 100%; 
+      align-items: center; 
+      justify-content: space-between; 
+      flex-wrap: wrap; 
+      gap: 32px;
+    }
+
+    .hero-img-spec {
+      width: 100%; 
+      height: 100%; 
+      transform: scale(1.1); 
+      display: block;
+    }
+
+    .meta-designer-highlight {
+      color: var(--color-team-pink, #ff69b4); 
+      font-weight: 500;
+    }
+
+    .sidebar-sticky-btn {
+      margin-top: 20px; 
+      width: 70%; 
+      box-sizing: border-box;
+    }
+
+    .section-heading-accent {
+      color: var(--color-brand-green); 
+      font-size: 32px;
+    }
+
+    .highlight {
+      color: #7cabb0;
+      font-weight: 500;
+    }
+
+    /* ── ETHNOGRAPHIC RESEARCH SPACING MECHANICS ── */
+    .research-phase-container {
+      display: flex;
+      flex-direction: column;
+      gap: 3.5rem; 
+    }
+
+    .research-subheading {
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+    }
+
+    /* ── RECRUITER METRIC DASHBOARD ── */
+    .research-stats-dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+      margin-bottom: 2rem;
+      width: 100%;
+    }
+
+    .stat-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 1.5rem;
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem; 
+    }
+
+    .stat-number {
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--color-dark-charcoal);
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--color-light-grey);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── RESEARCH QUESTIONS ENGINE ── */
+    .research-questions-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin-top: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem; 
+    }
+
+    .research-questions-list li {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .rq-header {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem; 
+    }
+
+    .rq-number {
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--color-dark-charcoal);
+    }
+
+    .rq-title {
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--color-dark-charcoal);
+      letter-spacing: -0.01em;
+    }
+
+    .rq-text {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.65; 
+      color: var(--color-muted-grey);
+      padding-left: 1.5rem;
+      margin: 0;
+    }
+
+    .rq-bullet-sublist {
+      list-style-type: none;
+      padding-left: 1.5rem;
+      margin: 0.5rem 0 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem; 
+    }
+
+    .rq-bullet-sublist li {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--color-muted-grey);
+      position: relative;
+      padding-left: 1.25rem;
+      display: block;
+    }
+
+    .rq-bullet-sublist li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--color-light-grey);
+      font-weight: bold;
+    }
+
+    /* ── CALLOUT UTILITIES ── */
+    .insight-callout-container {
+      display: flex;
+      flex-direction: column;
+      margin-top: 0.5rem; 
+      margin-bottom: 0.85rem;
+      padding-left: 1.5rem;
+      width: 100%;
+    }
+
+    .insight-callout-text {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--color-dark-charcoal);
+      border-left: 3px solid rgba(124, 171, 176, 0.5);
+      padding-left: 1.25rem; 
+      margin: 0;
+    }
+
+    /* ── APPROACH CARDS & CONTAINER SYSTEM ── */
+    .approach-cards-wrapper {
+      display: flex; 
+      flex-direction: column; 
+      gap: 2.25rem; 
+      margin-top: 2.5rem;
+    }
+
+    .insight-card h3 {
+      font-size: 20px; 
+      font-weight: 500; 
+      margin-bottom: 0.5rem; 
+      color: var(--color-dark-charcoal);
+    }
+
+    .insight-card p {
+      font-size: 17px; 
+      font-weight: 300; 
+      color: var(--color-muted-grey); 
+      margin-bottom: 0; 
+      line-height: 1.65;
+    }
+
+    .card-space-modifier {
+      margin-top: 1rem;
+    }
+
+    .problem-bullet-list {
+      padding-left: 0; 
+      margin-top: 0.5rem;
+    }
+
+    .problem-bullet-item {
+      padding-left: 1.25rem;
+    }
+
+    .prototype-header-row {
+      display: flex; 
+      justify-content: space-between; 
+      align-items: baseline; 
+      flex-wrap: wrap; 
+      gap: 16px;
+    }
+
+    .btn-desktop-spec {
+      height: 36px; 
+      padding: 0 16px; 
+      font-size: 14px;
+    }
+
+    /* ── MEDIA FRAME SYSTEM ── */
+    .media-frame, .final-image, .CCDemo {
+      width: 235px;
+      aspect-ratio: 235 / 475;
+      flex-shrink: 0;
+      border-radius: 25px;
+      overflow: hidden;
+      margin: 0;
+    }
+
+    .frame-redesign, .media-frame:has(.CCDemo) {
+      border-radius: 38px;
+    }
+
+    .media-frame img, .final-image img, .CCDemo img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+    }
+
+    .figma-embed-container iframe {
+      border: none; 
+      border-radius: 12px; 
+      background: rgba(0,0,0,0.02);
+    }
+
+    .demo-media-container {
+      margin-top: 2rem;
+    }
+
+    .address-section-title {
+      margin-top: 3.5rem;
+    }
+
+    .address-cards-container {
+      margin-top: 1.5rem;
+    }
+
+    .research-synthesis-board {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 1.5rem;
+      border-radius: 14px;
+      width: 100%;
+      margin: 1.5rem 0 2rem 0;
+      flex-wrap: wrap;
+    }
+
+    .synthesis-column {
+      flex: 1;
+      min-width: 180px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.35rem;
+    }
+
+    .synthesis-label {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--color-light-grey);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .synthesis-pill-data {
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--color-brand-green); 
+      letter-spacing: -0.01em;
+    }
+
+    .text-highlight-span {
+      color: var(--color-accent-teal); 
+      font-weight: 500;
+    }
+
+    .insights-list-container {
+      margin-top: 2.5rem;
+    }
+
+    .insights-summary-text {
+      margin-top: 2rem;
+    }
+    
+    /* ── CARD MAPPER & FEATURE GRID RE-ARCHITECTURE ── */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.75rem;
+      margin-top: 2rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .feature-card {
+      background-color: rgba(28, 28, 28, 0.01);
+      border: 1px solid var(--card-border);
+      padding: 1.75rem;
+      border-radius: 14px;
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .impact-card {
+      padding: 2rem;
+      background-color: transparent;
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+    }
+
+    .insight-mapping-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 2rem;
+    }
+
+    .mapping-card {
+      padding: 2rem;
+      background-color: rgba(28, 28, 28, 0.01);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+    }
+
+    .mapping-header-research {
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--color-light-grey);
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.25rem;
+      border-bottom: 1px solid rgba(28, 28, 28, 0.04);
+    }
+
+    .mapping-header-design {
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--color-brand-green);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    /* ── MOBILE OVERRIDES ── */
+    @media (max-width: 480px) {
+      .rq-text {
+        padding-left: 1.25rem;
+        font-size: 16px;
+      }
+
+      .insight-callout-container {
+        padding-left: 1.25rem;
+      }
+
+      .research-synthesis-board {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.25rem;
+        padding: 1.25rem;
+      }
+
+      .synthesis-column {
+        width: 100%;
+      }
+
+      .insight-callout-text {
+        font-size: 15px;
+      }
+
+      .research-stats-dashboard, .feature-grid, .impact-grid, .insight-mapping-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      
+      .stat-card, .feature-card, .impact-card, .mapping-card {
+        min-width: 100%;
+        padding: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="../index.html" class="logo-link">
+        <span class="logo">LIVIANNE</span>
+        <span class="page-indicator">/ Cost&Co Companion App</span>
+      </a>
+      
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" style="display: none;">
+      
+      <label for="menu-toggle" class="hamburger-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      
+      <nav class="nav-links">
+        <a href="../index.html" class="nav-link">Work</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="https://drive.google.com/file/d/1uY5DvgihQv_6BxHrdHPwktoVfEQGerwh/view?usp=sharing" class="nav-link" target="_blank" rel="noreferrer">Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-banner">
+    <div class="container hero-container">
+      <div class="hero-top-split">
+        <div class="hero-text-block">
+          <h1 class="hero-title">Cost&Co Companion App</h1>
+          <p class="hero-subtitle">Product Design</p>
+        </div>
+        <div class="hero-image-wrapper">
+          <img src="../assets/CCHeader.png" alt="Cost&Co Companion App" class="hero-img hero-img-spec"/>
+        </div>
+      </div>
+    
+      <div class="project-meta-dashboard">
+        <div class="meta-dashboard-col">
+          <span class="meta-dashboard-label">Team</span>
+          <div class="meta-dashboard-list">
+            <div class="meta-dashboard-row">
+              <span class="meta-name meta-designer-highlight">Livianne</span>
+              <span class="meta-role meta-designer-highlight">Product Designer & Researcher</span>
+            </div>
+            <div class="meta-dashboard-row">
+              <span class="meta-name">Magnolia</span>
+              <span class="meta-role">Product Designer & Researcher</span>
+            </div>
+            <div class="meta-dashboard-row">
+              <span class="meta-name">Valerie</span>
+              <span class="meta-role">Product Designer & Researcher</span>
+            </div>
+            <div class="meta-dashboard-row">
+              <span class="meta-name">Eric</span>
+              <span class="meta-role">Product Designer & Researcher</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="meta-dashboard-col skills-col">
+          <span class="meta-dashboard-label">Skills</span>
+          <p class="meta-dashboard-text">User Research, Contextual Interviews, User flows, Prototyping</p>
+        </div>
+
+        <div class="meta-dashboard-col">
+          <span class="meta-dashboard-label">Tools</span>
+          <p class="meta-dashboard-text">Figma, Condes.io</p>
+        </div>
+
+        <div class="meta-dashboard-col">
+          <span class="meta-dashboard-label">Timeline</span>
+          <p class="meta-dashboard-text">April 2026 - June 2026</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container body-container">
+    <aside class="sidebar">
+      <div class="toc-sticky-container">
+        <a href="../index.html" class="back-btn-sticky">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Back to Home
+        </a>
+
+        <!-- Synchronized Navigation Anchors -->
+        <nav class="toc">
+          <a href="#overview" class="toc-link active">Overview</a>
+          <a href="#the-challenge" class="toc-link">The Challenge</a>
+          <a href="#understanding-the-costco-experience" class="toc-link">Understanding the Costco Experience</a>
+          <a href="#insights" class="toc-link">Research Insights</a>
+          <a href="#design-direction" class="toc-link">Design Direction</a>
+          <a href="#reflection" class="toc-link">Reflection</a>
+          <a href="#prototype" class="toc-link">Interactive Prototype</a>
+          <a href="#curious" class="toc-link">For the Curious</a>
+        </nav>
+
+        <a 
+          href="https://www.figma.com/proto/fST3L2eH8NWoQPx8rorWGS/Cost-Co-Companion-App?node-id=1-186&viewport=-289%2C258%2C0.34&t=HIji1y2Za4S8abJf-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A186&show-proto-sidebar=1&page-id=0%3A1" 
+          target="_blank" 
+          rel="noreferrer" 
+          class="prototype-btn sidebar-sticky-btn">
+          <span class="btn-text">View Prototype</span>
+        </a>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <section id="overview" class="content-section">
+        <p class="section-label">OVERVIEW</p>
+        <h2 class="section-heading section-heading-accent" style="margin-bottom: 12px; letter-spacing: -0.02em;">
+          Making Sense of Costco's Ever-Changing Experience
+        </h2>
+        <p class="text-paragraph" style="font-size: 20px; line-height: 1.5; margin-bottom: 24px; color: var(--color-muted-grey);">
+          How might we help Costco shoppers navigate constantly changing warehouse environments without disrupting Costco's business model?
+        </p>
+        <div class="text-block">
+          <p>
+            Costco's warehouse experience thrives on discovery, but constantly rotating inventory, inconsistent layouts, and limited store information can make finding products frustrating.
+            We designed a community companion app that helps shoppers navigate, discover products, and make informed decisions through real-time member driven insights.
+          </p>
+        </div>
+      </section>
+      
+      <section id="the-challenge" class="content-section">
+        <p class="section-label">THE CHALLENGE</p>
+        <h2 class="section-heading section-heading-accent">Where Did It Go?</h2>
+        <p class="text-paragraph">
+         With limited signage, inconsistent product availability, and constantly shifting product locations, shoppers often rely on memory and trial-and-error to locate products. 
+         This creates an unpredictable shopping experience that leads to unnecessary searching, increases stress, and contributes to warehouse congestion.
+        </p>
+      </section>
+
+      <section id="understanding-the-costco-experience" class="content-section">
+      <p class="section-label">UNDERSTANDING THE COSTCO EXPERIENCE</p>
+        <div class="research-phase-container">
+          <div class="research-block-unit">
+            <h2 class="section-heading research-subheading">Our Research Approach</h2>
+            <div class="text-block">
+              <p>
+                To better understand how people navigate Costco, we conducted contextual interviews and field observations with 7 participants. We examined how shoppers interacted with store layouts, signage, product placement, and one another while exploring the motivations, behaviors, and challenges that shape their shopping experience.
+              </p> 
+            </div>
+          </div>
+          
+          <div class="research-block-unit">
+            <h2 class="section-heading research-subheading">Research Methods</h2> 
+            <div class="research-stats-dashboard">
+              <div class="stat-card">
+                <span class="stat-label">Participants</span>
+                <span class="stat-number">7 Shoppers</span>
+              </div>
+              
+              <div class="stat-card">
+                <span class="stat-label">Research Methods</span>
+                <span class="stat-number">Contextual Interviews + Field Observation</span>
+              </div>
+              
+              <div class="stat-card">
+                <span class="stat-label">Focus Areas</span>
+                <span class="stat-number">Wayfinding behaviors, Store navigation, Product discovery, Decision-making</span>
+              </div>
+            </div>
+      </section>
+
+      <!-- ── OBSERVATIONS & INSIGHTS SECTION ── -->            
+      <section id="insights" class="content-section">
+      <p class="section-label">RESEARCH INSIGHTS</p>
+        <h2 class="section-heading">What We Discovered</h2>
+        <p class="text-paragraph margin-bottom-large">
+          Through our field research, we identified key patterns in how Costco shoppers navigate the warehouse, make purchasing decisions, and interact with the shopping environment.
+        </p>
+        
+        <div class="research-stats-dashboard">
+          <!-- Card 1 -->
+          <div class="stat-card">
+            <span class="stat-label">Motivating Factors</span>
+            <span class="stat-number">41 Highlights</span>
+          </div>
+          
+          <!-- Card 2 -->
+          <div class="stat-card">
+            <span class="stat-label">Information Gathering</span>
+            <span class="stat-number">48 Highlights</span>
+          </div>
+          
+          <!-- Card 3 -->
+          <div class="stat-card">
+            <span class="stat-label">Navigation Issues</span>
+            <span class="stat-number">32 Mentions</span>          
+          </div>
+        </div>
+        
+        <ol class="research-questions-list insights-list-container">
+          <!-- Insight Point 1 -->
+          <li>
+            <div class="rq-header">
+              <span class="rq-number">1.</span>
+              <span class="rq-title">Uncertainty Makes Navigation Frustrating</span>
+            </div>
+            <div class="insight-callout-container">
+              <blockquote class="insight-callout-text">
+                <strong>Key Insight:</strong> Costco shoppers often lack the information needed to efficiently navigate the warehouse, forcing them to rely on memory, previous visits, and trial-and-error.
+              </blockquote>
+            </div>
+            <ul class="rq-bullet-sublist">
+              <li>Product availability varies between Costco locations, making it difficult for shoppers to know what to expect</li>
+              <li>Customers struggle with unclear signage, product placement, and locating specific items</li>
+              <li>Some shoppers expressed interest in more visual information, such as pictures on signs or labels, to better distinguish products</li>
+            </ul>
+          </li>
+
+          <!-- Insight Point 2 -->
+          <li>
+            <div class="rq-header">
+              <span class="rq-number">2.</span>
+              <span class="rq-title">Costco Shopping is Driven by Discovery, Value, and Routine</span>
+            </div>
+            <div class="insight-callout-container">
+              <blockquote class="insight-callout-text">
+                <strong>Key Insight:</strong> Costco's layout encourages exploration and discovery, but shoppers rely heavily on familiarity and routine to navigate an unpredictable environment.
+              </blockquote>
+            </div>
+            <ul class="rq-bullet-sublist">
+              <li>Customers are motivated by Costco's value, convenience, novelty, and established shopping routines</li>
+              <li>Many shoppers develop habitual paths through the warehouse and avoid certain areas based on past experiences</li>
+            </ul>
+          </li>
+          <!-- Insight Point 3 -->
+          <li>
+            <div class="rq-header">
+              <span class="rq-number">3.</span>
+              <span class="rq-title">Crowding Creates Congestion</span>
+            </div>
+            <div class="insight-callout-container">
+              <blockquote class="insight-callout-text">
+                <strong>Key Insight:</strong> Shoppers attempt to avoid crowded areas but often contribute to congestion when searching for unfamiliar products.
+              </blockquote>
+            </div>
+            <ul class="rq-bullet-sublist">
+              <li>Crowded aisles and high traffic volumes contribute to shopper stress</li>
+              <li>Customers often circle around popular areas while searching for products, unintentionally creating more congestion</li>
+              <li>While many shoppers enjoy visiting Costco with others, overcrowding can negatively impact the experience</li>
+            </ul>
+          </li>
+        </ol>
+        <p class="text-paragraph insights-summary-text">
+          Costco shoppers rely on routine to navigate an unpredictable environment, but limited visibility into product locations and inventory creates uncertainty. 
+          Rather than needing a simpler warehouse, shoppers need better access to the information that helps them navigate it.
+        </p>  
+      </section>
+
+      <!-- ── APPROACH / PROPOSED SOLUTIONS SECTION ── -->
+      <section id="design-direction" class="content-section">
+        <p class="section-label">DESIGN DIRECTION</p>
+        <div style="margin-bottom: 3.5rem;">
+          <h2 class="section-heading" style="color: var(--color-brand-green);">Designing Around Information, Not the Warehouse</h2>
+          <div class="text-block">
+            <p>
+             Our research revealed that Costco shoppers weren't necessarily frustrated by the warehouse experience itself, but by the lack of reliable, warehouse-specific information. 
+             Instead of designing against Costco's treasure-hunt shopping model, we explored how a companion app could enhance the experience by providing shoppers with the information 
+             they need before and during their visit.
+            </p>
+          </div>
+        </div>
+
+        <!-- Framing Strategy Containers -->
+        <div style="margin-bottom: 3.5rem;">
+          <h2 class="section-heading" style="margin-bottom: 1rem;">Opportunity</h2>
+          <div class="insight-callout-container" style="padding-left: 0; margin-bottom: 0;">
+            <blockquote class="insight-callout-text" style="font-size: 19px; padding-top: 0.25rem; padding-bottom: 0.25rem; color: var(--color-dark-charcoal);">
+              How might we provide shoppers with better access to warehouse information while preserving Costco's discovery-driven shopping experience?
+            </blockquote>
+          </div>
+        </div>
+        
+        <div style="margin-bottom: 3rem;">
+          <h2 class="section-heading" style="margin-bottom: 0.5rem;">Solution</h2>
+          <p class="text-paragraph" style="font-size: 24px; font-weight: 500; color: var(--color-brand-green); letter-spacing: -0.01em; margin-top: 1rem;">
+            Meet Cost&Co
+          </p>  
+          <p class="text-paragraph" style="font-size: 18px; color: var(--color-muted-grey); margin-bottom: 2.5rem;">
+            A community powered companion app that helps Costco members navigate warehouses with greater confidence through 
+            real-time, location specific information contributed by fellow shoppers.
+          </p> 
+          <div class="demo-media-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; margin: 2rem 0; text-align: center;">
+            <div class="image-label-badge" style="display: inline-block; width: fit-content; margin-left: auto; margin-right: auto;">App Features</div>
+        </div>
+        
+        <!-- Re-architected Grid Wrapper for Solution Features -->
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h3 style="font-size: 18px; font-weight: 400; margin-top: 0; margin-bottom: 0.5rem; color: var(--color-dark-charcoal);">Location-Specific Map</h3>
+            <p style="font-size: 15px; font-weight: 300; line-height: 1.6; color: var(--color-muted-grey); margin: 0;">Because product placement varies between locations, interactive maps tailored to each Costco warehouse help shoppers understand layouts and quickly locate products</p>
+          </div>
+          
+          <div class="feature-card">
+            <h3 style="font-size: 18px; font-weight: 400; margin-top: 0; margin-bottom: 0.5rem; color: var(--color-dark-charcoal);">In-Warehouse Navigation</h3>
+            <p style="font-size: 15px; font-weight: 300; line-height: 1.6; color: var(--color-muted-grey); margin: 0;">Guided navigation reduces unnecessary searching and helps shoppers move through the warehouse more efficiently</p>
+          </div>
+          
+          <div class="feature-card">
+            <h3 style="font-size: 18px; font-weight: 400; margin-top: 0; margin-bottom: 0.5rem; color: var(--color-dark-charcoal);">Community Store Updates</h3>
+            <p style="font-size: 15px; font-weight: 300; line-height: 1.6; color: var(--color-muted-grey); margin: 0;">Members contribute live updates on product availability, pricing, item locations, popularity, and free samples to keep warehouse information current</p>
+          </div>
+        </div>
+
+        <!-- ── USER FLOW / SEQUENCE MAP SHOWCASE ── -->
+        <div style="margin-top: 5.5rem; margin-bottom: 2rem;">
+          <h2 class="section-heading" style="margin-bottom: 0.5rem;">From Planning to Purchase</h2>
+          <p class="text-paragraph" style="font-size: 22px; font-weight: 400; color: var(--color-dark-charcoal); letter-spacing: -0.01em; margin-top: 1rem;">
+            Mapping the Cost&Co Task Flow
+          </p>
+          <div class="text-block" style="margin-bottom: 2rem;">
+            <p>
+              To support shoppers throughout their Costco visit, we mapped the complete Cost&Co experience from trip planning to in-store navigation and 
+              community contributions. This flow ensures the right information is available at the right moment, before, during, and after shopping.
+            </p>
+          </div>
+          
+          <div class="demo-media-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; margin: 2rem 0; text-align: center;">
+            <div class="image-label-badge" style="margin-bottom: 1.25rem; display: inline-block; width: fit-content; margin-left: auto; margin-right: auto;">Application Sequence Flow</div>
+            
+            <div style="width: 100%; max-width: 1100px; border-radius: 16px; overflow: hidden; border: 1px solid rgba(28, 28, 28, 0.06); box-shadow: 0 12px 32px rgba(0,0,0,0.04); background-color: #fff;">
+              <img src="../assets/CCUserFlow.png" alt="Cost&Co Sequence Map" style="width: 100%; height: auto; display: block; margin: 0 auto;">
+            </div>
+          </div>
+        </div>
+
+        <!-- Centered Demo Graphic Container Flow -->
+        <div class="demo-media-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; margin: 4.5rem 0; text-align: center;">
+          <div class="image-label-badge" style="margin-bottom: 1.25rem; display: inline-block; width: fit-content; margin-left: auto; margin-right: auto;">Cost&Co In Action</div>
+          <div class="media-frame frame-redesign" style="margin: 0 auto; display: block;">
+            <img src="../assets/CCDemo.gif" alt="Redesign interaction demo" style="display: block; margin: 0 auto;">
+          </div>
+        </div>
+
+        <!-- Design Impact Strategic Review -->
+        <div style="margin-bottom: 3.5rem;">
+          <h2 class="section-heading" style="margin-bottom: 0.5rem;">Design Impact</h2>
+          <p class="text-paragraph" style="font-size: 24px; font-weight: 400; color: var(--color-brand-green); margin-top: 1.5rem; margin-bottom: 2rem; letter-spacing: -0.01em; text-align: center;">
+            Reducing Uncertainty Without Removing Discovery
+          </p>
+          
+          <div class="impact-grid">
+            <div class="impact-card">
+              <h3 style="font-size: 18px; font-weight: 400; color: var(--color-dark-charcoal); margin-top: 0; margin-bottom: 0.75rem;">Clearer Information & Wayfinding</h3>
+              <p style="font-size: 16px; font-weight: 300; line-height: 1.65; color: var(--color-muted-grey); margin: 0;">Cost&Co reduces unnecessary searching by giving shoppers warehouse-specific information before and during their visit</p>
+            </div>
+            
+            <div class="impact-card">
+              <h3 style="font-size: 18px; font-weight: 400; color: var(--color-dark-charcoal); margin-top: 0; margin-bottom: 0.75rem;">Greater Confidence While Shopping</h3>
+              <p style="font-size: 16px; font-weight: 300; line-height: 1.65; color: var(--color-muted-grey); margin: 0;">Real-time inventory, pricing, and community updates reduce uncertainty before and during shopping trips, helping members make informed decisions without disrupting Costco's business model.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mapping Insights directly to Features -->     
+        <div class="insight-mapping-grid">
+          <!-- Row Item 1 -->
+          <div class="mapping-card">
+            <h3 class="mapping-header-research" style="font-weight: 300; color: #a29fa0;">Research Insight</h3>
+            <p style="font-size: 16px; font-weight: 400; color: var(--color-dark-charcoal); margin-bottom: 1.5rem; line-height: 1.5;">Shoppers rely on memory because product locations constantly change</p>
+            
+            <h3 class="mapping-header-design">Design Response</h3>
+            <p style="font-size: 16px; font-weight: 300; color: var(--color-muted-grey); margin: 0; line-height: 1.5;">Location-specific warehouse maps and live navigation</p>
+          </div>
+          
+          <!-- Row Item 2 -->
+          <div class="mapping-card">
+            <h3 class="mapping-header-research" style="font-weight: 300; color: #a29fa0;">Research Insight</h3>
+            <p style="font-size: 16px; font-weight: 400; color: var(--color-dark-charcoal); margin-bottom: 1.5rem; line-height: 1.5;">Customers struggle to know whether products are in stock</p>
+            <h3 class="mapping-header-design">Design Response</h3>
+            <p style="font-size: 16px; font-weight: 300; color: var(--color-muted-grey); margin: 0; line-height: 1.5;">Community-contributed inventory and availability updates</p>
+          </div>
+
+          <!-- Row Item 3 -->
+          <div class="mapping-card">
+            <h3 class="mapping-header-research" style="font-weight: 300; color: #a29fa0;">Research Insight</h3>
+            <p style="font-size: 16px; font-weight: 400; color: var(--color-dark-charcoal); margin-bottom: 1.5rem; line-height: 1.5;">Limited signage creates uncertainty and inefficient searching</p>
+            <h3 class="mapping-header-design">Design Response</h3>
+            <p style="font-size: 16px; font-weight: 300; color: var(--color-muted-grey); margin: 0; line-height: 1.5;">Real-time product locations and warehouse-specific information</p>
+          </div>
+        </div>  
+      </section>
+
+      <!-- ── REFLECTION SECTION ── -->
+      <section id="reflection" class="content-section padding-bottom-large">
+        <p class="section-label">REFLECTION</p>
+        <div class="text-block">
+          <p>
+            This project broadened my perspective on what user-centered research can look like in product design. Rather than starting with a predefined problem, we began by observing
+            people in their natural environment and allowing insights to emerge through contextual inquiry. This process challenged me to <span class="highlight">set aside assumptions  
+            and let research guide the direction of the project. </span>
+          </p> 
+          <p> 
+            Without watching users struggle, pause, or adapt in real time, we risk solving the wrong problems while overlooking the actual frustrations that shapes their everyday experiences.
+            Grounding our decisions in observed behaviors allowed us to identify meaningful opportunities that addressed genuine user needs. By observing first, designers can find patterns 
+            that define real interactions and ensuring our final design supports how people actually navigate the world.
+          </p> 
+        </div>
+      </section>
+
+      <!-- ── INTERACTIVE PROTOTYPE SECTION ── -->
+      <section id="prototype" class="content-section">
+        <p class="section-label">INTERACTIVE PROTOTYPE</p>
+        <div class="prototype-header-row">
+          <h2 class="section-heading">High-Fidelity Prototype</h2>
+        </div>
+
+        <div class="figma-embed-container" style="margin-top: 16px;">
+          <iframe
+            width="100%"
+            height="650"
+            src="https://embed.figma.com/proto/fST3L2eH8NWoQPx8rorWGS/Cost-Co-Companion-App?page-id=0%3A1&node-id=1-186&p=f&viewport=809%2C644%2C0.14&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A186&embed-host=share" allowfullscreen>
+          </iframe>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-row">
+      <p class="footer-thank-you">Thank you for viewing! :-)</p>
+      
+      <button class="scroll-up-btn" id="scrollUpBtn">
+        <span>Scroll up</span>
+        <svg fill="none" preserveAspectRatio="none" viewBox="0 0 9.51388 7.36396">
+          <path d="M0.146447 3.32843C-0.0488155 3.52369 -0.0488155 3.84027 0.146447 4.03553L3.32843 7.21751C3.52369 7.41278 3.84027 7.41278 4.03553 7.21751C4.2308 7.02225 4.2308 6.70567 4.03553 6.51041L1.20711 3.68198L4.03553 0.853553C4.2308 0.658291 4.2308 0.341709 4.03553 0.146447C3.84027 -0.0488154 3.52369 -0.0488154 3.32843 0.146447L0.146447 3.32843ZM0.5 3.68198V4.18198H9.51388V3.68198V3.18198H0.5V3.68198Z" fill="#A29FA0" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="footer-row">
+      <nav class="footer-nav" aria-label="Footer Navigation Links">
+        <a href="https://www.linkedin.com/in/livianne-wong-b3b724205/" target="_blank" rel="noreferrer" class="footer-social-link">
+          <span class="footer-label">LinkedIn</span>
+        </a>
+        <a href="https://drive.google.com/file/d/1uY5DvgihQv_6BxHrdHPwktoVfEQGerwh/view" target="_blank" rel="noreferrer" class="footer-social-link">
+          <span class="footer-label">Resume</span>
+        </a>
+        <a href="https://github.com/LivianneW" target="_blank" rel="noreferrer" class="footer-social-link">
+          <span class="footer-label">Github</span>
+        </a>
+      </nav>
+      <a href="mailto:liviwong123@gmail.com" class="footer-email">
+        <span>liviwong123@gmail.com</span>
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('.content-section');
+      const tocLinks = document.querySelectorAll('.toc-link');
+
+      const options = { root: null, rootMargin: '-15% 0px -75% 0px', threshold: 0 };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const currentId = entry.target.getAttribute('id');
+            tocLinks.forEach(link => {
+              const linkHref = link.getAttribute('href');
+              if (linkHref && linkHref.includes('#')) {
+                if (linkHref.split('#')[1] === currentId) {
+                  link.classList.add('active');
+                } else {
+                  link.classList.remove('active');
+                }
+              }
+            });
+          }
+        });
+      }, options);
+
+      sections.forEach(section => observer.observe(section));
+
+      const scrollUpBtn = document.getElementById('scrollUpBtn');
+      if (scrollUpBtn) {
+        scrollUpBtn.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    });  
+  </script>
+</body>
+</html>
