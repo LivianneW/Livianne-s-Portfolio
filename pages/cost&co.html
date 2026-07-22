@@ -84,7 +84,6 @@
     }
 
     .stat-card {
-      background-color: var(--card-bg);
       border: 1px solid var(--card-border);
       padding: 1.5rem;
       border-radius: 14px;
@@ -191,6 +190,7 @@
       margin-bottom: 0.85rem;
       padding-left: 1.5rem;
       width: 100%;
+      box-sizing: border-box;
     }
 
     .insight-callout-text {
@@ -201,6 +201,120 @@
       border-left: 3px solid rgba(124, 171, 176, 0.5);
       padding-left: 1.25rem; 
       margin: 0;
+    }
+
+    /* ── ANECDOTE INTEGRATION & 3-PANEL TRANSCRIPT GRID ── */
+    .field-anecdote-box {
+      border-radius: 16px;
+      padding: 1.5rem 0;
+      margin: 1.5rem 0 1rem 1.5rem;
+      width: calc(100% - 1.5rem);
+      box-sizing: border-box;
+    }
+
+    .anecdote-title {
+      font-size: 16px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-brand-green);
+      margin-bottom: 20px;
+    }
+
+    .anecdote-intro-text {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--color-muted-grey);
+      margin: 0 0 1.5rem 0;
+    }
+
+    .anecdote-layout-wrapper {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+      padding-left: 1.5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .transcript-visual-grid {
+      flex: 1;
+      min-width: 320px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .transcript-row-top {
+      width: 100%;
+    }
+
+    .transcript-row-bottom {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    /* Individual Transcript Panel Styling */
+    .transcript-panel {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 12px;
+      padding: 1.25rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      position: relative;
+    }
+
+    .panel-badge {
+      background: var(--color-brand-green);
+      color: white;
+      font-size: 14px;
+      font-weight: 500;
+      min-width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Standardized image size for transcript panels */
+    .transcript-panel img {
+      max-width: 80%;
+      height: auto;
+      display: block;
+    }
+
+    /* Side media column layout */
+    .anecdote-media-col {
+      flex: 0 0 260px;
+      max-width: 100%;
+    }
+
+    .anecdote-img-container {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    }
+
+    .anecdote-img-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .anecdote-caption {
+      font-size: 11.5px;
+      color: var(--color-light-grey);
+      margin-top: 0.75rem;
+      text-align: center;
+      line-height: 1.4;
     }
 
     /* ── APPROACH CARDS & CONTAINER SYSTEM ── */
@@ -408,6 +522,12 @@
     }
     
     /* ── MOBILE OVERRIDES ── */
+    @media (max-width: 768px) {
+      .transcript-row-bottom {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 480px) {
       .rq-text {
         padding-left: 1.25rem;
@@ -416,6 +536,22 @@
 
       .insight-callout-container {
         padding-left: 1.25rem;
+      }
+
+      .field-anecdote-box {
+        margin-left: 0;
+        width: 100%;
+        padding: 1.25rem 0;
+      }
+
+      .anecdote-layout-wrapper {
+        flex-direction: column-reverse;
+        padding-left: 0;
+      }
+
+      .anecdote-media-col {
+        flex: 1 1 auto;
+        width: 100%;
       }
 
       .research-synthesis-board {
@@ -441,6 +577,10 @@
       .stat-card, .feature-card, .impact-card, .mapping-card {
         min-width: 100%;
         padding: 1.25rem;
+      }
+
+      .transcript-panel img {
+        max-width: 100%;
       }
     }
   </style>
@@ -583,7 +723,7 @@
       </section>
 
       <section id="understanding-the-costco-experience" class="content-section">
-      <p class="section-label">UNDERSTANDING THE COSTCO EXPERIENCE</p>
+        <p class="section-label">UNDERSTANDING THE COSTCO EXPERIENCE</p>
         <div class="research-phase-container">
           <div class="research-block-unit">
             <h2 class="section-heading research-subheading">Our Research Approach</h2>
@@ -612,95 +752,181 @@
                 <span class="stat-number">Wayfinding behaviors, Store navigation, Product discovery, Decision-making</span>
               </div>
             </div>
-      </section>
-
-      <!-- ── OBSERVATIONS & INSIGHTS SECTION ── -->            
-      <section id="insights" class="content-section">
-      <p class="section-label">RESEARCH INSIGHTS</p>
-        <h2 class="section-heading">What We Discovered</h2>
-        <p class="text-paragraph margin-bottom-large">
-          Through our field research, we identified key patterns in how Costco shoppers navigate the warehouse, make purchasing decisions, and interact with the shopping environment.
-        </p>
-        
-        <div class="research-stats-dashboard">
-          <!-- Card 1 -->
-          <div class="stat-card">
-            <span class="stat-label">Motivating Factors</span>
-            <span class="stat-number">41 Highlights</span>
-          </div>
-          
-          <!-- Card 2 -->
-          <div class="stat-card">
-            <span class="stat-label">Information Gathering</span>
-            <span class="stat-number">48 Highlights</span>
-          </div>
-          
-          <!-- Card 3 -->
-          <div class="stat-card">
-            <span class="stat-label">Navigation Issues</span>
-            <span class="stat-number">32 Mentions</span>          
           </div>
         </div>
-        
-        <ol class="research-questions-list insights-list-container">
-          <!-- Insight Point 1 -->
-          <li>
-            <div class="rq-header">
-              <span class="rq-number">1.</span>
-              <span class="rq-title">Uncertainty Makes Navigation Frustrating</span>
-            </div>
-            <div class="insight-callout-container">
-              <blockquote class="insight-callout-text">
-                <strong>Key Insight:</strong> Costco shoppers often lack the information needed to efficiently navigate the warehouse, forcing them to rely on memory, previous visits, and trial-and-error.
-              </blockquote>
-            </div>
-            <ul class="rq-bullet-sublist">
-              <li>Product availability varies between Costco locations, making it difficult for shoppers to know what to expect</li>
-              <li>Customers struggle with unclear signage, product placement, and locating specific items</li>
-              <li>Some shoppers expressed interest in more visual information, such as pictures on signs or labels, to better distinguish products</li>
-            </ul>
-          </li>
-
-          <!-- Insight Point 2 -->
-          <li>
-            <div class="rq-header">
-              <span class="rq-number">2.</span>
-              <span class="rq-title">Costco Shopping is Driven by Discovery, Value, and Routine</span>
-            </div>
-            <div class="insight-callout-container">
-              <blockquote class="insight-callout-text">
-                <strong>Key Insight:</strong> Costco's layout encourages exploration and discovery, but shoppers rely heavily on familiarity and routine to navigate an unpredictable environment.
-              </blockquote>
-            </div>
-            <ul class="rq-bullet-sublist">
-              <li>Customers are motivated by Costco's value, convenience, novelty, and established shopping routines</li>
-              <li>Many shoppers develop habitual paths through the warehouse and avoid certain areas based on past experiences</li>
-            </ul>
-          </li>
-          <!-- Insight Point 3 -->
-          <li>
-            <div class="rq-header">
-              <span class="rq-number">3.</span>
-              <span class="rq-title">Crowding Creates Congestion</span>
-            </div>
-            <div class="insight-callout-container">
-              <blockquote class="insight-callout-text">
-                <strong>Key Insight:</strong> Shoppers attempt to avoid crowded areas but often contribute to congestion when searching for unfamiliar products.
-              </blockquote>
-            </div>
-            <ul class="rq-bullet-sublist">
-              <li>Crowded aisles and high traffic volumes contribute to shopper stress</li>
-              <li>Customers often circle around popular areas while searching for products, unintentionally creating more congestion</li>
-              <li>While many shoppers enjoy visiting Costco with others, overcrowding can negatively impact the experience</li>
-            </ul>
-          </li>
-        </ol>
-        <p class="text-paragraph insights-summary-text">
-          Costco shoppers rely on routine to navigate an unpredictable environment, but limited visibility into product locations and inventory creates uncertainty. 
-          Rather than needing a simpler warehouse, shoppers need better access to the information that helps them navigate it.
-        </p>  
       </section>
 
+<!-- ── OBSERVATIONS & INSIGHTS SECTION ── -->            
+<section id="insights" class="content-section">
+  <p class="section-label">RESEARCH INSIGHTS</p>
+  <h2 class="section-heading">What We Discovered</h2>
+  <p class="text-paragraph margin-bottom-large">
+    Through our field research, we identified key patterns in how Costco shoppers navigate the warehouse, make purchasing decisions, and interact with the shopping environment.
+  </p>
+  
+  <div class="research-stats-dashboard">
+    <!-- Card 1 -->
+    <div class="stat-card">
+      <span class="stat-label">Motivating Factors</span>
+      <span class="stat-number">41 Highlights</span>
+    </div>
+    
+    <!-- Card 2 -->
+    <div class="stat-card">
+      <span class="stat-label">Information Gathering</span>
+      <span class="stat-number">48 Highlights</span>
+    </div>
+    
+    <!-- Card 3 -->
+    <div class="stat-card">
+      <span class="stat-label">Navigation Issues</span>
+      <span class="stat-number">32 Mentions</span>          
+    </div>
+  </div>
+  
+  <ol class="research-questions-list insights-list-container">
+    <!-- Insight Point 1 -->
+    <li>
+      <div class="rq-header">
+        <span class="rq-number">1.</span>
+        <span class="rq-title">Uncertainty Makes Navigation Frustrating</span>
+      </div>
+      <div class="insight-callout-container">
+        <blockquote class="insight-callout-text">
+          <strong>Key Insight:</strong> Costco shoppers often lack the information needed to efficiently navigate the warehouse, forcing them to rely on memory, previous visits, and trial-and-error.
+        </blockquote>
+      </div>
+      <ul class="rq-bullet-sublist">
+        <li>Product availability varies between Costco locations, making it difficult for shoppers to know what to expect</li>
+        <li>Customers struggle with unclear signage, product placement, and locating specific items</li>
+        <li>Some shoppers expressed interest in more visual information, such as pictures on signs or labels, to better distinguish products</li>
+      </ul>
+
+      <div class="field-anecdote-box">
+        <h4 class="anecdote-title">Highlight</h4>
+        <div class="anecdote-layout-wrapper">
+          <div class="transcript-visual-grid">
+            
+            <div class="transcript-row-top">
+              <div class="transcript-panel">
+                <div class="panel-badge">1</div>
+                <img src="../assets/part 1.png" alt="Transcript Panel 1" />
+              </div>
+            </div>
+
+            <div class="transcript-row-bottom">
+              <!-- Panel 2 -->
+              <div class="transcript-panel">
+                <div class="panel-badge">2</div>
+                <img src="../assets/part 2.png" alt="Transcript Panel 2" />
+              </div>
+
+              <!-- Panel 3 -->
+              <div class="transcript-panel">
+                <div class="panel-badge">3</div>
+                <img src="../assets/part 3.png" alt="Transcript Panel 3" />
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <!-- Insight Point 2 -->
+    <li>
+      <div class="rq-header">
+        <span class="rq-number">2.</span>
+        <span class="rq-title">Costco Shopping is Driven by Discovery, Value, and Routine</span>
+      </div>
+      <div class="insight-callout-container">
+        <blockquote class="insight-callout-text">
+          <strong>Key Insight:</strong> Costco's layout encourages exploration and discovery, but shoppers rely heavily on familiarity and routine to navigate an unpredictable environment.
+        </blockquote>
+      </div>
+      <ul class="rq-bullet-sublist">
+        <li>Customers are motivated by Costco's value, convenience, novelty, and established shopping routines</li>
+        <li>Many shoppers develop habitual paths through the warehouse and avoid certain areas based on past experiences</li>
+      </ul>
+
+<div class="field-anecdote-box">
+  <h4 class="anecdote-title">Highlight</h4>
+  <div class="anecdote-layout-wrapper">
+    <div class="transcript-visual-grid"> 
+      
+      <!-- Stacking the row vertically -->
+      <div class="transcript-row-bottom" style="display: flex; flex-direction: column; gap: 16px; width: 100%;"> 
+        
+        <!-- Panel 1: Value -->
+        <div class="transcript-panel" style="width: 100%; padding: 16px; display: flex; align-items: flex-start; gap: 12px;">
+          <div class="panel-badge">1</div>
+          <img src="../assets/value.png" alt="Value Transcript" style="width: 100%; max-width: 70%; height: auto; display: block;" />
+        </div>
+
+        <!-- Panel 2: Routine -->
+        <div class="transcript-panel" style="width: 100%; padding: 16px; display: flex; align-items: flex-start; gap: 12px;">
+          <div class="panel-badge">2</div>
+          <img src="../assets/routine2.png" alt="Routine Transcript" style="width: 100%; max-width: 50%; height: auto; display: block;" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+    </li>
+    
+    <!-- Insight Point 3 -->
+    <li>
+      <div class="rq-header">
+        <span class="rq-number">3.</span>
+        <span class="rq-title">Crowding Creates Congestion</span>
+      </div>
+      <div class="insight-callout-container">
+        <blockquote class="insight-callout-text">
+          <strong>Key Insight:</strong> Shoppers attempt to avoid crowded areas but often contribute to congestion when searching for unfamiliar products.
+        </blockquote>
+      </div>
+      <ul class="rq-bullet-sublist">
+        <li>Crowded aisles and high traffic volumes contribute to shopper stress</li>
+        <li>Customers often circle around popular areas while searching for products, unintentionally creating more congestion</li>
+        <li>While many shoppers enjoy visiting Costco with others, overcrowding can negatively impact the experience</li>
+      </ul>
+
+<div class="field-anecdote-box">
+  <h4 class="anecdote-title">Highlight</h4>
+  <div class="anecdote-layout-wrapper">
+    <!-- Single vertical container for perfectly even gaps -->
+    <div class="transcript-visual-grid" style="display: flex; flex-direction: column; gap: 16px; width: 100%;">
+      
+      <!-- Panel 1 -->
+      <div class="transcript-panel" style="width: 100%; padding: 16px; display: flex; align-items: flex-start; gap: 16px;">
+        <div class="panel-badge">1</div>
+        <img src="../assets/crowded.png" alt="Crowded Aisle Transcript" style="width: 100%; max-width: 75%; height: auto; display: block;" />
+      </div>
+
+      <!-- Panel 2 -->
+      <div class="transcript-panel" style="width: 100%; padding: 16px; display: flex; align-items: flex-start; gap: 16px;">
+        <div class="panel-badge">2</div>
+        <img src="../assets/congestion.png" alt="Congestion Transcript" style="width: 100%; max-width: 75%; height: auto; display: block;" />
+      </div>
+
+      <!-- Panel 3 -->
+      <div class="transcript-panel" style="width: 100%; padding: 16px; display: flex; align-items: flex-start; gap: 16px;">
+        <div class="panel-badge">3</div>
+        <img src="../assets/confusion.png" alt="Product Confusion Transcript" style="width: 100%; max-width: 80%; height: auto; display: block;" />
+      </div>
+
+    </div>
+  </div>
+</div>
+    </li>
+  </ol>
+
+  <p class="text-paragraph insights-summary-text">
+    Costco shoppers rely on routine to navigate an unpredictable environment, but limited visibility into product locations and inventory creates uncertainty. 
+    Rather than needing a simpler warehouse, shoppers need better access to the information that helps them navigate it.
+  </p>  
+</section>
       <!-- ── APPROACH / PROPOSED SOLUTIONS SECTION ── -->
       <section id="design-direction" class="content-section">
         <p class="section-label">DESIGN DIRECTION</p>
@@ -708,9 +934,9 @@
           <h2 class="section-heading" style="color: var(--color-brand-green);">Designing Around Information, Not the Warehouse</h2>
           <div class="text-block">
             <p>
-             Our research revealed that Costco shoppers weren't necessarily frustrated by the warehouse experience itself, but by the lack of reliable, warehouse-specific information. 
-             Instead of designing against Costco's treasure-hunt shopping model, we explored how a companion app could enhance the experience by providing shoppers with the information 
-             they need before and during their visit.
+              Our research revealed that Costco shoppers weren't necessarily frustrated by the warehouse experience itself, but by the lack of reliable, warehouse-specific information. 
+              Instead of designing against Costco's treasure-hunt shopping model, we explored how a companion app could enhance the experience by providing shoppers with the information 
+              they need before and during their visit.
             </p>
           </div>
         </div>
@@ -736,6 +962,7 @@
           </p> 
           <div class="demo-media-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; margin: 2rem 0; text-align: center;">
             <div class="image-label-badge" style="display: inline-block; width: fit-content; margin-left: auto; margin-right: auto;">App Features</div>
+          </div>
         </div>
         
         <!-- Re-architected Grid Wrapper for Solution Features -->
