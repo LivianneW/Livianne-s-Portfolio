@@ -521,7 +521,7 @@ body {
 }
 
 .photo-item {
-  background-color: rgba(28, 28, 28, 0.01);
+  background-color: #fffbfb00;
   border: 1px solid rgba(28, 28, 28, 0.03);
   padding: 0.5rem;
   border-radius: 16px;

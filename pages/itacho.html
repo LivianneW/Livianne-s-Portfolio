@@ -61,10 +61,43 @@
       justify-content: center;
     }
 
-    @media (max-width: 480px) {
+    /* --- Mobile Rules Only (Screens under 768px) --- */
+    @media (max-width: 768px) {
+      .hero-top-split {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+      }
+
       .comparison-row-side-by-side {
-        gap: 8px;
+        gap: 8px !important;
         padding: 0 10px;
+      }
+
+      .comparison-column-unit {
+        width: 31% !important;
+        max-width: 31% !important;
+      }
+
+      /* Responsive scaling for fixed inline width images on mobile */
+      .comparison-column-unit .final-image {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 9 / 18 !important;
+      }
+
+      .image-label-badge {
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      .figma-embed-container iframe {
+        height: 400px !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .comparison-column-unit {
+        width: 32% !important;
       }
 
       .final-image {

@@ -368,6 +368,7 @@
     /* ── MEDIA FRAME SYSTEM ── */
     .media-frame, .final-image, .CCDemo {
       width: 235px;
+      max-width: 100%;
       aspect-ratio: 235 / 475;
       flex-shrink: 0;
       border-radius: 25px;
@@ -415,6 +416,7 @@
       width: 100%;
       margin: 1.5rem 0 2rem 0;
       flex-wrap: wrap;
+      box-sizing: border-box;
     }
 
     .synthesis-column {
@@ -468,6 +470,7 @@
       border: 1px solid var(--card-border);
       padding: 1.75rem;
       border-radius: 14px;
+      box-sizing: border-box;
     }
 
     .impact-grid {
@@ -482,6 +485,7 @@
       background-color: transparent;
       border: 1px solid var(--card-border);
       border-radius: 16px;
+      box-sizing: border-box;
     }
 
     .insight-mapping-grid {
@@ -495,6 +499,7 @@
       background-color: rgba(28, 28, 28, 0.01);
       border: 1px solid var(--card-border);
       border-radius: 16px;
+      box-sizing: border-box;
     }
 
     .mapping-header-research {
@@ -523,6 +528,9 @@
     @media (max-width: 768px) {
       .transcript-row-bottom {
         grid-template-columns: 1fr;
+      }
+      .hero-img-spec {
+        transform: scale(1);
       }
     }
 
@@ -754,7 +762,7 @@
         </div>
       </section>
 
-      <!-- ── OBSERVATIONS & INSIGHTS SECTION ── -->            
+      <!-- ── OBSERVATIONS & INSIGHTS SECTION ── -->          
       <section id="insights" class="content-section">
         <p class="section-label">RESEARCH INSIGHTS</p>
         <h2 class="section-heading">What We Discovered</h2>
@@ -763,19 +771,16 @@
         </p>
         
         <div class="research-stats-dashboard">
-          <!-- Card 1 -->
           <div class="stat-card">
             <span class="stat-label">Motivating Factors</span>
             <span class="stat-number">41 Highlights</span>
           </div>
           
-          <!-- Card 2 -->
           <div class="stat-card">
             <span class="stat-label">Information Gathering</span>
             <span class="stat-number">48 Highlights</span>
           </div>
           
-          <!-- Card 3 -->
           <div class="stat-card">
             <span class="stat-label">Navigation Issues</span>
             <span class="stat-number">32 Mentions</span>          
@@ -783,7 +788,6 @@
         </div>
         
         <ol class="research-questions-list insights-list-container">
-          <!-- Insight Point 1 -->
           <li>
             <div class="rq-header">
               <span class="rq-number">1.</span>
@@ -804,7 +808,6 @@
               <h4 class="anecdote-title">Highlight</h4>
               <div class="anecdote-layout-wrapper">
                 <div class="transcript-visual-grid">
-                  
                   <div class="transcript-row-top">
                     <div class="transcript-panel">
                       <div class="panel-badge">1</div>
@@ -813,25 +816,21 @@
                   </div>
 
                   <div class="transcript-row-bottom">
-                    <!-- Panel 2 -->
                     <div class="transcript-panel">
                       <div class="panel-badge">2</div>
                       <img src="../assets/part 2.png" alt="Transcript Panel 2" />
                     </div>
 
-                    <!-- Panel 3 -->
                     <div class="transcript-panel">
                       <div class="panel-badge">3</div>
                       <img src="../assets/part 3.png" alt="Transcript Panel 3" />
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>
           </li>
 
-          <!-- Insight Point 2 -->
           <li>
             <div class="rq-header">
               <span class="rq-number">2.</span>
@@ -852,14 +851,12 @@
               <div class="anecdote-layout-wrapper">
                 <div class="transcript-visual-grid"> 
                   <div class="transcript-row-bottom" style="display: flex; flex-direction: column; gap: 16px; width: 100%;"> 
-                    <!-- Panel 1: Value -->
-                    <div class="transcript-panel" style="width: 100%; padding: 16px; display: flex; align-items: flex-start; gap: 12px;">
+                    <div class="transcript-panel" style="width: 100%; padding: 16px; display: flex; align-items: flex-start; gap: 12px; box-sizing: border-box;">
                       <div class="panel-badge">1</div>
                       <img src="../assets/value.png" alt="Value Transcript" style="width: 100%; max-width: 70%; height: auto; display: block;" />
                     </div>
 
-                    <!-- Panel 2: Routine -->
-                    <div class="transcript-panel" style="width: 100%; padding: 16px; display: flex; align-items: flex-start; gap: 12px;">
+                    <div class="transcript-panel" style="width: 100%; padding: 16px; display: flex; align-items: flex-start; gap: 12px; box-sizing: border-box;">
                       <div class="panel-badge">2</div>
                       <img src="../assets/routine2.png" alt="Routine Transcript" style="width: 100%; max-width: 50%; height: auto; display: block;" />
                     </div>
@@ -869,7 +866,6 @@
             </div>
           </li>
           
-          <!-- Insight Point 3 -->
           <li>
             <div class="rq-header">
               <span class="rq-number">3.</span>
@@ -890,20 +886,17 @@
               <h4 class="anecdote-title">Highlight</h4>
               <div class="anecdote-layout-wrapper">
                 <div class="transcript-visual-grid" style="display: flex; flex-direction: column; gap: 16px; width: 100%;">
-                  <!-- Panel 1 -->
-                  <div class="transcript-panel" style="width: 100%; padding: 16px; display: flex; align-items: flex-start; gap: 16px;">
+                  <div class="transcript-panel" style="width: 100%; padding: 16px; display: flex; align-items: flex-start; gap: 16px; box-sizing: border-box;">
                     <div class="panel-badge">1</div>
                     <img src="../assets/crowded.png" alt="Crowded Aisle Transcript" style="width: 100%; max-width: 75%; height: auto; display: block;" />
                   </div>
 
-                  <!-- Panel 2 -->
-                  <div class="transcript-panel" style="width: 100%; padding: 16px; display: flex; align-items: flex-start; gap: 16px;">
+                  <div class="transcript-panel" style="width: 100%; padding: 16px; display: flex; align-items: flex-start; gap: 16px; box-sizing: border-box;">
                     <div class="panel-badge">2</div>
                     <img src="../assets/congestion.png" alt="Congestion Transcript" style="width: 100%; max-width: 75%; height: auto; display: block;" />
                   </div>
 
-                  <!-- Panel 3 -->
-                  <div class="transcript-panel" style="width: 100%; padding: 16px; display: flex; align-items: flex-start; gap: 16px;">
+                  <div class="transcript-panel" style="width: 100%; padding: 16px; display: flex; align-items: flex-start; gap: 16px; box-sizing: border-box;">
                     <div class="panel-badge">3</div>
                     <img src="../assets/confusion.png" alt="Product Confusion Transcript" style="width: 100%; max-width: 80%; height: auto; display: block;" />
                   </div>
@@ -933,7 +926,6 @@
           </div>
         </div>
 
-        <!-- Framing Strategy Containers -->
         <div style="margin-bottom: 3.5rem;">
           <h2 class="section-heading" style="margin-bottom: 1rem;">Opportunity</h2>
           <div class="insight-callout-container" style="padding-left: 0; margin-bottom: 0;">
@@ -957,7 +949,6 @@
           </div>
         </div>
         
-        <!-- Grid Wrapper for Solution Features -->
         <div class="feature-grid">
           <div class="feature-card">
             <h3 style="font-size: 18px; font-weight: 400; margin-top: 0; margin-bottom: 0.5rem; color: var(--color-dark-charcoal);">Location-Specific Map</h3>
@@ -975,7 +966,6 @@
           </div>
         </div>
 
-        <!-- ── USER FLOW / SEQUENCE MAP SHOWCASE ── -->
         <div style="margin-top: 5.5rem; margin-bottom: 2rem;">
           <h2 class="section-heading" style="margin-bottom: 0.5rem;">From Planning to Purchase</h2>
           <p class="text-paragraph" style="font-size: 22px; font-weight: 400; color: var(--color-dark-charcoal); letter-spacing: -0.01em; margin-top: 1rem;">
@@ -997,7 +987,6 @@
           </div>
         </div>
 
-        <!-- Centered Demo Graphic Container Flow -->
         <div class="demo-media-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; margin: 4.5rem 0; text-align: center;">
           <div class="image-label-badge" style="margin-bottom: 1.25rem; display: inline-block; width: fit-content; margin-left: auto; margin-right: auto;">Cost&Co In Action</div>
           <div class="media-frame frame-redesign" style="margin: 0 auto; display: block;">
@@ -1006,95 +995,86 @@
         </div>
       </section>
 
-<!-- Combined Design Impact & Rationale Section -->
-<section id="design-impact" class="content-section" style="margin-bottom: 4rem;">
-  
-  <p class="section-label">DESIGN IMPACT</p>
-  
-  <h2 class="section-heading" style="color: var(--color-brand-green); margin-bottom: 1rem; text-align: center; font-size: 28px; letter-spacing: -0.01em;">
-    Reducing Uncertainty Without Removing Discovery
-  </h2>
+      <!-- Combined Design Impact & Rationale Section -->
+      <section id="design-impact" class="content-section" style="margin-bottom: 4rem;">
+        
+        <p class="section-label">DESIGN IMPACT</p>
+        
+        <h2 class="section-heading" style="color: var(--color-brand-green); margin-bottom: 1rem; text-align: center; font-size: 28px; letter-spacing: -0.01em;">
+          Reducing Uncertainty Without Removing Discovery
+        </h2>
 
-  <!-- Context Summary -->
-  <p class="text-paragraph" style="font-size: 16px; font-weight: 300; line-height: 1.65; color: var(--color-muted-grey); text-align: center; max-width: 650px; margin: 0 auto 3.5rem auto;">
-        Behind every feature is a real shopper frustration. By designing around the information people were missing, Cost&Co makes navigating 
-        Costco feel more intuitive while preserving the treasure-hunt experience.
-  </p>
+        <p class="text-paragraph" style="font-size: 16px; font-weight: 300; line-height: 1.65; color: var(--color-muted-grey); text-align: center; max-width: 650px; margin: 0 auto 3.5rem auto;">
+            Behind every feature is a real shopper frustration. By designing around the information people were missing, Cost&Co makes navigating 
+            Costco feel more intuitive while preserving the treasure-hunt experience.
+        </p>
 
-  <!-- Subheading 1: Research to Design Mapping -->
-  <h3 style="font-size: 20px; font-weight: 400; color: var(--color-dark-charcoal); margin-top: 1rem; margin-bottom: 1.75rem; text-align: center;">
-    How Research Shaped the Final Design
-  </h3>
+        <h3 style="font-size: 20px; font-weight: 400; color: var(--color-dark-charcoal); margin-top: 1rem; margin-bottom: 1.75rem; text-align: center;">
+          How Research Shaped the Final Design
+        </h3>
+   
+        <div class="insight-mapping-grid" style="margin-bottom: 4rem;">
+          <div class="mapping-card">
+            <h4 class="mapping-header-research" style="font-weight: 300; color: #a29fa0; margin-top: 0;">Research Insight</h4>
+            <p style="font-size: 16px; font-weight: 400; color: var(--color-dark-charcoal); margin-bottom: 1.25rem; line-height: 1.5;">
+              Shoppers rely on memory because product locations constantly change.
+            </p>
+            
+            <h4 class="mapping-header-design">Design Response</h4>
+            <p style="font-size: 16px; font-weight: 300; color: var(--color-muted-grey); margin: 0; line-height: 1.5;">
+              Location-specific warehouse maps and live navigation.
+            </p>
+          </div>
+          
+          <div class="mapping-card">
+            <h4 class="mapping-header-research" style="font-weight: 300; color: #a29fa0; margin-top: 0;">Research Insight</h4>
+            <p style="font-size: 16px; font-weight: 400; color: var(--color-dark-charcoal); margin-bottom: 1.25rem; line-height: 1.5;">
+              Customers struggle to know whether products are in stock.
+            </p>
 
-  <!-- Mapping Insights directly to Features -->     
-  <div class="insight-mapping-grid" style="margin-bottom: 4rem;">
-    <!-- Row Item 1 -->
-    <div class="mapping-card">
-      <h4 class="mapping-header-research" style="font-weight: 300; color: #a29fa0; margin-top: 0;">Research Insight</h4>
-      <p style="font-size: 16px; font-weight: 400; color: var(--color-dark-charcoal); margin-bottom: 1.25rem; line-height: 1.5;">
-        Shoppers rely on memory because product locations constantly change.
-      </p>
-      
-      <h4 class="mapping-header-design">Design Response</h4>
-      <p style="font-size: 16px; font-weight: 300; color: var(--color-muted-grey); margin: 0; line-height: 1.5;">
-        Location-specific warehouse maps and live navigation.
-      </p>
-    </div>
-    
-    <!-- Row Item 2 -->
-    <div class="mapping-card">
-      <h4 class="mapping-header-research" style="font-weight: 300; color: #a29fa0; margin-top: 0;">Research Insight</h4>
-      <p style="font-size: 16px; font-weight: 400; color: var(--color-dark-charcoal); margin-bottom: 1.25rem; line-height: 1.5;">
-        Customers struggle to know whether products are in stock.
-      </p>
+            <h4 class="mapping-header-design">Design Response</h4>
+            <p style="font-size: 16px; font-weight: 300; color: var(--color-muted-grey); margin: 0; line-height: 1.5;">
+              Community-contributed inventory and availability updates.
+            </p>
+          </div>
 
-      <h4 class="mapping-header-design">Design Response</h4>
-      <p style="font-size: 16px; font-weight: 300; color: var(--color-muted-grey); margin: 0; line-height: 1.5;">
-        Community-contributed inventory and availability updates.
-      </p>
-    </div>
+          <div class="mapping-card">
+            <h4 class="mapping-header-research" style="font-weight: 300; color: #a29fa0; margin-top: 0;">Research Insight</h4>
+            <p style="font-size: 16px; font-weight: 400; color: var(--color-dark-charcoal); margin-bottom: 1.25rem; line-height: 1.5;">
+              Limited signage creates uncertainty and inefficient searching.
+            </p>
 
-    <!-- Row Item 3 -->
-    <div class="mapping-card">
-      <h4 class="mapping-header-research" style="font-weight: 300; color: #a29fa0; margin-top: 0;">Research Insight</h4>
-      <p style="font-size: 16px; font-weight: 400; color: var(--color-dark-charcoal); margin-bottom: 1.25rem; line-height: 1.5;">
-        Limited signage creates uncertainty and inefficient searching.
-      </p>
+            <h4 class="mapping-header-design">Design Response</h4>
+            <p style="font-size: 16px; font-weight: 300; color: var(--color-muted-grey); margin: 0; line-height: 1.5;">
+              Real-time product locations and warehouse-specific information.
+            </p>
+          </div>
+        </div>
 
-      <h4 class="mapping-header-design">Design Response</h4>
-      <p style="font-size: 16px; font-weight: 300; color: var(--color-muted-grey); margin: 0; line-height: 1.5;">
-        Real-time product locations and warehouse-specific information.
-      </p>
-    </div>
-  </div>
+        <h3 style="font-size: 20px; font-weight: 400; color: var(--color-dark-charcoal); margin-top: 1rem; margin-bottom: 1.75rem; text-align: center;">
+          Expected User Outcomes
+        </h3>
 
-  <!-- Subheading 2: Expected Outcomes -->
-  <h3 style="font-size: 20px; font-weight: 400; color: var(--color-dark-charcoal); margin-top: 1rem; margin-bottom: 1.75rem; text-align: center;">
-    Expected User Outcomes
-  </h3>
-
-  <!-- Outcome / Impact Cards -->
-  <div class="impact-grid" style="margin-bottom: 0;">
-    <div class="impact-card">
-      <h4 style="font-size: 18px; font-weight: 400; color: var(--color-dark-charcoal); margin-top: 0; margin-bottom: 0.75rem;">
-        Clearer Information &amp; Wayfinding
-      </h4>
-      <p style="font-size: 16px; font-weight: 300; line-height: 1.65; color: var(--color-muted-grey); margin: 0;">
-        Warehouse-specific maps and navigation reduce unnecessary searching, helping shoppers find products efficiently.
-      </p>
-    </div>
-    
-    <div class="impact-card">
-      <h4 style="font-size: 18px; font-weight: 400; color: var(--color-dark-charcoal); margin-top: 0; margin-bottom: 0.75rem;">
-        Greater Shopping Confidence
-      </h4>
-      <p style="font-size: 16px; font-weight: 300; line-height: 1.65; color: var(--color-muted-grey); margin: 0;">
-        Real-time inventory, pricing, and community updates help shoppers make informed decisions before and during their visit.
-      </p>
-    </div>
-  </div>
-
-</section>
+        <div class="impact-grid" style="margin-bottom: 0;">
+          <div class="impact-card">
+            <h4 style="font-size: 18px; font-weight: 400; color: var(--color-dark-charcoal); margin-top: 0; margin-bottom: 0.75rem;">
+              Clearer Information &amp; Wayfinding
+            </h4>
+            <p style="font-size: 16px; font-weight: 300; line-height: 1.65; color: var(--color-muted-grey); margin: 0;">
+              Warehouse-specific maps and navigation reduce unnecessary searching, helping shoppers find products efficiently.
+            </p>
+          </div>
+          
+          <div class="impact-card">
+            <h4 style="font-size: 18px; font-weight: 400; color: var(--color-dark-charcoal); margin-top: 0; margin-bottom: 0.75rem;">
+              Greater Shopping Confidence
+            </h4>
+            <p style="font-size: 16px; font-weight: 300; line-height: 1.65; color: var(--color-muted-grey); margin: 0;">
+              Real-time inventory, pricing, and community updates help shoppers make informed decisions before and during their visit.
+            </p>
+          </div>
+        </div>
+      </section>
 
       <!-- ── REFLECTION SECTION ── -->
       <section id="reflection" class="content-section padding-bottom-large">

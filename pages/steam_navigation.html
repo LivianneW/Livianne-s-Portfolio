@@ -9,14 +9,14 @@
     /* Global layout safety adjustments */
     a {
       text-decoration: none;    
-      color: inherit;        
+      color: inherit;         
     }
     
     /* IMAGE COMPARISON MATRICES */
     .comparison-row-side-by-side {
       display: flex;
       gap: 13px;
-      justify-content: center;
+      justify-content: center; /* Ensures content is centered horizontally */
       margin-bottom: 0;
       width: 100%;
     }
@@ -27,7 +27,9 @@
       border-radius: 25px;
       overflow: hidden;
       position: relative;
-      flex-shrink: 0; 
+      flex-shrink: 0;
+      pointer-events: none; /* Prevents clicks, drags, or hover events on container */
+      user-select: none;   /* Prevents selection */
     }
 
     .final-image img {
@@ -36,8 +38,9 @@
       object-fit: cover;
       object-position: center;
       background: transparent;
-      transform: scale(1.26); 
-      transition: transform 0.3s ease;
+      transform: scale(1.26); /* Restored original scaling transform */
+      pointer-events: none;    /* Completely disables mouse/touch interactivity */
+      user-select: none;
     }
 
     .final-image img.bottom-focus {
@@ -65,25 +68,36 @@
       justify-content: center;
     }
 
+    /* Target the specific comparison rows in Strategy (B) and Solution for mobile stacking */
     @media (max-width: 480px) {
+      .stack-on-mobile {
+        flex-direction: column; /* Stack vertically on mobile */
+        align-items: center;    /* Center items when stacked */
+        gap: 16px;              /* Space between stacked images */
+      }
+
       .comparison-row-side-by-side {
-        gap: 8px;
         padding: 0 10px;
       }
 
       .final-image {
-        width: 47%;  
-        height: auto;  
-        aspect-ratio: 9 / 18;  
+        width: 170px; /* Keep original width when stacked */
+        height: 337px;
+        aspect-ratio: auto;
       }
 
+      /* Adjust label badge widths to match images on mobile stacking */
+      .comparison-labels-row .image-label-badge {
+         width: 170px !important;
+      }
+      
       .image-label {
-        width: 47%;
+        width: 170px;
         padding: 8px 10px;
       }
       
       .final-image img {
-        transform: scale(1.25); 
+        transform: scale(1.25); /* Restored original mobile transform */
       }
     }
   </style>
@@ -231,8 +245,8 @@
            and <span style="color: #7cabb0; font-weight: 500;">standard mobile user expectations</span>. 
            It struggles to balance being a storefront, a social platform, and a news hub, 
            resulting in a "guessing game" for users. High-value features are often buried under vague
-            labels like "Community," leading to <span style="color: #7cabb0; font-weight: 500;">low discoverability</span> 
-            and <span style="color: #7cabb0; font-weight: 500;">high cognitive load</span>.
+           labels like "Community," leading to <span style="color: #7cabb0; font-weight: 500;">low discoverability</span> 
+           and <span style="color: #7cabb0; font-weight: 500;">high cognitive load</span>.
         </p>
       </section>
 
@@ -283,12 +297,14 @@
             A standard bottom navigation bar prioritizing familiarity and one-tap access to key features.
           </p>
           
-          <div class="comparison-row-side-by-side" style="display: flex; justify-content: center; width: 100%; margin-top: 12px;">
+          <div class="comparison-row-side-by-side" style="margin-top: 12px;">
             <div class="final-image">
               <img src="../assets/steam-prototype-a.png" alt="Prototype A Interface Layout Mockup">
             </div>
           </div>
-        </div> <div class="prototype-showcase-block" style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; gap: 16px; margin-bottom: 2rem;">
+        </div> 
+
+        <div class="prototype-showcase-block" style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; gap: 16px; margin-bottom: 2rem;">
           <div class="image-label-badge">
             Prototype B (The All-In-One Hub)
           </div>   
@@ -297,7 +313,7 @@
             A centralized hub designed to reduce information scattering and consolidate features into a single entry point.
           </p> 
           
-          <div class="comparison-row-side-by-side" style="margin-top: 12px; display: flex; justify-content: center; gap: 12px; width: 100%;">
+          <div class="comparison-row-side-by-side stack-on-mobile" style="margin-top: 12px; gap: 12px;">
             <div class="final-image">
               <img src="../assets/steam-prototype-b1.png" alt="Prototype B Centralized Screen 1">
             </div>
@@ -338,8 +354,8 @@
           </li>
         </ul>
 
-        <div class="comparison-row-side-by-side" style="margin-top: 32px; justify-content: flex-start;">
-          <div class="final-image" style="margin-right: 8px;">
+        <div class="comparison-row-side-by-side stack-on-mobile" style="margin-top: 32px; justify-content: center;">
+          <div class="final-image">
             <img src="../assets/steam-redesign2.png" alt="Final Production Interface Screen 1">
           </div>
           <div class="final-image">
@@ -387,7 +403,7 @@
             <div class="image-label-badge" style="background-color: var(--color-btn-bg); color: var(--color-green-accent); padding: 8px 20px; border-radius: 10px; font-size: 14px; width: 170px; font-weight: 500;">Our Redesign</div>
           </div>
           
-          <div class="comparison-row-side-by-side" style="display: flex; justify-content: center; gap: 13px; width: 100%;">
+          <div class="comparison-row-side-by-side stack-on-mobile" style="display: flex; justify-content: center; gap: 13px; width: 100%;">
             <div class="final-image">
               <img src="../assets/steam-original1.png" alt="Original Steam App">
             </div>
@@ -406,7 +422,7 @@
             Original App
           </div>
           
-          <div class="comparison-row-side-by-side" style="display: flex; justify-content: center; gap: 13px; width: 100%;">
+          <div class="comparison-row-side-by-side stack-on-mobile" style="display: flex; justify-content: center; gap: 13px; width: 100%;">
             <div class="final-image">
               <img src="../assets/steam-original2.png" alt="Original Steam Menu">
             </div>

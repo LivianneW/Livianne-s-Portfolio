@@ -10,6 +10,45 @@
       text-decoration: none;
       color: inherit;
     }
+
+    /* MOBILE RESPONSIVE FIXES FOR GALLERY WRAPPER & HEADER GAP */
+    @media (max-width: 768px) {
+      .hero {
+        margin-bottom: 2rem; /* Normalizes bottom spacing of hero section */
+      }
+
+      .gallery-wrapper {
+        padding-top: 0 !important; /* Removes excess top gap */
+        margin-top: 0 !important;
+      }
+
+      .gallery-header {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 24px;
+      }
+
+      .gallery-title {
+        margin: 0;
+        font-size: 1.25rem;
+      }
+
+      .filter-controls {
+        display: flex;
+        width: 100%;
+        overflow-x: auto; /* Allows smooth horizontal scrolling for filter buttons */
+        white-space: nowrap;
+        gap: 8px;
+        padding-bottom: 6px; /* Space for scroll bar feedback */
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .filter-btn {
+        flex-shrink: 0; /* Prevents buttons from squeezing on mobile */
+      }
+    }
   </style>
 </head>
 <body>
@@ -138,7 +177,7 @@
         </a>
       </article>
 
-            <article class="work-card" data-cat="redesign">
+      <article class="work-card" data-cat="redesign">
         <a href="pages/steam_navigation.html" class="card-inner-link">
           <div class="work-media-container">
             <img src="assets/Steam-Showcase.png" alt="Steam Mobile Redesign Case Study" class="work-asset" style="width: 100%; height: 100%; display: block;"/> 
