@@ -713,6 +713,10 @@ body {
     gap: 2.5rem;
   }
 
+  .gallery-header {
+    top: 80px; /* Align top offset to match mobile header height */
+  }
+
   /* ── MOBILE MENU SYSTEM INTERACTIVES ── */
   .hamburger-icon {
     display: flex;
