@@ -27,6 +27,44 @@
       height: auto;
       display: block;
     }
+
+    @media (max-width: 768px) {
+  /* Center top split content and shrink max-width */
+  .hero-top-split {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 20px !important;
+  }
+
+  .hero-image-wrapper {
+    max-width: 280px !important; /* Constrains the wrapper width */
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .hero-img {
+    max-height: 180px !important; /* Reduces vertical height on mobile */
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+}
+
+    @media (max-width: 480px) {
+  .hero-image-wrapper {
+    max-width: 220px !important; /* Extra sizing pass for small screens */
+  }
+
+  .hero-img {
+    max-height: 150px !important; /* Keep hero image compact */
+  }
+
+  /* Adjust Figma Prototype height on narrow phones */
+  .figma-embed-container iframe {
+    height: 420px !important;
+  }
+}
   </style>
 </head>
 <body>

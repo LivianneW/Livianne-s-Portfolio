@@ -530,11 +530,69 @@
         grid-template-columns: 1fr;
       }
       .hero-img-spec {
-        transform: scale(1);
+          transform: scale(1) !important;
+          max-width: 100%;
+          height: auto !important;
       }
-    }
+
+      /* Demo Gif / Media Frame Fluid Scaling */
+  .media-frame, .final-image, .CCDemo {
+    width: 100% !important;
+    max-width: 280px !important; /* Cap width for phone display ratios */
+    height: auto !important;
+    aspect-ratio: auto !important;
+  }
+
+  .media-frame img, .final-image img, .CCDemo img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+
+  /* User Flow Image Container */
+  .demo-media-container img {
+    max-width: 100% !important;
+    height: auto !important;
+   }
+  }
 
     @media (max-width: 480px) {
+
+      /* Media Column in Field Anecdotes */
+  .anecdote-media-col {
+    flex: 1 1 100% !important;
+    width: 100% !important;
+  }
+
+  .anecdote-img-container {
+    width: 100% !important;
+  }
+
+  .anecdote-img-container img {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Transcript Panel Images */
+  .transcript-panel {
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  .transcript-panel img {
+    max-width: 100% !important; /* Allows images to scale within mobile cards */
+    height: auto !important;
+  }
+
+  /* Reset inline style max-widths for transcript photos */
+  .transcript-panel img[style] {
+    max-width: 100% !important;
+  }
+
+  /* Figma Embed Container for Mobile Viewports */
+  .figma-embed-container iframe {
+    height: 450px !important;
+  }
       .rq-text {
         padding-left: 1.25rem;
         font-size: 16px;
