@@ -28,8 +28,8 @@
       overflow: hidden;
       position: relative;
       flex-shrink: 0;
-      pointer-events: none; /* Prevents clicks, drags, or hover events on container */
-      user-select: none;   /* Prevents selection */
+      pointer-events: none, !important;
+      user-select: none,  !important;
     }
 
     .final-image img {
@@ -38,9 +38,9 @@
       object-fit: cover;
       object-position: center;
       background: transparent;
-      transform: scale(1.26); /* Restored original scaling transform */
-      pointer-events: none;    /* Completely disables mouse/touch interactivity */
-      user-select: none;
+      transform: scale(1.26); 
+      pointer-events: none,  !important; 
+      user-select: none, !important;
     }
 
     .final-image img.bottom-focus {

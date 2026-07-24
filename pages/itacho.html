@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Itacho Sushi Redesign - Livianne</title>
   <link rel="stylesheet" href="../styles.css">
-  <style>
+<style>
     a {
       text-decoration: none;
       color: inherit;
@@ -61,24 +61,65 @@
       justify-content: center;
     }
 
-    /* --- Mobile Rules Only (Screens under 768px) --- */
+    /* ── MOBILE OVERRIDES ONLY (Screens <= 768px) ── */
     @media (max-width: 768px) {
       .hero-top-split {
         flex-direction: column !important;
         align-items: flex-start !important;
       }
 
+      .hero-img {
+        transform: scale(1) !important;
+        width: 100% !important;
+        height: auto !important;
+      }
+
+      /* Fix Insight 1 (Side-by-Side Mobile Validation Images) */
+      .insight-card div[style*="display: flex"][style*="gap: 32px"] {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 24px !important;
+      }
+
+      .insight-card div[style*="gap: 16px"] {
+        width: 100% !important;
+        justify-content: center !important;
+        gap: 10px !important;
+      }
+
+      .insight-card .final-image {
+        width: 48% !important;
+        max-width: 165px !important;
+        height: auto !important;
+        aspect-ratio: 9 / 11 !important;
+      }
+
+      /* Fix Insight 2 (Desktop Hero GIFs on Mobile) */
+      .insight-card div[style*="max-width: 540px"] {
+        max-width: 100% !important;
+        min-width: 100% !important;
+        width: 100% !important;
+      }
+
+      .insight-card div[style*="max-width: 540px"] .final-image {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16 / 9 !important;
+      }
+
+      /* Fix 3-Column Final Design Grid */
       .comparison-row-side-by-side {
         gap: 8px !important;
-        padding: 0 10px;
+        padding: 0;
+        justify-content: space-between !important;
       }
 
       .comparison-column-unit {
-        width: 31% !important;
-        max-width: 31% !important;
+        width: 32% !important;
+        max-width: 32% !important;
       }
 
-      /* Responsive scaling for fixed inline width images on mobile */
       .comparison-column-unit .final-image {
         width: 100% !important;
         height: auto !important;
@@ -87,104 +128,23 @@
 
       .image-label-badge {
         width: 100% !important;
+        padding: 6px 4px !important;
+        font-size: 11px !important;
         box-sizing: border-box !important;
       }
 
       .figma-embed-container iframe {
-        height: 400px !important;
+        height: 460px !important;
       }
-
-      .hero-img {
-    transform: scale(1) !important;
-    width: 100% !important;
-    height: auto !important;
-  }
-
-  /* Override fixed dimensions on Insight 1 validation images */
-  .insight-card .final-image {
-    width: 100% !important;
-    max-width: 140px !important; /* Scaled down proportionally for mobile side-by-side */
-    height: auto !important;
-    aspect-ratio: 9 / 11 !important;
-  }
-
-  /* Fix Before/After Desktop GIF Containers */
-  .insight-card > div[style*="display: flex"] {
-    gap: 16px !important;
-  }
-
-  .insight-card div[style*="max-width: 540px"] {
-    max-width: 100% !important;
-    min-width: 100% !important;
-  }
-
-  /* Ensure comparison rows scale smoothly without overflowing */
-  .comparison-row-side-by-side {
-    gap: 10px !important;
-    justify-content: space-between !important;
-  }
-
-  .comparison-column-unit {
-    width: 31% !important;
-    max-width: 31% !important;
-  }
-
-  .comparison-column-unit .final-image {
-    width: 100% !important;
-    height: auto !important;
-    aspect-ratio: 9 / 18 !important;
-  }
-
-  .comparison-column-unit .final-image img {
-    object-fit: cover !important;
-  }
     }
 
     @media (max-width: 480px) {
-
-      .insight-card div[style*="display: flex"][style*="gap: 32px"] {
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 20px !important;
-  }
-
-  .insight-card div[style*="display: flex"][style*="gap: 16px"] {
-    justify-content: center !important;
-    width: 100% !important;
-  }
-
-  .insight-card .final-image {
-    max-width: 130px !important;
-  }
-
-  /* Ensure labels match column widths */
-  .image-label-badge {
-    width: 100% !important;
-    max-width: 210px !important;
-    box-sizing: border-box !important;
-  }
-
-  /* Adjust Figma Embed Height */
-  .figma-embed-container iframe {
-    height: 420px !important;
-  }
-      .comparison-column-unit {
-        width: 32% !important;
+      .insight-card .final-image {
+        max-width: 145px !important;
       }
 
-      .final-image {
-        width: 47%;  
-        height: auto;  
-        aspect-ratio: 9 / 18;  
-      }
-
-      .image-label {
-        width: 47%;
-        padding: 8px 10px;
-      }
-      
-      .final-image img {
-        object-fit: contain;
+      .figma-embed-container iframe {
+        height: 420px !important;
       }
     }
   </style>
