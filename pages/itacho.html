@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Itacho Sushi Redesign - Livianne</title>
   <link rel="stylesheet" href="../styles.css">
-<style>
+  <style>
     a {
       text-decoration: none;
       color: inherit;
@@ -61,8 +61,16 @@
       justify-content: center;
     }
 
-    /* ── MOBILE OVERRIDES ONLY (Screens <= 768px) ── */
+    /* ── MOBILE OVERRIDES ONLY (Leaves Desktop Untouched) ── */
     @media (max-width: 768px) {
+      /* Disable touch/pointer hover artifacts on mobile */
+      .final-image, 
+      .final-image img {
+        pointer-events: none !important;
+        transform: none !important;
+        transition: none !important;
+      }
+
       .hero-top-split {
         flex-direction: column !important;
         align-items: flex-start !important;
@@ -74,11 +82,11 @@
         height: auto !important;
       }
 
-      /* Fix Insight 1 (Side-by-Side Mobile Validation Images) */
+      /* Fix Insight 1 (Before/After Images) on Mobile */
       .insight-card div[style*="display: flex"][style*="gap: 32px"] {
         flex-direction: column !important;
         align-items: center !important;
-        gap: 24px !important;
+        gap: 20px !important;
       }
 
       .insight-card div[style*="gap: 16px"] {
@@ -87,14 +95,15 @@
         gap: 10px !important;
       }
 
-      .insight-card .final-image {
+      /* Targets the inline-styled 264x325 cards on mobile so they don't flatten */
+      .insight-card div[style*="width: 264px"] {
         width: 48% !important;
         max-width: 165px !important;
         height: auto !important;
-        aspect-ratio: 9 / 11 !important;
+        aspect-ratio: 264 / 325 !important;
       }
 
-      /* Fix Insight 2 (Desktop Hero GIFs on Mobile) */
+      /* Fix Insight 2 (Hero GIFs) on Mobile */
       .insight-card div[style*="max-width: 540px"] {
         max-width: 100% !important;
         min-width: 100% !important;
@@ -108,7 +117,7 @@
         aspect-ratio: 16 / 9 !important;
       }
 
-      /* Fix 3-Column Final Design Grid */
+      /* Fix 3-Column Final Design Grid on Mobile */
       .comparison-row-side-by-side {
         gap: 8px !important;
         padding: 0;
@@ -139,8 +148,8 @@
     }
 
     @media (max-width: 480px) {
-      .insight-card .final-image {
-        max-width: 145px !important;
+      .insight-card div[style*="width: 264px"] {
+        max-width: 150px !important;
       }
 
       .figma-embed-container iframe {
