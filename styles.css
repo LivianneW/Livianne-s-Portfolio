@@ -407,6 +407,13 @@ body {
   margin-bottom: 2rem;  
 }
 
+u {
+  text-decoration-line: underline;
+  text-decoration-color: rgba(28, 28, 28, 0.199); /* Adjust opacity here */
+  text-decoration-thickness: 1.2px;               /* Line weight */
+  text-underline-offset: 3px;                    /* Distance from text baseline */
+}
+
 .image-label-badge {
   display: inline-flex;
   align-items: center;

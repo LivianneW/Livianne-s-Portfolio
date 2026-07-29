@@ -82,25 +82,29 @@
         height: auto !important;
       }
 
-      /* Fix Insight 1 (Before/After Images) on Mobile */
-      .insight-card div[style*="display: flex"][style*="gap: 32px"] {
-        flex-direction: column !important;
-        align-items: center !important;
-        gap: 20px !important;
+      /* Fix Validation & Comparison Frames on Mobile */
+      .comparison-row-side-by-side {
+        gap: 8px !important;
+        padding: 0;
+        justify-content: space-between !important;
       }
 
-      .insight-card div[style*="gap: 16px"] {
-        width: 100% !important;
-        justify-content: center !important;
-        gap: 10px !important;
-      }
-
-      /* Targets the inline-styled 264x325 cards on mobile so they don't flatten */
-      .insight-card div[style*="width: 264px"] {
+      .comparison-column-unit {
         width: 48% !important;
-        max-width: 165px !important;
+        max-width: 48% !important;
+      }
+
+      .comparison-column-unit .final-image {
+        width: 100% !important;
         height: auto !important;
-        aspect-ratio: 264 / 325 !important;
+        aspect-ratio: 9 / 18 !important;
+      }
+
+      .image-label-badge {
+        width: 100% !important;
+        padding: 6px 4px !important;
+        font-size: 11px !important;
+        box-sizing: border-box !important;
       }
 
       /* Fix Insight 2 (Hero GIFs) on Mobile */
@@ -117,41 +121,12 @@
         aspect-ratio: 16 / 9 !important;
       }
 
-      /* Fix 3-Column Final Design Grid on Mobile */
-      .comparison-row-side-by-side {
-        gap: 8px !important;
-        padding: 0;
-        justify-content: space-between !important;
-      }
-
-      .comparison-column-unit {
-        width: 32% !important;
-        max-width: 32% !important;
-      }
-
-      .comparison-column-unit .final-image {
-        width: 100% !important;
-        height: auto !important;
-        aspect-ratio: 9 / 18 !important;
-      }
-
-      .image-label-badge {
-        width: 100% !important;
-        padding: 6px 4px !important;
-        font-size: 11px !important;
-        box-sizing: border-box !important;
-      }
-
       .figma-embed-container iframe {
         height: 460px !important;
       }
     }
 
     @media (max-width: 480px) {
-      .insight-card div[style*="width: 264px"] {
-        max-width: 150px !important;
-      }
-
       .figma-embed-container iframe {
         height: 420px !important;
       }
@@ -332,43 +307,64 @@
           <div class="insight-card">
             <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 0.5rem; color: var(--text-dark);">1. Connecting Pricing Tiers With Menu Options</h3>
             <p style="font-size: 17px; font-weight: 300; color: var(--text-grey); margin-bottom: 1rem;">
-              While participants understood Itacho offered multiple AYCE pricing tiers, they struggled to understand how those tiers related to the menu experience. Many expected the pricing options to be interactive, clicking the pricing cards for more information, while others were confused by why both the Platinum and Ultra tiers led to the same "View Menu" button. Without clear connections between pricing and the dishes themselves, users found it difficult to compare options and confidently choose the tier that best fit their dining experience.
+              Participants understood that Itacho offered multiple AYCE pricing tiers but struggled to connect them to the menu. Many expected the pricing cards to be clickable, 
+              while others were confused that both Platinum and Ultra linked to the same menu. As a result, users couldn't confidently compare tiers or understand what each included.
             </p>
             <div style="background-color: var(--tag-bg); padding: 1rem 1.5rem; border-radius: 12px; font-size: 15px; margin-bottom: 1.5rem;">
-              <strong style="color: #70b074; font-weight: 500;">Design Response:</strong> We removed the card-like borders to eliminate the false button affordance and introduced concise microcopy that clearly explained the differences between each pricing tier. Rather than treating pricing as a separate decision, we integrated it directly into the menu by creating an Ultra Exclusive section and adding tier badges to individual dishes. This allowed users to immediately see which items were available at each tier, understand ordering limitations while browsing, and make informed decisions.
+              <strong style="color: #70b074; font-weight: 500;">Design Response:</strong> We removed the card styling to eliminate the false button affordance and integrated pricing directly into the menu. 
+              An Ultra Exclusive section, tier badges, and concise microcopy made dish availability and ordering limits visible while browsing, helping users compare tiers more confidently.
             </div>
             
-            <!-- Insight 1 Images Frame -->
-            <div style="display: flex; justify-content: center; gap: 32px; width: 100%; margin: 1rem 0 2.5rem 0; flex-wrap: wrap;">
-              <!-- LEFT SIDE: BEFORE BLOCKS -->
-              <div style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
-                <div class="image-label-badge" style="background-color: rgba(28, 28, 28, 0.04); color: #1c1c1c; padding: 6px 16px; border-radius: 8px; font-size: 13px; width: 160px; text-align: center; margin: 0; font-weight: 400;">
-                  Before
-                </div>
-                <div style="display: flex; gap: 16px;">
-                  <div class="final-image" style="width: 264px; height: 325px; flex-shrink: 0; border-radius: 16px; overflow: hidden; margin: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
-                    <img src="../assets/validation1.png" alt="Original Menu Selection Flow" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
-                  </div>
-                  <div class="final-image" style="width: 264px; height: 325px; flex-shrink: 0; border-radius: 16px; overflow: hidden; margin: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
-                    <img src="../assets/validation2.png" alt="Original Pricing Structure" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
-                  </div>
-                </div>
-              </div>
+            <!-- Insight 1 Images Frame (2x2 GRID FORMAT) -->
+            <div style="display: flex; flex-direction: column; gap: 24px; width: 100%; margin: 1.5rem 0 2.5rem 0;">
+              
+<!-- 2x2 GRID FORMAT WITH CUSTOM SPACING -->
+<div style="display: flex; flex-direction: column; gap: 64px; width: 100%; margin: 0.5rem 0 0.5rem 0;">
+  
+  <!-- ROW 1: BEFORE SECTION -->
+  <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+    <div class="image-label-badge" style="background-color: rgba(28, 28, 28, 0.04); color: #1c1c1c; padding: 6px 20px; border-radius: 8px; font-size: 14px; width: 180px; text-align: center; margin: 0 0 4px 0 !important; font-weight: 400;">
+      Before
+    </div>
+    
+    <div class="comparison-row-side-by-side" style="display: flex; justify-content: center; gap: 48px; width: 100%; flex-wrap: wrap;">
+      <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center;">
+        <div class="final-image" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 25px; overflow: hidden; margin: 0;">
+          <img src="../assets/validation1.png" alt="Original Menu Selection Flow" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
+        </div>
+      </div>
 
-              <!-- RIGHT SIDE: AFTER BLOCKS -->
-              <div style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
-                <div class="image-label-badge" style="background-color: var(--color-btn-bg); color: var(--color-green-accent); padding: 6px 16px; border-radius: 8px; font-size: 13px; width: 160px; text-align: center; margin: 0; font-weight: 400;">
-                  After
-                </div>
-                <div style="display: flex; gap: 16px;">
-                  <div class="final-image highlighted" style="width: 264px; height: 325px; flex-shrink: 0; border-radius: 16px; overflow: hidden; margin: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
-                    <img src="../assets/validation3.png" alt="Redesigned Meal Category Overhaul" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
-                  </div>
-                  <div class="final-image highlighted" style="width: 264px; height: 325px; flex-shrink: 0; border-radius: 16px; overflow: hidden; margin: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
-                    <img src="../assets/validation4.png" alt="Redesigned Menu Item Tier Integration" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
-                  </div>
-                </div>
-              </div>
+      <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center;">
+        <div class="final-image" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 25px; overflow: hidden; margin: 0;">
+          <img src="../assets/validation2.png" alt="Original Pricing Structure" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 2: AFTER SECTION -->
+  <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+    <div class="image-label-badge" style="background-color: var(--color-btn-bg); color: var(--color-green-accent); padding: 6px 20px; border-radius: 8px; font-size: 14px; width: 180px; text-align: center; margin: 0 0 4px 0 !important; font-weight: 400;">
+      After
+    </div>
+
+    <div class="comparison-row-side-by-side" style="display: flex; justify-content: center; gap: 48px; width: 100%; flex-wrap: wrap;">
+      <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center;">
+        <div class="final-image highlighted" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 25px; overflow: hidden; margin: 0;">
+          <img src="../assets/validation3.png" alt="Redesigned Meal Category Overhaul" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
+        </div>
+      </div>
+
+      <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center;">
+        <div class="final-image highlighted" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 25px; overflow: hidden; margin: 0;">
+          <img src="../assets/FINALMENU.png" alt="Redesigned Menu Item Tier Integration" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
             </div>
           </div>   
           
@@ -376,14 +372,11 @@
           <div class="insight-card">
             <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 0.5rem; color: var(--text-dark);">2. First Impressions</h3>
             <p style="font-size: 17px; font-weight: 300; color: var(--text-grey); margin-bottom: 1rem;">
-              Our initial usability testing revealed that the landing page wasn't encouraging users to explore the website. The carousel of interior photos felt generic, lacked a strong connection to Itacho Sushi's identity, and gave users little reason to continue scrolling. That insight prompted us to revisit the brand itself. After learning that Itacho translates to "head chef," we shifted our design direction to better reflect the restaurant's premium, hand-made identity.
+              Our initial usability testing revealed that the landing page wasn't encouraging users to explore the website. The carousel of interior photos felt generic, lacked a strong connection to Itacho Sushi's identity, and gave users little reason to continue scrolling. 
             </p>
             <div style="background-color: var(--tag-bg); padding: 1rem 1.5rem; border-radius: 12px; font-size: 16px; margin-bottom: 1.5rem;">
-              <strong style="color: #70b074; font-weight: 500;">Design Response:</strong> Rather than refining the existing carousel, we completely reimagined the hero. 
-              We replaced the generic carousel with a focused hero experience that established brand identity, clarified the restaurant's positioning, and created a stronger entry point 
-              into the website. Replacing the carousel with a single, intentional visual also established a clearer focal point, stronger information hierarchy, and a more memorable first
-              impression. To further improve discoverability, we introduced a dedicated Home navigation option, clearer interactive button states, and a subtle scroll indicator that naturally
-              guided users into the site.
+              <strong style="color: #70b074; font-weight: 500;">Design Response:</strong> We replaced the carousel with a focused hero that emphasized craftsmanship and brand identity. 
+              We also added a Home navigation link, clearer button states, and a subtle scroll indicator to strengthen hierarchy and encourage exploration.
             </div>
 
             <!-- Insight 2 GIF Layout Frame -->
@@ -426,7 +419,7 @@
             <div class="image-label-badge" style="background-color: rgba(28, 28, 28, 0.04); color: #1c1c1c; padding: 8px 20px; border-radius: 10px; font-size: 14px; width: 210px; text-align: center; margin: 0;">
               Original Layout
             </div>
-            <div class="final-image" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 16px; overflow: hidden; margin: 0;">
+            <div class="final-image" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 25px; overflow: hidden; margin: 0;">
               <img src="../assets/OGITACHO1.png" alt="Original Itacho Sushi App Layout" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
             </div>
           </div>
@@ -481,10 +474,14 @@
         <p class="section-label">REFLECTION</p>
         <div class="text-block">
           <p>
-            Working with Itacho Sushi helped me to understand that meaningful design is not created by having every answer, but by being willing <span style="color: #7cabb0; font-weight: 500;">to explore, question, and adapt</span> throughout the process. Rather than something to avoid, uncertainty became an essential part of our design process. It pushed us to challenge our assumptions, consider new perspectives, and iterate our ideas until we created an experience that better aligned with both our client's vision and their users' needs. 
+            Working with Itacho Sushi helped me to understand that meaningful design is not created by having every answer, but by being willing 
+            <span style="color: #7cabb0; font-weight: 500;">to explore, question, and adapt</span> throughout the process. <u>Rather than something to avoid, 
+            uncertainty became an essential part of our design process</u>. It pushed us to challenge our assumptions, consider new perspectives, and iterate our ideas until we created an experience that better aligned with both our client's vision and their users' needs. 
           </p> 
           <p> 
-            The hours my team spent exploring different directions, discussing our decisions, and revisiting our designs allowed us to develop our initial concepts into a more thoughtful and intentional experience. Through each iteration, we gained a better understanding of the problem we were solving and learned that strong design comes from being open to change rather than trying to find the perfect answer too early.
+            The hours my team spent exploring different directions, discussing our decisions, and revisiting our designs allowed us to develop our initial concepts into a more
+             thoughtful and intentional experience. Through each iteration, we gained a better understanding of the problem we were solving and learned that <u> strong design comes
+            from being open to change</u> rather than trying to find the perfect answer too early.
           </p> 
           <p>
             Moving forward, I understand that my role as a designer is to approach each challenge with<span style="color: #7cabb0; font-weight: 500;"> empathy, curiosity, and patience</span>. By embracing uncertainty as part of the discovery process, I can continue creating solutions that better serve the people I design for.
