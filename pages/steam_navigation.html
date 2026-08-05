@@ -20,31 +20,32 @@
     .comparison-row-side-by-side {
       display: flex;
       gap: 13px;
-      justify-content: center; /* Ensures content is centered horizontally */
+      justify-content: center;
       margin-bottom: 0;
       width: 100%;
     }
 
+    /* Standardized Final Image Container Dimensions */
     .final-image {
-      width: 170px;
-      height: 337px;
+      width: 235px;
+      height: 475px;
       border-radius: 25px;
       overflow: hidden;
       position: relative;
       flex-shrink: 0;
-      pointer-events: none, !important;
-      user-select: none,  !important;
+      pointer-events: none !important;
+      user-select: none !important;
     }
 
     .final-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
       object-position: center;
       background: transparent;
-      transform: scale(1.26); 
-      pointer-events: none,  !important; 
-      user-select: none, !important;
+      transform: none; /* Cleared scale transform to fit standardized 235x475 container */
+      pointer-events: none !important; 
+      user-select: none !important;
     }
 
     .final-image img.bottom-focus {
@@ -58,13 +59,100 @@
       margin-bottom: 8px;
     }
 
+    .insights-list-container {
+      margin-top: 2.5rem;
+    }
+
+    .research-questions-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin-top: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem; 
+    }
+
+    .research-questions-list li {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .rq-header {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem; 
+    }
+
+    .rq-number {
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--color-dark-charcoal, #1c1c1c);
+    }
+
+    .rq-title {
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--color-dark-charcoal, #1c1c1c);
+      letter-spacing: -0.01em;
+    }
+
+    .insight-callout-container {
+      display: flex;
+      flex-direction: column;
+      margin-top: 0.5rem; 
+      margin-bottom: 0.85rem;
+      padding-left: 1.5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .insight-callout-text {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--color-dark-charcoal, #1c1c1c);
+      border-left: 3px solid rgba(124, 171, 176, 0.5);
+      padding-left: 1.25rem; 
+      margin: 0;
+    }
+
+    .rq-bullet-sublist {
+      list-style-type: none;
+      padding-left: 1.5rem;
+      margin: 0.5rem 0 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem; 
+    }
+
+    .rq-bullet-sublist li {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--color-muted-grey, #585858);
+      position: relative;
+      padding-left: 1.25rem;
+      display: block;
+    }
+
+    .rq-bullet-sublist li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--color-light-grey, #a29fa0);
+      font-weight: bold;
+    }
+
     .image-label {
       background: rgba(0, 0, 0, 0.05);
       padding: 8px 0;
       border-radius: 10px;
       text-align: center;
       font-size: 13px;
-      width: 170px; 
+      width: 210px; 
       margin: 12px 0;
       font-weight: 400;
       display: inline-flex;
@@ -72,36 +160,68 @@
       justify-content: center;
     }
 
-    /* Target the specific comparison rows in Strategy (B) and Solution for mobile stacking */
-    @media (max-width: 480px) {
-      .stack-on-mobile {
-        flex-direction: column; /* Stack vertically on mobile */
-        align-items: center;    /* Center items when stacked */
-        gap: 16px;              /* Space between stacked images */
+    /* ── MOBILE OVERRIDES ── */
+    @media (max-width: 768px) {
+      .hero-top-split {
+        flex-direction: column !important;
+        align-items: flex-start !important;
       }
 
       .comparison-row-side-by-side {
-        padding: 0 10px;
+        gap: 12px !important;
+        padding: 0;
+        justify-content: center !important;
+        flex-wrap: wrap;
       }
 
       .final-image {
-        width: 170px; /* Keep original width when stacked */
-        height: 337px;
-        aspect-ratio: auto;
+        width: 180px !important;
+        height: 360px !important;
+        border-radius: 18px !important;
       }
 
-      /* Adjust label badge widths to match images on mobile stacking */
-      .comparison-labels-row .image-label-badge {
-         width: 170px !important;
+      .image-label-badge {
+        width: auto !important;
+        max-width: 100% !important;
+        padding: 8px 18px !important;
+        box-sizing: border-box !important;
+        white-space: normal !important;
+        text-align: center !important;
+        display: inline-block !important;
       }
-      
-      .image-label {
-        width: 170px;
-        padding: 8px 10px;
+
+      .figma-embed-container iframe {
+        height: 460px !important;
       }
-      
-      .final-image img {
-        transform: scale(1.25); /* Restored original mobile transform */
+    }
+
+    @media (max-width: 480px) {
+      .insight-callout-container {
+        padding-left: 0;
+      }
+      .insight-callout-text {
+        font-size: 15px;
+      }
+
+      .rq-bullet-sublist {
+        padding-left: 0.5rem;
+      }
+
+      .stack-on-mobile {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 16px !important;
+      }
+
+      .final-image {
+        width: 100% !important;
+        max-width: 210px !important;
+        height: auto !important;
+        aspect-ratio: 235 / 475 !important;
+      }
+
+      .figma-embed-container iframe {
+        height: 420px !important;
       }
     }
   </style>
@@ -207,7 +327,6 @@
           <a href="#solution" class="toc-link">The Solution</a>
           <a href="#lessons-learned" class="toc-link">Lessons Learned</a>          
           <a href="#prototype" class="toc-link">Interactive Prototype</a>          
-          <a href="#curious" class="toc-link">For the Curious</a>          
         </nav>
 
         <a 
@@ -228,14 +347,11 @@
         <h2 class="section-heading" style="color: #70b074; font-size: 32px;">3.41 Seconds Faster</h2>
         <div class="text-block">
           <p>
-            Working with a team of two others, we redesigned the Steam mobile app to fix a navigation system that 
-            often felt like a guessing game for users. We replaced Steam's disorganized layout with a hybrid design 
-            that pairs a familiar bottom navigation bar for daily tasks with a centralized profile hub for deeper account
-            features like Steam Families. 
+           Working with a team of two designers, we redesigned the Steam mobile app to address confusing navigation caused by its desktop-first information architecture. 
+           By building upon the existing interface with a familiar bottom navigation bar for everyday actions, we made frequently used features easier to access.
           </p>
           <p>
-            By following standard mobile design rules, we were able to cut down on mental
-             effort by <span style="color: #7cabb0; font-weight: 500;">3.21 seconds</span> and make it much faster for users to find their friends and games.
+           Our redesign reduced average task completion time by <span style="color: #7cabb0; font-weight: 500;">3.21 seconds</span>, helping users find their friends and games more efficiently.
           </p>
         </div>
       </section>
@@ -254,35 +370,122 @@
         </p>
       </section>
 
+      <!-- RESEARCH AND PAIN POINTS -->
       <section id="research-pain-points" class="content-section">
-        <p class="section-label">RESEARCH AND PAIN POINTS</p>
-        <h2 class="section-heading">Our Insights</h2>
+        <p class="section-label">RESEARCH &amp; PAIN POINTS</p>
+        <h2 class="section-heading">Finding the Bugs</h2>
         <p class="text-paragraph margin-bottom-large">
-        Through user testing, we identified several key pain points that impacted how users understood and navigated the experience:
+          Through moderated usability testing with 4 participants, we identified recurring navigation issues that prevented users from moving through the app confidently. Participants frequently relied on guesswork rather than clear, in-app affordances.
         </p>
-        <ul class="bullet-list">
+
+        <ol class="research-questions-list insights-list-container">
+          
+          <!-- 1. Low Discoverability -->
           <li>
-            <span class="font-medium">Low Discoverability:</span>
-            Users often relied on incorrect assumptions about where features lived. For example, many looked for
-             “Family Management” within the hamburger menu instead of the profile section, suggesting a mismatch 
-             between mental models and system structure.
+            <div class="rq-header">
+              <span class="rq-number">1.</span>
+              <span class="rq-title">Low Discoverability</span>
+            </div>
+            <div class="insight-callout-container">
+              <blockquote class="insight-callout-text">
+                <strong>Key Finding:</strong> 3 out of 4 participants searched the hamburger menu for Friends, while 2 out of 4 expected Family Management to be located there
+              </blockquote>
+            </div>
+            <ul class="rq-bullet-sublist">
+              <li>Severe mismatch between users' mental models and Steam's information architecture</li>
+              <li>Caused repeated navigation errors and interrupted task momentum</li>
+            </ul>
+
+            <!-- Original App Screen: Main Interface & Nav Bar -->
+            <div class="comparison-group" style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; gap: 12px; margin: 1.5rem 0 1rem 0;">
+              <div class="image-label-badge" style="background-color: rgba(28, 28, 28, 0.04); padding: 8px 20px; border-radius: 10px; font-size: 14px; width: 210px;">
+                Original Navigation Layout
+              </div>
+              
+              <div class="comparison-row-side-by-side" style="display: flex; justify-content: center; width: 100%;">
+                <div class="final-image">
+                  <img src="../assets/steam-original1.png" alt="Original Steam App Interface">
+                </div>
+              </div>
+              
+              <p class="image-caption" style="font-size: 14px; color: var(--color-muted-grey, #585858); margin-top: 4px; text-align: center; max-width: 500px; line-height: 1.4; font-weight: 300;">
+                Users defaulted to searching top navigation bars and hamburger icons to find core social features, ignoring the obscure icon shortcuts
+              </p>
+            </div>
           </li>
+
+          <!-- 2. Poor Information Scent -->
           <li>
-            <span class="font-medium">Poor Information Breadcrumbs:</span>
-            Labels like “Community” led users down unexpected paths, and in turn, creating confusion 
-            and making it difficult to have a clear sense of navigation flow.
+            <div class="rq-header">
+              <span class="rq-number">2.</span>
+              <span class="rq-title">Poor Information Breadcrumbs</span>
+            </div>
+            <div class="insight-callout-container">
+              <blockquote class="insight-callout-text">
+                <strong>Key Finding:</strong> 2 out of 4 participants followed the Community tab expecting it to lead directly to Friends or Family Management
+              </blockquote>
+            </div>
+            <ul class="rq-bullet-sublist">
+              <li>Category labels failed to communicate destination content accurately</li>
+              <li>Created misleading paths that increased user friction and task times</li>
+            </ul>
           </li>
+
+          <!-- 3. Breaking Platform Standards -->
           <li>
-            <span class="font-medium">Breaking Platform Standards:</span>
-            Key tools, such as search filters, were hidden inside the search bar rather than placed alongside it,
-            breaking expected patterns and causing unnecessary confusiong.
+            <div class="rq-header">
+              <span class="rq-number">3.</span>
+              <span class="rq-title">Breaking Platform Standards</span>
+            </div>
+            <div class="insight-callout-container">
+              <blockquote class="insight-callout-text">
+                <strong>Key Finding:</strong> Search filters were embedded inside the search field rather than alongside it, forcing unexpected interaction patterns
+              </blockquote>
+            </div>
+            <ul class="rq-bullet-sublist">
+              <li>Participants struggled to locate basic filtering capabilities</li>
+              <li>Unclear interaction feedback left users uncertain if pressing "Apply" was required</li>
+            </ul>
           </li>
+
+          <!-- 4. High Cognitive Load -->
           <li>
-            <span class="font-medium">High Cognitive Load:</span>
-            New users in particular felt overwhelmed by the density of information. Missing visual cues like
-             profile images or clear feedback states made the interface feel less responsive and harder to interpret.
+            <div class="rq-header">
+              <span class="rq-number">4.</span>
+              <span class="rq-title">High Cognitive Load</span>
+            </div>
+            <div class="insight-callout-container">
+              <blockquote class="insight-callout-text">
+                <strong>Key Finding:</strong> New users described the primary screens as overwhelming due to dense, unorganized information displays and split menus
+              </blockquote>
+            </div>
+            <ul class="rq-bullet-sublist">
+              <li>Missing visual cues and unclear affordances made UI elements hard to interpret</li>
+              <li>Inconsistent element placement hindered smooth visual scanning</li>
+            </ul>
+
+            <!-- Original App Screens -->
+            <div class="comparison-group" style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; gap: 12px; margin: 1.5rem 0 1rem 0;">
+              <div class="image-label-badge" style="background-color: rgba(28, 28, 28, 0.04); padding: 8px 20px; border-radius: 10px; font-size: 14px; width: 210px; margin-bottom: 0px;">
+                Original Menus
+              </div>
+
+              <div class="comparison-row-side-by-side stack-on-mobile" style="display: flex; justify-content: center; gap: 13px; width: 100%;">
+                <div class="final-image">
+                  <img src="../assets/steam-original2.png" alt="Original Steam Drawer Menu 1">
+                </div>
+                <div class="final-image">
+                  <img src="../assets/steam-original3.png" alt="Original Steam Drawer Menu 2">
+                </div>
+              </div>
+
+              <p class="image-caption" style="font-size: 14px; color: var(--color-muted-grey, #585858); margin-top: 4px; text-align: center; max-width: 500px; line-height: 1.4; font-weight: 300;">
+                Splitting features across two separate drawer menus caused visual clutter and confusion over where settings lived
+              </p>
+            </div>
           </li>
-        </ul>
+
+        </ol>
       </section>
         
       <section id="strategy" class="content-section">
@@ -393,63 +596,6 @@
             allowfullscreen
             style="border: none; border-radius: 12px; background: rgba(0,0,0,0.02);">
           </iframe> 
-        </div>
-      </section>
-
-    <section id="curious" class="content-section padding-bottom-large">
-        <p class="section-label">FOR THE CURIOUS</p>
-        <h2 class="section-heading">Visual Comparison</h2>
-        <p class="text-paragraph">The images below showcase a side-by-side visual between our interactive layout choices and the original system interface.</p>
-
-        <div class="comparison-group" style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; gap: 16px; margin-top: 4rem; margin-bottom: 5rem;">
-          <div class="comparison-labels-row" style="display: flex; gap: 13px; justify-content: center; width: 100%;">
-            <div class="image-label-badge" style="background-color: rgba(28, 28, 28, 0.04); padding: 8px 20px; border-radius: 10px; font-size: 14px; width: 170px;">Original App</div>
-            <div class="image-label-badge" style="background-color: var(--color-btn-bg); color: var(--color-green-accent); padding: 8px 20px; border-radius: 10px; font-size: 14px; width: 170px; font-weight: 500;">Our Redesign</div>
-          </div>
-          
-          <div class="comparison-row-side-by-side stack-on-mobile" style="display: flex; justify-content: center; gap: 13px; width: 100%;">
-            <div class="final-image">
-              <img src="../assets/steam-original1.png" alt="Original Steam App">
-            </div>
-            <div class="final-image highlighted">
-              <img src="../assets/steam-redesign2.png" alt="Steam Redesign">
-            </div>
-          </div>
-          
-          <p class="image-caption" style="font-size: 14px; color: var(--text-grey); margin-top: 8px; text-align: center; max-width: 550px; line-height: 1.4; font-weight: 300;">
-            Vague icons and buried menus were replaced with a labeled bottom navigation bar and a centralized profile hub, refocusing the experience around the shop, the app's primary use.
-          </p>
-        </div>
-
-        <div class="comparison-group" style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; gap: 16px; margin-bottom: 5rem;">
-          <div class="image-label-badge" style="background-color: rgba(28, 28, 28, 0.04); padding: 8px 20px; border-radius: 10px; font-size: 14px; width: 170px; margin-bottom: 4px;">
-            Original App
-          </div>
-          
-          <div class="comparison-row-side-by-side stack-on-mobile" style="display: flex; justify-content: center; gap: 13px; width: 100%;">
-            <div class="final-image">
-              <img src="../assets/steam-original2.png" alt="Original Steam Menu">
-            </div>
-            <div class="final-image">
-              <img src="../assets/steam-original3.png" alt="Original Steam Menu 2">
-            </div>
-          </div>
-        </div>
-
-        <div class="comparison-group" style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; gap: 16px; margin-bottom: 2rem;">
-          <div class="image-label-badge" style="background-color: var(--color-btn-bg); color: var(--color-green-accent); padding: 8px 20px; border-radius: 10px; font-size: 14px; width: 170px; font-weight: 500; margin-bottom: 4px;">
-            Our Redesign
-          </div>
-          
-          <div class="comparison-row-side-by-side" style="display: flex; justify-content: center; width: 100%;">
-            <div class="final-image highlighted">
-              <img src="../assets/steam-redesign1.png" alt="Steam Redesign Menu">
-            </div>
-          </div>
-          
-          <p class="image-caption" style="font-size: 14px; color: var(--text-grey); margin-top: 8px; text-align: center; max-width: 550px; line-height: 1.4; font-weight: 300;">
-            From two separate menus to a single, centralized hub, making content easier to find.
-          </p>
         </div>
       </section>
 
