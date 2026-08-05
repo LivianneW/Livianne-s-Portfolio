@@ -358,7 +358,7 @@
 
       <section id="problem-statement" class="content-section">
         <p class="section-label">PROBLEM STATEMENT</p>
-        <h2 class="section-heading" style="color: #70b074; font-size: 32px;">Gaming Powerhouse on Desktop. Puzzle on Mobile.</h2>
+        <h2 class="section-heading" style="color: #70b074; font-size: 32px;">Leveling Up Steam Mobile</h2>
         <p class="text-paragraph">
           The Steam mobile app suffers from a significant disconnect between its 
           <span style="color: #7cabb0; font-weight: 500;">information architecture</span>
@@ -375,7 +375,8 @@
         <p class="section-label">RESEARCH &amp; PAIN POINTS</p>
         <h2 class="section-heading">Finding the Bugs</h2>
         <p class="text-paragraph margin-bottom-large">
-          Through moderated usability testing with 4 participants, we identified recurring navigation issues that prevented users from moving through the app confidently. Participants frequently relied on guesswork rather than clear, in-app affordances.
+          Through usability testing with 4 participants, we identified recurring navigation issues that prevented users from moving through the app confidently. 
+          Participants frequently relied on guesswork rather than in-app affordances.
         </p>
 
         <ol class="research-questions-list insights-list-container">
@@ -392,8 +393,8 @@
               </blockquote>
             </div>
             <ul class="rq-bullet-sublist">
-              <li>Severe mismatch between users' mental models and Steam's information architecture</li>
-              <li>Caused repeated navigation errors and interrupted task momentum</li>
+              <li>Mismatch between users' mental models and Steam's information architecture</li>
+              <li>Caused repeated navigation errors and interrupted task flow</li>
             </ul>
 
             <!-- Original App Screen: Main Interface & Nav Bar -->
@@ -461,7 +462,7 @@
             </div>
             <ul class="rq-bullet-sublist">
               <li>Missing visual cues and unclear affordances made UI elements hard to interpret</li>
-              <li>Inconsistent element placement hindered smooth visual scanning</li>
+              <li>Inconsistent element placement hindered visual scanning</li>
             </ul>
 
             <!-- Original App Screens -->
@@ -541,25 +542,27 @@
             addressing the issue of hidden functionality by organizing complex tools into a more structured, centralized dashboard.</p>
             <p>In our interviews, users consistently <u>preferred Prototype A for its simplicity and familiarity, while appreciating 
             Prototype B's clearer information hierarchy and more intentional grouping of features</u>.</p>
-          <p style="margin-top: 16px; margin-bottom: 16px; font-size: 20px;">Ultimately, we chose to <span style="color: #7cabb0; font-weight: 500;">combine </span>the strongest elements of both layouts:</p>
+          <p style="margin-top: 24px; margin-bottom: 8px; font-size: 20px; color: var(--color-dark-charcoal, #1c1c1c);">Ultimately, we chose to <span style="color: #7cabb0; font-weight: 500;">combine </span>the strongest elements of both layouts:</p>
         </div>
-        <ul class="bullet-list">
-          <li>
-            <span class="font-medium">Intuitiveness:</span>
-            High-frequency actions like Library, Friends, and Store are kept 
-            instantly accessible through a familiar bottom navigation bar, which better aligns
-            with established user mental models.
-          </li>
-          <li>
-            <span class="font-medium">Efficiency:</span> 
-            Less frequently used but complex features like Steam Families and Settings, are consolidated into a dedicated profile hub, 
-            removing the “guessing game” caused by scattered placement in the original design.
-          </li>
-          <li>
-            <span class="font-medium">Clarity:</span> We addressed redundancy by renaming ambiguous tags like 
-            changing "Community" to "Forums" and reorganizing menu structure based on usage priority, from most to least frequent.
-          </li>
-        </ul>
+
+        <div class="feature-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.75rem; margin-top: 1.5rem; margin-bottom: 3.5rem;">
+          
+          <div class="feature-card" style="background-color: rgba(28, 28, 28, 0.01); border: 1px solid var(--card-border, rgba(28, 28, 28, 0.05)); padding: 1.75rem; border-radius: 14px; box-sizing: border-box;">
+            <h3 style="font-size: 18px; font-weight: 500; margin-top: 0; margin-bottom: 0.5rem; color: var(--color-dark-charcoal, #1c1c1c);">Prioritize Core Actions</h3>
+            <p style="font-size: 15px; font-weight: 300; line-height: 1.6; color: var(--color-muted-grey, #585858); margin: 0;">Moved Library, Friends, and Store into persistent bottom navigation to reduce friction and match familiar mobile patterns</p>
+          </div>
+
+          <div class="feature-card" style="background-color: rgba(28, 28, 28, 0.01); border: 1px solid var(--card-border, rgba(28, 28, 28, 0.05)); padding: 1.75rem; border-radius: 14px; box-sizing: border-box;">
+            <h3 style="font-size: 18px; font-weight: 500; margin-top: 0; margin-bottom: 0.5rem; color: var(--color-dark-charcoal, #1c1c1c);">Centralize Complex Features</h3>
+            <p style="font-size: 15px; font-weight: 300; line-height: 1.6; color: var(--color-muted-grey, #585858); margin: 0;">Grouped account-based tools like Steam Families and Settings into a profile hub for clearer organization</p>
+          </div>
+
+          <div class="feature-card" style="background-color: rgba(28, 28, 28, 0.01); border: 1px solid var(--card-border, rgba(28, 28, 28, 0.05)); padding: 1.75rem; border-radius: 14px; box-sizing: border-box;">
+            <h3 style="font-size: 18px; font-weight: 500; margin-top: 0; margin-bottom: 0.5rem; color: var(--color-dark-charcoal, #1c1c1c);">Improve Feature Discoverability</h3>
+            <p style="font-size: 15px; font-weight: 300; line-height: 1.6; color: var(--color-muted-grey, #585858); margin: 0;">Replaced vague labels like “Community” with specific categories like “Forums” to improve discoverability</p>
+          </div>
+
+        </div>
 
         <div class="comparison-row-side-by-side stack-on-mobile" style="margin-top: 32px; justify-content: center;">
           <div class="final-image">
