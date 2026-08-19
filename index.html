@@ -15,52 +15,51 @@
       color: inherit;
     }
 
-@media (max-width: 768px) {
-  .hero {
-    margin-bottom: 0 !important;
-    padding-bottom: 1.5rem !important;
-  }
+    @media (max-width: 768px) {
+      .hero {
+        margin-bottom: 0 !important;
+        padding-bottom: 1.5rem !important;
+      }
 
-  .gallery-wrapper {
-    padding-top: 0 !important;
-    margin-top: 0 !important;
-  }
+      .gallery-wrapper {
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+      }
 
-  .gallery-header {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-    margin-top: 0 !important;
-    padding-top: 0.75rem !important; /* Standard padding for sticky background */
-    padding-bottom: 0.75rem !important;
-    margin-bottom: 20px !important;
-    top: 80px !important; /* Matches mobile site header height */
-  }
+      .gallery-header {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        margin-top: 0 !important;
+        padding-top: 0.75rem !important;
+        padding-bottom: 0.75rem !important;
+        margin-bottom: 20px !important;
+        top: 80px !important;
+      }
 
-  .gallery-title {
-    margin: 0 !important;
-    padding: 0 !important;
-    font-size: 1.25rem;
-    line-height: 1.2;
-  }
+      .gallery-title {
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 1.25rem;
+        line-height: 1.2;
+      }
 
-  /* Horizontal scroll setup for filter controls */
-  .filter-controls {
-    display: flex;
-    width: 100%;
-    overflow-x: auto;
-    white-space: nowrap;
-    gap: 8px;
-    padding-bottom: 6px;
-    margin-top: 0 !important;
-    -webkit-overflow-scrolling: touch;
-  }
+      .filter-controls {
+        display: flex;
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        gap: 8px;
+        padding-bottom: 6px;
+        margin-top: 0 !important;
+        -webkit-overflow-scrolling: touch;
+      }
 
-  .filter-btn {
-    flex-shrink: 0;
-  }
-}
+      .filter-btn {
+        flex-shrink: 0;
+      }
+    }
   </style>
 </head>
 <body>
@@ -86,32 +85,195 @@
     </div>
   </header>
 
-  <section class="hero">
-    <div class="hero-wrapper">
-      <div class="hero-left">
-        <h1 class="hero-headline">Hello! I'm Livianne</h1>
-        <p class="hero-tagline">Product Designer</p>
-        
-        <div class="scannable-matrix">
-          <div class="matrix-item">
-            <span class="matrix-value">Creating accessible digital experiences shaped by human behavior, emotion, and connection</span>
-          </div>
-          <div class="matrix-item">
-            <span class="matrix-label">EDUCATION</span>
-            <span class="matrix-value">B.S. in Cognitive Science (Design & Interaction) @ UC San Diego</span>
-          </div>
-        </div>
-      </div>
+<section class="hero">
+  <div class="aura-wrap" aria-hidden="true">
+    <svg viewBox="0 0 1400 650" preserveAspectRatio="xMidYMid slice"
+         xmlns="http://www.w3.org/2000/svg" overflow="visible"
+         style="position:absolute;inset:0;width:100%;height:100%;">
+      <defs>
+        <!-- ❄️ OUT-OF-FOCUS DREAM BOKEH BLUR ❄️ -->
+        <filter id="bokeh-diffusion" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="16" result="blurred"/>
+          <feMerge>
+            <feMergeNode in="blurred"/>
+            <feMergeNode in="SourceGraphic" opacity="0.35"/>
+          </feMerge>
+        </filter>
+
+        <!-- Deep Ambient Background Wash Filter -->
+        <filter id="f-seamless-wash" x="-60%" y="-60%" width="220%" height="220%">
+          <feGaussianBlur stdDeviation="95"/>
+        </filter>
+
+        <!-- ❄️ Pure High-Key Soft Radial Glow ❄️ -->
+        <radialGradient id="bokeh-petal-glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+          <stop offset="55%" stop-color="#ffffff" stop-opacity="0.85"/>
+          <stop offset="85%" stop-color="#ffffff" stop-opacity="0.35"/>
+          <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+
+      <!-- 1. Ambient Background Ice-Blue Washes -->
+      <g class="blob-layer" filter="url(#f-seamless-wash)">
+        <circle class="blob1" cx="300" cy="280" r="420" fill="#fffbfb" opacity="0.45" />
+        <circle class="blob2" cx="880" cy="180" r="440" fill="#daf6f7" opacity="0.40" />
+        <circle class="blob3" cx="1200" cy="380" r="400" fill="#fffbfb" opacity="0.38" />
+        <circle class="blob4" cx="620" cy="520" r="370" fill="#dff0f5" opacity="0.42" />
+        <circle class="blob5" cx="150" cy="460" r="340" fill="#fffbfb" opacity="0.45" />
+      </g>
+
+      <!-- 2. Diffused Luminous White Flowers Layer -->
+      <g filter="url(#bokeh-diffusion)">
+
+        <!-- Ethereal Water Ripple Currents -->
+        <g stroke="#ffffff" stroke-width="1.8" fill="none" opacity="0.45">
+          <g class="rip1">
+            <ellipse rx="150" ry="95" stroke-dasharray="140 25 80 30" opacity="0.6"/>
+            <ellipse rx="210" ry="135" stroke-dasharray="190 40 100 45" opacity="0.35"/>
+          </g>
+          <g class="rip2">
+            <ellipse rx="130" ry="85" stroke-dasharray="110 25 70 30" opacity="0.55"/>
+            <ellipse rx="180" ry="115" stroke-dasharray="150 35 90 40" opacity="0.3"/>
+          </g>
+          <g class="rip3">
+            <ellipse rx="155" ry="100" stroke-dasharray="160 30 110 25" opacity="0.6"/>
+            <ellipse rx="205" ry="140" stroke-dasharray="210 45 130 35" opacity="0.35"/>
+          </g>
+        </g>
+
+        <!-- Extra-Large 4-Petal Blossom (Exact photo match) -->
+        <g>
+          <g class="fl1">
+            <ellipse cx="2" cy="-42" rx="28" ry="36" fill="url(#bokeh-petal-glow)" transform="rotate(-6)"/>
+            <ellipse cx="42" cy="2" rx="36" ry="28" fill="url(#bokeh-petal-glow)" transform="rotate(10)"/>
+            <ellipse cx="-4" cy="42" rx="29" ry="35" fill="url(#bokeh-petal-glow)" transform="rotate(-4)"/>
+            <ellipse cx="-42" cy="-2" rx="36" ry="27" fill="url(#bokeh-petal-glow)" transform="rotate(8)"/>
+          </g>
+        </g>
+
+        <!-- Large 5-Petal Star Blossom -->
+        <g>
+          <g class="fl2">
+            <ellipse cx="0" cy="-38" rx="22" ry="34" fill="url(#bokeh-petal-glow)"/>
+            <ellipse cx="0" cy="-38" rx="22" ry="34" fill="url(#bokeh-petal-glow)" transform="rotate(72)"/>
+            <ellipse cx="0" cy="-38" rx="22" ry="34" fill="url(#bokeh-petal-glow)" transform="rotate(144)"/>
+            <ellipse cx="0" cy="-38" rx="22" ry="34" fill="url(#bokeh-petal-glow)" transform="rotate(216)"/>
+            <ellipse cx="0" cy="-38" rx="22" ry="34" fill="url(#bokeh-petal-glow)" transform="rotate(288)"/>
+          </g>
+        </g>
+
+        <!-- Extra-Large 4-Petal Hydrangea Bloom -->
+        <g>
+          <g class="fl3">
+            <ellipse cx="0" cy="-45" rx="30" ry="38" fill="url(#bokeh-petal-glow)" transform="rotate(12)"/>
+            <ellipse cx="45" cy="0" rx="38" ry="30" fill="url(#bokeh-petal-glow)" transform="rotate(8)"/>
+            <ellipse cx="0" cy="45" rx="30" ry="38" fill="url(#bokeh-petal-glow)" transform="rotate(-6)"/>
+            <ellipse cx="-45" cy="0" rx="38" ry="30" fill="url(#bokeh-petal-glow)" transform="rotate(15)"/>
+          </g>
+        </g>
+
+        <!-- Medium 5-Petal Organic Bloom -->
+        <g>
+          <g class="fl4">
+            <ellipse cx="0" cy="-30" rx="18" ry="26" fill="url(#bokeh-petal-glow)"/>
+            <ellipse cx="0" cy="-30" rx="18" ry="26" fill="url(#bokeh-petal-glow)" transform="rotate(72)"/>
+            <ellipse cx="0" cy="-30" rx="18" ry="26" fill="url(#bokeh-petal-glow)" transform="rotate(144)"/>
+            <ellipse cx="0" cy="-30" rx="18" ry="26" fill="url(#bokeh-petal-glow)" transform="rotate(216)"/>
+            <ellipse cx="0" cy="-30" rx="18" ry="26" fill="url(#bokeh-petal-glow)" transform="rotate(288)"/>
+          </g>
+        </g>
+
+        <!-- Big 4-Petal Tilted Blossom -->
+        <g>
+          <g class="fl5">
+            <ellipse cx="0" cy="-36" rx="24" ry="32" fill="url(#bokeh-petal-glow)" transform="rotate(24)"/>
+            <ellipse cx="36" cy="0" rx="32" ry="24" fill="url(#bokeh-petal-glow)" transform="rotate(24)"/>
+            <ellipse cx="0" cy="36" rx="24" ry="32" fill="url(#bokeh-petal-glow)" transform="rotate(24)"/>
+            <ellipse cx="-36" cy="0" rx="32" ry="24" fill="url(#bokeh-petal-glow)" transform="rotate(24)"/>
+          </g>
+        </g>
+
+        <!-- Large 5-Petal Wildflower Bloom -->
+        <g>
+          <g class="fl6">
+            <ellipse cx="0" cy="-36" rx="20" ry="32" fill="url(#bokeh-petal-glow)"/>
+            <ellipse cx="0" cy="-36" rx="20" ry="32" fill="url(#bokeh-petal-glow)" transform="rotate(70)"/>
+            <ellipse cx="0" cy="-36" rx="20" ry="32" fill="url(#bokeh-petal-glow)" transform="rotate(145)"/>
+            <ellipse cx="0" cy="-36" rx="20" ry="32" fill="url(#bokeh-petal-glow)" transform="rotate(215)"/>
+            <ellipse cx="0" cy="-36" rx="20" ry="32" fill="url(#bokeh-petal-glow)" transform="rotate(290)"/>
+          </g>
+        </g>
+
+        <!-- Medium 4-Petal Offset Bloom -->
+        <g>
+          <g class="fl7">
+            <ellipse cx="0" cy="-26" rx="18" ry="24" fill="url(#bokeh-petal-glow)" transform="rotate(-15)"/>
+            <ellipse cx="26" cy="0" rx="24" ry="18" fill="url(#bokeh-petal-glow)" transform="rotate(-15)"/>
+            <ellipse cx="0" cy="26" rx="18" ry="24" fill="url(#bokeh-petal-glow)" transform="rotate(-15)"/>
+            <ellipse cx="-26" cy="0" rx="24" ry="18" fill="url(#bokeh-petal-glow)" transform="rotate(-15)"/>
+          </g>
+        </g>
+
+        <!-- Big Luminous 5-Petal Bloom -->
+        <g>
+          <g class="fl8">
+            <ellipse cx="0" cy="-40" rx="24" ry="36" fill="url(#bokeh-petal-glow)"/>
+            <ellipse cx="0" cy="-40" rx="24" ry="36" fill="url(#bokeh-petal-glow)" transform="rotate(72)"/>
+            <ellipse cx="0" cy="-40" rx="24" ry="36" fill="url(#bokeh-petal-glow)" transform="rotate(144)"/>
+            <ellipse cx="0" cy="-40" rx="24" ry="36" fill="url(#bokeh-petal-glow)" transform="rotate(216)"/>
+            <ellipse cx="0" cy="-40" rx="24" ry="36" fill="url(#bokeh-petal-glow)" transform="rotate(288)"/>
+          </g>
+        </g>
+
+        <!-- 🍃 Loose Drifting Petals -->
+        <g>
+          <g class="pt1">
+            <ellipse cx="0" cy="0" rx="22" ry="30" fill="url(#bokeh-petal-glow)" transform="rotate(28)"/>
+          </g>
+        </g>
+        <g>
+          <g class="pt2">
+            <ellipse cx="0" cy="0" rx="18" ry="26" fill="url(#bokeh-petal-glow)" transform="rotate(-36)"/>
+          </g>
+        </g>
+        <g>
+          <g class="pt3">
+            <ellipse cx="0" cy="0" rx="20" ry="28" fill="url(#bokeh-petal-glow)" transform="rotate(18)"/>
+          </g>
+        </g>
+        <g>
+          <g class="pt4">
+            <ellipse cx="0" cy="0" rx="16" ry="24" fill="url(#bokeh-petal-glow)" transform="rotate(-12)"/>
+          </g>
+        </g>
+        <g>
+          <g class="pt5">
+            <ellipse cx="0" cy="0" rx="24" ry="32" fill="url(#bokeh-petal-glow)" transform="rotate(45)"/>
+          </g>
+        </g>
+
+      </g>
+    </svg>
+  </div>
+  
+  <div class="hero-wrapper">
+    <div class="hero-left">
+      <h1 class="hero-headline">Hello! I'm Livianne</h1>
+      <p class="hero-tagline">Product Designer</p>
       
-      <div class="hero-right">
-        <div class="gif-container">
-          <a href="https://foundation.app/@mae_1031_" target="_blank" rel="noreferrer">    
-            <img src="assets/WELCOMEBANNER.gif" alt="Livianne Welcome Banner" class="hero-gif">
-          </a>
+      <div class="scannable-matrix">
+        <div class="matrix-item">
+          <span class="matrix-value">Creating accessible digital experiences shaped by human behavior, emotion, and connection</span>
+        </div>
+        <div class="matrix-item">
+          <span class="matrix-label">EDUCATION</span>
+          <span class="matrix-value">B.S. in Cognitive Science (Design & Interaction) @ UC San Diego</span>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <main class="gallery-wrapper">
     <div class="gallery-header">
@@ -272,7 +434,6 @@
   </main>
 
   <footer class="footer">
-    
     <div class="footer-row">
       <p class="footer-thank-you">Thank you for viewing! :D</p>
       
@@ -303,36 +464,6 @@
     </div>
   </footer>
 
-  <script>
-    // ── 1. PORTFOLIO FILTER ENGINE ──
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const cards = document.querySelectorAll('.work-card');
-
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelector('.filter-btn.active').classList.remove('active');
-        btn.classList.add('active');
-
-        const filterValue = btn.getAttribute('data-filter');
-        cards.forEach(card => {
-          const cardCat = card.getAttribute('data-cat') || card.getAttribute('data-categories') || '';
-          
-          if (filterValue === 'all' || cardCat === filterValue) {
-            card.style.display = 'block';
-          } else {
-            card.style.display = 'none';
-          }
-        });
-      });
-    });
-
-    // ── 2. GLOBAL BACK TO TOP SCROLL ANIMATION ACTION CONTROLS ──
-    const scrollUpBtn = document.getElementById('scrollUpBtn');
-    if (scrollUpBtn) {
-      scrollUpBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
