@@ -700,37 +700,100 @@ body {
 }
 
 @media (max-width: 768px) {
+  /* 1. Hero Container Breathing Room */
   .hero {
-    min-height: auto;
-    padding: 3rem 0 2rem 0;
+    min-height: auto !important;
+    padding: 3.5rem 0 3.5rem 0 !important;
+    margin-bottom: 2rem !important;
   }
 
   .hero-wrapper {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
   }
 
-  .hero-headline {
-    font-size: clamp(2rem, 7vw, 2.75rem);
-    line-height: 1.15;
-  }
-
-  .hero-tagline {
-    font-size: 1.25rem;
-    margin-bottom: 1.25rem;
-  }
-
-  .scannable-matrix {
-    gap: 2rem;
-  }
-
+  /* 2. Weather Badge Spacing */
   .sky-widget {
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.75rem !important;
+    display: inline-flex;
   }
 
   .widget-current {
-    font-size: 0.8rem;
-    padding: 5px 12px;
+    font-size: 0.8125rem;
+    padding: 6px 14px;
+  }
+
+  /* 3. Typography & Subtitle Spacing */
+  .hero-headline {
+    font-size: 2.25rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 0.35rem !important;
+  }
+
+  .hero-tagline {
+    font-size: 1.25rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 2rem !important;
+    color: var(--text-grey);
+  }
+
+  /* 4. Value Statement & Education Separation */
+  .scannable-matrix {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem !important;
+    max-width: 100%;
+  }
+
+  .matrix-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .matrix-label {
+    font-size: 0.8125rem;
+    letter-spacing: 0.06em;
+  }
+
+  .matrix-value {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  /* 5. Case Studies Gallery Header & Filter Pills */
+  .gallery-wrapper {
+    padding-top: 1rem !important;
+    margin-top: 0 !important;
+  }
+
+  .gallery-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem !important;
+    padding-bottom: 1.25rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .gallery-title {
+    font-size: 1.125rem !important;
+    letter-spacing: 0.05em;
+    margin: 0 !important;
+  }
+
+  .filter-controls {
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .filter-btn {
+    flex-shrink: 0;
   }
 }
 
