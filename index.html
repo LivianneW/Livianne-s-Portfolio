@@ -10,58 +10,6 @@
   <link rel="apple-touch-icon" sizes="180x180" href="../Livianne-s-Portfolio/assets/apple-touch-icon (3).png">
   <link rel="stylesheet" href="index.css">
 </head>
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    @media (max-width: 768px) {
-      .hero {
-        margin-bottom: 0 !important;
-        padding-bottom: 1.5rem !important;
-      }
-
-      .gallery-wrapper {
-        padding-top: 0 !important;
-        margin-top: 0 !important;
-      }
-
-      .gallery-header {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-        margin-top: 0 !important;
-        padding-top: 0.75rem !important;
-        padding-bottom: 0.75rem !important;
-        margin-bottom: 20px !important;
-        top: 80px !important;
-      }
-
-      .gallery-title {
-        margin: 0 !important;
-        padding: 0 !important;
-        font-size: 1.25rem;
-        line-height: 1.2;
-      }
-
-      .filter-controls {
-        display: flex;
-        width: 100%;
-        overflow-x: auto;
-        white-space: nowrap;
-        gap: 8px;
-        padding-bottom: 6px;
-        margin-top: 0 !important;
-        -webkit-overflow-scrolling: touch;
-      }
-
-      .filter-btn {
-        flex-shrink: 0;
-      }
-    }
-  </style>
-</head>
 <body>
 
   <header class="site-header">
@@ -88,7 +36,7 @@
 <section class="hero" id="weather-hero">
   <!-- Dynamic Sky Background with Stylized Sunburst & Prism Flare -->
   <div class="hero-weather-bg" aria-hidden="true">
-<svg viewBox="0 0 1400 650" preserveAspectRatio="xMidYMid slice"
+    <svg viewBox="0 0 1400 650" preserveAspectRatio="xMidYMid slice"
          xmlns="http://www.w3.org/2000/svg"
          style="position:absolute;inset:0;width:100%;height:100%;overflow:hidden;">
       <defs>
@@ -179,10 +127,8 @@
         <circle id="sky-blob-5" class="sky-blob blob5" cx="120" cy="440" r="340" fill="#fbf0e1" opacity="0.40" />
       </g>
 
-      <!-- 2. Varied Organic Clouds (Different Shapes, Scales & Formations) -->
+      <!-- 2. Varied Organic Clouds -->
       <g class="sky-clouds-layer" filter="url(#cloud-gaussian-blur)">
-        
-        <!-- Formation 1: Massive Billowing Cumulus Cluster (Bottom-Right, Asymmetrical) -->
         <g class="cloud-cluster-1" transform="translate(1140, 470)">
           <ellipse cx="40" cy="30" rx="260" ry="110" fill="url(#cloud-grad-dense)" opacity="0.90"/>
           <ellipse cx="-130" cy="-35" rx="140" ry="95" fill="url(#cloud-grad-dense)" opacity="0.92"/>
@@ -192,7 +138,6 @@
           <ellipse cx="-200" cy="10" rx="90" ry="60" fill="url(#cloud-grad-soft)" opacity="0.75"/>
         </g>
 
-        <!-- Formation 2: Elongated, Drifting Stratocumulus Shelf (Mid-Sky, Low & Wide) -->
         <g class="cloud-cluster-2" transform="translate(740, 290)">
           <ellipse cx="0" cy="0" rx="210" ry="60" fill="url(#cloud-grad-soft)" opacity="0.70"/>
           <ellipse cx="-110" cy="15" rx="130" ry="45" fill="url(#cloud-grad-soft)" opacity="0.65"/>
@@ -200,14 +145,12 @@
           <ellipse cx="15" cy="-25" rx="95" ry="40" fill="url(#cloud-grad-dense)" opacity="0.78"/>
         </g>
 
-        <!-- Formation 3: Diagonal Wispy Altocumulus Streak (Upper Mid-Sky) -->
         <g class="cloud-cluster-4" transform="translate(510, 150) rotate(-14)">
           <ellipse cx="0" cy="0" rx="140" ry="38" fill="url(#cloud-grad-wisp)" opacity="0.55"/>
           <ellipse cx="-50" cy="8" rx="90" ry="26" fill="url(#cloud-grad-wisp)" opacity="0.60"/>
           <ellipse cx="60" cy="-6" rx="80" ry="30" fill="url(#cloud-grad-wisp)" opacity="0.48"/>
         </g>
 
-        <!-- Formation 4: Fluffy Compact Cloudlet (Top Left) -->
         <g class="cloud-cluster-3" transform="translate(230, 130)">
           <ellipse cx="0" cy="0" rx="110" ry="65" fill="url(#cloud-grad-soft)" opacity="0.70"/>
           <ellipse cx="-45" cy="12" rx="75" ry="48" fill="url(#cloud-grad-soft)" opacity="0.65"/>
@@ -215,32 +158,21 @@
           <ellipse cx="10" cy="-30" rx="55" ry="40" fill="url(#cloud-grad-dense)" opacity="0.80"/>
         </g>
 
-        <!-- Formation 5: Distant Horizon Wisp Bank (Far Bottom-Left) -->
         <g class="cloud-cluster-5" transform="translate(180, 520)">
           <ellipse cx="0" cy="0" rx="200" ry="50" fill="url(#cloud-grad-wisp)" opacity="0.60"/>
           <ellipse cx="80" cy="-15" rx="120" ry="40" fill="url(#cloud-grad-wisp)" opacity="0.50"/>
           <ellipse cx="-90" cy="10" rx="110" ry="35" fill="url(#cloud-grad-wisp)" opacity="0.45"/>
         </g>
-
       </g>
 
-      <!-- 3. Smaller, High-Luminance Sun & Glare System -->
+      <!-- 3. Sun & Glare System -->
       <g id="sky-sun-group" class="sun-flare-system">
-
         <g class="sun-head" transform="translate(940, 155)">
-          <!-- Outer Glare Halo -->
           <circle cx="0" cy="0" r="210" fill="url(#glare-ambient-halo)" filter="url(#glare-haze-blur)"/>
-          
-          <!-- Secondary Radiant Corona Bloom -->
           <circle cx="0" cy="0" r="125" fill="url(#sun-glow-grad)" filter="url(#glare-haze-blur)" opacity="0.92"/>
-          
-          <!-- Outer Solar Body -->
           <circle cx="0" cy="0" r="85" fill="url(#sun-glow-grad)" filter="url(#sun-soft-glow)" opacity="0.95"/>
-          
-          <!-- Mid-layer Solar Disc -->
           <circle cx="0" cy="0" r="46" fill="url(#sun-glow-grad)" opacity="0.95"/>
 
-          <!-- Primary Glare Light Rays -->
           <g stroke="#ffffff" stroke-width="2.2" opacity="0.38" stroke-linecap="round" filter="url(#glare-haze-blur)">
             <line x1="-115" y1="0" x2="115" y2="0" />
             <line x1="0" y1="-115" x2="0" y2="115" />
@@ -248,7 +180,6 @@
             <line x1="-85" y1="85" x2="85" y2="-85" />
           </g>
 
-          <!-- Micro Rays -->
           <g stroke="#ffffff" stroke-width="1.4" opacity="0.45" stroke-linecap="round" filter="url(#sun-soft-glow)">
             <line x1="-65" y1="0" x2="-18" y2="0" />
             <line x1="18" y1="0" x2="65" y2="0" />
@@ -260,11 +191,9 @@
             <line x1="14" y1="-14" x2="45" y2="-45" />
           </g>
 
-          <!-- Sun Center Core -->
           <circle cx="0" cy="0" r="19" fill="#ffffff" opacity="1"/>
         </g>
 
-        <!-- Soft-Melted Flare Artifacts -->
         <g class="lens-flare-elements" filter="url(#flare-melt-blur)">
           <ellipse cx="750" cy="285" rx="46" ry="14" fill="url(#prism-streak-soft)" transform="rotate(-30 750 285)"/>
           <circle cx="825" cy="228" r="15" fill="url(#orb-soft-glow)" opacity="0.70"/>
@@ -272,7 +201,6 @@
           <circle cx="685" cy="330" r="22" fill="url(#orb-soft-glow)" opacity="0.45"/>
           <circle cx="630" cy="375" r="12" fill="url(#prism-streak-soft)" opacity="0.35"/>
         </g>
-
       </g>
     </svg>
     <div class="weather-scrim"></div>
@@ -280,7 +208,6 @@
 
   <div class="hero-wrapper">
     <div class="hero-left">
-      <!-- 🌦️ Live Time & Current Weather Single Pill -->
       <div class="sky-widget" id="sky-widget">
         <div class="widget-current">
           <span class="sky-dot"></span>
@@ -373,13 +300,11 @@
               <h3 class="work-title">Pikmin Bloom Accessibility</h3>
               <span class="project-date">Spring 2026</span>
             </div>
-            
             <div class="recruiter-tags">
               <span class="tag role">Product Designer</span>
               <span class="tag framework">Accessibility Design</span>
               <span class="tag scope">4-Person Team</span>
             </div>
-            
             <p class="work-summary">Designing accessible gameplay features focused on inclusive movement tracking and dexterity-friendly interactions</p>
           </div>
         </a>

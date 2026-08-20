@@ -29,6 +29,11 @@ body {
   overflow-x: hidden; 
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .container, .hero-wrapper, .gallery-wrapper, .footer-container {
   width: 100%;
   max-width: 1400px;
@@ -699,8 +704,10 @@ body {
   }
 }
 
+/* ─────────────────────────────────────────────────────────────
+ * SPACIOUS MOBILE RESPONSIVENESS
+ * ───────────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
-  /* 1. Hero Container Breathing Room */
   .hero {
     min-height: auto !important;
     padding-top: 4.5rem !important;
@@ -713,7 +720,6 @@ body {
     padding-right: 1.75rem !important;
   }
 
-  /* 2. Weather Badge Spacing */
   .sky-widget {
     margin-bottom: 2.25rem !important;
     display: inline-flex;
@@ -724,7 +730,6 @@ body {
     padding: 7px 15px;
   }
 
-  /* 3. Typography & Subtitle Spacing */
   .hero-headline {
     font-size: 2.35rem !important;
     line-height: 1.25 !important;
@@ -738,7 +743,6 @@ body {
     color: var(--text-grey);
   }
 
-  /* 4. Value Statement & Education Separation */
   .scannable-matrix {
     display: flex;
     flex-direction: column;
@@ -762,7 +766,6 @@ body {
     line-height: 1.6;
   }
 
-  /* 5. Case Studies Gallery Header & Filter Pills */
   .gallery-wrapper {
     padding-top: 1.5rem !important;
     padding-bottom: 5rem !important;
