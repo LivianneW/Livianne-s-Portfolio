@@ -100,12 +100,11 @@ if (hamburgerMenu && menuOverlay && menuPanel) {
     { sel: '#sky-blob-5', initX: 120,  initY: 440, wanderX: 35, wanderY: 20, speed: 0.00014, bobFreq: 0.0005, isSun: false },
     
     // Soft floating clouds
-    { sel: '.cloud-cluster-1', initX: 1120, initY: 480, wanderX: 25, wanderY: 12, speed: 0.00010, bobFreq: 0.0004, isSun: true },
-    { sel: '.cloud-cluster-2', initX: 780,  initY: 260, wanderX: 30, wanderY: 15, speed: 0.00011, bobFreq: 0.0004, isSun: true },
-    { sel: '.cloud-cluster-3', initX: 240,  initY: 140, wanderX: 20, wanderY: 10, speed: 0.00009, bobFreq: 0.0003, isSun: true },
+    { sel: '.cloud-cluster-1', initX: 1140, initY: 470, wanderX: 25, wanderY: 12, speed: 0.00010, bobFreq: 0.0004, isSun: true },
+    { sel: '.cloud-cluster-2', initX: 740,  initY: 290, wanderX: 30, wanderY: 15, speed: 0.00011, bobFreq: 0.0004, isSun: true },
+    { sel: '.cloud-cluster-3', initX: 230,  initY: 130, wanderX: 20, wanderY: 10, speed: 0.00009, bobFreq: 0.0003, isSun: true },
 
     // Glassy Organic Sun & Lens Flare Group
-    { sel: '#sky-sun-group', initX: 0, initY: 0, wanderX: 16, wanderY: 10, speed: 0.00018, bobFreq: 0.0008, isSun: true },
     { sel: '#sky-sun-group', initX: isMobile ? -260 : 0, initY: isMobile ? -30 : 0, wanderX: 12, wanderY: 8, speed: 0.00018, bobFreq: 0.0008, isSun: true }
   ];
 
@@ -159,165 +158,6 @@ if (hamburgerMenu && menuOverlay && menuPanel) {
   }
 
   requestAnimationFrame(animate);
-})();
-
-/**
- * ─────────────────────────────────────────────────────────────
- * 6. LIVE TIME, WEATHER & CELESTIAL SUN ENGINE (CUPERTINO FALLBACK)
- * ─────────────────────────────────────────────────────────────
- */
-(function initLiveWeatherAndSun() {
-  const DEFAULT_LAT = 37.3230;
-  const DEFAULT_LON = -122.0322;
-  const DEFAULT_CITY = 'Cupertino';
-
-  const heroSection = document.getElementById('weather-hero');
-  const b1 = document.getElementById('sky-blob-1');
-  const b2 = document.getElementById('sky-blob-2');
-  const b3 = document.getElementById('sky-blob-3');
-  const b4 = document.getElementById('sky-blob-4');
-  const b5 = document.getElementById('sky-blob-5');
-  const sunGroup = document.getElementById('sky-sun-group');
-
-  const locEl = document.getElementById('widget-location');
-  const timeEl = document.getElementById('widget-time');
-  const tempEl = document.getElementById('widget-temp');
-  const condEl = document.getElementById('widget-condition');
-
-  const skyPalettes = {
-    sunnyDay: {
-      blobs: ['#d9ecf8', '#c3e1f5', '#e5d5e5', '#dceef8', '#f7e6d0'],
-      heroBg: 'radial-gradient(120% 80% at 50% 20%, rgba(220, 238, 252, 0.45) 0%, rgba(255, 251, 251, 0.98) 100%)',
-      sunOpacity: '1.0'
-    },
-    goldenHour: {
-      blobs: ['#f5d5c0', '#f4c5d5', '#fce1b8', '#e8d2e3', '#fbe0ce'],
-      heroBg: 'radial-gradient(120% 80% at 50% 20%, rgba(254, 235, 226, 0.50) 0%, rgba(255, 251, 251, 0.98) 100%)',
-      sunOpacity: '0.85'
-    },
-    nightSky: {
-      blobs: ['#c4d2e8', '#b5c6e0', '#d8def0', '#a9bfe0', '#cbd6ec'],
-      heroBg: 'radial-gradient(120% 80% at 50% 20%, rgba(206, 222, 244, 0.40) 0%, rgba(255, 251, 251, 0.98) 100%)',
-      sunOpacity: '0.10'
-    },
-    overcast: {
-      blobs: ['#dceaf6', '#d3e1ec', '#e7eff7', '#ccdbe6', '#eef5fa'],
-      heroBg: 'radial-gradient(120% 80% at 50% 20%, rgba(225, 238, 248, 0.45) 0%, rgba(255, 251, 251, 0.98) 100%)',
-      sunOpacity: '0.35'
-    },
-    rainyMist: {
-      blobs: ['#c4dfe3', '#b8d6db', '#d8e8eb', '#a8cbd2', '#e1eff1'],
-      heroBg: 'radial-gradient(120% 80% at 50% 20%, rgba(196, 223, 227, 0.40) 0%, rgba(255, 251, 251, 0.98) 100%)',
-      sunOpacity: '0.18'
-    },
-    snowSky: {
-      blobs: ['#e4f0fa', '#dbeef9', '#f1f7fc', '#cfe5f6', '#f6fafe'],
-      heroBg: 'radial-gradient(120% 80% at 50% 20%, rgba(235, 245, 253, 0.55) 0%, rgba(255, 251, 251, 0.98) 100%)',
-      sunOpacity: '0.25'
-    }
-  };
-
-  function updateClock(timeZone) {
-    const update = () => {
-      const now = new Date();
-      const options = {
-        hour: 'numeric',
-        minute: '2-digit',
-        hour12: true,
-        timeZone: timeZone || undefined
-      };
-      if (timeEl) timeEl.textContent = new Intl.DateTimeFormat('en-US', options).format(now);
-    };
-    update();
-    setInterval(update, 30000);
-  }
-
-  function interpretWeatherCode(code) {
-    if (code === 0) return { label: 'Clear Sky', key: 'clear' };
-    if (code === 1) return { label: 'Mainly Clear', key: 'clear' };
-    if (code === 2) return { label: 'Partly Cloudy', key: 'cloudy' };
-    if (code === 3 || code === 45 || code === 48) return { label: 'Overcast', key: 'cloudy' };
-    if (code >= 51 && code <= 67) return { label: 'Drizzle', key: 'rain' };
-    if (code >= 71 && code <= 77) return { label: 'Snow', key: 'snow' };
-    if (code >= 80 && code <= 82) return { label: 'Showers', key: 'rain' };
-    return { label: 'Overcast', key: 'cloudy' };
-  }
-
-  function applySkyPalette(paletteKey) {
-    const p = skyPalettes[paletteKey] || skyPalettes.sunnyDay;
-    if (heroSection) heroSection.style.background = p.heroBg;
-    if (b1) b1.setAttribute('fill', p.blobs[0]);
-    if (b2) b2.setAttribute('fill', p.blobs[1]);
-    if (b3) b3.setAttribute('fill', p.blobs[2]);
-    if (b4) b4.setAttribute('fill', p.blobs[3]);
-    if (b5) b5.setAttribute('fill', p.blobs[4]);
-    if (sunGroup) sunGroup.style.opacity = p.sunOpacity;
-  }
-
-  function determineSkyTheme(weatherKey, hour) {
-    if (hour >= 20 || hour < 6) return 'nightSky';
-    if (hour >= 17 && hour < 20) return 'goldenHour';
-    if (weatherKey === 'rain') return 'rainyMist';
-    if (weatherKey === 'snow') return 'snowSky';
-    if (weatherKey === 'cloudy') return 'overcast';
-    return 'sunnyDay';
-  }
-
-  async function fetchLiveWeatherData(lat, lon, cityName) {
-    try {
-      const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=weather_code,temperature_2m&temperature_unit=fahrenheit&timezone=auto`;
-      const res = await fetch(url);
-      const data = await res.json();
-
-      const timeZone = data.timezone;
-      updateClock(timeZone);
-
-      const currentCode = data.current.weather_code;
-      const currentTemp = Math.round(data.current.temperature_2m);
-      const condition = interpretWeatherCode(currentCode);
-
-      if (locEl) locEl.textContent = cityName;
-      if (tempEl) tempEl.textContent = `${currentTemp}°F`;
-      if (condEl) condEl.textContent = condition.label;
-
-      const localHour = new Date(new Date().toLocaleString('en-US', { timeZone })).getHours();
-      const themeKey = determineSkyTheme(condition.key, localHour);
-      applySkyPalette(themeKey);
-    } catch (err) {
-      if (locEl) locEl.textContent = DEFAULT_CITY;
-      if (tempEl) tempEl.textContent = '72°F';
-      if (condEl) condEl.textContent = 'Clear';
-      updateClock('America/Los_Angeles');
-      applySkyPalette('sunnyDay');
-    }
-  }
-
-  async function resolveCityName(lat, lon) {
-    try {
-      const res = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`);
-      const data = await res.json();
-      return data.city || data.locality || data.principalSubdivision || 'Local Area';
-    } catch {
-      return 'Local Sky';
-    }
-  }
-
-  if ('geolocation' in navigator) {
-    navigator.geolocation.getCurrentPosition(
-      async (pos) => {
-        const lat = pos.coords.latitude;
-        const lon = pos.coords.longitude;
-        const city = await resolveCityName(lat, lon);
-        fetchLiveWeatherData(lat, lon, city);
-      },
-      () => {
-        fetchLiveWeatherData(DEFAULT_LAT, DEFAULT_LON, DEFAULT_CITY);
-      },
-      { timeout: 4000 }
-    );
-  } else {
-    fetchLiveWeatherData(DEFAULT_LAT, DEFAULT_LON, DEFAULT_CITY);
-  }
 })();
 
 /**
