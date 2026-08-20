@@ -1,3 +1,8 @@
+/**
+ * ─────────────────────────────────────────────────────────────
+ * 1. WORK GALLERY FILTERING
+ * ─────────────────────────────────────────────────────────────
+ */
 const filterBtns = document.querySelectorAll('.filter-btn');
 const workCards = document.querySelectorAll('.work-card');
 
@@ -13,7 +18,7 @@ if (filterBtns.length > 0 && workCards.length > 0) {
       workCards.forEach(card => {
         const cardCat = card.getAttribute('data-cat') || card.getAttribute('data-categories') || '';
         if (filterValue === 'all' || cardCat.includes(filterValue)) {
-          card.style.display = 'block';
+          card.style.display = '';
         } else {
           card.style.display = 'none';
         }
@@ -79,126 +84,406 @@ if (hamburgerMenu && menuOverlay && menuPanel) {
 
 /**
  * ─────────────────────────────────────────────────────────────
- * 5. WATERCOLOR HYDRODYNAMIC HERO DRIFT (6 FLOWERS + 6 WASHES)
+ * 5. ATMOSPHERIC GAUSSIAN BLOB, CLOUD & LIQUID SUN DRIFT ENGINE
  * ─────────────────────────────────────────────────────────────
  */
-(function initTabebuiaWaterEngine() {
-  const elements = [
-    // 8 Floating White Luminous Flowers (Well-spaced, no clumping)
-    { sel: '.fl1', type: 'flower', initX: 680,  initY: 340, wanderX: 65, wanderY: 45, speed: 0.00030, radius: 85, rotFactor: 16, bobFreq: 0.0009 },
-    { sel: '.fl2', type: 'flower', initX: 960,  initY: 400, wanderX: 60, wanderY: 40, speed: 0.00028, radius: 75, rotFactor: 14, bobFreq: 0.0008 },
-    { sel: '.fl3', type: 'flower', initX: 1140, initY: 170, wanderX: 58, wanderY: 40, speed: 0.00029, radius: 80, rotFactor: 15, bobFreq: 0.0009 },
-    { sel: '.fl4', type: 'flower', initX: 220,  initY: 460, wanderX: 55, wanderY: 38, speed: 0.00026, radius: 65, rotFactor: 12, bobFreq: 0.0008 },
-    { sel: '.fl5', type: 'flower', initX: 500,  initY: 130, wanderX: 50, wanderY: 35, speed: 0.00027, radius: 72, rotFactor: 13, bobFreq: 0.0008 },
-    { sel: '.fl6', type: 'flower', initX: 800,  initY: 200, wanderX: 52, wanderY: 38, speed: 0.00028, radius: 78, rotFactor: 14, bobFreq: 0.0009 },
-    { sel: '.fl7', type: 'flower', initX: 350,  initY: 280, wanderX: 58, wanderY: 42, speed: 0.00026, radius: 68, rotFactor: 13, bobFreq: 0.0008 },
-    { sel: '.fl8', type: 'flower', initX: 1240, initY: 460, wanderX: 62, wanderY: 44, speed: 0.00031, radius: 82, rotFactor: 15, bobFreq: 0.0009 },
+(function initAtmosphericBlobDrift() {
+  const turbulenceEl = document.getElementById('sun-water-turbulence');
+  const isMobile = window.innerWidth <= 768;
 
-    // 5 Loose Drifting Petals
-    { sel: '.pt1', type: 'petal', initX: 740,  initY: 280, wanderX: 75, wanderY: 50, speed: 0.00038, radius: 35, rotFactor: 24, bobFreq: 0.0012 },
-    { sel: '.pt2', type: 'petal', initX: 1260, initY: 260, wanderX: 70, wanderY: 45, speed: 0.00035, radius: 30, rotFactor: 22, bobFreq: 0.0011 },
-    { sel: '.pt3', type: 'petal', initX: 150,  initY: 340, wanderX: 65, wanderY: 40, speed: 0.00034, radius: 32, rotFactor: 20, bobFreq: 0.0010 },
-    { sel: '.pt4', type: 'petal', initX: 600,  initY: 460, wanderX: 68, wanderY: 42, speed: 0.00036, radius: 28, rotFactor: 22, bobFreq: 0.0011 },
-    { sel: '.pt5', type: 'petal', initX: 1040, initY: 100, wanderX: 72, wanderY: 48, speed: 0.00037, radius: 34, rotFactor: 25, bobFreq: 0.0012 },
+  const driftElements = [
+    // Sky ambient color pools
+    { sel: '#sky-blob-1', initX: 280,  initY: 220, wanderX: 45, wanderY: 30, speed: 0.00016, bobFreq: 0.0006, isSun: false },
+    { sel: '#sky-blob-2', initX: 820,  initY: 160, wanderX: 40, wanderY: 25, speed: 0.00014, bobFreq: 0.0005, isSun: false },
+    { sel: '#sky-blob-3', initX: 1180, initY: 320, wanderX: 35, wanderY: 25, speed: 0.00013, bobFreq: 0.0005, isSun: false },
+    { sel: '#sky-blob-4', initX: 580,  initY: 480, wanderX: 40, wanderY: 25, speed: 0.00015, bobFreq: 0.0006, isSun: false },
+    { sel: '#sky-blob-5', initX: 120,  initY: 440, wanderX: 35, wanderY: 20, speed: 0.00014, bobFreq: 0.0005, isSun: false },
+    
+    // Soft floating clouds
+    { sel: '.cloud-cluster-1', initX: 1120, initY: 480, wanderX: 25, wanderY: 12, speed: 0.00010, bobFreq: 0.0004, isSun: true },
+    { sel: '.cloud-cluster-2', initX: 780,  initY: 260, wanderX: 30, wanderY: 15, speed: 0.00011, bobFreq: 0.0004, isSun: true },
+    { sel: '.cloud-cluster-3', initX: 240,  initY: 140, wanderX: 20, wanderY: 10, speed: 0.00009, bobFreq: 0.0003, isSun: true },
 
-    // 3 Water Ripple Sets
-    { sel: '.rip1', type: 'ripple', initX: 280,  initY: 320, wanderX: 40, wanderY: 25, speed: 0.00018, radius: 180, rotFactor: 4, bobFreq: 0.0006 },
-    { sel: '.rip2', type: 'ripple', initX: 1140, initY: 420, wanderX: 45, wanderY: 30, speed: 0.00020, radius: 160, rotFactor: 5, bobFreq: 0.0007 },
-    { sel: '.rip3', type: 'ripple', initX: 740,  initY: 180, wanderX: 35, wanderY: 20, speed: 0.00016, radius: 140, rotFactor: 4, bobFreq: 0.0005 },
-
-    // 5 Ambient Washes
-    { sel: '.blob1', type: 'blob', initX: 300,  initY: 300, wanderX: 50, wanderY: 30, speed: 0.00013, radius: 350, rotFactor: 0, bobFreq: 0.0004 },
-    { sel: '.blob2', type: 'blob', initX: 880,  initY: 180, wanderX: 55, wanderY: 35, speed: 0.00012, radius: 360, rotFactor: 0, bobFreq: 0.0004 },
-    { sel: '.blob3', type: 'blob', initX: 1200, initY: 400, wanderX: 45, wanderY: 25, speed: 0.00011, radius: 330, rotFactor: 0, bobFreq: 0.0004 },
-    { sel: '.blob4', type: 'blob', initX: 620,  initY: 520, wanderX: 45, wanderY: 25, speed: 0.00012, radius: 320, rotFactor: 0, bobFreq: 0.0004 },
-    { sel: '.blob5', type: 'blob', initX: 100,  initY: 440, wanderX: 40, wanderY: 20, speed: 0.00011, radius: 300, rotFactor: 0, bobFreq: 0.0004 }
+    // Glassy Organic Sun & Lens Flare Group
+    { sel: '#sky-sun-group', initX: 0, initY: 0, wanderX: 16, wanderY: 10, speed: 0.00018, bobFreq: 0.0008, isSun: true },
+    { sel: '#sky-sun-group', initX: isMobile ? -260 : 0, initY: isMobile ? -30 : 0, wanderX: 12, wanderY: 8, speed: 0.00018, bobFreq: 0.0008, isSun: true }
   ];
 
-  const BOUNDS = { minX: 60, maxX: 1340, minY: 50, maxY: 600 };
-
-  const activeItems = elements.map((item, idx) => {
+  const activeItems = driftElements.map((item, idx) => {
     const el = document.querySelector(item.sel);
     if (!el) return null;
-
-    const isBlob = item.type === 'blob';
-    let targetEl = el;
-
-    if (isBlob) {
+    
+    if (!item.isSun) {
       el.setAttribute('cx', '0');
       el.setAttribute('cy', '0');
-    } else {
-      targetEl = el.closest('g[transform]') || el;
-      if (targetEl.hasAttribute('transform')) {
-        targetEl.removeAttribute('transform');
-      }
     }
 
     return {
-      el: targetEl,
-      innerEl: !isBlob && el !== targetEl ? el : null,
-      type: item.type,
+      el,
+      isSun: item.isSun,
       baseX: item.initX,
       baseY: item.initY,
       x: item.initX,
       y: item.initY,
-      prevX: item.initX,
-      prevY: item.initY,
-      rot: 0,
       wanderX: item.wanderX,
       wanderY: item.wanderY,
       speed: item.speed,
       bobFreq: item.bobFreq,
-      rotFactor: item.rotFactor,
-      radius: item.radius,
-      phase: idx * 1.95 + Math.random() * 3,
-      ripplePhase: idx * 1.6 + Math.random() * 3
+      phase: idx * 1.8 + 1.2
     };
   }).filter(Boolean);
 
-  function animate(currentTime) {
-    activeItems.forEach(item => {
-      const t = currentTime * item.speed;
-      const rippleT = currentTime * item.bobFreq;
+  function animate(time) {
+    // 🌊 Dynamic Watery Glass Caustic Ripple Physics
+    if (turbulenceEl) {
+      const baseFreqX = 0.012 + Math.sin(time * 0.00045) * 0.003;
+      const baseFreqY = 0.018 + Math.cos(time * 0.00038) * 0.004;
+      turbulenceEl.setAttribute('baseFrequency', `${baseFreqX.toFixed(5)} ${baseFreqY.toFixed(5)}`);
+    }
 
-      const tideX = Math.sin(t + item.phase) * item.wanderX;
-      const rippleX = Math.cos(rippleT * 0.8 + item.ripplePhase) * (item.wanderX * 0.18);
+    // 🌤️ Floating Atmospheric Drift for Sky, Clouds & Sun
+    activeItems.forEach(b => {
+      const t = time * b.speed;
+      const bt = time * b.bobFreq;
 
-      const tideY = Math.cos(t * 0.85 + item.phase) * item.wanderY;
-      const rippleY = Math.sin(rippleT * 1.05 + item.ripplePhase) * (item.wanderY * 0.20);
+      const targetX = b.baseX + Math.sin(t + b.phase) * b.wanderX + Math.cos(bt * 0.8) * 5;
+      const targetY = b.baseY + Math.cos(t * 0.9 + b.phase) * b.wanderY + Math.sin(bt * 0.9) * 5;
 
-      let targetX = item.baseX + tideX + rippleX;
-      let targetY = item.baseY + tideY + rippleY;
+      b.x += (targetX - b.x) * 0.02;
+      b.y += (targetY - b.y) * 0.02;
 
-      targetX = Math.max(BOUNDS.minX, Math.min(BOUNDS.maxX, targetX));
-      targetY = Math.max(BOUNDS.minY, Math.min(BOUNDS.maxY, targetY));
-
-      item.prevX = item.x;
-      item.prevY = item.y;
-
-      item.x += (targetX - item.x) * 0.025;
-      item.y += (targetY - item.y) * 0.025;
-
-      const vx = item.x - item.prevX;
-      const vy = item.y - item.prevY;
-
-      const scaleVariation = item.type === 'ripple' ? 0.05 : 0.018;
-      const buoyancyScale = 1 + Math.sin(rippleT + item.phase) * scaleVariation;
-
-      if (item.rotFactor > 0) {
-        const flowAngle = Math.atan2(vy, vx) * (180 / Math.PI);
-        const targetRot = Math.sin(t + item.phase) * item.rotFactor + (flowAngle * 0.04);
-        item.rot += (targetRot - item.rot) * 0.02;
-      }
-
-      item.el.setAttribute('transform', `translate(${item.x.toFixed(2)}, ${item.y.toFixed(2)}) scale(${buoyancyScale.toFixed(3)})`);
-
-      if (item.innerEl) {
-        item.innerEl.setAttribute('transform', `rotate(${item.rot.toFixed(2)})`);
-      }
+      b.el.setAttribute('transform', `translate(${b.x.toFixed(2)}, ${b.y.toFixed(2)})`);
     });
 
     requestAnimationFrame(animate);
   }
 
   requestAnimationFrame(animate);
+})();
+
+/**
+ * ─────────────────────────────────────────────────────────────
+ * 6. LIVE TIME, WEATHER & CELESTIAL SUN ENGINE (CUPERTINO FALLBACK)
+ * ─────────────────────────────────────────────────────────────
+ */
+(function initLiveWeatherAndSun() {
+  const DEFAULT_LAT = 37.3230;
+  const DEFAULT_LON = -122.0322;
+  const DEFAULT_CITY = 'Cupertino';
+
+  const heroSection = document.getElementById('weather-hero');
+  const b1 = document.getElementById('sky-blob-1');
+  const b2 = document.getElementById('sky-blob-2');
+  const b3 = document.getElementById('sky-blob-3');
+  const b4 = document.getElementById('sky-blob-4');
+  const b5 = document.getElementById('sky-blob-5');
+  const sunGroup = document.getElementById('sky-sun-group');
+
+  const locEl = document.getElementById('widget-location');
+  const timeEl = document.getElementById('widget-time');
+  const tempEl = document.getElementById('widget-temp');
+  const condEl = document.getElementById('widget-condition');
+
+  const skyPalettes = {
+    sunnyDay: {
+      blobs: ['#d9ecf8', '#c3e1f5', '#e5d5e5', '#dceef8', '#f7e6d0'],
+      heroBg: 'radial-gradient(120% 80% at 50% 20%, rgba(220, 238, 252, 0.45) 0%, rgba(255, 251, 251, 0.98) 100%)',
+      sunOpacity: '1.0'
+    },
+    goldenHour: {
+      blobs: ['#f5d5c0', '#f4c5d5', '#fce1b8', '#e8d2e3', '#fbe0ce'],
+      heroBg: 'radial-gradient(120% 80% at 50% 20%, rgba(254, 235, 226, 0.50) 0%, rgba(255, 251, 251, 0.98) 100%)',
+      sunOpacity: '0.85'
+    },
+    nightSky: {
+      blobs: ['#c4d2e8', '#b5c6e0', '#d8def0', '#a9bfe0', '#cbd6ec'],
+      heroBg: 'radial-gradient(120% 80% at 50% 20%, rgba(206, 222, 244, 0.40) 0%, rgba(255, 251, 251, 0.98) 100%)',
+      sunOpacity: '0.10'
+    },
+    overcast: {
+      blobs: ['#dceaf6', '#d3e1ec', '#e7eff7', '#ccdbe6', '#eef5fa'],
+      heroBg: 'radial-gradient(120% 80% at 50% 20%, rgba(225, 238, 248, 0.45) 0%, rgba(255, 251, 251, 0.98) 100%)',
+      sunOpacity: '0.35'
+    },
+    rainyMist: {
+      blobs: ['#c4dfe3', '#b8d6db', '#d8e8eb', '#a8cbd2', '#e1eff1'],
+      heroBg: 'radial-gradient(120% 80% at 50% 20%, rgba(196, 223, 227, 0.40) 0%, rgba(255, 251, 251, 0.98) 100%)',
+      sunOpacity: '0.18'
+    },
+    snowSky: {
+      blobs: ['#e4f0fa', '#dbeef9', '#f1f7fc', '#cfe5f6', '#f6fafe'],
+      heroBg: 'radial-gradient(120% 80% at 50% 20%, rgba(235, 245, 253, 0.55) 0%, rgba(255, 251, 251, 0.98) 100%)',
+      sunOpacity: '0.25'
+    }
+  };
+
+  function updateClock(timeZone) {
+    const update = () => {
+      const now = new Date();
+      const options = {
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true,
+        timeZone: timeZone || undefined
+      };
+      if (timeEl) timeEl.textContent = new Intl.DateTimeFormat('en-US', options).format(now);
+    };
+    update();
+    setInterval(update, 30000);
+  }
+
+  function interpretWeatherCode(code) {
+    if (code === 0) return { label: 'Clear Sky', key: 'clear' };
+    if (code === 1) return { label: 'Mainly Clear', key: 'clear' };
+    if (code === 2) return { label: 'Partly Cloudy', key: 'cloudy' };
+    if (code === 3 || code === 45 || code === 48) return { label: 'Overcast', key: 'cloudy' };
+    if (code >= 51 && code <= 67) return { label: 'Drizzle', key: 'rain' };
+    if (code >= 71 && code <= 77) return { label: 'Snow', key: 'snow' };
+    if (code >= 80 && code <= 82) return { label: 'Showers', key: 'rain' };
+    return { label: 'Overcast', key: 'cloudy' };
+  }
+
+  function applySkyPalette(paletteKey) {
+    const p = skyPalettes[paletteKey] || skyPalettes.sunnyDay;
+    if (heroSection) heroSection.style.background = p.heroBg;
+    if (b1) b1.setAttribute('fill', p.blobs[0]);
+    if (b2) b2.setAttribute('fill', p.blobs[1]);
+    if (b3) b3.setAttribute('fill', p.blobs[2]);
+    if (b4) b4.setAttribute('fill', p.blobs[3]);
+    if (b5) b5.setAttribute('fill', p.blobs[4]);
+    if (sunGroup) sunGroup.style.opacity = p.sunOpacity;
+  }
+
+  function determineSkyTheme(weatherKey, hour) {
+    if (hour >= 20 || hour < 6) return 'nightSky';
+    if (hour >= 17 && hour < 20) return 'goldenHour';
+    if (weatherKey === 'rain') return 'rainyMist';
+    if (weatherKey === 'snow') return 'snowSky';
+    if (weatherKey === 'cloudy') return 'overcast';
+    return 'sunnyDay';
+  }
+
+  async function fetchLiveWeatherData(lat, lon, cityName) {
+    try {
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=weather_code,temperature_2m&temperature_unit=fahrenheit&timezone=auto`;
+      const res = await fetch(url);
+      const data = await res.json();
+
+      const timeZone = data.timezone;
+      updateClock(timeZone);
+
+      const currentCode = data.current.weather_code;
+      const currentTemp = Math.round(data.current.temperature_2m);
+      const condition = interpretWeatherCode(currentCode);
+
+      if (locEl) locEl.textContent = cityName;
+      if (tempEl) tempEl.textContent = `${currentTemp}°F`;
+      if (condEl) condEl.textContent = condition.label;
+
+      const localHour = new Date(new Date().toLocaleString('en-US', { timeZone })).getHours();
+      const themeKey = determineSkyTheme(condition.key, localHour);
+      applySkyPalette(themeKey);
+    } catch (err) {
+      if (locEl) locEl.textContent = DEFAULT_CITY;
+      if (tempEl) tempEl.textContent = '72°F';
+      if (condEl) condEl.textContent = 'Clear';
+      updateClock('America/Los_Angeles');
+      applySkyPalette('sunnyDay');
+    }
+  }
+
+  async function resolveCityName(lat, lon) {
+    try {
+      const res = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`);
+      const data = await res.json();
+      return data.city || data.locality || data.principalSubdivision || 'Local Area';
+    } catch {
+      return 'Local Sky';
+    }
+  }
+
+  if ('geolocation' in navigator) {
+    navigator.geolocation.getCurrentPosition(
+      async (pos) => {
+        const lat = pos.coords.latitude;
+        const lon = pos.coords.longitude;
+        const city = await resolveCityName(lat, lon);
+        fetchLiveWeatherData(lat, lon, city);
+      },
+      () => {
+        fetchLiveWeatherData(DEFAULT_LAT, DEFAULT_LON, DEFAULT_CITY);
+      },
+      { timeout: 4000 }
+    );
+  } else {
+    fetchLiveWeatherData(DEFAULT_LAT, DEFAULT_LON, DEFAULT_CITY);
+  }
+})();
+
+/**
+ * ─────────────────────────────────────────────────────────────
+ * 6. LIVE TIME, WEATHER & CELESTIAL SUN ENGINE (CUPERTINO FALLBACK)
+ * ─────────────────────────────────────────────────────────────
+ */
+(function initLiveWeatherAndSun() {
+  const DEFAULT_LAT = 37.3230;
+  const DEFAULT_LON = -122.0322;
+  const DEFAULT_CITY = 'Cupertino';
+
+  const heroSection = document.getElementById('weather-hero');
+  const b1 = document.getElementById('sky-blob-1');
+  const b2 = document.getElementById('sky-blob-2');
+  const b3 = document.getElementById('sky-blob-3');
+  const b4 = document.getElementById('sky-blob-4');
+  const b5 = document.getElementById('sky-blob-5');
+  const sunGroup = document.getElementById('sky-sun-group');
+
+  const locEl = document.getElementById('widget-location');
+  const timeEl = document.getElementById('widget-time');
+  const tempEl = document.getElementById('widget-temp');
+  const condEl = document.getElementById('widget-condition');
+
+  // Lighter & cleaner sky color themes
+  const skyPalettes = {
+    sunnyDay: {
+      blobs: ['#e4f1fa', '#d2e8f7', '#eee1ee', '#e5f3fa', '#fbf0e1'],
+      heroBg: 'radial-gradient(120% 80% at 50% 20%, rgba(230, 242, 253, 0.38) 0%, rgba(255, 251, 251, 0.98) 100%)',
+      sunOpacity: '1.0'
+    },
+    goldenHour: {
+      blobs: ['#f8ded0', '#f7d2e0', '#fdecd0', '#eee0ea', '#fce8dc'],
+      heroBg: 'radial-gradient(120% 80% at 50% 20%, rgba(254, 240, 234, 0.42) 0%, rgba(255, 251, 251, 0.98) 100%)',
+      sunOpacity: '0.85'
+    },
+    nightSky: {
+      blobs: ['#ccd8ec', '#c0cee6', '#e0e5f4', '#b7c7e6', '#d3dcf0'],
+      heroBg: 'radial-gradient(120% 80% at 50% 20%, rgba(215, 228, 248, 0.32) 0%, rgba(255, 251, 251, 0.98) 100%)',
+      sunOpacity: '0.10'
+    },
+    overcast: {
+      blobs: ['#e2edf6', '#dbe5ee', '#eff4f8', '#d6dfec', '#f2f6f9'],
+      heroBg: 'radial-gradient(120% 80% at 50% 20%, rgba(230, 240, 248, 0.38) 0%, rgba(255, 251, 251, 0.98) 100%)',
+      sunOpacity: '0.35'
+    },
+    rainyMist: {
+      blobs: ['#d0e6ea', '#c4dde0', '#e0ecee', '#bed6d8', '#e8f2f3'],
+      heroBg: 'radial-gradient(120% 80% at 50% 20%, rgba(208, 230, 234, 0.32) 0%, rgba(255, 251, 251, 0.98) 100%)',
+      sunOpacity: '0.18'
+    },
+    snowSky: {
+      blobs: ['#edf4fa', '#e4eef7', '#f4f8fc', '#dcebf8', '#f8fafe'],
+      heroBg: 'radial-gradient(120% 80% at 50% 20%, rgba(240, 247, 253, 0.45) 0%, rgba(255, 251, 251, 0.98) 100%)',
+      sunOpacity: '0.25'
+    }
+  };
+
+  let clockTimer = null;
+  function updateClock(timeZone) {
+    if (clockTimer) clearInterval(clockTimer);
+    const update = () => {
+      const now = new Date();
+      const options = {
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true,
+        timeZone: timeZone || undefined
+      };
+      if (timeEl) timeEl.textContent = new Intl.DateTimeFormat('en-US', options).format(now);
+    };
+    update();
+    clockTimer = setInterval(update, 20000);
+  }
+
+  function interpretWeatherCode(code) {
+    if (code === 0) return { label: 'Clear Sky', key: 'clear' };
+    if (code === 1) return { label: 'Mainly Clear', key: 'clear' };
+    if (code === 2) return { label: 'Partly Cloudy', key: 'cloudy' };
+    if (code === 3 || code === 45 || code === 48) return { label: 'Overcast', key: 'cloudy' };
+    if (code >= 51 && code <= 67) return { label: 'Drizzle', key: 'rain' };
+    if (code >= 71 && code <= 77) return { label: 'Snow', key: 'snow' };
+    if (code >= 80 && code <= 82) return { label: 'Showers', key: 'rain' };
+    return { label: 'Overcast', key: 'cloudy' };
+  }
+
+  function applySkyPalette(paletteKey) {
+    const p = skyPalettes[paletteKey] || skyPalettes.sunnyDay;
+    if (heroSection) heroSection.style.background = p.heroBg;
+    if (b1) b1.setAttribute('fill', p.blobs[0]);
+    if (b2) b2.setAttribute('fill', p.blobs[1]);
+    if (b3) b3.setAttribute('fill', p.blobs[2]);
+    if (b4) b4.setAttribute('fill', p.blobs[3]);
+    if (b5) b5.setAttribute('fill', p.blobs[4]);
+    if (sunGroup) sunGroup.style.opacity = p.sunOpacity;
+  }
+
+  function determineSkyTheme(weatherKey, hour) {
+    if (hour >= 20 || hour < 6) return 'nightSky';
+    if (hour >= 17 && hour < 20) return 'goldenHour';
+    if (weatherKey === 'rain') return 'rainyMist';
+    if (weatherKey === 'snow') return 'snowSky';
+    if (weatherKey === 'cloudy') return 'overcast';
+    return 'sunnyDay';
+  }
+
+  async function fetchLiveWeatherData(lat, lon, cityName) {
+    try {
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=weather_code,temperature_2m&temperature_unit=fahrenheit&timezone=auto`;
+      const res = await fetch(url);
+      const data = await res.json();
+
+      const timeZone = data.timezone;
+      updateClock(timeZone);
+
+      const currentCode = data.current.weather_code;
+      const currentTemp = Math.round(data.current.temperature_2m);
+      const condition = interpretWeatherCode(currentCode);
+
+      if (locEl) locEl.textContent = cityName;
+      if (tempEl) tempEl.textContent = `${currentTemp}°F`;
+      if (condEl) condEl.textContent = condition.label;
+
+      const localHour = new Date(new Date().toLocaleString('en-US', { timeZone })).getHours();
+      const themeKey = determineSkyTheme(condition.key, localHour);
+      applySkyPalette(themeKey);
+    } catch (err) {
+      if (locEl) locEl.textContent = cityName || DEFAULT_CITY;
+      if (tempEl) tempEl.textContent = '72°F';
+      if (condEl) condEl.textContent = 'Clear Sky';
+      updateClock('America/Los_Angeles');
+      applySkyPalette('sunnyDay');
+    }
+  }
+
+  async function resolveCityName(lat, lon) {
+    try {
+      const res = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`);
+      const data = await res.json();
+      return data.city || data.locality || data.principalSubdivision || 'Your Location';
+    } catch {
+      return 'Your Location';
+    }
+  }
+
+  // Geolocation handling with generous timeout and fallback to Cupertino
+  if ('geolocation' in navigator) {
+    navigator.geolocation.getCurrentPosition(
+      async (pos) => {
+        const lat = pos.coords.latitude;
+        const lon = pos.coords.longitude;
+        const city = await resolveCityName(lat, lon);
+        fetchLiveWeatherData(lat, lon, city);
+      },
+      () => {
+        // Fallback exclusively when user denies permission or location is unavailable
+        fetchLiveWeatherData(DEFAULT_LAT, DEFAULT_LON, DEFAULT_CITY);
+      },
+      { 
+        enableHighAccuracy: false, 
+        timeout: 10000, 
+        maximumAge: 300000 
+      }
+    );
+  } else {
+    fetchLiveWeatherData(DEFAULT_LAT, DEFAULT_LON, DEFAULT_CITY);
+  }
 })();

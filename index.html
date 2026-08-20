@@ -85,180 +85,214 @@
     </div>
   </header>
 
-<section class="hero">
-  <div class="aura-wrap" aria-hidden="true">
-    <svg viewBox="0 0 1400 650" preserveAspectRatio="xMidYMid slice"
-         xmlns="http://www.w3.org/2000/svg" overflow="visible"
-         style="position:absolute;inset:0;width:100%;height:100%;">
+<section class="hero" id="weather-hero">
+  <!-- Dynamic Sky Background with Stylized Sunburst & Prism Flare -->
+  <div class="hero-weather-bg" aria-hidden="true">
+<svg viewBox="0 0 1400 650" preserveAspectRatio="xMidYMid slice"
+         xmlns="http://www.w3.org/2000/svg"
+         style="position:absolute;inset:0;width:100%;height:100%;overflow:hidden;">
       <defs>
-        <!-- ❄️ OUT-OF-FOCUS DREAM BOKEH BLUR ❄️ -->
-        <filter id="bokeh-diffusion" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="16" result="blurred"/>
-          <feMerge>
-            <feMergeNode in="blurred"/>
-            <feMergeNode in="SourceGraphic" opacity="0.35"/>
-          </feMerge>
-        </filter>
-
-        <!-- Deep Ambient Background Wash Filter -->
-        <filter id="f-seamless-wash" x="-60%" y="-60%" width="220%" height="220%">
+        <!-- Deep Atmospheric Sky Diffuse Blur -->
+        <filter id="sky-gaussian-blur" x="-30%" y="-30%" width="160%" height="160%">
           <feGaussianBlur stdDeviation="95"/>
         </filter>
 
-        <!-- ❄️ Pure High-Key Soft Radial Glow ❄️ -->
-        <radialGradient id="bokeh-petal-glow" cx="50%" cy="50%" r="50%">
+        <!-- Soft Cloud Gaussian Blur -->
+        <filter id="cloud-gaussian-blur" x="-40%" y="-40%" width="180%" height="180%">
+          <feGaussianBlur stdDeviation="28"/>
+        </filter>
+
+        <!-- Luminous Sun Flare Blur -->
+        <filter id="sun-soft-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="24"/>
+        </filter>
+
+        <!-- Wide Radiant Glare Light Spread Blur -->
+        <filter id="glare-haze-blur" x="-60%" y="-60%" width="220%" height="220%">
+          <feGaussianBlur stdDeviation="22"/>
+        </filter>
+
+        <!-- Seamless Flare Melt Blur -->
+        <filter id="flare-melt-blur" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur stdDeviation="14"/>
+        </filter>
+
+        <!-- Radiant Sun Gradient -->
+        <radialGradient id="sun-glow-grad" cx="50%" cy="50%" r="50%">
           <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
-          <stop offset="55%" stop-color="#ffffff" stop-opacity="0.85"/>
-          <stop offset="85%" stop-color="#ffffff" stop-opacity="0.35"/>
-          <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+          <stop offset="22%" stop-color="#ffffff" stop-opacity="0.95"/>
+          <stop offset="48%" stop-color="#fff8d6" stop-opacity="0.75"/>
+          <stop offset="72%" stop-color="#fed68c" stop-opacity="0.32"/>
+          <stop offset="92%" stop-color="#fca35d" stop-opacity="0.08"/>
+          <stop offset="100%" stop-color="#fca35d" stop-opacity="0"/>
+        </radialGradient>
+
+        <!-- Ambient Corona Halo -->
+        <radialGradient id="glare-ambient-halo" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.45"/>
+          <stop offset="32%" stop-color="#fff4d1" stop-opacity="0.25"/>
+          <stop offset="68%" stop-color="#fed89b" stop-opacity="0.08"/>
+          <stop offset="100%" stop-color="#fed89b" stop-opacity="0"/>
+        </radialGradient>
+
+        <!-- Dynamic Cloud Radial Gradient Variations -->
+        <radialGradient id="cloud-grad-dense" cx="50%" cy="35%" r="65%">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.96"/>
+          <stop offset="55%" stop-color="#fbfcfd" stop-opacity="0.72"/>
+          <stop offset="100%" stop-color="#edf4fa" stop-opacity="0"/>
+        </radialGradient>
+
+        <radialGradient id="cloud-grad-soft" cx="45%" cy="40%" r="60%">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85"/>
+          <stop offset="60%" stop-color="#f6f9fc" stop-opacity="0.50"/>
+          <stop offset="100%" stop-color="#eaf2f8" stop-opacity="0"/>
+        </radialGradient>
+
+        <radialGradient id="cloud-grad-wisp" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.75"/>
+          <stop offset="70%" stop-color="#f2f7fc" stop-opacity="0.30"/>
+          <stop offset="100%" stop-color="#edf4fa" stop-opacity="0"/>
+        </radialGradient>
+
+        <!-- Soft Pastel Prism Streak -->
+        <radialGradient id="prism-streak-soft" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ebd0dc" stop-opacity="0.45"/>
+          <stop offset="45%" stop-color="#dfd2eb" stop-opacity="0.28"/>
+          <stop offset="75%" stop-color="#d5e4f2" stop-opacity="0.14"/>
+          <stop offset="100%" stop-color="#d5e4f2" stop-opacity="0"/>
+        </radialGradient>
+
+        <!-- Bright Lens Light Orb -->
+        <radialGradient id="orb-soft-glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.65"/>
+          <stop offset="50%" stop-color="#fff2d6" stop-opacity="0.28"/>
+          <stop offset="100%" stop-color="#fff2d6" stop-opacity="0"/>
         </radialGradient>
       </defs>
 
-      <!-- 1. Ambient Background Ice-Blue Washes -->
-      <g class="blob-layer" filter="url(#f-seamless-wash)">
-        <circle class="blob1" cx="300" cy="280" r="420" fill="#fffbfb" opacity="0.45" />
-        <circle class="blob2" cx="880" cy="180" r="440" fill="#daf6f7" opacity="0.40" />
-        <circle class="blob3" cx="1200" cy="380" r="400" fill="#fffbfb" opacity="0.38" />
-        <circle class="blob4" cx="620" cy="520" r="370" fill="#dff0f5" opacity="0.42" />
-        <circle class="blob5" cx="150" cy="460" r="340" fill="#fffbfb" opacity="0.45" />
+      <!-- 1. Sky Background Blobs -->
+      <g class="sky-blob-layer" filter="url(#sky-gaussian-blur)">
+        <circle id="sky-blob-1" class="sky-blob blob1" cx="280" cy="220" r="380" fill="#e4f1fa" opacity="0.52" />
+        <circle id="sky-blob-2" class="sky-blob blob2" cx="820" cy="160" r="420" fill="#d2e8f7" opacity="0.48" />
+        <circle id="sky-blob-3" class="sky-blob blob3" cx="1180" cy="320" r="390" fill="#eee1ee" opacity="0.42" />
+        <circle id="sky-blob-4" class="sky-blob blob4" cx="580" cy="480" r="360" fill="#e5f3fa" opacity="0.48" />
+        <circle id="sky-blob-5" class="sky-blob blob5" cx="120" cy="440" r="340" fill="#fbf0e1" opacity="0.40" />
       </g>
 
-      <!-- 2. Diffused Luminous White Flowers Layer -->
-      <g filter="url(#bokeh-diffusion)">
-
-        <!-- Ethereal Water Ripple Currents -->
-        <g stroke="#ffffff" stroke-width="1.8" fill="none" opacity="0.45">
-          <g class="rip1">
-            <ellipse rx="150" ry="95" stroke-dasharray="140 25 80 30" opacity="0.6"/>
-            <ellipse rx="210" ry="135" stroke-dasharray="190 40 100 45" opacity="0.35"/>
-          </g>
-          <g class="rip2">
-            <ellipse rx="130" ry="85" stroke-dasharray="110 25 70 30" opacity="0.55"/>
-            <ellipse rx="180" ry="115" stroke-dasharray="150 35 90 40" opacity="0.3"/>
-          </g>
-          <g class="rip3">
-            <ellipse rx="155" ry="100" stroke-dasharray="160 30 110 25" opacity="0.6"/>
-            <ellipse rx="205" ry="140" stroke-dasharray="210 45 130 35" opacity="0.35"/>
-          </g>
+      <!-- 2. Varied Organic Clouds (Different Shapes, Scales & Formations) -->
+      <g class="sky-clouds-layer" filter="url(#cloud-gaussian-blur)">
+        
+        <!-- Formation 1: Massive Billowing Cumulus Cluster (Bottom-Right, Asymmetrical) -->
+        <g class="cloud-cluster-1" transform="translate(1140, 470)">
+          <ellipse cx="40" cy="30" rx="260" ry="110" fill="url(#cloud-grad-dense)" opacity="0.90"/>
+          <ellipse cx="-130" cy="-35" rx="140" ry="95" fill="url(#cloud-grad-dense)" opacity="0.92"/>
+          <ellipse cx="140" cy="-20" rx="180" ry="120" fill="url(#cloud-grad-dense)" opacity="0.84"/>
+          <ellipse cx="-30" cy="-75" rx="160" ry="90" fill="url(#cloud-grad-dense)" opacity="0.94"/>
+          <ellipse cx="60" cy="-60" rx="110" ry="75" fill="url(#cloud-grad-dense)" opacity="0.88"/>
+          <ellipse cx="-200" cy="10" rx="90" ry="60" fill="url(#cloud-grad-soft)" opacity="0.75"/>
         </g>
 
-        <!-- Extra-Large 4-Petal Blossom (Exact photo match) -->
-        <g>
-          <g class="fl1">
-            <ellipse cx="2" cy="-42" rx="28" ry="36" fill="url(#bokeh-petal-glow)" transform="rotate(-6)"/>
-            <ellipse cx="42" cy="2" rx="36" ry="28" fill="url(#bokeh-petal-glow)" transform="rotate(10)"/>
-            <ellipse cx="-4" cy="42" rx="29" ry="35" fill="url(#bokeh-petal-glow)" transform="rotate(-4)"/>
-            <ellipse cx="-42" cy="-2" rx="36" ry="27" fill="url(#bokeh-petal-glow)" transform="rotate(8)"/>
-          </g>
+        <!-- Formation 2: Elongated, Drifting Stratocumulus Shelf (Mid-Sky, Low & Wide) -->
+        <g class="cloud-cluster-2" transform="translate(740, 290)">
+          <ellipse cx="0" cy="0" rx="210" ry="60" fill="url(#cloud-grad-soft)" opacity="0.70"/>
+          <ellipse cx="-110" cy="15" rx="130" ry="45" fill="url(#cloud-grad-soft)" opacity="0.65"/>
+          <ellipse cx="100" cy="-10" rx="150" ry="50" fill="url(#cloud-grad-soft)" opacity="0.60"/>
+          <ellipse cx="15" cy="-25" rx="95" ry="40" fill="url(#cloud-grad-dense)" opacity="0.78"/>
         </g>
 
-        <!-- Large 5-Petal Star Blossom -->
-        <g>
-          <g class="fl2">
-            <ellipse cx="0" cy="-38" rx="22" ry="34" fill="url(#bokeh-petal-glow)"/>
-            <ellipse cx="0" cy="-38" rx="22" ry="34" fill="url(#bokeh-petal-glow)" transform="rotate(72)"/>
-            <ellipse cx="0" cy="-38" rx="22" ry="34" fill="url(#bokeh-petal-glow)" transform="rotate(144)"/>
-            <ellipse cx="0" cy="-38" rx="22" ry="34" fill="url(#bokeh-petal-glow)" transform="rotate(216)"/>
-            <ellipse cx="0" cy="-38" rx="22" ry="34" fill="url(#bokeh-petal-glow)" transform="rotate(288)"/>
-          </g>
+        <!-- Formation 3: Diagonal Wispy Altocumulus Streak (Upper Mid-Sky) -->
+        <g class="cloud-cluster-4" transform="translate(510, 150) rotate(-14)">
+          <ellipse cx="0" cy="0" rx="140" ry="38" fill="url(#cloud-grad-wisp)" opacity="0.55"/>
+          <ellipse cx="-50" cy="8" rx="90" ry="26" fill="url(#cloud-grad-wisp)" opacity="0.60"/>
+          <ellipse cx="60" cy="-6" rx="80" ry="30" fill="url(#cloud-grad-wisp)" opacity="0.48"/>
         </g>
 
-        <!-- Extra-Large 4-Petal Hydrangea Bloom -->
-        <g>
-          <g class="fl3">
-            <ellipse cx="0" cy="-45" rx="30" ry="38" fill="url(#bokeh-petal-glow)" transform="rotate(12)"/>
-            <ellipse cx="45" cy="0" rx="38" ry="30" fill="url(#bokeh-petal-glow)" transform="rotate(8)"/>
-            <ellipse cx="0" cy="45" rx="30" ry="38" fill="url(#bokeh-petal-glow)" transform="rotate(-6)"/>
-            <ellipse cx="-45" cy="0" rx="38" ry="30" fill="url(#bokeh-petal-glow)" transform="rotate(15)"/>
-          </g>
+        <!-- Formation 4: Fluffy Compact Cloudlet (Top Left) -->
+        <g class="cloud-cluster-3" transform="translate(230, 130)">
+          <ellipse cx="0" cy="0" rx="110" ry="65" fill="url(#cloud-grad-soft)" opacity="0.70"/>
+          <ellipse cx="-45" cy="12" rx="75" ry="48" fill="url(#cloud-grad-soft)" opacity="0.65"/>
+          <ellipse cx="40" cy="-15" rx="85" ry="52" fill="url(#cloud-grad-dense)" opacity="0.75"/>
+          <ellipse cx="10" cy="-30" rx="55" ry="40" fill="url(#cloud-grad-dense)" opacity="0.80"/>
         </g>
 
-        <!-- Medium 5-Petal Organic Bloom -->
-        <g>
-          <g class="fl4">
-            <ellipse cx="0" cy="-30" rx="18" ry="26" fill="url(#bokeh-petal-glow)"/>
-            <ellipse cx="0" cy="-30" rx="18" ry="26" fill="url(#bokeh-petal-glow)" transform="rotate(72)"/>
-            <ellipse cx="0" cy="-30" rx="18" ry="26" fill="url(#bokeh-petal-glow)" transform="rotate(144)"/>
-            <ellipse cx="0" cy="-30" rx="18" ry="26" fill="url(#bokeh-petal-glow)" transform="rotate(216)"/>
-            <ellipse cx="0" cy="-30" rx="18" ry="26" fill="url(#bokeh-petal-glow)" transform="rotate(288)"/>
-          </g>
+        <!-- Formation 5: Distant Horizon Wisp Bank (Far Bottom-Left) -->
+        <g class="cloud-cluster-5" transform="translate(180, 520)">
+          <ellipse cx="0" cy="0" rx="200" ry="50" fill="url(#cloud-grad-wisp)" opacity="0.60"/>
+          <ellipse cx="80" cy="-15" rx="120" ry="40" fill="url(#cloud-grad-wisp)" opacity="0.50"/>
+          <ellipse cx="-90" cy="10" rx="110" ry="35" fill="url(#cloud-grad-wisp)" opacity="0.45"/>
         </g>
 
-        <!-- Big 4-Petal Tilted Blossom -->
-        <g>
-          <g class="fl5">
-            <ellipse cx="0" cy="-36" rx="24" ry="32" fill="url(#bokeh-petal-glow)" transform="rotate(24)"/>
-            <ellipse cx="36" cy="0" rx="32" ry="24" fill="url(#bokeh-petal-glow)" transform="rotate(24)"/>
-            <ellipse cx="0" cy="36" rx="24" ry="32" fill="url(#bokeh-petal-glow)" transform="rotate(24)"/>
-            <ellipse cx="-36" cy="0" rx="32" ry="24" fill="url(#bokeh-petal-glow)" transform="rotate(24)"/>
+      </g>
+
+      <!-- 3. Smaller, High-Luminance Sun & Glare System -->
+      <g id="sky-sun-group" class="sun-flare-system">
+
+        <g class="sun-head" transform="translate(940, 155)">
+          <!-- Outer Glare Halo -->
+          <circle cx="0" cy="0" r="210" fill="url(#glare-ambient-halo)" filter="url(#glare-haze-blur)"/>
+          
+          <!-- Secondary Radiant Corona Bloom -->
+          <circle cx="0" cy="0" r="125" fill="url(#sun-glow-grad)" filter="url(#glare-haze-blur)" opacity="0.92"/>
+          
+          <!-- Outer Solar Body -->
+          <circle cx="0" cy="0" r="85" fill="url(#sun-glow-grad)" filter="url(#sun-soft-glow)" opacity="0.95"/>
+          
+          <!-- Mid-layer Solar Disc -->
+          <circle cx="0" cy="0" r="46" fill="url(#sun-glow-grad)" opacity="0.95"/>
+
+          <!-- Primary Glare Light Rays -->
+          <g stroke="#ffffff" stroke-width="2.2" opacity="0.38" stroke-linecap="round" filter="url(#glare-haze-blur)">
+            <line x1="-115" y1="0" x2="115" y2="0" />
+            <line x1="0" y1="-115" x2="0" y2="115" />
+            <line x1="-85" y1="-85" x2="85" y2="85" />
+            <line x1="-85" y1="85" x2="85" y2="-85" />
           </g>
+
+          <!-- Micro Rays -->
+          <g stroke="#ffffff" stroke-width="1.4" opacity="0.45" stroke-linecap="round" filter="url(#sun-soft-glow)">
+            <line x1="-65" y1="0" x2="-18" y2="0" />
+            <line x1="18" y1="0" x2="65" y2="0" />
+            <line x1="0" y1="-65" x2="0" y2="-18" />
+            <line x1="0" y1="18" x2="0" y2="65" />
+            <line x1="-45" y1="-45" x2="-14" y2="-14" />
+            <line x1="14" y1="14" x2="45" y2="45" />
+            <line x1="-45" y1="45" x2="-14" y2="14" />
+            <line x1="14" y1="-14" x2="45" y2="-45" />
+          </g>
+
+          <!-- Sun Center Core -->
+          <circle cx="0" cy="0" r="19" fill="#ffffff" opacity="1"/>
         </g>
 
-        <!-- Large 5-Petal Wildflower Bloom -->
-        <g>
-          <g class="fl6">
-            <ellipse cx="0" cy="-36" rx="20" ry="32" fill="url(#bokeh-petal-glow)"/>
-            <ellipse cx="0" cy="-36" rx="20" ry="32" fill="url(#bokeh-petal-glow)" transform="rotate(70)"/>
-            <ellipse cx="0" cy="-36" rx="20" ry="32" fill="url(#bokeh-petal-glow)" transform="rotate(145)"/>
-            <ellipse cx="0" cy="-36" rx="20" ry="32" fill="url(#bokeh-petal-glow)" transform="rotate(215)"/>
-            <ellipse cx="0" cy="-36" rx="20" ry="32" fill="url(#bokeh-petal-glow)" transform="rotate(290)"/>
-          </g>
-        </g>
-
-        <!-- Medium 4-Petal Offset Bloom -->
-        <g>
-          <g class="fl7">
-            <ellipse cx="0" cy="-26" rx="18" ry="24" fill="url(#bokeh-petal-glow)" transform="rotate(-15)"/>
-            <ellipse cx="26" cy="0" rx="24" ry="18" fill="url(#bokeh-petal-glow)" transform="rotate(-15)"/>
-            <ellipse cx="0" cy="26" rx="18" ry="24" fill="url(#bokeh-petal-glow)" transform="rotate(-15)"/>
-            <ellipse cx="-26" cy="0" rx="24" ry="18" fill="url(#bokeh-petal-glow)" transform="rotate(-15)"/>
-          </g>
-        </g>
-
-        <!-- Big Luminous 5-Petal Bloom -->
-        <g>
-          <g class="fl8">
-            <ellipse cx="0" cy="-40" rx="24" ry="36" fill="url(#bokeh-petal-glow)"/>
-            <ellipse cx="0" cy="-40" rx="24" ry="36" fill="url(#bokeh-petal-glow)" transform="rotate(72)"/>
-            <ellipse cx="0" cy="-40" rx="24" ry="36" fill="url(#bokeh-petal-glow)" transform="rotate(144)"/>
-            <ellipse cx="0" cy="-40" rx="24" ry="36" fill="url(#bokeh-petal-glow)" transform="rotate(216)"/>
-            <ellipse cx="0" cy="-40" rx="24" ry="36" fill="url(#bokeh-petal-glow)" transform="rotate(288)"/>
-          </g>
-        </g>
-
-        <!-- 🍃 Loose Drifting Petals -->
-        <g>
-          <g class="pt1">
-            <ellipse cx="0" cy="0" rx="22" ry="30" fill="url(#bokeh-petal-glow)" transform="rotate(28)"/>
-          </g>
-        </g>
-        <g>
-          <g class="pt2">
-            <ellipse cx="0" cy="0" rx="18" ry="26" fill="url(#bokeh-petal-glow)" transform="rotate(-36)"/>
-          </g>
-        </g>
-        <g>
-          <g class="pt3">
-            <ellipse cx="0" cy="0" rx="20" ry="28" fill="url(#bokeh-petal-glow)" transform="rotate(18)"/>
-          </g>
-        </g>
-        <g>
-          <g class="pt4">
-            <ellipse cx="0" cy="0" rx="16" ry="24" fill="url(#bokeh-petal-glow)" transform="rotate(-12)"/>
-          </g>
-        </g>
-        <g>
-          <g class="pt5">
-            <ellipse cx="0" cy="0" rx="24" ry="32" fill="url(#bokeh-petal-glow)" transform="rotate(45)"/>
-          </g>
+        <!-- Soft-Melted Flare Artifacts -->
+        <g class="lens-flare-elements" filter="url(#flare-melt-blur)">
+          <ellipse cx="750" cy="285" rx="46" ry="14" fill="url(#prism-streak-soft)" transform="rotate(-30 750 285)"/>
+          <circle cx="825" cy="228" r="15" fill="url(#orb-soft-glow)" opacity="0.70"/>
+          <circle cx="875" cy="192" r="20" fill="url(#orb-soft-glow)" opacity="0.60"/>
+          <circle cx="685" cy="330" r="22" fill="url(#orb-soft-glow)" opacity="0.45"/>
+          <circle cx="630" cy="375" r="12" fill="url(#prism-streak-soft)" opacity="0.35"/>
         </g>
 
       </g>
     </svg>
+    <div class="weather-scrim"></div>
   </div>
-  
+
   <div class="hero-wrapper">
     <div class="hero-left">
+      <!-- 🌦️ Live Time & Current Weather Single Pill -->
+      <div class="sky-widget" id="sky-widget">
+        <div class="widget-current">
+          <span class="sky-dot"></span>
+          <span id="widget-location">Cupertino</span>
+          <span class="widget-divider">·</span>
+          <span id="widget-time">--:-- --</span>
+          <span class="widget-divider">·</span>
+          <span id="widget-temp">--°</span>
+          <span id="widget-condition">Clear</span>
+        </div>
+      </div>
+
       <h1 class="hero-headline">Hello! I'm Livianne</h1>
       <p class="hero-tagline">Product Designer</p>
       

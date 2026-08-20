@@ -102,7 +102,7 @@ body {
   display: none;
 }
 
-/* HERO */
+/* HERO BASE WITH LIVE SKY WASH */
 .hero {
   position: relative;
   overflow: hidden;
@@ -110,8 +110,35 @@ body {
   display: flex;
   align-items: center;
   padding: 4rem 0;
-  /* Soft lake-wash background transition */
-  background: radial-gradient(120% 80% at 50% 20%, #fffbfb 0%, rgba(255, 251, 251, 0.98) 100%);
+  background-color: var(--bg-canvas);
+  transition: background 0.8s ease;
+}
+
+.hero-weather-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.sky-blob {
+  transition: fill 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s ease;
+  will-change: transform;
+}
+
+#sky-sun-group {
+  transition: opacity 1.2s ease, transform 1.2s ease;
+  will-change: transform, opacity;
+}
+
+.weather-scrim {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 80% at 30% 30%, rgba(255, 251, 251, 0.10) 0%, rgba(255, 251, 251, 0.72) 100%);
+  pointer-events: none;
 }
 
 .hero-wrapper {
@@ -129,11 +156,37 @@ body {
   max-width: 650px;
 }
 
-/* ── SMOOTH FLOAT TRANSITION (NO KEYFRAMES TO BLOCK JS) ── */
-.fl1, .fl2, .fl3, .fl4, .fl5, .fl6,
-.blob1, .blob2, .blob3 {
-  transform-origin: center center;
-  will-change: transform;
+/* Live Time & Current Weather Single Pill */
+.sky-widget {
+  display: inline-flex;
+  margin-bottom: 1.5rem;
+}
+
+.widget-current {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 251, 251, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(28, 28, 28, 0.06);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  color: var(--text-dark);
+  font-weight: 400;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+}
+
+.sky-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-green-accent);
+  box-shadow: 0 0 8px var(--color-green-accent);
+}
+
+.widget-divider {
+  color: var(--text-light);
 }
 
 .hero-headline {
@@ -149,25 +202,13 @@ body {
   font-weight: 400;
   color: var(--text-grey);
   line-height: 1.4;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
-/* ── HERO CONTAINER ── */
-.hero-container {
-  display: flex;
-  justify-content: space-between;  
-  align-items: center;
-  width: 100%;
-  max-width: 1400px;            
-  margin: 0 auto;
-  padding: 64px 0;             
-}
-
-/* ── MATRIX COLUMN CONTAINER (LEFT SIDE) ── */
 .scannable-matrix {
   display: flex;
   flex-direction: column;
-  gap: 3.5rem;                    
+  gap: 3.5rem;
   width: 100%;
   max-width: 500px;
 }
@@ -193,30 +234,12 @@ body {
   line-height: 1.4;
 }
 
-/* ── GIF CONTAINER FRAME (RIGHT SIDE) ── */
-.gif-container {
-  display: flex;
-  justify-content: flex-end;     
-  align-items: center;
-  flex: 1;                                                    
-}
-
-.hero-gif {
-  width: 100%;
-  height: auto;
-  max-width: 800px;              
-  border-radius: 12px;
-  object-fit: contain;
-  margin-right: 0;               
-}
-
-/* ── SELECTED WORK CARD MATRIX GALLERY ── */
+/* ── GALLERY ── */
 .gallery-wrapper {
   padding-top: 5rem;
   padding-bottom: 6rem;
 }
 
-/* ── STICKY GALLERY HEADER ── */
 .gallery-header {
   display: flex;
   justify-content: space-between;
@@ -261,7 +284,6 @@ body {
   color: var(--text-grey);
 }
 
-/* High-Scannability Grid */
 .works-matrix {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -327,7 +349,6 @@ body {
   padding-top: 4px;
 }
 
-/* Recruiter Data Badges */
 .recruiter-tags {
   display: flex;
   flex-wrap: wrap;
@@ -461,102 +482,7 @@ body {
   font-weight: 300;
 }
 
-.doodle-asset {
-  position: absolute;
-  pointer-events: none; 
-  z-index: 5;
-  height: auto;
-}
-
-/* Profile Photo Anchors */
-.doodle-blue-flower {
-  right: -25px;
-  top: -35px;
-  width: 75px;
-}
-
-.doodle-pink-flower {
-  right: -45px;
-  top: 40px;
-  width: 40px;
-}
-
-.doodle-green-flower {
-  left: -120px;
-  bottom: -45px;
-  width: 65px;
-}
-
-.doodle-seal {
-  left: -20px;
-  bottom: -100px;
-  width: 250px;
-  z-index: 2; 
-}
-
-/* Responsive */
-@media (max-width: 1024px) {
-  .doodle-cat {
-    width: 100% !important;
-  }
-  .doodle-seal {
-    width: 130px;
-    left: 0px;
-    bottom: -30px;
-  }
-  .doodle-blue-flower, 
-  .doodle-pink-flower, 
-  .doodle-green-flower {
-    transform: scale(0.8);
-  }
-}
-
-@media (max-width: 640px) {
-  .doodle-blue-flower,
-  .doodle-pink-flower,
-  .doodle-green-flower,
-  .doodle-seal {
-    display: none !important;
-  }
-}
-
-/* Personal Snapshot Gallery */
-.bits-header {
-  font-size: 24px;
-  font-weight: 500;
-  color: var(--text-dark);
-  margin-bottom: 2rem;
-  border-bottom: 1px solid rgba(28, 28, 28, 0.06);
-  padding-bottom: 0.75rem;
-}
-
-.photo-gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.25rem;
-}
-
-.photo-item {
-  background-color: #fffbfb00;
-  border: 1px solid rgba(28, 28, 28, 0.03);
-  padding: 0.5rem;
-  border-radius: 16px;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.photo-item:hover {
-  transform: translateY(-4px);
-}
-
-.photo-item img {
-  width: 100%;
-  height: 340px;
-  object-fit: cover;
-  border-radius: 12px;
-  display: block;
-}
-
-/* ── FOOTER FRAMEWORK ── */
+/* ── FOOTER ── */
 .footer {
   display: flex;
   flex-direction: column;
@@ -580,7 +506,6 @@ body {
   font-weight: 300;
   color: #a29fa0;
   line-height: normal;
-  margin-left: 0px;
 }
 
 .footer-nav {
@@ -658,23 +583,6 @@ body {
     padding-bottom: 5rem;
   }
 
-  .hero-wrapper {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-    text-align: center;
-  }
-  
-  .hero-headline {
-    font-size: 42px;
-    margin: 0 auto;
-  }
-
-  .hero-image-wrapper, .gif-container {
-    justify-content: center;
-    width: 100%;
-    max-width: 100%;
-  }
-
   .gallery-header {
     flex-direction: column;
     align-items: flex-start;
@@ -706,25 +614,9 @@ body {
     grid-template-columns: 1fr;
     gap: 0.5rem;
   }
-
-  .photo-gallery {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 @media (max-width: 920px) {
-  .hero-container {
-    flex-direction: column;    
-    gap: 40px;
-    padding: 48px 24px;         
-    text-align: left;
-  }
-
-  .scannable-matrix {
-    max-width: 100%;
-    gap: 2.5rem;
-  }
-
   .gallery-header {
     top: 80px;
   }
@@ -800,10 +692,6 @@ body {
     justify-content: center;
   }
 
-  .footer-row:first-child {
-    flex-direction: column;
-  }
-
   .footer-nav {
     flex-wrap: wrap;        
     justify-content: center;
@@ -811,8 +699,43 @@ body {
   }
 }
 
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding: 3rem 0 2rem 0;
+  }
+
+  .hero-wrapper {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .hero-headline {
+    font-size: clamp(2rem, 7vw, 2.75rem);
+    line-height: 1.15;
+  }
+
+  .hero-tagline {
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .scannable-matrix {
+    gap: 2rem;
+  }
+
+  .sky-widget {
+    margin-bottom: 1.25rem;
+  }
+
+  .widget-current {
+    font-size: 0.8rem;
+    padding: 5px 12px;
+  }
+}
+
 @media (max-width: 480px) {
-  .container, .nav-container, .hero-container, .gallery-wrapper, .footer, .about-layout {
+  .container, .nav-container, .gallery-wrapper, .footer, .about-layout {
     padding-left: 1.25rem !important;
     padding-right: 1.25rem !important;
   }
@@ -825,15 +748,11 @@ body {
     top: 80px;
   }
 
-  .nav-link {
-    font-size: 1.05rem;
-  }
-
-  .hero-headline, .about-greeting {
+  .hero-headline {
     font-size: 32px;
   }
 
-  .hero-tagline, .intro-pitch {
+  .hero-tagline {
     font-size: 20px;
   }
   
@@ -845,18 +764,5 @@ body {
     flex-direction: column;
     align-items: flex-start;
     gap: 4px;
-  }
-
-  .project-date {
-    padding-top: 0;
-    font-size: 0.9rem;
-  }
-
-  .photo-gallery {
-    grid-template-columns: 1fr;
-  }
-
-  .photo-item img {
-    height: 260px;
   }
 }
