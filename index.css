@@ -404,7 +404,7 @@ a {
 
 .about-hero {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1.15fr 0.85fr;
   gap: 4rem;
   align-items: center;
 }
@@ -432,20 +432,63 @@ a {
   font-weight: 300;
 }
 
-.about-image-frame {
+/* Hero Portrait Frame */
+.about-hero-image {
+  position: relative;
   width: 100%;
   max-width: 380px;
   margin-left: auto;
-  border-radius: 24px;
+}
+
+.about-image-frame {
+  width: 100%;
+  height: 480px;
+  border-radius: 28px;
   overflow: hidden;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.04);
 }
 
 .about-image-frame img {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
   object-fit: cover;
+  object-position: center 30%;
+}
+
+/* Doodle Asset Placement */
+.doodle-asset {
+  position: absolute;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.doodle-blue-flower {
+  top: -30px;
+  left: -25px;
+  width: 70px;
+  height: auto;
+}
+
+.doodle-green-flower {
+  bottom: -20px;
+  right: -25px;
+  width: 65px;
+  height: auto;
+}
+
+.doodle-pink-flower {
+  top: 42%;
+  right: -25px;
+  width: 50px;
+  height: auto;
+}
+
+.doodle-seal {
+  bottom: -25px;
+  left: -20px;
+  width: 70px;
+  height: auto;
 }
 
 .about-narrative {
@@ -485,6 +528,78 @@ a {
   line-height: 1.65;
   color: var(--text-grey);
   font-weight: 300;
+}
+
+/* About Photo Gallery */
+.about-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.bits-header {
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  letter-spacing: -0.01em;
+}
+
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.photo-item {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: rgba(28, 28, 28, 0.03);
+  border: 1px solid rgba(28, 28, 28, 0.03);
+}
+
+.photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Doodle Asset Positioning & Bounds */
+.doodle-asset {
+  position: absolute;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.doodle-blue-flower {
+  top: -24px;
+  left: -28px;
+  width: 64px;
+  height: auto;
+}
+
+.doodle-green-flower {
+  bottom: -18px;
+  right: -24px;
+  width: 58px;
+  height: auto;
+}
+
+.doodle-pink-flower {
+  top: 35%;
+  right: -36px;
+  width: 52px;
+  height: auto;
+}
+
+.doodle-seal {
+  bottom: -75px;
+  left: -50%;
+  width: 220px;
+  height: 150px;
 }
 
 /* ── FOOTER ── */
@@ -618,6 +733,11 @@ a {
   .narrative-row {
     grid-template-columns: 1fr;
     gap: 0.5rem;
+  }
+
+  .photo-gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
 }
 
@@ -803,6 +923,13 @@ a {
     flex-shrink: 0;
     padding: 7px 16px;
     font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .photo-gallery {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }
 

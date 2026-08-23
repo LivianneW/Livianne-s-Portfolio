@@ -84,7 +84,7 @@ if (hamburgerMenu && menuOverlay && menuPanel) {
 
 /**
  * ─────────────────────────────────────────────────────────────
- * 5. ATMOSPHERIC GAUSSIAN BLOB, CLOUD & LIQUID SUN DRIFT ENGINE
+ * 5. ATMOSPHERIC GAUSSIAN BLOB, CLOUD & CELESTIAL DRIFT ENGINE
  * ─────────────────────────────────────────────────────────────
  */
 (function initAtmosphericBlobDrift() {
@@ -104,7 +104,7 @@ if (hamburgerMenu && menuOverlay && menuPanel) {
     { sel: '.cloud-cluster-2', initX: 740,  initY: 290, wanderX: 30, wanderY: 15, speed: 0.00011, bobFreq: 0.0004, isSun: true },
     { sel: '.cloud-cluster-3', initX: 230,  initY: 130, wanderX: 20, wanderY: 10, speed: 0.00009, bobFreq: 0.0003, isSun: true },
 
-    // Glassy Organic Sun & Lens Flare Group
+    // Glassy Organic Sun/Moon & Lens Flare Group
     { sel: '#sky-sun-group', initX: isMobile ? -260 : 0, initY: isMobile ? -30 : 0, wanderX: 12, wanderY: 8, speed: 0.00018, bobFreq: 0.0008, isSun: true }
   ];
 
@@ -133,14 +133,12 @@ if (hamburgerMenu && menuOverlay && menuPanel) {
   }).filter(Boolean);
 
   function animate(time) {
-    // 🌊 Dynamic Watery Glass Caustic Ripple Physics
     if (turbulenceEl) {
       const baseFreqX = 0.012 + Math.sin(time * 0.00045) * 0.003;
       const baseFreqY = 0.018 + Math.cos(time * 0.00038) * 0.004;
       turbulenceEl.setAttribute('baseFrequency', `${baseFreqX.toFixed(5)} ${baseFreqY.toFixed(5)}`);
     }
 
-    // 🌤️ Floating Atmospheric Drift for Sky, Clouds & Sun
     activeItems.forEach(b => {
       const t = time * b.speed;
       const bt = time * b.bobFreq;
@@ -162,13 +160,13 @@ if (hamburgerMenu && menuOverlay && menuPanel) {
 
 /**
  * ─────────────────────────────────────────────────────────────
- * 6. LIVE TIME, WEATHER & CELESTIAL SUN ENGINE (CUPERTINO FALLBACK)
+ * 6. LOS ANGELES WEATHER & DAY/NIGHT SKY ENGINE
  * ─────────────────────────────────────────────────────────────
  */
-(function initLiveWeatherAndSun() {
-  const DEFAULT_LAT = 37.3230;
-  const DEFAULT_LON = -122.0322;
-  const DEFAULT_CITY = 'Cupertino';
+(function initLosAngelesWeather() {
+  const LA_LAT = 34.0549;
+  const LA_LON = -118.2426;
+  const LA_TIMEZONE = 'America/Los_Angeles';
 
   const heroSection = document.getElementById('weather-hero');
   const b1 = document.getElementById('sky-blob-1');
@@ -176,49 +174,53 @@ if (hamburgerMenu && menuOverlay && menuPanel) {
   const b3 = document.getElementById('sky-blob-3');
   const b4 = document.getElementById('sky-blob-4');
   const b5 = document.getElementById('sky-blob-5');
+  
   const sunGroup = document.getElementById('sky-sun-group');
+  const starsGroup = document.getElementById('sky-stars-group');
+  const haloEl = document.getElementById('celestial-halo');
+  const bloomEl = document.getElementById('celestial-bloom');
+  const bodyEl = document.getElementById('celestial-body');
+  const discEl = document.getElementById('celestial-disc');
+  const glareRays = document.getElementById('sun-glare-rays');
+  const lensFlare = document.getElementById('lens-flare-elements');
 
   const locEl = document.getElementById('widget-location');
   const timeEl = document.getElementById('widget-time');
   const tempEl = document.getElementById('widget-temp');
   const condEl = document.getElementById('widget-condition');
 
-  // Lighter & cleaner sky color themes
+  // Palette schemes for day, sunset, and nighttime in Los Angeles
   const skyPalettes = {
     sunnyDay: {
       blobs: ['#e4f1fa', '#d2e8f7', '#eee1ee', '#e5f3fa', '#fbf0e1'],
       heroBg: 'radial-gradient(120% 80% at 50% 20%, rgba(230, 242, 253, 0.38) 0%, rgba(255, 251, 251, 0.98) 100%)',
-      sunOpacity: '1.0'
+      isNight: false
     },
     goldenHour: {
       blobs: ['#f8ded0', '#f7d2e0', '#fdecd0', '#eee0ea', '#fce8dc'],
       heroBg: 'radial-gradient(120% 80% at 50% 20%, rgba(254, 240, 234, 0.42) 0%, rgba(255, 251, 251, 0.98) 100%)',
-      sunOpacity: '0.85'
+      isNight: false
     },
     nightSky: {
-      blobs: ['#ccd8ec', '#c0cee6', '#e0e5f4', '#b7c7e6', '#d3dcf0'],
-      heroBg: 'radial-gradient(120% 80% at 50% 20%, rgba(215, 228, 248, 0.32) 0%, rgba(255, 251, 251, 0.98) 100%)',
-      sunOpacity: '0.10'
+      // Atmospheric midnight blue & indigo wash
+      blobs: ['#283b5e', '#1c2944', '#3d385e', '#1b2a4a', '#243354'],
+      heroBg: 'radial-gradient(120% 80% at 50% 20%, rgba(32, 45, 74, 0.35) 0%, rgba(255, 251, 251, 0.98) 100%)',
+      isNight: true
     },
     overcast: {
       blobs: ['#e2edf6', '#dbe5ee', '#eff4f8', '#d6dfec', '#f2f6f9'],
       heroBg: 'radial-gradient(120% 80% at 50% 20%, rgba(230, 240, 248, 0.38) 0%, rgba(255, 251, 251, 0.98) 100%)',
-      sunOpacity: '0.35'
+      isNight: false
     },
     rainyMist: {
       blobs: ['#d0e6ea', '#c4dde0', '#e0ecee', '#bed6d8', '#e8f2f3'],
       heroBg: 'radial-gradient(120% 80% at 50% 20%, rgba(208, 230, 234, 0.32) 0%, rgba(255, 251, 251, 0.98) 100%)',
-      sunOpacity: '0.18'
-    },
-    snowSky: {
-      blobs: ['#edf4fa', '#e4eef7', '#f4f8fc', '#dcebf8', '#f8fafe'],
-      heroBg: 'radial-gradient(120% 80% at 50% 20%, rgba(240, 247, 253, 0.45) 0%, rgba(255, 251, 251, 0.98) 100%)',
-      sunOpacity: '0.25'
+      isNight: false
     }
   };
 
   let clockTimer = null;
-  function updateClock(timeZone) {
+  function updateLAClock() {
     if (clockTimer) clearInterval(clockTimer);
     const update = () => {
       const now = new Date();
@@ -226,7 +228,7 @@ if (hamburgerMenu && menuOverlay && menuPanel) {
         hour: 'numeric',
         minute: '2-digit',
         hour12: true,
-        timeZone: timeZone || undefined
+        timeZone: LA_TIMEZONE
       };
       if (timeEl) timeEl.textContent = new Intl.DateTimeFormat('en-US', options).format(now);
     };
@@ -242,7 +244,7 @@ if (hamburgerMenu && menuOverlay && menuPanel) {
     if (code >= 51 && code <= 67) return { label: 'Drizzle', key: 'rain' };
     if (code >= 71 && code <= 77) return { label: 'Snow', key: 'snow' };
     if (code >= 80 && code <= 82) return { label: 'Showers', key: 'rain' };
-    return { label: 'Overcast', key: 'cloudy' };
+    return { label: 'Clear Sky', key: 'clear' };
   }
 
   function applySkyPalette(paletteKey) {
@@ -253,77 +255,64 @@ if (hamburgerMenu && menuOverlay && menuPanel) {
     if (b3) b3.setAttribute('fill', p.blobs[2]);
     if (b4) b4.setAttribute('fill', p.blobs[3]);
     if (b5) b5.setAttribute('fill', p.blobs[4]);
-    if (sunGroup) sunGroup.style.opacity = p.sunOpacity;
+
+    // 🌙 Switch between Sun and Moon visuals
+    if (p.isNight) {
+      if (starsGroup) starsGroup.setAttribute('opacity', '0.85');
+      if (haloEl) haloEl.setAttribute('fill', 'url(#moon-ambient-halo)');
+      if (bloomEl) bloomEl.setAttribute('fill', 'url(#moon-glow-grad)');
+      if (bodyEl) bodyEl.setAttribute('fill', 'url(#moon-glow-grad)');
+      if (discEl) discEl.setAttribute('fill', 'url(#moon-glow-grad)');
+      if (glareRays) glareRays.style.display = 'none';
+      if (lensFlare) lensFlare.style.opacity = '0.15';
+    } else {
+      if (starsGroup) starsGroup.setAttribute('opacity', '0');
+      if (haloEl) haloEl.setAttribute('fill', 'url(#glare-ambient-halo)');
+      if (bloomEl) bloomEl.setAttribute('fill', 'url(#sun-glow-grad)');
+      if (bodyEl) bodyEl.setAttribute('fill', 'url(#sun-glow-grad)');
+      if (discEl) discEl.setAttribute('fill', 'url(#sun-glow-grad)');
+      if (glareRays) glareRays.style.display = 'block';
+      if (lensFlare) lensFlare.style.opacity = '1';
+    }
   }
 
-  function determineSkyTheme(weatherKey, hour) {
+  function determineLATargetTheme(weatherKey, hour) {
+    // Night hours in LA (8 PM to 6 AM)
     if (hour >= 20 || hour < 6) return 'nightSky';
+    // Sunset / Golden hour (5 PM to 8 PM)
     if (hour >= 17 && hour < 20) return 'goldenHour';
     if (weatherKey === 'rain') return 'rainyMist';
-    if (weatherKey === 'snow') return 'snowSky';
     if (weatherKey === 'cloudy') return 'overcast';
     return 'sunnyDay';
   }
 
-  async function fetchLiveWeatherData(lat, lon, cityName) {
+  async function fetchLAWeather() {
     try {
-      const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=weather_code,temperature_2m&temperature_unit=fahrenheit&timezone=auto`;
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${LA_LAT}&longitude=${LA_LON}&current=weather_code,temperature_2m&temperature_unit=fahrenheit&timezone=America%2FLos_Angeles`;
       const res = await fetch(url);
       const data = await res.json();
 
-      const timeZone = data.timezone;
-      updateClock(timeZone);
+      updateLAClock();
 
       const currentCode = data.current.weather_code;
       const currentTemp = Math.round(data.current.temperature_2m);
       const condition = interpretWeatherCode(currentCode);
 
-      if (locEl) locEl.textContent = cityName;
+      if (locEl) locEl.textContent = 'Los Angeles';
       if (tempEl) tempEl.textContent = `${currentTemp}°F`;
       if (condEl) condEl.textContent = condition.label;
 
-      const localHour = new Date(new Date().toLocaleString('en-US', { timeZone })).getHours();
-      const themeKey = determineSkyTheme(condition.key, localHour);
+      const laHour = new Date(new Date().toLocaleString('en-US', { timeZone: LA_TIMEZONE })).getHours();
+      const themeKey = determineLATargetTheme(condition.key, laHour);
       applySkyPalette(themeKey);
     } catch (err) {
-      if (locEl) locEl.textContent = cityName || DEFAULT_CITY;
-      if (tempEl) tempEl.textContent = '72°F';
+      if (locEl) locEl.textContent = 'Los Angeles';
+      if (tempEl) tempEl.textContent = '75°F';
       if (condEl) condEl.textContent = 'Clear Sky';
-      updateClock('America/Los_Angeles');
+      updateLAClock();
       applySkyPalette('sunnyDay');
     }
   }
 
-  async function resolveCityName(lat, lon) {
-    try {
-      const res = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`);
-      const data = await res.json();
-      return data.city || data.locality || data.principalSubdivision || 'Your Location';
-    } catch {
-      return 'Your Location';
-    }
-  }
-
-  // Geolocation handling with generous timeout and fallback to Cupertino
-  if ('geolocation' in navigator) {
-    navigator.geolocation.getCurrentPosition(
-      async (pos) => {
-        const lat = pos.coords.latitude;
-        const lon = pos.coords.longitude;
-        const city = await resolveCityName(lat, lon);
-        fetchLiveWeatherData(lat, lon, city);
-      },
-      () => {
-        // Fallback exclusively when user denies permission or location is unavailable
-        fetchLiveWeatherData(DEFAULT_LAT, DEFAULT_LON, DEFAULT_CITY);
-      },
-      { 
-        enableHighAccuracy: false, 
-        timeout: 10000, 
-        maximumAge: 300000 
-      }
-    );
-  } else {
-    fetchLiveWeatherData(DEFAULT_LAT, DEFAULT_LON, DEFAULT_CITY);
-  }
+  fetchLAWeather();
 })();

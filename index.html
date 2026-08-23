@@ -34,7 +34,7 @@
   </header>
 
 <section class="hero" id="weather-hero">
-  <!-- Dynamic Sky Background with Stylized Sunburst & Prism Flare -->
+  <!-- Dynamic Sky Background with Sun / Moon & Clouds -->
   <div class="hero-weather-bg" aria-hidden="true">
     <svg viewBox="0 0 1400 650" preserveAspectRatio="xMidYMid slice"
          xmlns="http://www.w3.org/2000/svg"
@@ -50,22 +50,22 @@
           <feGaussianBlur stdDeviation="28"/>
         </filter>
 
-        <!-- Luminous Sun Flare Blur -->
+        <!-- Luminous Celestial Blur -->
         <filter id="sun-soft-glow" x="-50%" y="-50%" width="200%" height="200%">
           <feGaussianBlur stdDeviation="24"/>
         </filter>
 
-        <!-- Wide Radiant Glare Light Spread Blur -->
+        <!-- Wide Radiant Glare Blur -->
         <filter id="glare-haze-blur" x="-60%" y="-60%" width="220%" height="220%">
           <feGaussianBlur stdDeviation="22"/>
         </filter>
 
-        <!-- Seamless Flare Melt Blur -->
+        <!-- Flare Melt Blur -->
         <filter id="flare-melt-blur" x="-30%" y="-30%" width="160%" height="160%">
           <feGaussianBlur stdDeviation="14"/>
         </filter>
 
-        <!-- Radiant Sun Gradient -->
+        <!-- Day Sun Radial Gradient -->
         <radialGradient id="sun-glow-grad" cx="50%" cy="50%" r="50%">
           <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
           <stop offset="22%" stop-color="#ffffff" stop-opacity="0.95"/>
@@ -75,7 +75,16 @@
           <stop offset="100%" stop-color="#fca35d" stop-opacity="0"/>
         </radialGradient>
 
-        <!-- Ambient Corona Halo -->
+        <!-- Night Moon Radial Gradient -->
+        <radialGradient id="moon-glow-grad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+          <stop offset="35%" stop-color="#f0f5ff" stop-opacity="0.88"/>
+          <stop offset="65%" stop-color="#d4e2fc" stop-opacity="0.40"/>
+          <stop offset="90%" stop-color="#b0c8f5" stop-opacity="0.10"/>
+          <stop offset="100%" stop-color="#b0c8f5" stop-opacity="0"/>
+        </radialGradient>
+
+        <!-- Day Ambient Corona Halo -->
         <radialGradient id="glare-ambient-halo" cx="50%" cy="50%" r="50%">
           <stop offset="0%" stop-color="#ffffff" stop-opacity="0.45"/>
           <stop offset="32%" stop-color="#fff4d1" stop-opacity="0.25"/>
@@ -83,7 +92,15 @@
           <stop offset="100%" stop-color="#fed89b" stop-opacity="0"/>
         </radialGradient>
 
-        <!-- Dynamic Cloud Radial Gradient Variations -->
+        <!-- Night Ambient Halo -->
+        <radialGradient id="moon-ambient-halo" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.30"/>
+          <stop offset="40%" stop-color="#d9e6fc" stop-opacity="0.15"/>
+          <stop offset="75%" stop-color="#b2ccf8" stop-opacity="0.05"/>
+          <stop offset="100%" stop-color="#b2ccf8" stop-opacity="0"/>
+        </radialGradient>
+
+        <!-- Cloud Gradients -->
         <radialGradient id="cloud-grad-dense" cx="50%" cy="35%" r="65%">
           <stop offset="0%" stop-color="#ffffff" stop-opacity="0.96"/>
           <stop offset="55%" stop-color="#fbfcfd" stop-opacity="0.72"/>
@@ -102,7 +119,7 @@
           <stop offset="100%" stop-color="#edf4fa" stop-opacity="0"/>
         </radialGradient>
 
-        <!-- Soft Pastel Prism Streak -->
+        <!-- Pastel Prism Streak -->
         <radialGradient id="prism-streak-soft" cx="50%" cy="50%" r="50%">
           <stop offset="0%" stop-color="#ebd0dc" stop-opacity="0.45"/>
           <stop offset="45%" stop-color="#dfd2eb" stop-opacity="0.28"/>
@@ -110,7 +127,6 @@
           <stop offset="100%" stop-color="#d5e4f2" stop-opacity="0"/>
         </radialGradient>
 
-        <!-- Bright Lens Light Orb -->
         <radialGradient id="orb-soft-glow" cx="50%" cy="50%" r="50%">
           <stop offset="0%" stop-color="#ffffff" stop-opacity="0.65"/>
           <stop offset="50%" stop-color="#fff2d6" stop-opacity="0.28"/>
@@ -125,6 +141,17 @@
         <circle id="sky-blob-3" class="sky-blob blob3" cx="1180" cy="320" r="390" fill="#eee1ee" opacity="0.42" />
         <circle id="sky-blob-4" class="sky-blob blob4" cx="580" cy="480" r="360" fill="#e5f3fa" opacity="0.48" />
         <circle id="sky-blob-5" class="sky-blob blob5" cx="120" cy="440" r="340" fill="#fbf0e1" opacity="0.40" />
+      </g>
+
+      <!-- Night Stars Layer (Fades in at night) -->
+      <g id="sky-stars-group" opacity="0" style="transition: opacity 1.2s ease;">
+        <circle cx="180" cy="90" r="1.5" fill="#ffffff" opacity="0.6"/>
+        <circle cx="340" cy="140" r="1.2" fill="#ffffff" opacity="0.5"/>
+        <circle cx="520" cy="80" r="1.8" fill="#ffffff" opacity="0.7"/>
+        <circle cx="710" cy="120" r="1.2" fill="#ffffff" opacity="0.4"/>
+        <circle cx="890" cy="65" r="1.5" fill="#ffffff" opacity="0.65"/>
+        <circle cx="1100" cy="110" r="1.3" fill="#ffffff" opacity="0.5"/>
+        <circle cx="1280" cy="85" r="1.6" fill="#ffffff" opacity="0.75"/>
       </g>
 
       <!-- 2. Varied Organic Clouds -->
@@ -165,36 +192,38 @@
         </g>
       </g>
 
-      <!-- 3. Sun & Glare System -->
+      <!-- 3. Celestial Body (Sun / Moon) & Glare System -->
       <g id="sky-sun-group" class="sun-flare-system">
         <g class="sun-head" transform="translate(940, 155)">
-          <circle cx="0" cy="0" r="210" fill="url(#glare-ambient-halo)" filter="url(#glare-haze-blur)"/>
-          <circle cx="0" cy="0" r="125" fill="url(#sun-glow-grad)" filter="url(#glare-haze-blur)" opacity="0.92"/>
-          <circle cx="0" cy="0" r="85" fill="url(#sun-glow-grad)" filter="url(#sun-soft-glow)" opacity="0.95"/>
-          <circle cx="0" cy="0" r="46" fill="url(#sun-glow-grad)" opacity="0.95"/>
+          <circle id="celestial-halo" cx="0" cy="0" r="210" fill="url(#glare-ambient-halo)" filter="url(#glare-haze-blur)"/>
+          <circle id="celestial-bloom" cx="0" cy="0" r="125" fill="url(#sun-glow-grad)" filter="url(#glare-haze-blur)" opacity="0.92"/>
+          <circle id="celestial-body" cx="0" cy="0" r="85" fill="url(#sun-glow-grad)" filter="url(#sun-soft-glow)" opacity="0.95"/>
+          <circle id="celestial-disc" cx="0" cy="0" r="46" fill="url(#sun-glow-grad)" opacity="0.95"/>
 
-          <g stroke="#ffffff" stroke-width="2.2" opacity="0.38" stroke-linecap="round" filter="url(#glare-haze-blur)">
-            <line x1="-115" y1="0" x2="115" y2="0" />
-            <line x1="0" y1="-115" x2="0" y2="115" />
-            <line x1="-85" y1="-85" x2="85" y2="85" />
-            <line x1="-85" y1="85" x2="85" y2="-85" />
-          </g>
+          <g id="sun-glare-rays">
+            <g stroke="#ffffff" stroke-width="2.2" opacity="0.38" stroke-linecap="round" filter="url(#glare-haze-blur)">
+              <line x1="-115" y1="0" x2="115" y2="0" />
+              <line x1="0" y1="-115" x2="0" y2="115" />
+              <line x1="-85" y1="-85" x2="85" y2="85" />
+              <line x1="-85" y1="85" x2="85" y2="-85" />
+            </g>
 
-          <g stroke="#ffffff" stroke-width="1.4" opacity="0.45" stroke-linecap="round" filter="url(#sun-soft-glow)">
-            <line x1="-65" y1="0" x2="-18" y2="0" />
-            <line x1="18" y1="0" x2="65" y2="0" />
-            <line x1="0" y1="-65" x2="0" y2="-18" />
-            <line x1="0" y1="18" x2="0" y2="65" />
-            <line x1="-45" y1="-45" x2="-14" y2="-14" />
-            <line x1="14" y1="14" x2="45" y2="45" />
-            <line x1="-45" y1="45" x2="-14" y2="14" />
-            <line x1="14" y1="-14" x2="45" y2="-45" />
+            <g stroke="#ffffff" stroke-width="1.4" opacity="0.45" stroke-linecap="round" filter="url(#sun-soft-glow)">
+              <line x1="-65" y1="0" x2="-18" y2="0" />
+              <line x1="18" y1="0" x2="65" y2="0" />
+              <line x1="0" y1="-65" x2="0" y2="-18" />
+              <line x1="0" y1="18" x2="0" y2="65" />
+              <line x1="-45" y1="-45" x2="-14" y2="-14" />
+              <line x1="14" y1="14" x2="45" y2="45" />
+              <line x1="-45" y1="45" x2="-14" y2="14" />
+              <line x1="14" y1="-14" x2="45" y2="-45" />
+            </g>
           </g>
 
           <circle cx="0" cy="0" r="19" fill="#ffffff" opacity="1"/>
         </g>
 
-        <g class="lens-flare-elements" filter="url(#flare-melt-blur)">
+        <g id="lens-flare-elements" class="lens-flare-elements" filter="url(#flare-melt-blur)">
           <ellipse cx="750" cy="285" rx="46" ry="14" fill="url(#prism-streak-soft)" transform="rotate(-30 750 285)"/>
           <circle cx="825" cy="228" r="15" fill="url(#orb-soft-glow)" opacity="0.70"/>
           <circle cx="875" cy="192" r="20" fill="url(#orb-soft-glow)" opacity="0.60"/>
@@ -211,12 +240,12 @@
       <div class="sky-widget" id="sky-widget">
         <div class="widget-current">
           <span class="sky-dot"></span>
-          <span id="widget-location">Cupertino</span>
+          <span id="widget-location">Los Angeles</span>
           <span class="widget-divider">·</span>
           <span id="widget-time">--:-- --</span>
           <span class="widget-divider">·</span>
           <span id="widget-temp">--°</span>
-          <span id="widget-condition">Clear</span>
+          <span id="widget-condition">Clear Sky</span>
         </div>
       </div>
 
@@ -249,47 +278,6 @@
 
     <div class="works-matrix">
 
-      <article class="work-card" data-cat="product-design">
-        <a href="pages/cost&co.html" class="card-inner-link">
-          <div class="work-media-container">
-            <img src="assets/COST&CO.png" alt="Cost&co Case Study" class="work-asset" style="width: 95%; height: 95%; display: block;"> 
-          </div>
-          <div class="work-details">
-            <div class="project-header-row">
-              <h3 class="work-title">Cost&Co Companion App</h3>
-              <span class="project-date">Spring 2026</span>
-            </div>
-            <div class="recruiter-tags">
-              <span class="tag role">Product Designer & Researcher</span>
-              <span class="tag framework">Cognitive Ethnography</span>
-              <span class="tag scope">4-Person Team</span>
-            </div>
-            <p class="work-summary">A community-driven app that reduces Costco shopping stress through real-time navigation, product locations, and inventory insights</p>
-          </div>
-        </a>
-      </article>
-
-      <article class="work-card itacho-card" data-cat="experience">
-        <a href="pages/itacho.html" class="card-inner-link">
-          <div class="work-media-container">
-            <img src="assets/ITACHO.png" class="work-asset">
-          </div>
-          <div class="work-details">
-            <div class="project-header-row">
-              <h3 class="work-title">Itacho Sushi</h3>
-              <span class="project-date">Spring 2026</span>
-            </div>
-            <div class="recruiter-tags">
-              <span class="tag role">Product Designer</span>
-              <span class="tag framework">Redesign</span>
-              <span class="tag scope">3-Person Team</span>
-              <span class="tag scope">Contract</span>
-            </div>
-            <p class="work-summary">Overhaul of the Itacho Sushi restaurant's digital presence and customer experience</p>
-          </div>
-        </a>
-      </article>
-      
       <article class="work-card" data-cat="redesign">
         <a href="pages/pikminbloom.html" class="card-inner-link">
           <div class="work-media-container">
@@ -303,29 +291,29 @@
             <div class="recruiter-tags">
               <span class="tag role">Product Designer</span>
               <span class="tag framework">Accessibility Design</span>
-              <span class="tag scope">4-Person Team</span>
+              <span class="tag scope">Game Design</span>
             </div>
-            <p class="work-summary">Designing accessible gameplay features focused on inclusive movement tracking and dexterity-friendly interactions</p>
+            <p class="work-summary">Reimagining movement and touch interactions in Pikmin Bloom to create more accessible gameplay for players with mobility and dexterity limitations</p>
           </div>
         </a>
       </article>
 
-      <article class="work-card" data-cat="redesign">
-        <a href="pages/steam_navigation.html" class="card-inner-link">
+      <article class="work-card itacho-card" data-cat="experience product-design">
+        <a href="pages/itacho.html" class="card-inner-link">
           <div class="work-media-container">
-            <img src="assets/Steam-Showcase.png" alt="Steam Mobile Redesign Case Study" class="work-asset" style="width: 100%; height: 100%; display: block;"/> 
+            <img src="assets/ITACHO.png" class="work-asset">
           </div>
           <div class="work-details">
             <div class="project-header-row">
-              <h3 class="work-title">Steam Mobile App Navigation</h3>
-              <span class="project-date">Fall 2025</span>
+              <h3 class="work-title">Itacho Sushi</h3>
+              <span class="project-date">Spring 2026</span>
             </div>
             <div class="recruiter-tags">
               <span class="tag role">Product Designer</span>
-              <span class="tag framework">Information Architecture</span>
-              <span class="tag scope">3-Person Team</span>
+              <span class="tag framework">Redesign</span>
+              <span class="tag scope">Contract</span>
             </div>
-            <p class="work-summary">Redesigning the Steam mobile app to optimize discoverability pathways and solve navigation bottlenecks</p>
+            <p class="work-summary">Restructuring a complex AYCE menu and ordering experience across three pricing tiers while balancing usability with an established restaurant brand</p>
           </div>
         </a>
       </article>
@@ -343,10 +331,48 @@
             <div class="recruiter-tags">
               <span class="tag role">Design Lead</span>
               <span class="tag framework">Information Visualization</span>
-              <span class="tag scope">3-Person Team</span>
               <span class="tag scope">Internship</span>
             </div>
             <p class="work-summary">NASA's X-59 Quiet Supersonic Project</p>
+          </div>
+        </a>
+      </article>
+
+      <article class="work-card" data-cat="redesign">
+        <a href="pages/steam_navigation.html" class="card-inner-link">
+          <div class="work-media-container">
+            <img src="assets/Steam-Showcase.png" alt="Steam Mobile Redesign Case Study" class="work-asset" style="width: 100%; height: 100%; display: block;"/> 
+          </div>
+          <div class="work-details">
+            <div class="project-header-row">
+              <h3 class="work-title">Steam Mobile App Navigation</h3>
+              <span class="project-date">Fall 2025</span>
+            </div>
+            <div class="recruiter-tags">
+              <span class="tag role">Product Designer</span>
+              <span class="tag framework">Information Architecture</span>
+            </div>
+            <p class="work-summary">Redesigning Steam's mobile navigation to improve discoverability through a new information architecture and persistent navigation system</p>
+          </div>
+        </a>
+      </article>
+
+      <article class="work-card" data-cat="product-design">
+        <a href="pages/cost&co.html" class="card-inner-link">
+          <div class="work-media-container">
+            <img src="assets/COST&CO.png" alt="Cost&co Case Study" class="work-asset" style="width: 95%; height: 95%; display: block;"> 
+          </div>
+          <div class="work-details">
+            <div class="project-header-row">
+              <h3 class="work-title">Cost&Co Companion App</h3>
+              <span class="project-date">Spring 2026</span>
+            </div>
+            <div class="recruiter-tags">
+              <span class="tag role">Product Designer & Researcher</span>
+              <span class="tag framework">Cognitive Ethnography</span>
+              <span class="tag scope">User Research</span>
+            </div>
+            <p class="work-summary">A community-driven app that reduces Costco shopping stress through real-time navigation, product locations, and inventory insights</p>
           </div>
         </a>
       </article>
@@ -363,7 +389,8 @@
             </div>
             <div class="recruiter-tags">
               <span class="tag role">Product Designer</span>
-              <span class="tag scope">3-Person Team</span>
+              <span class="tag framework">Accessibility</span>
+              <span class="tag scope">Service Design</span>
             </div>
             <p class="work-summary">Designing a physical kiosk interface built to bridge information access for unhoused populations seeking local essential resources</p>
           </div>
