@@ -175,8 +175,6 @@ if (hamburgerMenu && menuOverlay && menuPanel) {
   const b4 = document.getElementById('sky-blob-4');
   const b5 = document.getElementById('sky-blob-5');
   
-  const sunGroup = document.getElementById('sky-sun-group');
-  const starsGroup = document.getElementById('sky-stars-group');
   const haloEl = document.getElementById('celestial-halo');
   const bloomEl = document.getElementById('celestial-bloom');
   const bodyEl = document.getElementById('celestial-body');
@@ -202,9 +200,9 @@ if (hamburgerMenu && menuOverlay && menuPanel) {
       isNight: false
     },
     nightSky: {
-      // Atmospheric midnight blue & indigo wash
-      blobs: ['#283b5e', '#1c2944', '#3d385e', '#1b2a4a', '#243354'],
-      heroBg: 'radial-gradient(120% 80% at 50% 20%, rgba(32, 45, 74, 0.35) 0%, rgba(255, 251, 251, 0.98) 100%)',
+      // Deep midnight indigo tones
+      blobs: ['#161e2e', '#0f172a', '#1e1b4b', '#111827', '#172554'],
+      heroBg: '#0b0f19',
       isNight: true
     },
     overcast: {
@@ -249,24 +247,29 @@ if (hamburgerMenu && menuOverlay && menuPanel) {
 
   function applySkyPalette(paletteKey) {
     const p = skyPalettes[paletteKey] || skyPalettes.sunnyDay;
-    if (heroSection) heroSection.style.background = p.heroBg;
     if (b1) b1.setAttribute('fill', p.blobs[0]);
     if (b2) b2.setAttribute('fill', p.blobs[1]);
     if (b3) b3.setAttribute('fill', p.blobs[2]);
     if (b4) b4.setAttribute('fill', p.blobs[3]);
     if (b5) b5.setAttribute('fill', p.blobs[4]);
 
-    // 🌙 Switch between Sun and Moon visuals
+    // 🌙 Switch between Sun and Moon visuals & trigger night-mode class
     if (p.isNight) {
-      if (starsGroup) starsGroup.setAttribute('opacity', '0.85');
+      if (heroSection) {
+        heroSection.style.background = p.heroBg;
+        heroSection.classList.add('night-mode');
+      }
       if (haloEl) haloEl.setAttribute('fill', 'url(#moon-ambient-halo)');
       if (bloomEl) bloomEl.setAttribute('fill', 'url(#moon-glow-grad)');
       if (bodyEl) bodyEl.setAttribute('fill', 'url(#moon-glow-grad)');
       if (discEl) discEl.setAttribute('fill', 'url(#moon-glow-grad)');
       if (glareRays) glareRays.style.display = 'none';
-      if (lensFlare) lensFlare.style.opacity = '0.15';
+      if (lensFlare) lensFlare.style.opacity = '0';
     } else {
-      if (starsGroup) starsGroup.setAttribute('opacity', '0');
+      if (heroSection) {
+        heroSection.style.background = p.heroBg;
+        heroSection.classList.remove('night-mode');
+      }
       if (haloEl) haloEl.setAttribute('fill', 'url(#glare-ambient-halo)');
       if (bloomEl) bloomEl.setAttribute('fill', 'url(#sun-glow-grad)');
       if (bodyEl) bodyEl.setAttribute('fill', 'url(#sun-glow-grad)');
@@ -276,10 +279,9 @@ if (hamburgerMenu && menuOverlay && menuPanel) {
     }
   }
 
-  function determineLATargetTheme(weatherKey, hour) {
-    // Night hours in LA (8 PM to 6 AM)
-    if (hour >= 20 || hour < 6) return 'nightSky';
-    // Sunset / Golden hour (5 PM to 8 PM)
+  function determineLATargetTheme(weatherKey, isDay, hour) {
+    // Check API day/night flag first, with fallback to local hour
+    if (isDay === 0 || (isDay === null && (hour >= 20 || hour < 6))) return 'nightSky';
     if (hour >= 17 && hour < 20) return 'goldenHour';
     if (weatherKey === 'rain') return 'rainyMist';
     if (weatherKey === 'cloudy') return 'overcast';
@@ -288,7 +290,7 @@ if (hamburgerMenu && menuOverlay && menuPanel) {
 
   async function fetchLAWeather() {
     try {
-      const url = `https://api.open-meteo.com/v1/forecast?latitude=${LA_LAT}&longitude=${LA_LON}&current=weather_code,temperature_2m&temperature_unit=fahrenheit&timezone=America%2FLos_Angeles`;
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${LA_LAT}&longitude=${LA_LON}&current=weather_code,temperature_2m,is_day&temperature_unit=fahrenheit&timezone=America%2FLos_Angeles`;
       const res = await fetch(url);
       const data = await res.json();
 
@@ -296,23 +298,28 @@ if (hamburgerMenu && menuOverlay && menuPanel) {
 
       const currentCode = data.current.weather_code;
       const currentTemp = Math.round(data.current.temperature_2m);
+      const isDay = data.current.is_day;
       const condition = interpretWeatherCode(currentCode);
 
       if (locEl) locEl.textContent = 'Los Angeles';
-      if (tempEl) tempEl.textContent = `${currentTemp}°F`;
+      if (tempEl) tempEl.textContent = `${currentTemp}°`;
       if (condEl) condEl.textContent = condition.label;
 
       const laHour = new Date(new Date().toLocaleString('en-US', { timeZone: LA_TIMEZONE })).getHours();
-      const themeKey = determineLATargetTheme(condition.key, laHour);
+      const themeKey = determineLATargetTheme(condition.key, isDay, laHour);
       applySkyPalette(themeKey);
     } catch (err) {
       if (locEl) locEl.textContent = 'Los Angeles';
-      if (tempEl) tempEl.textContent = '75°F';
+      if (tempEl) tempEl.textContent = '74°';
       if (condEl) condEl.textContent = 'Clear Sky';
       updateLAClock();
-      applySkyPalette('sunnyDay');
+
+      const fallbackHour = new Date().getHours();
+      const isNightFallback = fallbackHour >= 20 || fallbackHour < 6;
+      applySkyPalette(isNightFallback ? 'nightSky' : 'sunnyDay');
     }
   }
 
   fetchLAWeather();
+  setInterval(fetchLAWeather, 60000);
 })();

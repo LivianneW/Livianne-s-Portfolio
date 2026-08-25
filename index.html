@@ -34,7 +34,7 @@
   </header>
 
 <section class="hero" id="weather-hero">
-  <!-- Dynamic Sky Background with Sun / Moon & Clouds -->
+  <!-- Dynamic Sky Background with Sun / Moon, Faint Nocturnal Clouds & Starfield -->
   <div class="hero-weather-bg" aria-hidden="true">
     <svg viewBox="0 0 1400 650" preserveAspectRatio="xMidYMid slice"
          xmlns="http://www.w3.org/2000/svg"
@@ -78,10 +78,10 @@
         <!-- Night Moon Radial Gradient -->
         <radialGradient id="moon-glow-grad" cx="50%" cy="50%" r="50%">
           <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
-          <stop offset="35%" stop-color="#f0f5ff" stop-opacity="0.88"/>
-          <stop offset="65%" stop-color="#d4e2fc" stop-opacity="0.40"/>
-          <stop offset="90%" stop-color="#b0c8f5" stop-opacity="0.10"/>
-          <stop offset="100%" stop-color="#b0c8f5" stop-opacity="0"/>
+          <stop offset="30%" stop-color="#f4f7ff" stop-opacity="0.95"/>
+          <stop offset="60%" stop-color="#d4e2fc" stop-opacity="0.45"/>
+          <stop offset="85%" stop-color="#9bbdf8" stop-opacity="0.12"/>
+          <stop offset="100%" stop-color="#9bbdf8" stop-opacity="0"/>
         </radialGradient>
 
         <!-- Day Ambient Corona Halo -->
@@ -94,10 +94,10 @@
 
         <!-- Night Ambient Halo -->
         <radialGradient id="moon-ambient-halo" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.30"/>
-          <stop offset="40%" stop-color="#d9e6fc" stop-opacity="0.15"/>
-          <stop offset="75%" stop-color="#b2ccf8" stop-opacity="0.05"/>
-          <stop offset="100%" stop-color="#b2ccf8" stop-opacity="0"/>
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"/>
+          <stop offset="40%" stop-color="#d9e6fc" stop-opacity="0.18"/>
+          <stop offset="75%" stop-color="#8baef0" stop-opacity="0.06"/>
+          <stop offset="100%" stop-color="#8baef0" stop-opacity="0"/>
         </radialGradient>
 
         <!-- Cloud Gradients -->
@@ -134,7 +134,7 @@
         </radialGradient>
       </defs>
 
-      <!-- 1. Sky Background Blobs -->
+      <!-- 1. Sky Background Atmospheric Base Blobs -->
       <g class="sky-blob-layer" filter="url(#sky-gaussian-blur)">
         <circle id="sky-blob-1" class="sky-blob blob1" cx="280" cy="220" r="380" fill="#e4f1fa" opacity="0.52" />
         <circle id="sky-blob-2" class="sky-blob blob2" cx="820" cy="160" r="420" fill="#d2e8f7" opacity="0.48" />
@@ -143,18 +143,43 @@
         <circle id="sky-blob-5" class="sky-blob blob5" cx="120" cy="440" r="340" fill="#fbf0e1" opacity="0.40" />
       </g>
 
-      <!-- Night Stars Layer (Fades in at night) -->
-      <g id="sky-stars-group" opacity="0" style="transition: opacity 1.2s ease;">
-        <circle cx="180" cy="90" r="1.5" fill="#ffffff" opacity="0.6"/>
-        <circle cx="340" cy="140" r="1.2" fill="#ffffff" opacity="0.5"/>
-        <circle cx="520" cy="80" r="1.8" fill="#ffffff" opacity="0.7"/>
-        <circle cx="710" cy="120" r="1.2" fill="#ffffff" opacity="0.4"/>
-        <circle cx="890" cy="65" r="1.5" fill="#ffffff" opacity="0.65"/>
-        <circle cx="1100" cy="110" r="1.3" fill="#ffffff" opacity="0.5"/>
-        <circle cx="1280" cy="85" r="1.6" fill="#ffffff" opacity="0.75"/>
+      <!-- 2. Night Stars & Sparkles (Smoothly activated during night) -->
+      <g id="sky-stars-group" class="sky-stars-group">
+        <!-- Crisp circular stars -->
+        <circle cx="160" cy="85" r="1.5" class="svg-star star-pulse-1" />
+        <circle cx="280" cy="140" r="1.2" class="svg-star star-pulse-2" />
+        <circle cx="390" cy="65" r="1.8" class="svg-star star-pulse-3" />
+        <circle cx="510" cy="115" r="1.3" class="svg-star star-pulse-1" />
+        <circle cx="620" cy="70" r="2.0" class="svg-star star-pulse-2" />
+        <circle cx="730" cy="130" r="1.1" class="svg-star star-pulse-3" />
+        <circle cx="850" cy="55" r="1.7" class="svg-star star-pulse-1" />
+        <circle cx="1080" cy="80" r="1.4" class="svg-star star-pulse-2" />
+        <circle cx="1200" cy="135" r="1.8" class="svg-star star-pulse-1" />
+        <circle cx="1320" cy="75" r="1.2" class="svg-star star-pulse-3" />
+        <circle cx="210" cy="220" r="1.3" class="svg-star star-pulse-2" />
+        <circle cx="430" cy="180" r="1.5" class="svg-star star-pulse-1" />
+        <circle cx="670" cy="240" r="1.2" class="svg-star star-pulse-3" />
+        <circle cx="1250" cy="210" r="1.6" class="svg-star star-pulse-2" />
+        
+        <!-- Cross Sparkle Stars -->
+        <g transform="translate(320, 95)" class="svg-star star-pulse-1">
+          <line x1="-6" y1="0" x2="6" y2="0" stroke="#ffffff" stroke-width="0.8" stroke-linecap="round" />
+          <line x1="0" y1="-6" x2="0" y2="6" stroke="#ffffff" stroke-width="0.8" stroke-linecap="round" />
+          <circle cx="0" cy="0" r="1.4" fill="#ffffff" />
+        </g>
+        <g transform="translate(780, 85)" class="svg-star star-pulse-2">
+          <line x1="-7" y1="0" x2="7" y2="0" stroke="#ffffff" stroke-width="0.9" stroke-linecap="round" />
+          <line x1="0" y1="-7" x2="0" y2="7" stroke="#ffffff" stroke-width="0.9" stroke-linecap="round" />
+          <circle cx="0" cy="0" r="1.6" fill="#ffffff" />
+        </g>
+        <g transform="translate(1140, 60)" class="svg-star star-pulse-3">
+          <line x1="-5" y1="0" x2="5" y2="0" stroke="#ffffff" stroke-width="0.8" stroke-linecap="round" />
+          <line x1="0" y1="-5" x2="0" y2="5" stroke="#ffffff" stroke-width="0.8" stroke-linecap="round" />
+          <circle cx="0" cy="0" r="1.3" fill="#ffffff" />
+        </g>
       </g>
 
-      <!-- 2. Varied Organic Clouds -->
+      <!-- 3. Varied Organic Clouds Layer -->
       <g class="sky-clouds-layer" filter="url(#cloud-gaussian-blur)">
         <g class="cloud-cluster-1" transform="translate(1140, 470)">
           <ellipse cx="40" cy="30" rx="260" ry="110" fill="url(#cloud-grad-dense)" opacity="0.90"/>
@@ -192,7 +217,7 @@
         </g>
       </g>
 
-      <!-- 3. Celestial Body (Sun / Moon) & Glare System -->
+      <!-- 4. Celestial Body (Sun / Moon) & Glare System -->
       <g id="sky-sun-group" class="sun-flare-system">
         <g class="sun-head" transform="translate(940, 155)">
           <circle id="celestial-halo" cx="0" cy="0" r="210" fill="url(#glare-ambient-halo)" filter="url(#glare-haze-blur)"/>

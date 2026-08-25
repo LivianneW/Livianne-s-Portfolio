@@ -179,7 +179,6 @@ a {
   font-size: 0.875rem;
   color: var(--text-dark);
   font-weight: 400;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
 }
 
 .sky-dot {
@@ -691,6 +690,117 @@ a {
   color: #d3a0a0;
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   DEEP NIGHT SKY, FAINT CLOUDS & TWINKLING STARS
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Night Background & Typography Colors */
+.hero.night-mode {
+  background-color: #0b0f19 !important;
+  color: #f1f5f9;
+}
+
+/* Deep midnight radial backdrop scrim */
+.hero.night-mode .weather-scrim {
+  background: radial-gradient(
+    120% 80% at 30% 30%,
+    rgba(11, 15, 25, 0.20) 0%,
+    rgba(11, 15, 25, 0.92) 100%
+  ) !important;
+}
+
+/* Subdue and dim all bright cloud clusters at night */
+.hero.night-mode .sky-clouds-layer {
+  opacity: 0.12 !important;
+  filter: blur(45px);
+  transition: opacity 1.4s ease, filter 1.4s ease;
+}
+
+/* Darken atmospheric background blobs */
+.hero.night-mode .sky-blob {
+  fill: #161f30 !important;
+  opacity: 0.25 !important;
+  transition: fill 1.4s ease, opacity 1.4s ease;
+}
+
+/* Glowing Moon Configuration */
+.hero.night-mode #celestial-halo {
+  fill: url(#moon-ambient-halo) !important;
+  r: 170px;
+}
+
+.hero.night-mode #celestial-bloom,
+.hero.night-mode #celestial-body,
+.hero.night-mode #celestial-disc {
+  fill: url(#moon-glow-grad) !important;
+}
+
+.hero.night-mode #sun-glare-rays,
+.hero.night-mode #lens-flare-elements {
+  opacity: 0 !important; /* Hide strong daytime solar glare lines */
+}
+
+/* Night Weather Pill Styling */
+.hero.night-mode .widget-current {
+  background: rgba(18, 24, 38, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f1f5f9;
+}
+
+.hero.night-mode .hero-tagline {
+  color: #94a3b8;
+}
+
+.hero.night-mode .matrix-label {
+  color: #64748b;
+}
+
+.hero.night-mode .matrix-value {
+  color: #e2e8f0;
+}
+
+/* ── Starfield Layer & Animations ── */
+.sky-stars-group {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.4s ease-in-out;
+}
+
+.hero.night-mode .sky-stars-group {
+  opacity: 1;
+}
+
+.svg-star {
+  fill: #ffffff;
+}
+
+.star-pulse-1 {
+  animation: starTwinkle 2.4s ease-in-out infinite alternate;
+}
+
+.star-pulse-2 {
+  animation: starTwinkle 3.6s ease-in-out infinite 0.9s alternate;
+}
+
+.star-pulse-3 {
+  animation: starTwinkle 3.0s ease-in-out infinite 1.7s alternate;
+}
+
+@keyframes starTwinkle {
+  0% {
+    opacity: 0.2;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 0.85;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.18);
+    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.95));
+  }
+}
+
 /* RESPONSIVENESS */
 @media (max-width: 1024px) {
   .container, .hero-wrapper, .gallery-wrapper, .footer-container, .nav-container, .about-layout {
@@ -927,9 +1037,24 @@ a {
 }
 
 @media (max-width: 640px) {
-  .photo-gallery {
+  .hero-weather-bg svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .filter-controls {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    width: 100%;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .works-matrix {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    row-gap: 3rem;
   }
 }
 
