@@ -85,6 +85,7 @@ if (hamburgerMenu && menuOverlay && menuPanel) {
 /**
  * ─────────────────────────────────────────────────────────────
  * 5. ATMOSPHERIC GAUSSIAN BLOB, CLOUD & CELESTIAL DRIFT ENGINE
+ * (Stars excluded completely so they remain stationary)
  * ─────────────────────────────────────────────────────────────
  */
 (function initAtmosphericBlobDrift() {
@@ -187,7 +188,6 @@ if (hamburgerMenu && menuOverlay && menuPanel) {
   const tempEl = document.getElementById('widget-temp');
   const condEl = document.getElementById('widget-condition');
 
-  // Palette schemes for day, sunset, and nighttime in Los Angeles
   const skyPalettes = {
     sunnyDay: {
       blobs: ['#e4f1fa', '#d2e8f7', '#eee1ee', '#e5f3fa', '#fbf0e1'],
@@ -200,7 +200,6 @@ if (hamburgerMenu && menuOverlay && menuPanel) {
       isNight: false
     },
     nightSky: {
-      // Deep midnight indigo tones
       blobs: ['#161e2e', '#0f172a', '#1e1b4b', '#111827', '#172554'],
       heroBg: '#0b0f19',
       isNight: true
@@ -280,7 +279,6 @@ if (hamburgerMenu && menuOverlay && menuPanel) {
   }
 
   function determineLATargetTheme(weatherKey, isDay, hour) {
-    // Check API day/night flag first, with fallback to local hour
     if (isDay === 0 || (isDay === null && (hour >= 20 || hour < 6))) return 'nightSky';
     if (hour >= 17 && hour < 20) return 'goldenHour';
     if (weatherKey === 'rain') return 'rainyMist';

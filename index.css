@@ -786,6 +786,51 @@ a {
   animation: starTwinkle 3.0s ease-in-out infinite 1.7s alternate;
 }
 
+/* ── STATIONARY NIGHT STARS GLOW EFFECT ── */
+.sky-stars-group {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.2s ease-in-out;
+}
+
+/* Activate only when .night-mode is added to #weather-hero */
+.night-mode .sky-stars-group {
+  opacity: 1;
+}
+
+.night-mode .svg-star {
+  fill: #ffffff;
+  transform: none !important; /* Locks stars strictly in position */
+}
+
+/* Staggered soft pulsing glow */
+.night-mode .star-pulse-1 {
+  animation: starPulse 2.8s ease-in-out infinite alternate;
+}
+
+.night-mode .star-pulse-2 {
+  animation: starPulse 3.6s ease-in-out infinite alternate 0.8s;
+}
+
+.night-mode .star-pulse-3 {
+  animation: starPulse 4.2s ease-in-out infinite alternate 1.6s;
+}
+
+@keyframes starPulse {
+  0% {
+    opacity: 0.2;
+    filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.3));
+  }
+  50% {
+    opacity: 0.75;
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 5px rgba(186, 215, 255, 0.5));
+  }
+  100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 1)) drop-shadow(0 0 7px rgba(197, 222, 255, 0.7));
+  }
+}
+
 @keyframes starTwinkle {
   0% {
     opacity: 0.2;

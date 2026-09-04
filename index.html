@@ -143,39 +143,88 @@
         <circle id="sky-blob-5" class="sky-blob blob5" cx="120" cy="440" r="340" fill="#fbf0e1" opacity="0.40" />
       </g>
 
-      <!-- 2. Night Stars & Sparkles (Smoothly activated during night) -->
+<!-- 2. Night Stars & Sparkles (Stationary & Shimmering) -->
       <g id="sky-stars-group" class="sky-stars-group">
         <!-- Crisp circular stars -->
+        <circle cx="95" cy="110" r="1.1" class="svg-star star-pulse-2" />
         <circle cx="160" cy="85" r="1.5" class="svg-star star-pulse-1" />
-        <circle cx="280" cy="140" r="1.2" class="svg-star star-pulse-2" />
-        <circle cx="390" cy="65" r="1.8" class="svg-star star-pulse-3" />
-        <circle cx="510" cy="115" r="1.3" class="svg-star star-pulse-1" />
-        <circle cx="620" cy="70" r="2.0" class="svg-star star-pulse-2" />
-        <circle cx="730" cy="130" r="1.1" class="svg-star star-pulse-3" />
-        <circle cx="850" cy="55" r="1.7" class="svg-star star-pulse-1" />
-        <circle cx="1080" cy="80" r="1.4" class="svg-star star-pulse-2" />
-        <circle cx="1200" cy="135" r="1.8" class="svg-star star-pulse-1" />
-        <circle cx="1320" cy="75" r="1.2" class="svg-star star-pulse-3" />
         <circle cx="210" cy="220" r="1.3" class="svg-star star-pulse-2" />
+        <circle cx="245" cy="50" r="1.0" class="svg-star star-pulse-3" />
+        <circle cx="280" cy="140" r="1.2" class="svg-star star-pulse-2" />
+        <circle cx="340" cy="230" r="1.4" class="svg-star star-pulse-1" />
+        <circle cx="390" cy="65" r="1.8" class="svg-star star-pulse-3" />
         <circle cx="430" cy="180" r="1.5" class="svg-star star-pulse-1" />
+        <circle cx="475" cy="90" r="0.9" class="svg-star star-pulse-2" />
+        <circle cx="510" cy="115" r="1.3" class="svg-star star-pulse-1" />
+        <circle cx="560" cy="210" r="1.1" class="svg-star star-pulse-3" />
+        <circle cx="620" cy="70" r="2.0" class="svg-star star-pulse-2" />
         <circle cx="670" cy="240" r="1.2" class="svg-star star-pulse-3" />
+        <circle cx="710" cy="50" r="1.4" class="svg-star star-pulse-1" />
+        <circle cx="730" cy="130" r="1.1" class="svg-star star-pulse-3" />
+        <circle cx="795" cy="220" r="1.5" class="svg-star star-pulse-2" />
+        <circle cx="850" cy="55" r="1.7" class="svg-star star-pulse-1" />
+        <circle cx="890" cy="145" r="1.0" class="svg-star star-pulse-3" />
+        <circle cx="960" cy="80" r="1.3" class="svg-star star-pulse-1" />
+        <circle cx="1020" cy="165" r="1.1" class="svg-star star-pulse-2" />
+        <circle cx="1080" cy="80" r="1.4" class="svg-star star-pulse-2" />
+        <circle cx="1120" cy="190" r="1.2" class="svg-star star-pulse-3" />
+        <circle cx="1200" cy="135" r="1.8" class="svg-star star-pulse-1" />
         <circle cx="1250" cy="210" r="1.6" class="svg-star star-pulse-2" />
+        <circle cx="1285" cy="95" r="1.0" class="svg-star star-pulse-1" />
+        <circle cx="1320" cy="75" r="1.2" class="svg-star star-pulse-3" />
+        <circle cx="1360" cy="160" r="1.4" class="svg-star star-pulse-2" />
+
+        <!-- Distant Micro-Pinpoints -->
+        <circle cx="130" cy="170" r="0.75" class="svg-star star-pulse-3" opacity="0.6" />
+        <circle cx="180" cy="40" r="0.7" class="svg-star star-pulse-1" opacity="0.5" />
+        <circle cx="310" cy="180" r="0.8" class="svg-star star-pulse-2" opacity="0.6" />
+        <circle cx="360" cy="120" r="0.65" class="svg-star star-pulse-1" opacity="0.5" />
+        <circle cx="450" cy="45" r="0.7" class="svg-star star-pulse-3" opacity="0.7" />
+        <circle cx="585" cy="135" r="0.8" class="svg-star star-pulse-2" opacity="0.6" />
+        <circle cx="640" cy="185" r="0.65" class="svg-star star-pulse-1" opacity="0.5" />
+        <circle cx="760" cy="175" r="0.75" class="svg-star star-pulse-3" opacity="0.6" />
+        <circle cx="820" cy="100" r="0.7" class="svg-star star-pulse-2" opacity="0.5" />
+        <circle cx="915" cy="60" r="0.85" class="svg-star star-pulse-1" opacity="0.7" />
+        <circle cx="1040" cy="110" r="0.7" class="svg-star star-pulse-3" opacity="0.5" />
+        <circle cx="1165" cy="160" r="0.75" class="svg-star star-pulse-2" opacity="0.6" />
+        <circle cx="1225" cy="65" r="0.8" class="svg-star star-pulse-1" opacity="0.7" />
+        <circle cx="1340" cy="225" r="0.7" class="svg-star star-pulse-3" opacity="0.5" />
         
         <!-- Cross Sparkle Stars -->
+        <g transform="translate(180, 100)" class="svg-star star-pulse-2">
+          <line x1="-5" y1="0" x2="5" y2="0" stroke="#ffffff" stroke-width="0.8" stroke-linecap="round" />
+          <line x1="0" y1="-5" x2="0" y2="5" stroke="#ffffff" stroke-width="0.8" stroke-linecap="round" />
+          <circle cx="0" cy="0" r="1.2" fill="#ffffff" />
+        </g>
         <g transform="translate(320, 95)" class="svg-star star-pulse-1">
           <line x1="-6" y1="0" x2="6" y2="0" stroke="#ffffff" stroke-width="0.8" stroke-linecap="round" />
           <line x1="0" y1="-6" x2="0" y2="6" stroke="#ffffff" stroke-width="0.8" stroke-linecap="round" />
           <circle cx="0" cy="0" r="1.4" fill="#ffffff" />
+        </g>
+        <g transform="translate(540, 65)" class="svg-star star-pulse-3">
+          <line x1="-5" y1="0" x2="5" y2="0" stroke="#ffffff" stroke-width="0.8" stroke-linecap="round" />
+          <line x1="0" y1="-5" x2="0" y2="5" stroke="#ffffff" stroke-width="0.8" stroke-linecap="round" />
+          <circle cx="0" cy="0" r="1.2" fill="#ffffff" />
         </g>
         <g transform="translate(780, 85)" class="svg-star star-pulse-2">
           <line x1="-7" y1="0" x2="7" y2="0" stroke="#ffffff" stroke-width="0.9" stroke-linecap="round" />
           <line x1="0" y1="-7" x2="0" y2="7" stroke="#ffffff" stroke-width="0.9" stroke-linecap="round" />
           <circle cx="0" cy="0" r="1.6" fill="#ffffff" />
         </g>
+        <g transform="translate(980, 125)" class="svg-star star-pulse-1">
+          <line x1="-5.5" y1="0" x2="5.5" y2="0" stroke="#ffffff" stroke-width="0.8" stroke-linecap="round" />
+          <line x1="0" y1="-5.5" x2="0" y2="5.5" stroke="#ffffff" stroke-width="0.8" stroke-linecap="round" />
+          <circle cx="0" cy="0" r="1.3" fill="#ffffff" />
+        </g>
         <g transform="translate(1140, 60)" class="svg-star star-pulse-3">
           <line x1="-5" y1="0" x2="5" y2="0" stroke="#ffffff" stroke-width="0.8" stroke-linecap="round" />
           <line x1="0" y1="-5" x2="0" y2="5" stroke="#ffffff" stroke-width="0.8" stroke-linecap="round" />
           <circle cx="0" cy="0" r="1.3" fill="#ffffff" />
+        </g>
+        <g transform="translate(1300, 140)" class="svg-star star-pulse-2">
+          <line x1="-5" y1="0" x2="5" y2="0" stroke="#ffffff" stroke-width="0.8" stroke-linecap="round" />
+          <line x1="0" y1="-5" x2="0" y2="5" stroke="#ffffff" stroke-width="0.8" stroke-linecap="round" />
+          <circle cx="0" cy="0" r="1.2" fill="#ffffff" />
         </g>
       </g>
 

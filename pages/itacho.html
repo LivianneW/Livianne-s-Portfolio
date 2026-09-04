@@ -65,6 +65,45 @@
       justify-content: center;
     }
 
+    /* ── FOR THE CURIOUS STYLING (COMPACT SIZING) ── */
+    .curious-hero-unit {
+      width: calc(50% - 16px);
+      max-width: 380px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .curious-hero-unit .final-image {
+      width: 100% !important;
+      height: auto !important;
+      aspect-ratio: 16 / 9;
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .curious-menu-unit {
+      width: 100%;
+      max-width: 520px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .curious-menu-unit .final-image {
+      width: 100% !important;
+      height: auto !important;
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    .curious-menu-unit .final-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
     /* ── MOBILE OVERRIDES ONLY (Leaves Desktop Untouched) ── */
     @media (max-width: 768px) {
       /* Disable touch/pointer hover artifacts on mobile */
@@ -127,6 +166,22 @@
 
       .figma-embed-container iframe {
         height: 460px !important;
+      }
+
+      /* For the Curious Mobile Rules */
+      .curious-hero-unit {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      .curious-hero-unit .final-image {
+        width: 100% !important;
+        aspect-ratio: 16 / 9 !important;
+      }
+
+      .curious-menu-unit {
+        width: 100% !important;
+        max-width: 100% !important;
       }
     }
 
@@ -231,6 +286,7 @@
           <a href="#final-design" class="toc-link">Final Design</a>
           <a href="#reflection" class="toc-link">Reflection</a>          
           <a href="#prototype" class="toc-link">Interactive Prototype</a>  
+          <a href="#for-the-curious" class="toc-link">For the Curious</a>
         </nav>
 
         <a 
@@ -263,8 +319,8 @@
         <h2 class="section-heading" style="color: #70b074; font-size: 32px;">A Better Way to Explore the Menu</h2>
         <p class="text-paragraph">
           The experience of browsing Itacho Sushi's website was negatively impacted by a complicated menu structure and unclear information architecture.
-           Customers struggled to distinguish between lunch and dinner offerings, understand three pricing tiers, and locate dishes that fit their dietary preferences. 
-           Rather than supporting quick decision-making, the website increased cognitive load and slowed the discovery experience.
+          Customers struggled to distinguish between lunch and dinner offerings, understand three pricing tiers, and locate dishes that fit their dietary preferences. 
+          Rather than supporting quick decision-making, the website increased cognitive load and slowed the discovery experience.
         </p>
       </section>
 
@@ -322,52 +378,52 @@
             <!-- Insight 1 Images Frame (2x2 GRID FORMAT) -->
             <div style="display: flex; flex-direction: column; gap: 24px; width: 100%; margin: 1.5rem 0 2.5rem 0;">
               
-<!-- 2x2 GRID FORMAT WITH CUSTOM SPACING -->
-<div style="display: flex; flex-direction: column; gap: 64px; width: 100%; margin: 0.5rem 0 0.5rem 0;">
-  
-  <!-- ROW 1: BEFORE SECTION -->
-  <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
-    <div class="image-label-badge" style="background-color: rgba(28, 28, 28, 0.04); color: #1c1c1c; padding: 6px 20px; border-radius: 8px; font-size: 14px; width: 180px; text-align: center; margin: 0 0 4px 0 !important; font-weight: 400;">
-      Before
-    </div>
-    
-    <div class="comparison-row-side-by-side" style="display: flex; justify-content: center; gap: 48px; width: 100%; flex-wrap: wrap;">
-      <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center;">
-        <div class="final-image" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 25px; overflow: hidden; margin: 0;">
-          <img src="../assets/validation1.png" alt="Original Menu Selection Flow" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
-        </div>
-      </div>
+              <!-- 2x2 GRID FORMAT WITH CUSTOM SPACING -->
+              <div style="display: flex; flex-direction: column; gap: 64px; width: 100%; margin: 0.5rem 0 0.5rem 0;">
+                
+                <!-- ROW 1: BEFORE SECTION -->
+                <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+                  <div class="image-label-badge" style="background-color: rgba(28, 28, 28, 0.04); color: #1c1c1c; padding: 6px 20px; border-radius: 8px; font-size: 14px; width: 180px; text-align: center; margin: 0 0 4px 0 !important; font-weight: 400;">
+                    Before
+                  </div>
+                  
+                  <div class="comparison-row-side-by-side" style="display: flex; justify-content: center; gap: 48px; width: 100%; flex-wrap: wrap;">
+                    <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center;">
+                      <div class="final-image" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 25px; overflow: hidden; margin: 0;">
+                        <img src="../assets/validation1.png" alt="Original Menu Selection Flow" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
+                      </div>
+                    </div>
 
-      <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center;">
-        <div class="final-image" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 25px; overflow: hidden; margin: 0;">
-          <img src="../assets/validation2.png" alt="Original Pricing Structure" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
-        </div>
-      </div>
-    </div>
-  </div>
+                    <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center;">
+                      <div class="final-image" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 25px; overflow: hidden; margin: 0;">
+                        <img src="../assets/validation2.png" alt="Original Pricing Structure" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-  <!-- ROW 2: AFTER SECTION -->
-  <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
-    <div class="image-label-badge" style="background-color: var(--color-btn-bg); color: var(--color-green-accent); padding: 6px 20px; border-radius: 8px; font-size: 14px; width: 180px; text-align: center; margin: 0 0 4px 0 !important; font-weight: 400;">
-      After
-    </div>
+                <!-- ROW 2: AFTER SECTION -->
+                <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+                  <div class="image-label-badge" style="background-color: var(--color-btn-bg); color: var(--color-green-accent); padding: 6px 20px; border-radius: 8px; font-size: 14px; width: 180px; text-align: center; margin: 0 0 4px 0 !important; font-weight: 400;">
+                    After
+                  </div>
 
-    <div class="comparison-row-side-by-side" style="display: flex; justify-content: center; gap: 48px; width: 100%; flex-wrap: wrap;">
-      <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center;">
-        <div class="final-image highlighted" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 25px; overflow: hidden; margin: 0;">
-          <img src="../assets/validation3.png" alt="Redesigned Meal Category Overhaul" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
-        </div>
-      </div>
+                  <div class="comparison-row-side-by-side" style="display: flex; justify-content: center; gap: 48px; width: 100%; flex-wrap: wrap;">
+                    <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center;">
+                      <div class="final-image highlighted" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 25px; overflow: hidden; margin: 0;">
+                        <img src="../assets/validation3.png" alt="Redesigned Meal Category Overhaul" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
+                      </div>
+                    </div>
 
-      <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center;">
-        <div class="final-image highlighted" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 25px; overflow: hidden; margin: 0;">
-          <img src="../assets/FINALMENU.png" alt="Redesigned Menu Item Tier Integration" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
-        </div>
-      </div>
-    </div>
-  </div>
+                    <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center;">
+                      <div class="final-image highlighted" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 25px; overflow: hidden; margin: 0;">
+                        <img src="../assets/FINALMENU.png" alt="Redesigned Menu Item Tier Integration" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-</div>
+              </div>
 
             </div>
           </div>   
@@ -484,7 +540,7 @@
           </p> 
           <p> 
             The hours my team spent exploring different directions, discussing our decisions, and revisiting our designs allowed us to develop our initial concepts into a more
-             thoughtful and intentional experience. Through each iteration, we gained a better understanding of the problem we were solving and learned that <u> strong design comes
+            thoughtful and intentional experience. Through each iteration, we gained a better understanding of the problem we were solving and learned that <u> strong design comes
             from being open to change</u> rather than trying to find the perfect answer too early.
           </p> 
           <p>
@@ -515,6 +571,117 @@
             allowfullscreen
             style="border: none; border-radius: 12px; background: rgba(0,0,0,0.02);">
           </iframe> 
+        </div>
+      </section>
+
+<section id="for-the-curious" class="content-section padding-bottom-large">
+        <p class="section-label">FOR THE CURIOUS</p>
+        <h2 class="section-heading">Design Explorations</h2>
+        <p class="text-paragraph" style="margin-bottom: 2.5rem;">
+          A collection of directions we explored throughout the design process, experimenting with visual identity, composition, and menu organization before arriving at the final experience.
+        </p>
+
+        <!-- EXPLORATION GROUP 1: HERO & BRANDING CONCEPTS (2x2 GRID + FINAL DESIGN) -->
+        <div class="insight-card" style="margin-bottom: 3rem;">
+          <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 0.5rem; color: var(--text-dark);">
+            1. Hero Banner & Visual Identity Directions
+          </h3>
+          <p style="font-size: 17px; font-weight: 300; color: var(--text-grey); margin-bottom: 1.5rem;">
+            Early visual iterations exploring different balances between dynamic photography, traditional Japanese calligraphy, bold typography, and varied button accents.
+          </p>
+
+          <div style="display: flex; flex-direction: column; gap: 20px; width: 100%;">
+            <!-- 2x2 ROW 1 -->
+            <div class="comparison-row-side-by-side" style="gap: 24px; margin: 0;">
+              <!-- Hero Option 1 -->
+              <div class="curious-hero-unit">
+                <div class="final-image">
+                  <img src="../assets/itacho1.png" alt="Dark Wood Ambient Hero Exploration">
+                </div>
+              </div>
+
+              <!-- Hero Option 2 -->
+              <div class="curious-hero-unit">
+                <div class="final-image">
+                  <img src="../assets/itacho2.0.png" alt="Red Calligraphy Hero Exploration">
+                </div>
+              </div>
+            </div>
+
+            <!-- 2x2 ROW 2 -->
+            <div class="comparison-row-side-by-side" style="gap: 24px; margin: 0;">
+              <!-- Hero Option 3 -->
+              <div class="curious-hero-unit">
+                <div class="final-image">
+                  <img src="../assets/itacho3.png" alt="White Brushwork Hero Exploration">
+                </div>
+              </div>
+
+              <!-- Hero Option 4 -->
+              <div class="curious-hero-unit">
+                <div class="final-image">
+                  <img src="../assets/itacho4.png" alt="Plate Focus Hero Exploration">
+                </div>
+              </div>
+            </div>
+
+            <!-- FINAL HERO BANNER DESIGN -->
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; width: 100%; margin-top: 12px;">
+              <div class="image-label-badge" style="background-color: var(--color-btn-bg); color: var(--color-green-accent); padding: 6px 20px; border-radius: 8px; font-size: 13px; font-weight: 400; margin: 0;">
+                Final Hero Design
+              </div>
+              <div class="curious-menu-unit">
+                <div class="final-image highlighted">
+                  <img src="../assets/itacho5.png" alt="Final Itacho Sushi Hero Banner Design" style="aspect-ratio: 16 / 7.5; object-fit: cover;">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- EXPLORATION GROUP 2: MENU HEADER & PRICING ITERATIONS (COMPACT/SMALLER SIZING + FINAL DESIGN) -->
+        <div class="insight-card">
+          <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 0.5rem; color: var(--text-dark);">
+            2. Menu Header & Tiers
+          </h3>
+          <p style="font-size: 17px; font-weight: 300; color: var(--text-grey); margin-bottom: 1.5rem;">
+            We experimented with different approaches to tier selection, category navigation, and pricing hierarchy to find a layout that was clearer and easier to navigate than our earlier iterations.
+          </p>
+
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%;">
+            <!-- Header Option 1 -->
+            <div class="curious-menu-unit">
+              <div class="final-image">
+                <img src="../assets/itachomenu1.png" alt="Menu Header Exploration with Red Accents">
+              </div>
+            </div>
+
+            <!-- Header Option 2 -->
+            <div class="curious-menu-unit">
+              <div class="final-image">
+                <img src="../assets/itachomenu2.png" alt="Menu Header Exploration with Gold Line Accent">
+              </div>
+            </div>
+
+            <!-- Header Option 3 -->
+            <div class="curious-menu-unit">
+              <div class="final-image">
+                <img src="../assets/itachomenu3.png" alt="Centered Menu Header Exploration">
+              </div>
+            </div>
+
+            <!-- FINAL MENU HEADER DESIGN -->
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; width: 100%; margin-top: 12px;">
+              <div class="image-label-badge" style="background-color: var(--color-btn-bg); color: var(--color-green-accent); padding: 6px 20px; border-radius: 8px; font-size: 13px; font-weight: 400; margin: 0;">
+                Final Menu Header Design
+              </div>
+              <div class="curious-menu-unit">
+                <div class="final-image highlighted">
+                  <img src="../assets/itachomenu4.png" alt="Final Menu Header Redesign">
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
