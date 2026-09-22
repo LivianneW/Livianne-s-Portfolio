@@ -655,6 +655,23 @@
       }
     }
     
+    .project-meta-dashboard {
+      column-gap: 3rem;
+    }
+
+    .project-meta-dashboard .skills-col,
+    .project-meta-dashboard > .meta-dashboard-col:nth-child(3),
+    .project-meta-dashboard > .meta-dashboard-col:nth-child(4) {
+      transform: translateX(2rem);
+    }
+
+    @media (max-width: 920px) {
+      .project-meta-dashboard .skills-col,
+      .project-meta-dashboard > .meta-dashboard-col:nth-child(3),
+      .project-meta-dashboard > .meta-dashboard-col:nth-child(4) {
+        transform: none;
+      }
+    }
   </style>
 </head>
 <body>
@@ -682,7 +699,7 @@
     </div>
   </header>
 
-  <section class="hero-banner">
+  <section class="hero-banner case-hero-costco">
     <div class="container hero-container">
       <div class="hero-top-split">
         <div class="hero-text-block">
