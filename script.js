@@ -1,10 +1,20 @@
-/**
- * ─────────────────────────────────────────────────────────────
- * 1. WORK GALLERY FILTERING
- * ─────────────────────────────────────────────────────────────
- */
+// filter butons
+
 const filterBtns = document.querySelectorAll('.filter-btn');
 const workCards = document.querySelectorAll('.work-card');
+
+function applyProjectFilter(filterValue) {
+  workCards.forEach(card => {
+    const rawCat = card.getAttribute('data-cat') || card.getAttribute('data-categories') || '';
+    const categories = rawCat.trim().split(/\s+/);
+
+    if (filterValue === 'all' || categories.includes(filterValue)) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
 
 if (filterBtns.length > 0 && workCards.length > 0) {
   filterBtns.forEach(btn => {
@@ -14,17 +24,14 @@ if (filterBtns.length > 0 && workCards.length > 0) {
       btn.classList.add('active');
 
       const filterValue = btn.getAttribute('data-filter') || 'all';
-
-      workCards.forEach(card => {
-        const cardCat = card.getAttribute('data-cat') || card.getAttribute('data-categories') || '';
-        if (filterValue === 'all' || cardCat.includes(filterValue)) {
-          card.style.display = '';
-        } else {
-          card.style.display = 'none';
-        }
-      });
+      applyProjectFilter(filterValue);
     });
   });
+
+  // Automatically filter on initial page load based on whichever button has .active
+  const initialActiveBtn = document.querySelector('.filter-btn.active');
+  const initialFilter = initialActiveBtn ? initialActiveBtn.getAttribute('data-filter') : 'featured';
+  applyProjectFilter(initialFilter);
 }
 
 /**
