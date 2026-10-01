@@ -32,6 +32,155 @@
       display: block;
     }
 
+    .main-content .bullet-list {
+      list-style: none;
+      padding-left: 0;
+      gap: 0;
+    }
+
+    .main-content .bullet-list > li {
+      position: relative;
+      padding: 0.9rem 0 1rem 1.25rem;
+      border-top: 1px solid rgba(28, 28, 28, 0.08);
+    }
+
+    .main-content .bullet-list > li:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .main-content .bullet-list > li:last-child {
+      padding-bottom: 0;
+    }
+
+    .main-content .bullet-list > li::before {
+      content: "";
+      position: absolute;
+      top: calc(0.9rem + 0.7em);
+      left: 0;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #70b074;
+    }
+
+    .main-content .bullet-list > li:first-child::before {
+      top: 0.7em;
+    }
+
+    .main-content .bullet-list > li strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-weight: 500;
+    }
+
+    .research-results {
+      gap: 2rem;
+    }
+
+    .research-intro {
+      max-width: 70ch;
+    }
+
+    .research-group {
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(28, 28, 28, 0.1);
+    }
+
+    .research-group-title {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin: 0 0 0.85rem;
+      color: var(--color-dark-charcoal);
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.35;
+    }
+
+    .main-content .research-list {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .main-content .challenge-list {
+      counter-reset: challenge;
+    }
+
+    .main-content .challenge-list > li {
+      display: grid;
+      grid-template-columns: 2.25rem 1fr;
+      gap: 0.5rem;
+      padding: 0.75rem 0;
+    }
+
+    .main-content .challenge-list > li:first-child {
+      padding-top: 0;
+    }
+
+    .main-content .challenge-list > li::before {
+      position: static;
+      content: counter(challenge, decimal-leading-zero);
+      counter-increment: challenge;
+      width: auto;
+      height: auto;
+      border-radius: 0;
+      background: none;
+      color: #70b074;
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.55;
+    }
+
+    .main-content .highlight-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .main-content .highlight-list > li {
+      padding: 1rem 1rem 1rem 1.15rem;
+      border: 0;
+      border-left: 3px solid #70b074;
+      border-radius: 3px;
+      background: rgba(112, 176, 116, 0.08);
+    }
+
+    .main-content .highlight-list > li:first-child {
+      padding-top: 1rem;
+    }
+
+    .main-content .highlight-list > li:last-child {
+      padding-bottom: 1rem;
+    }
+
+    .main-content .highlight-list > li::before {
+      display: none;
+    }
+
+    .main-content .user-wants-list > li {
+      display: grid;
+      grid-template-columns: minmax(190px, 0.7fr) 1.3fr;
+      column-gap: 1.5rem;
+      align-items: baseline;
+      padding-left: 0;
+    }
+
+    .main-content .user-wants-list > li::before {
+      display: none;
+    }
+
+    .main-content .user-wants-list > li strong {
+      display: block;
+      margin: 0;
+      color: #70b074;
+    }
+
+    .main-content .user-wants-list > li span {
+      display: block;
+    }
+
     @media (max-width: 768px) {
   /* Center top split content and shrink max-width */
   .hero-top-split {
@@ -53,6 +202,54 @@
     height: auto !important;
     object-fit: contain !important;
   }
+
+  .main-content .bullet-list {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .main-content .bullet-list > li {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .main-content .bullet-list > li:first-child {
+    padding-top: 0;
+  }
+
+  .main-content .bullet-list > li::before {
+    top: calc(0.75rem + 0.65em);
+  }
+
+  .main-content .bullet-list > li:first-child::before {
+    top: 0.65em;
+  }
+
+  .research-results {
+    gap: 1.5rem;
+  }
+
+  .research-group-title {
+    font-size: 18px;
+  }
+
+  .main-content .highlight-list {
+    grid-template-columns: 1fr;
+  }
+
+  .main-content .highlight-list > li:first-child {
+    padding-top: 0.75rem;
+  }
+
+  .main-content .highlight-list > li:last-child {
+    padding-bottom: 0.75rem;
+  }
+
+  .main-content .user-wants-list > li {
+    grid-template-columns: 1fr;
+    row-gap: 0.25rem;
+  }
+
 }
 
     @media (max-width: 480px) {
@@ -177,7 +374,7 @@
       
       <section id="overview" class="content-section">
         <p class="section-label">OVERVIEW</p>
-        <h2 class="section-heading" style="color: #70b074; font-size: 32px;">Tastea Refresh</h2>
+        <h2 class="section-heading text-h2"  style="color: #70b074;">Tastea Refresh</h2>
         <div class="text-block">
           <p>
           I reimagined Tastea's website by bringing its many different visual styles into one cleaner and more cohesive experience.
@@ -189,7 +386,7 @@
 
       <section id="problem-statement" class="content-section">
         <p class="section-label">PROBLEM STATEMENT</p>
-        <h2 class="section-heading" style="color: #70b074; font-size: 32px;">Delicious Drinks, Confusing Experience</h2>
+        <h2 class="section-heading text-h2"  style="color: #70b074;">Delicious Drinks, Confusing Experience</h2>
         <p class="text-paragraph">
         I had always found Tastea's website frustrating to navigate because the experience felt visually outdated and
         unnecessarily difficult to use. The menu, arguably their biggest selling point, was especially counterintuitive, 
@@ -200,34 +397,40 @@
       <section id="research-pain-points" class="content-section">
         <p class="section-label">RESEARCH AND PAIN POINTS</p>
         <h2 class="section-heading">Validating Challenges</h2>
-        <div class="text-block">
-          <p>
+        <div class="text-block research-results">
+          <p class="research-intro">
             While I was aware of these issues from my own experience, I wasn’t sure if other users felt the same way. To gain better insight and validate these concerns, I created a questionnaire to gather feedback and better understand the overall user experience.
           </p>
-          
-          <p style="margin-top: 24px;"><strong class="font-medium">User Needs & Challenges</strong></p>
-          <ul class="bullet-list">
+
+          <div class="research-group">
+            <h3 class="research-group-title">User Needs &amp; Challenges</h3>
+            <ul class="bullet-list research-list challenge-list">
             <li>The page is functional, but not engaging enough to encourage users to spend more time on it</li>
             <li>Overall visual appeal is fair, but lacks excitement and personality</li>
             <li>Menu access should be quicker, with clearer descriptions and pricing</li>
             <li>The menu feels static and unengaging, relying heavily on black-and-white text and images</li>
             <li>The website feels outdated compared to other modern boba shop websites</li>
-          </ul>
+            </ul>
+          </div>
 
-          <p style="margin-top: 24px;"><strong class="font-medium">User Highlights</strong></p>
-          <ul class="bullet-list">
+          <div class="research-group">
+            <h3 class="research-group-title">User Highlights</h3>
+            <ul class="bullet-list research-list highlight-list">
             <li>Users like being able to slide through different images of the drink options</li>
             <li>The site makes it easy for users to quickly find what they are looking for</li>
-          </ul>
+            </ul>
+          </div>
 
-          <p style="margin-top: 24px;"><strong class="font-medium">What Users Want</strong></p>
-          <ul class="bullet-list">
-            <li><strong>Clear menu access </strong>with drink images, descriptions, and visible pricing is essential</li>
-            <li><strong>Visual menus </strong>with photos of drinks and food improve decision-making</li>
-            <li><strong>Customer favorites</strong> or “most ordered” sections help guide choices</li>
-            <li><strong>Easy and intuitive drink customization</strong> is highly valued</li>
-            <li><strong>Clear section titles</strong> help users quickly find what they’re looking for</li>
-          </ul>
+          <div class="research-group">
+            <h3 class="research-group-title">What Users Want</h3>
+            <ul class="bullet-list research-list user-wants-list">
+            <li><strong>Clear menu access</strong><span>with drink images, descriptions, and visible pricing is essential</span></li>
+            <li><strong>Visual menus</strong><span>with photos of drinks and food improve decision-making</span></li>
+            <li><strong>Customer favorites</strong><span>or “most ordered” sections help guide choices</span></li>
+            <li><strong>Easy and intuitive drink customization</strong><span>is highly valued</span></li>
+            <li><strong>Clear section titles</strong><span>help users quickly find what they’re looking for</span></li>
+            </ul>
+          </div>
 
           <p style="margin-top: 32px;"><strong class="font-medium">Competitive Analysis</strong></p>
           <p>
@@ -266,10 +469,10 @@
         <h2 class="section-heading">Before vs After</h2>
         
         <div class="prototype-showcase-block" style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; gap: 16px; margin-top: 2rem; margin-bottom: 5rem;">
-          <div class="image-label-badge" style="background-color: rgba(28, 28, 28, 0.04); padding: 8px 20px; border-radius: 10px; font-size: 14px; width: 170px;">
+          <div class="image-label-badge text-sm"  style="background-color: rgba(28, 28, 28, 0.04); padding: 8px 20px; border-radius: 10px;width: 170px;">
             Tastea's Version
           </div>
-          <p class="text-paragraph" style="max-width: 650px; color: var(--text-grey); font-size: 16px;">
+          <p class="text-paragraph text-body"  style="max-width: 650px; color: var(--text-grey);">
             This is Tastea’s original design. While visually clean, it lacks several key elements necessary for improving the user experience and streamlining the ordering process. Missing features include prices, customer favorite items, and size options. Additionally, the layout lacked a navigation bar, requiring excessive scrolling.
           </p>
           
@@ -282,10 +485,10 @@
         </div>
 
         <div class="prototype-showcase-block" style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; gap: 16px; margin-bottom: 2rem;">
-          <div class="image-label-badge" style="background-color: var(--color-btn-bg); color: var(--color-green-accent); padding: 8px 20px; border-radius: 10px; font-size: 14px; width: 170px; font-weight: 500;">
+          <div class="image-label-badge text-sm"  style="background-color: var(--color-btn-bg); color: var(--color-green-accent); padding: 8px 20px; border-radius: 10px;width: 170px; font-weight: 500;">
             My Redesign
           </div>
-          <p class="text-paragraph" style="max-width: 650px; color: var(--text-grey); font-size: 16px;">
+          <p class="text-paragraph text-body"  style="max-width: 650px; color: var(--text-grey);">
             In my redesign, I addressed these issues by refining the layout to better align with the brand’s visual identity. I introduced a sticky navigation menu bar to help customers quickly locate specific categories, smoothly scrolling users to the relevant section for a seamless experience.
           </p>
           

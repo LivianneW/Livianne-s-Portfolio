@@ -75,15 +75,21 @@
     }
 
     .notable-iteration-badge {
-      background: rgba(0, 0, 0, 0.05);
-      padding: 8px 40px;
-      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      font-size: 13px;
-      color: #585858;
+      background-color: rgba(111, 157, 120, 0.06);
+      border: 1px solid rgba(111, 157, 120, 0.12);
+      border-radius: 10px;
+      padding: 8px 20px;
+      color: var(--color-dark-charcoal);
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      line-height: 1.4;
       margin: 20px 0 16px;
-      font-weight: 500;
-      display: inline-block;
+      width: fit-content;
     }
 
     .photo-gallery {
@@ -103,6 +109,72 @@
       object-fit: cover;
       border-radius: 10px;
       scroll-snap-align: start;
+    }
+
+    .main-content .bullet-list {
+      list-style: none;
+      padding-left: 0;
+      gap: 0;
+    }
+
+    .main-content .bullet-list > li {
+      position: relative;
+      padding: 0.9rem 0 1rem 1.25rem;
+      border-top: 1px solid rgba(28, 28, 28, 0.08);
+    }
+
+    .main-content .bullet-list > li:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .main-content .bullet-list > li:last-child {
+      padding-bottom: 0;
+    }
+
+    .main-content .bullet-list > li::before {
+      content: "";
+      position: absolute;
+      top: calc(0.9rem + 0.7em);
+      left: 0;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #70b074;
+    }
+
+    .main-content .bullet-list > li:first-child::before {
+      top: 0.7em;
+    }
+
+    .main-content .bullet-list > li strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .main-content .bullet-list {
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      .main-content .bullet-list > li {
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+      }
+
+      .main-content .bullet-list > li:first-child {
+        padding-top: 0;
+      }
+
+      .main-content .bullet-list > li::before {
+        top: calc(0.75rem + 0.65em);
+      }
+
+      .main-content .bullet-list > li:first-child::before {
+        top: 0.65em;
+      }
     }
 
     @media (min-width: 1024px) {
@@ -235,7 +307,7 @@
       
       <section id="overview" class="content-section">
         <p class="section-label">OVERVIEW</p>
-        <h2 class="section-heading" style="color: #70b074; font-size: 32px;">Barriers to Bridges</h2>
+        <h2 class="section-heading text-h2"  style="color: #70b074;">Barriers to Bridges</h2>
         <div class="text-block">
           <p> Our team developed Resource Bridge, a community kiosk designed to address gaps in resource access for San Diego's 
             unhoused population. Moving beyond standard city kiosks that prioritize business directories, 
@@ -249,7 +321,7 @@
 
       <section id="problem-statement" class="content-section">
         <p class="section-label">PROBLEM STATEMENT</p>
-        <h2 class="section-heading" style="color: #70b074; font-size: 32px;">The Gap Between Need and Access</h2>
+        <h2 class="section-heading text-h2"  style="color: #70b074;">The Gap Between Need and Access</h2>
         <p class="text-paragraph">San Diego faces a severe homelessness crisis with thousands of affected individuals, 
           yet a <span style="color: #7cabb0; font-weight: 500;">massive gap exists</span> in how people access life-saving resources.
            Current support systems rely heavily on inconsistent word-of-mouth or 2-1-1 referrals that suffer from long wait times
@@ -292,7 +364,7 @@
         <div class="section-content text-block">
           <p>With our final set of design features, we created a high-fidelity prototype and conducted <span style="color: #7cabb0; font-weight: 500;">in-person interviews</span> at a popular gathering areas for unhoused individuals in downtown San Diego</p>
           
-          <p style="margin-top: 24px; font-size: 20px;"><strong class="font-medium">Patterns Identified:</strong></p>
+          <p class="text-h3" style="margin-top: 24px;"><strong class="font-medium">Patterns Identified:</strong></p>
           <ul class="bullet-list">
             <li> <strong>Low Filter Discoverability:</strong> Most participants struggled to find the filter button. </li>
             <li> <strong>Conflicting Affordances:</strong> Users frequently mistook static information tags for interactive buttons and instinctively clicked on general content containers rather than specific action links. </li>  
@@ -300,7 +372,7 @@
             <li> <strong>Positive Aesthetic Response:</strong> Despite these usability issues, participants found the kiosk interface visually appealing and the content to be potentially helpful.</li>
           </ul>
 
-          <p style="margin-top: 8px; font-size: 20px;"><strong class="font-medium">Design Iterations:</strong></p>
+          <p class="text-h3" style="margin-top: 8px;"><strong class="font-medium">Design Iterations:</strong></p>
           <ul class="bullet-list">
             <li><strong>Improve Filter Visibility:</strong> Increase the visibility of the filter button to make it easier to discover.</li>
             <li><strong>Clarify Action Labels:</strong> Remove "Learn More," as users instinctively clicked the entire card; replace it with "Details" to better indicate interactivity and intent.</li>
@@ -314,10 +386,10 @@
 
         <div style="margin-top: 48px;">
         <div class="prototype-showcase-block" style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; gap: 16px; margin-bottom: 5rem;">
-          <div class="image-label-badge" style="font-size: 17px;">
+          <div class="notable-iteration-badge">
             Notable Iteration
           </div>
-          <p class="text-paragraph" style="margin-top: 12px; margin-bottom: 24px; max-width: 800px; font-size: 16px; color: #585858">
+          <p class="text-paragraph text-body"  style="margin-top: 12px; margin-bottom: 24px; max-width: 800px;color: #585858">
            Though not directly mentioned in user testing, we felt adjusting these sections would better clarify section differences. Revising the design and layout enhances visual hierarchy, helping users distinguish key information and navigate more intuitively</p>
           <div class="iteration-comparison">
             <img src="../assets/resource-before.png" alt="Before Iteration">

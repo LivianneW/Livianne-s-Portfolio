@@ -91,15 +91,36 @@ html {
   --color-green-accent: #70b074;
   --color-btn-bg: rgba(191, 217, 153, 0.5);
   --font-primary: 'Larsseit', sans-serif;
+
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-body: 16px;
+  --font-size-body-lg: 18px;
+  --font-size-h3: 20px;
+  --font-size-h2: 32px;
+  --font-size-h1: 48px;
+  --font-size-display: 52px;
+  --font-size-nav: 19px;
+  --font-size-brand: 22px;
 }
 
 body {
   min-height: 100vh;
   background-color: var(--color-bg-white);
   font-family: var(--font-primary);
+  font-size: var(--font-size-body);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden; 
 }
+
+.text-xs { font-size: var(--font-size-xs); }
+.text-sm { font-size: var(--font-size-sm); }
+.text-body { font-size: var(--font-size-body); }
+.text-body-lg { font-size: var(--font-size-body-lg); }
+.text-h3 { font-size: var(--font-size-h3); }
+.text-h2 { font-size: var(--font-size-h2); }
+.text-h1 { font-size: var(--font-size-h1); }
+.text-display { font-size: var(--font-size-display); }
 
 /* ── LAYOUT UTILITIES ── */
 .container {
@@ -141,12 +162,12 @@ body {
 
 .logo {
   color: var(--color-dark-charcoal);
-  font-size: 1.35rem; 
+  font-size: var(--font-size-brand);
   font-weight: 500;
 }
 
 .page-indicator {
-  font-size: 16px;
+  font-size: var(--font-size-body);
   font-weight: 300;
   color: #a29fa0;
   margin-left: 8px;
@@ -161,7 +182,7 @@ body {
 .nav-link {
   text-decoration: none;
   color: var(--color-muted-grey);
-  font-size: 1.2rem; 
+  font-size: var(--font-size-nav);
   font-weight: 400;
   transition: color 0.2s ease;
 }
@@ -200,17 +221,17 @@ body {
 
 .hero-title {
   color: var(--color-dark-charcoal);
-  font-size: 3rem;          
+  font-size: var(--font-size-h1);
   font-weight: 500;
-  line-height: 1.2;               
-  max-width: 580px;               
+  line-height: 1.2;
+  max-width: 580px;
   margin: 0;
 }
 
 .hero-subtitle {
   color: var(--color-muted-grey);
-  font-size: 1.5rem;              
-  font-weight: 400;               
+  font-size: 24px;
+  font-weight: 400;
   margin-top: 12px;
 }
 
@@ -256,7 +277,7 @@ body {
 }
 
 .hero-title {
-  font-size: clamp(3rem, 5.5vw, 5rem) !important;
+  font-size: 80px!important;
   line-height: 0.98 !important;
   letter-spacing: -0.04em !important;
 }
@@ -300,7 +321,7 @@ body {
 
 .hero-subtitle {
   margin-top: 1.5rem !important;
-  font-size: 1.35rem !important;
+  font-size: 22px!important;
   color: var(--color-green-accent) !important;
 }
 
@@ -337,7 +358,7 @@ body {
   }
 
   .hero-title {
-    font-size: clamp(3rem, 10vw, 4.5rem) !important;
+    font-size: 72px!important;
   }
 
   .hero-image-wrapper {
@@ -351,7 +372,7 @@ body {
 
 @media (max-width: 600px) {
   .hero-title {
-    font-size: clamp(2.35rem, 12vw, 3rem) !important;
+    font-size: 48px!important;
   }
 }
 
@@ -568,7 +589,9 @@ body {
 .toc {
   display: flex;
   flex-direction: column;
-  gap: 1rem;  
+  gap: 1rem;
+  padding-left: 1rem;
+  border-left: 1px solid rgba(28, 28, 28, 0.1);
 }
 
 .toc-link {
@@ -636,33 +659,41 @@ u {
   text-underline-offset: 3px;                    /* Distance from text baseline */
 }
 
-.image-label-badge {
+.image-label-badge,
+.notable-iteration-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: rgba(28, 28, 28, 0.03);
-  border: 1px solid rgba(28, 28, 28, 0.06);
-  padding: 10px 20px;
-  border-radius: 12px;
-  font-size: 15px; 
+  background-color: rgba(111, 157, 120, 0.06);
+  border: 1px solid rgba(111, 157, 120, 0.12);
+  border-radius: 10px;
+  padding: 8px 20px;
+  color: var(--color-dark-charcoal);
+  font-size: 14px;
   font-weight: 400;
-  color: var(--color-muted-grey);
   letter-spacing: -0.01em;
   line-height: 1.4;
   width: fit-content;
   max-width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.image-label-badge.is-green,
+.comparison-column:nth-child(2) .image-label-badge,
+.badge-redesign-accent {
+  background-color: var(--color-btn-bg);
+  border-color: rgba(111, 157, 120, 0.18);
+  color: var(--color-green-accent);
+  font-weight: 500;
 }
 
 .section-heading {
   color: var(--color-dark-charcoal) !important;
   font-size: 28px;
   font-weight: 500;
-  margin-bottom: 0.75rem; 
-}
-
-.section-heading-accent {
-  color: var(--color-dark-charcoal) !important;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
 }
 
 .text-block, .text-paragraph {
@@ -912,7 +943,7 @@ u {
   }
 
   .hero-title {
-    font-size: 2.25rem;          
+    font-size: 36px;          
     max-width: 100%;
   }
 
@@ -988,7 +1019,7 @@ u {
 
   .image-label-badge {
     width: 100% !important;
-    font-size: 13px !important;
+    font-size: 13px!important;
     padding: 8px 12px !important;
     white-space: nowrap;
     overflow: hidden;

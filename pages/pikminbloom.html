@@ -213,7 +213,11 @@
     }
 
     .research-insight {
-      padding: 0;
+      padding: 2rem;
+      background-color: rgba(28, 28, 28, 0.01);
+      border: 1px solid rgba(28, 28, 28, 0.05);
+      border-radius: 16px;
+      box-sizing: border-box;
     }
 
     .research-insight-heading {
@@ -286,6 +290,29 @@
       max-width: 760px;
     }
 
+    .feature-item-movement .feature-copy {
+      max-width: 720px;
+      margin-top: 1.25rem;
+    }
+
+    .feature-item-movement .feature-goal {
+      margin: 0 0 0.9rem;
+      padding-left: 0.9rem;
+      border-left: 3px solid var(--color-green-accent);
+      color: var(--color-green-accent);
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.45;
+    }
+
+    .feature-item-movement .feature-goal strong {
+      color: var(--color-dark-charcoal);
+    }
+
+    .feature-item-movement .feature-description {
+      max-width: none;
+    }
+
     .feature-item .center-section-wrapper {
       margin-top: 1.5rem;
       margin-bottom: 0;
@@ -312,7 +339,7 @@
       }
 
       .research-insight {
-        padding: 0;
+        padding: 1.25rem;
       }
 
       .research-insight-heading {
@@ -393,14 +420,14 @@
     }
 
     .hero-title {
-      font-size: clamp(3.25rem, 6vw, 5.5rem);
+      font-size: 88px;
       line-height: 0.98;
       letter-spacing: -0.04em;
     }
 
     .hero-subtitle {
       margin-top: 1.5rem;
-      font-size: 1.35rem;
+      font-size: 22px;
       color: var(--color-green-accent);
     }
 
@@ -446,7 +473,7 @@
     .body-container {
       max-width: 1240px;
       padding-top: 76px;
-      gap: 6rem;
+      gap: 3rem;
     }
 
     .sidebar {
@@ -484,11 +511,12 @@
 
     .main-content {
       max-width: 820px;
-      gap: 7rem;
+      gap: 4.5rem;
     }
 
     .content-section {
       max-width: 820px;
+      margin-bottom: 0.5rem;
     }
 
     .section-label {
@@ -501,8 +529,8 @@
     .section-heading,
     .section-heading-accent {
       max-width: 700px;
-      margin-bottom: 1rem;
-      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 0.75rem;
+      font-size: 48px;
       line-height: 1.08;
       letter-spacing: -0.025em;
     }
@@ -548,16 +576,17 @@
     }
 
     .feature-list {
-      gap: 5rem;
-      margin-top: 3rem;
+      gap: 2.5rem;
+      margin-top: 2.25rem;
     }
 
     .feature-item {
       padding-top: 0;
+      margin-bottom: 0.5rem;
     }
 
     .feature-heading {
-      margin-bottom: 0.9rem;
+      margin-bottom: 0.5rem;
     }
 
     .feature-title {
@@ -565,9 +594,11 @@
     }
 
     .feature-description {
-      max-width: 700px;
+      width: 100%;
+      max-width: none;
       font-size: 17px;
       line-height: 1.7;
+      color: var(--color-muted-grey);
     }
 
     .feature-item .center-section-wrapper {
@@ -643,7 +674,7 @@
       }
 
       .hero-title {
-        font-size: clamp(3rem, 10vw, 4.5rem);
+        font-size: 72px;
       }
 
       .hero-image-wrapper {
@@ -674,7 +705,7 @@
 
     @media (max-width: 600px) {
       .hero-title {
-        font-size: clamp(2.35rem, 12vw, 3rem);
+        font-size: 48px;
       }
 
       .project-meta-dashboard {
@@ -734,14 +765,14 @@
     }
 
     .hero-title {
-      font-size: 3rem;
+      font-size: 48px;
       line-height: 1.2;
       letter-spacing: normal;
     }
 
     .hero-subtitle {
       margin-top: 12px;
-      font-size: 1.5rem;
+      font-size: 24px;
       color: var(--color-muted-grey);
     }
 
@@ -797,8 +828,8 @@
 
     .toc {
       gap: 1rem;
-      padding-left: 0;
-      border-left: 0;
+      padding-left: 1rem;
+      border-left: 1px solid rgba(28, 28, 28, 0.1);
     }
 
     .toc-link {
@@ -848,7 +879,8 @@
     }
 
     .research-insights {
-      gap: 2rem;
+      column-gap: 1.25rem;
+      row-gap: 2rem;
       margin-top: 2rem;
     }
 
@@ -871,7 +903,7 @@
     .feature-description {
       font-size: 17px;
       line-height: 1.625;
-      color: var(--color-dark-charcoal);
+      color: var(--color-muted-grey);
     }
 
     .feature-list {
@@ -936,7 +968,7 @@
       }
 
       .hero-title {
-        font-size: 2.25rem;
+        font-size: 36px;
       }
 
       .hero-image-wrapper {
@@ -966,7 +998,7 @@
 
     @media (max-width: 600px) {
       .hero-title {
-        font-size: 2.25rem;
+        font-size: 36px;
       }
 
       .media-frame,
@@ -1152,21 +1184,18 @@
         <ol class="research-insights">
           <li class="research-insight">
             <div class="research-insight-heading">
-              <span class="research-insight-number">01</span>
               <h3 class="research-insight-title">Effort does not translate to steps</h3>
             </div>
             <p>Step counts fail to reflect real physical exertion. Players moving with injuries, slower paces, or assistive devices often work harder for fewer recorded steps, leading to feelings of guilt rather than motivation.</p>
           </li>
           <li class="research-insight">
             <div class="research-insight-heading">
-              <span class="research-insight-number">02</span>
               <h3 class="research-insight-title">People care more about the game than the steps</h3>
             </div>
             <p>Users care less about the steps themselves and more about gameplay progression, such as collecting items, completing expeditions, and completing tasks. Momentum and completion drive engagement.</p>
           </li>
           <li class="research-insight">
             <div class="research-insight-heading">
-              <span class="research-insight-number">03</span>
               <h3 class="research-insight-title">Movement is bigger than just walking</h3>
             </div>
             <p>Users want movement systems to recognize a wider range of activities beyond walking, including strength training, indoor workouts, and adapted exercises.</p>
@@ -1182,15 +1211,13 @@
         </p>
         
         <div class="feature-list">
-          <article class="feature-item">
+          <article class="feature-item feature-item-movement">
             <div class="feature-heading">
               <span class="feature-number">01</span>
               <h3 class="feature-title">Movement Beyond Steps</h3>
             </div>
-            <p class="feature-description">
-              Allowing the option to replace step-count progression with distance-based tracking, such as miles,
-              allows users who use wheelchairs or mobility aids to have their movement more accurately reflected.
-              This ensures that effort is measured equitably regardless of walking ability.
+              <p class="feature-description">
+              Allowing the option to replace step-count progression with distance-based tracking, such as miles, allows users who use wheelchairs or mobility aids to have their movement more accurately reflected. This ensures that effort is measured equitably regardless of walking ability.
             </p>
 
             <div class="center-section-wrapper">
@@ -1218,9 +1245,8 @@
               <h3 class="feature-title">Dexterity-Friendly Interactions</h3>
             </div>
             <p class="feature-description">
-              Simplifying in-game interactions for users with limited motor control by reducing reliance on precise
-              gestures. Complex actions like swiping and dragging are replaced with more accessible inputs such as
-              single or double taps, making core gameplay (feeding, collecting, and managing Pikmin) easier to perform.
+              Complex gestures like swiping and dragging were replaced with single or double taps so feeding, collecting, and managing Pikmin feels easier for users with limited motor control.
+              The result is a smoother experience without removing the core game rhythm.
             </p>
 
             <div class="center-section-wrapper">

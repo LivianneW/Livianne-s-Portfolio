@@ -65,47 +65,218 @@
       justify-content: center;
     }
 
-    /* ── FOR THE CURIOUS STYLING (COMPACT SIZING) ── */
-    .curious-hero-unit {
-      width: calc(50% - 16px);
+    .exploration-groups {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+      margin-top: 3rem;
+    }
+
+    .exploration-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .exploration-heading {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.4rem;
+      border-left: 3px solid rgba(124, 171, 176, 0.5);
+      padding-left: 1.25rem;
+    }
+
+    .exploration-heading h3 {
+      margin: 0;
+      color: var(--text-dark);
+      font-size: 21px;
+      font-weight: 500;
+      line-height: 1.35;
+    }
+
+    .exploration-heading p {
+      max-width: 68ch;
+      margin: 0;
+      color: var(--text-grey);
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .exploration-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 64px 24px;
+    }
+
+    .exploration-grid.hero-directions .exploration-figure {
+      width: 100%;
       max-width: 380px;
+      justify-self: center;
+    }
+
+    .exploration-grid.menu-directions {
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 20px;
     }
 
-    .curious-hero-unit .final-image {
-      width: 100% !important;
-      height: auto !important;
-      aspect-ratio: 16 / 9;
+    .exploration-figure {
+      min-width: 0;
+      margin: 0;
+    }
+
+    .exploration-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
       border-radius: 14px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
 
-    .curious-menu-unit {
+    .exploration-grid.hero-directions .exploration-figure img {
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+
+    .exploration-grid.menu-directions .exploration-figure {
       width: 100%;
       max-width: 520px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
 
-    .curious-menu-unit .final-image {
-      width: 100% !important;
-      height: auto !important;
-      border-radius: 14px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    .exploration-grid.menu-directions .exploration-figure img {
       border: 1px solid rgba(0, 0, 0, 0.04);
     }
 
-    .curious-menu-unit .final-image img {
-      width: 100%;
-      height: auto;
+    .exploration-final {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+
+    .exploration-final-label {
+      color: #57925d;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .exploration-final img {
       display: block;
+      width: 100%;
+      max-width: 520px;
+      height: auto;
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .exploration-final.hero-selected img {
+      aspect-ratio: 16 / 7.5;
+      object-fit: cover;
+    }
+
+    .insight-card {
+      gap: 0.75rem;
+    }
+
+    .user-goals-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem 2.5rem;
+      list-style: none;
+      margin: 1rem 0 0;
+      padding: 0;
+    }
+
+    .user-goal-card {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+
+    .user-goal-number {
+      flex: 0 0 24px;
+      color: var(--color-green-accent);
+      font-size: 14px;
+      font-weight: 500;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .user-goal-card h3 {
+      margin: 0;
+      color: var(--text-dark);
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.35;
+    }
+
+    .insight-title {
+      display: flex;
+      align-items: baseline;
+      gap: 0.55rem;
+      margin: 0;
+      color: var(--text-dark);
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 1.35;
+    }
+
+    .insight-number {
+      color: #70b074;
+      font-size: 16px;
+      font-weight: 500;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .insight-copy-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+      margin: 0.5rem 0 1rem;
+    }
+
+    .insight-detail {
+      border-top: 1px solid rgba(28, 28, 28, 0.12);
+      padding-top: 0.85rem;
+    }
+
+    .insight-detail.response {
+      border-top-color: rgba(112, 176, 116, 0.55);
+    }
+
+    .insight-detail-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--text-grey);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .insight-detail.response .insight-detail-label {
+      color: #57925d;
+    }
+
+    .insight-detail p {
+      margin: 0;
+      color: var(--text-grey);
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.65;
     }
 
     /* ── MOBILE OVERRIDES ONLY (Leaves Desktop Untouched) ── */
     @media (max-width: 768px) {
+      .user-goals-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+      }
+
       /* Disable touch/pointer hover artifacts on mobile */
       .final-image, 
       .final-image img {
@@ -143,10 +314,19 @@
         aspect-ratio: 9 / 18 !important;
       }
 
+      .insight-title {
+        font-size: 20px;
+      }
+
+      .insight-copy-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
       .image-label-badge {
         width: 100% !important;
         padding: 6px 4px !important;
-        font-size: 11px !important;
+        font-size: 11px!important;
         box-sizing: border-box !important;
       }
 
@@ -168,20 +348,13 @@
         height: 460px !important;
       }
 
-      /* For the Curious Mobile Rules */
-      .curious-hero-unit {
-        width: 100% !important;
-        max-width: 100% !important;
+      .exploration-grid.hero-directions {
+        grid-template-columns: 1fr;
+        gap: 24px;
       }
 
-      .curious-hero-unit .final-image {
-        width: 100% !important;
-        aspect-ratio: 16 / 9 !important;
-      }
-
-      .curious-menu-unit {
-        width: 100% !important;
-        max-width: 100% !important;
+      .exploration-heading h3 {
+        font-size: 19px;
       }
     }
 
@@ -250,7 +423,7 @@
 
         <div class="meta-dashboard-col skills-col">
           <span class="meta-dashboard-label">Skills</span>
-          <p class="meta-dashboard-text">Branding, User Flows, Product Thinking, <br>Prototyping, Information Architecture,<br>Client Collaboration,</p>
+          <p class="meta-dashboard-text">Branding, User Flows, Product Thinking, <br>Prototyping, Information Architecture,<br>Client Collaboration</p>
         </div>
 
         <div class="meta-dashboard-col">
@@ -316,7 +489,7 @@
 
       <section id="problem-statement" class="content-section">
         <p class="section-label">PROBLEM STATEMENT</p>
-        <h2 class="section-heading" style="color: #70b074; font-size: 32px;">A Better Way to Explore the Menu</h2>
+        <h2 class="section-heading text-h2"  style="color: #70b074;">A Better Way to Explore the Menu</h2>
         <p class="text-paragraph">
           The experience of browsing Itacho Sushi's website was negatively impacted by a complicated menu structure and unclear information architecture.
           Customers struggled to distinguish between lunch and dinner offerings, understand three pricing tiers, and locate dishes that fit their dietary preferences. 
@@ -343,19 +516,28 @@
       <section id="research-pain-points" class="content-section">
         <p class="section-label">RESEARCH GOALS</p>
         <h2 class="section-heading">Validating the Experience</h2>
-        <p class="text-paragraph margin-bottom-large">
-          Because the original website lacked a clear structure, we first focused on validating our design decisions through an iterative mid-fidelity prototype before moving into visual 
-          design. We wanted to understand whether the new information hierarchy and layout helped users naturally navigate choices and find information with less effort.
+        <p class="text-paragraph user-goals-intro">
+         Because the original website lacked clear structure, we used an iterative mid-fidelity prototype to validate the new information hierarchy and
+          layout before visual design. We evaluated the prototype based on four key user goals:
         </p>
-        <div class="text-block" style="margin-top: 1.5rem;">
-          <p style="font-weight: 500; color: var(--text-dark);">We evaluated the prototype based on four key user goals:</p>
-        </div>
-        <ul class="bullet-list" style="list-style-type: none; padding-left: 0; margin-top: 1rem; display: flex; flex-direction: column; gap: 0.75rem;">
-          <li style="font-size: 17px; font-weight: 300; color: var(--text-grey);"><span style="color: var(--accent-pink); font-weight: 500; margin-right: 8px;">1.</span> Quickly understanding Itacho's AYCE structure and pricing options</li>
-          <li style="font-size: 17px; font-weight: 300; color: var(--text-grey);"><span style="color: var(--accent-pink); font-weight: 500; margin-right: 8px;">2.</span> Easily navigating between lunch, dinner, and different menu tiers</li>
-          <li style="font-size: 17px; font-weight: 300; color: var(--text-grey);"><span style="color: var(--accent-pink); font-weight: 500; margin-right: 8px;">3.</span> Finding specific dishes based on dietary preferences or restrictions</li>
-          <li style="font-size: 17px; font-weight: 300; color: var(--text-grey);"><span style="color: var(--accent-pink); font-weight: 500; margin-right: 8px;">4.</span> Locating essential restaurant details, including hours and address information</li>
-        </ul>
+        <ol class="user-goals-grid">
+          <li class="user-goal-card">
+            <span class="user-goal-number">01</span>
+            <h3>Compare AYCE pricing and tiers</h3>
+          </li>
+          <li class="user-goal-card">
+            <span class="user-goal-number">02</span>
+            <h3>Navigate lunch, dinner, and menu tiers</h3>
+          </li>
+          <li class="user-goal-card">
+            <span class="user-goal-number">03</span>
+            <h3>Find dishes by dietary needs</h3>
+          </li>
+          <li class="user-goal-card">
+            <span class="user-goal-number">04</span>
+            <h3>Locate hours, address, and key details</h3>
+          </li>
+        </ol>
       </section>  
 
       <section id="midfi-testing" class="content-section">
@@ -364,15 +546,17 @@
         
         <div class="text-block" style="display: flex; flex-direction: column; gap: 2.5rem; margin-top: 2rem;">
           <!-- Insight 1 -->
-          <div class="insight-card">
-            <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 0.5rem; color: var(--text-dark);">1. Connecting Pricing Tiers With Menu Options</h3>
-            <p style="font-size: 17px; font-weight: 300; color: var(--text-grey); margin-bottom: 1rem;">
-              Participants understood that Itacho offered multiple AYCE pricing tiers but struggled to connect them to the menu. Many expected the pricing cards to be clickable, 
-              while others were confused that both Platinum and Ultra linked to the same menu. As a result, users couldn't confidently compare tiers or understand what each included.
-            </p>
-            <div style="background-color: var(--tag-bg); padding: 1rem 1.5rem; border-radius: 12px; font-size: 15px; margin-bottom: 1.5rem;">
-              <strong style="color: #70b074; font-weight: 500;">Design Response:</strong> We removed the card styling to eliminate the false button affordance and integrated pricing directly into the menu. 
-              An Ultra Exclusive section, tier badges, and concise microcopy made dish availability and ordering limits visible while browsing, helping users compare tiers more confidently.
+          <div class="insight-card"> 
+            <h3 class="insight-title"><span class="insight-number">01.</span><span>Connecting Pricing Tiers With Menu Options</span></h3>
+            <div class="insight-copy-grid">
+              <div class="insight-detail">
+                <span class="insight-detail-label">What we heard</span>
+                <p>Users understood the AYCE tiers, but couldn't tell which dishes each included. Clickable-looking pricing cards and the shared Platinum/Ultra menu made comparisons unclear.</p>
+              </div>
+              <div class="insight-detail response">
+                <span class="insight-detail-label">Design response</span>
+                <p>Pricing moved into the menu, with tier badges, an Ultra Exclusive section, and microcopy clarifying dish availability and ordering limits.</p>
+              </div>
             </div>
             
             <!-- Insight 1 Images Frame (2x2 GRID FORMAT) -->
@@ -383,7 +567,7 @@
                 
                 <!-- ROW 1: BEFORE SECTION -->
                 <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
-                  <div class="image-label-badge" style="background-color: rgba(28, 28, 28, 0.04); color: #1c1c1c; padding: 6px 20px; border-radius: 8px; font-size: 14px; width: 180px; text-align: center; margin: 0 0 4px 0 !important; font-weight: 400;">
+                  <div class="image-label-badge text-sm"  style="background-color: rgba(28, 28, 28, 0.04); color: #1c1c1c; padding: 6px 20px; border-radius: 8px;width: 180px; text-align: center; margin: 0 0 4px 0 !important; font-weight: 400;">
                     Before
                   </div>
                   
@@ -404,7 +588,7 @@
 
                 <!-- ROW 2: AFTER SECTION -->
                 <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
-                  <div class="image-label-badge" style="background-color: var(--color-btn-bg); color: var(--color-green-accent); padding: 6px 20px; border-radius: 8px; font-size: 14px; width: 180px; text-align: center; margin: 0 0 4px 0 !important; font-weight: 400;">
+                  <div class="image-label-badge text-sm"  style="background-color: var(--color-btn-bg); color: var(--color-green-accent); padding: 6px 20px; border-radius: 8px;width: 180px; text-align: center; margin: 0 0 4px 0 !important; font-weight: 400;">
                     After
                   </div>
 
@@ -430,20 +614,23 @@
           
           <!-- Insight 2 -->
           <div class="insight-card">
-            <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 0.5rem; color: var(--text-dark);">2. First Impressions</h3>
-            <p style="font-size: 17px; font-weight: 300; color: var(--text-grey); margin-bottom: 1rem;">
-              Our initial usability testing revealed that the landing page wasn't encouraging users to explore the website. The carousel of interior photos felt generic, lacked a strong connection to Itacho Sushi's identity, and gave users little reason to continue scrolling. 
-            </p>
-            <div style="background-color: var(--tag-bg); padding: 1rem 1.5rem; border-radius: 12px; font-size: 16px; margin-bottom: 1.5rem;">
-              <strong style="color: #70b074; font-weight: 500;">Design Response:</strong> We replaced the carousel with a focused hero that emphasized craftsmanship and brand identity. 
-              We also added a Home navigation link, clearer button states, and a subtle scroll indicator to strengthen hierarchy and encourage exploration.
+            <h3 class="insight-title"><span class="insight-number">02.</span><span>First Impressions</span></h3>
+            <div class="insight-copy-grid">
+              <div class="insight-detail">
+                <span class="insight-detail-label">What we heard</span>
+                <p>The generic interior carousel didn't reflect Itacho's identity or give visitors a reason to keep exploring.</p>
+              </div>
+              <div class="insight-detail response">
+                <span class="insight-detail-label">Design response</span>
+                <p>A focused hero now foregrounds craftsmanship, supported by a Home link, clearer buttons, and a subtle scroll cue.</p>
+              </div>
             </div>
 
             <!-- Insight 2 GIF Layout Frame -->
             <div style="display: flex; justify-content: center; gap: 32px; width: 100%; margin: 1rem 0 2.5rem 0; flex-wrap: wrap;">
               <!-- LEFT SIDE: BEFORE BLOCKS (DESKTOP GIF) -->
               <div style="display: flex; flex-direction: column; align-items: center; gap: 12px; flex: 1; min-width: 300px; max-width: 540px;">
-                <div class="image-label-badge" style="background-color: rgba(28, 28, 28, 0.04); color: #1c1c1c; padding: 6px 16px; border-radius: 8px; font-size: 13px; width: 160px; text-align: center; margin: 0; font-weight: 400;">
+                <div class="image-label-badge text-xs"  style="background-color: rgba(28, 28, 28, 0.04); color: #1c1c1c; padding: 6px 16px; border-radius: 8px;width: 160px; text-align: center; margin: 0; font-weight: 400;">
                   Before
                 </div>
                 <div class="final-image" style="width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: 16px; overflow: hidden; margin: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
@@ -453,7 +640,7 @@
 
               <!-- RIGHT SIDE: AFTER BLOCKS (DESKTOP GIF) -->
               <div style="display: flex; flex-direction: column; align-items: center; gap: 12px; flex: 1; min-width: 300px; max-width: 540px;">
-                <div class="image-label-badge" style="background-color: var(--color-btn-bg); color: var(--color-green-accent); padding: 6px 16px; border-radius: 8px; font-size: 13px; width: 160px; text-align: center; margin: 0; font-weight: 400;">
+                <div class="image-label-badge text-xs"  style="background-color: var(--color-btn-bg); color: var(--color-green-accent); padding: 6px 16px; border-radius: 8px;width: 160px; text-align: center; margin: 0; font-weight: 400;">
                   After
                 </div>
                 <div class="final-image highlighted" style="width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: 16px; overflow: hidden; margin: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
@@ -476,7 +663,7 @@
         <div class="comparison-row-side-by-side" style="display: flex; justify-content: center; gap: 48px; width: 100%; margin: 2rem 0 2.5rem 0; flex-wrap: wrap;">
           <!-- Column 1: Original App -->
           <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
-            <div class="image-label-badge" style="background-color: rgba(28, 28, 28, 0.04); color: #1c1c1c; padding: 8px 20px; border-radius: 10px; font-size: 14px; width: 210px; text-align: center; margin: 0;">
+            <div class="image-label-badge text-sm"  style="background-color: rgba(28, 28, 28, 0.04); color: #1c1c1c; padding: 8px 20px; border-radius: 10px;width: 210px; text-align: center; margin: 0;">
               Original Layout
             </div>
             <div class="final-image" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 25px; overflow: hidden; margin: 0;">
@@ -486,7 +673,7 @@
 
           <!-- Column 2: Mid-Fidelity Wireframe -->
           <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
-            <div class="image-label-badge" style="background-color: rgba(28, 28, 28, 0.04); color: #1c1c1c; padding: 8px 20px; border-radius: 10px; font-size: 14px; width: 210px; text-align: center; margin: 0;">
+            <div class="image-label-badge text-sm"  style="background-color: rgba(28, 28, 28, 0.04); color: #1c1c1c; padding: 8px 20px; border-radius: 10px;width: 210px; text-align: center; margin: 0;">
               Mid-Fidelity Wireframe
             </div>
             <div class="final-image" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 25px; overflow: hidden; margin: 0;">
@@ -496,7 +683,7 @@
 
           <!-- Column 3: High-Fidelity Interface -->
           <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
-            <div class="image-label-badge" style="background-color: var(--color-btn-bg); color: var(--color-green-accent); padding: 8px 20px; border-radius: 10px; font-size: 14px; width: 210px; font-weight: 400; text-align: center; margin: 0;">
+            <div class="image-label-badge text-sm"  style="background-color: var(--color-btn-bg); color: var(--color-green-accent); padding: 8px 20px; border-radius: 10px;width: 210px; font-weight: 400; text-align: center; margin: 0;">
               High-Fidelity Redesign
             </div>
             <div class="final-image highlighted" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 25px; overflow: hidden; margin: 0;">
@@ -557,8 +744,8 @@
             href="https://www.figma.com/proto/tYlReKyw2K6jx2DqpFyUkp/Itacho-Sushi?page-id=198%3A515&node-id=1506-2054&p=f&viewport=2116%2C-572%2C0.11&t=uWQW9u6v0Z91BvAK-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1506%3A2054" 
             target="_blank" 
             rel="noreferrer" 
-            class="prototype-btn"
-            style="height: 36px; padding: 0 16px; font-size: 14px;">
+            class="prototype-btn text-sm"
+             style="height: 36px; padding: 0 16px;">
             <span class="btn-text">View Desktop Version</span>
           </a>
         </div>
@@ -574,114 +761,64 @@
         </div>
       </section>
 
-<section id="for-the-curious" class="content-section padding-bottom-large">
+      <section id="for-the-curious" class="content-section padding-bottom-large">
         <p class="section-label">FOR THE CURIOUS</p>
         <h2 class="section-heading">Design Explorations</h2>
         <p class="text-paragraph" style="margin-bottom: 2.5rem;">
-          A collection of directions we explored throughout the design process, experimenting with visual identity, composition, and menu organization before arriving at the final experience.
+          A look at the visual directions explored before arriving at the final experience.
         </p>
 
-        <!-- EXPLORATION GROUP 1: HERO & BRANDING CONCEPTS (2x2 GRID + FINAL DESIGN) -->
-        <div class="insight-card" style="margin-bottom: 3rem;">
-          <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 0.5rem; color: var(--text-dark);">
-            1. Hero Banner & Visual Identity Directions
-          </h3>
-          <p style="font-size: 17px; font-weight: 300; color: var(--text-grey); margin-bottom: 1.5rem;">
-            Early visual iterations exploring different balances between dynamic photography, traditional Japanese calligraphy, bold typography, and varied button accents.
-          </p>
+        <div class="exploration-groups">
+          <article class="exploration-group">
+            <header class="exploration-heading">
+              <h3>Hero &amp; Visual Identity</h3>
+              <p>Exploring photography, calligraphy, and bold brand treatments.</p>
+            </header>
 
-          <div style="display: flex; flex-direction: column; gap: 20px; width: 100%;">
-            <!-- 2x2 ROW 1 -->
-            <div class="comparison-row-side-by-side" style="gap: 24px; margin: 0;">
-              <!-- Hero Option 1 -->
-              <div class="curious-hero-unit">
-                <div class="final-image">
-                  <img src="../assets/itacho1.png" alt="Dark Wood Ambient Hero Exploration">
-                </div>
-              </div>
-
-              <!-- Hero Option 2 -->
-              <div class="curious-hero-unit">
-                <div class="final-image">
-                  <img src="../assets/itacho2.0.png" alt="Red Calligraphy Hero Exploration">
-                </div>
-              </div>
+            <div class="exploration-grid hero-directions">
+              <figure class="exploration-figure">
+                <img src="../assets/itacho1.png" alt="Dark wood ambient hero exploration">
+              </figure>
+              <figure class="exploration-figure">
+                <img src="../assets/itacho2.0.png" alt="Red calligraphy hero exploration">
+              </figure>
+              <figure class="exploration-figure">
+                <img src="../assets/itacho3.png" alt="White brushwork hero exploration">
+              </figure>
+              <figure class="exploration-figure">
+                <img src="../assets/itacho4.png" alt="Food-focused hero exploration">
+              </figure>
             </div>
 
-            <!-- 2x2 ROW 2 -->
-            <div class="comparison-row-side-by-side" style="gap: 24px; margin: 0;">
-              <!-- Hero Option 3 -->
-              <div class="curious-hero-unit">
-                <div class="final-image">
-                  <img src="../assets/itacho3.png" alt="White Brushwork Hero Exploration">
-                </div>
-              </div>
+            <div class="exploration-final hero-selected">
+              <span class="exploration-final-label">Selected direction</span>
+              <img src="../assets/itacho5.png" alt="Final Itacho Sushi hero banner design">
+            </div>
+          </article>
 
-              <!-- Hero Option 4 -->
-              <div class="curious-hero-unit">
-                <div class="final-image">
-                  <img src="../assets/itacho4.png" alt="Plate Focus Hero Exploration">
-                </div>
-              </div>
+          <article class="exploration-group">
+            <header class="exploration-heading">
+              <h3>Menu Header &amp; Tiers</h3>
+              <p>Testing hierarchy for tier selection, category navigation, and pricing.</p>
+            </header>
+
+            <div class="exploration-grid menu-directions">
+              <figure class="exploration-figure">
+                <img src="../assets/itachomenu1.png" alt="Menu header exploration with red accents">
+              </figure>
+              <figure class="exploration-figure">
+                <img src="../assets/itachomenu2.png" alt="Menu header exploration with gold line accent">
+              </figure>
+              <figure class="exploration-figure">
+                <img src="../assets/itachomenu3.png" alt="Centered menu header exploration">
+              </figure>
             </div>
 
-            <!-- FINAL HERO BANNER DESIGN -->
-            <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; width: 100%; margin-top: 12px;">
-              <div class="image-label-badge" style="background-color: var(--color-btn-bg); color: var(--color-green-accent); padding: 6px 20px; border-radius: 8px; font-size: 13px; font-weight: 400; margin: 0;">
-                Final Hero Design
-              </div>
-              <div class="curious-menu-unit">
-                <div class="final-image highlighted">
-                  <img src="../assets/itacho5.png" alt="Final Itacho Sushi Hero Banner Design" style="aspect-ratio: 16 / 7.5; object-fit: cover;">
-                </div>
-              </div>
+            <div class="exploration-final">
+              <span class="exploration-final-label">Selected direction</span>
+              <img src="../assets/itachomenu4.png" alt="Final menu header redesign">
             </div>
-          </div>
-        </div>
-
-        <!-- EXPLORATION GROUP 2: MENU HEADER & PRICING ITERATIONS (COMPACT/SMALLER SIZING + FINAL DESIGN) -->
-        <div class="insight-card">
-          <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 0.5rem; color: var(--text-dark);">
-            2. Menu Header & Tiers
-          </h3>
-          <p style="font-size: 17px; font-weight: 300; color: var(--text-grey); margin-bottom: 1.5rem;">
-            We experimented with different approaches to tier selection, category navigation, and pricing hierarchy to find a layout that was clearer and easier to navigate than our earlier iterations.
-          </p>
-
-          <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%;">
-            <!-- Header Option 1 -->
-            <div class="curious-menu-unit">
-              <div class="final-image">
-                <img src="../assets/itachomenu1.png" alt="Menu Header Exploration with Red Accents">
-              </div>
-            </div>
-
-            <!-- Header Option 2 -->
-            <div class="curious-menu-unit">
-              <div class="final-image">
-                <img src="../assets/itachomenu2.png" alt="Menu Header Exploration with Gold Line Accent">
-              </div>
-            </div>
-
-            <!-- Header Option 3 -->
-            <div class="curious-menu-unit">
-              <div class="final-image">
-                <img src="../assets/itachomenu3.png" alt="Centered Menu Header Exploration">
-              </div>
-            </div>
-
-            <!-- FINAL MENU HEADER DESIGN -->
-            <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; width: 100%; margin-top: 12px;">
-              <div class="image-label-badge" style="background-color: var(--color-btn-bg); color: var(--color-green-accent); padding: 6px 20px; border-radius: 8px; font-size: 13px; font-weight: 400; margin: 0;">
-                Final Menu Header Design
-              </div>
-              <div class="curious-menu-unit">
-                <div class="final-image highlighted">
-                  <img src="../assets/itachomenu4.png" alt="Final Menu Header Redesign">
-                </div>
-              </div>
-            </div>
-          </div>
+          </article>
         </div>
       </section>
     </main>
