@@ -742,7 +742,8 @@ u {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  padding-bottom: 1rem;
+  margin-left: 24px;
+  padding-left: 0;
 }
 
 .comparison-row-side-by-side {
