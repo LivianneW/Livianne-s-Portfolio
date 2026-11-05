@@ -99,7 +99,7 @@ a {
 }
 
 .nav-container {
-  height: 100px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -152,7 +152,7 @@ a {
   display: none;
 }
 
-/* HERO BASE WITH LIVE SKY WASH */
+/* HERO */
 .hero {
   position: relative;
   overflow: hidden;
@@ -161,34 +161,6 @@ a {
   align-items: center;
   padding: 4rem 0;
   background-color: var(--bg-canvas);
-  transition: background 0.8s ease;
-}
-
-.hero-weather-bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.sky-blob {
-  transition: fill 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s ease;
-  will-change: transform;
-}
-
-#sky-sun-group {
-  transition: opacity 1.2s ease, transform 1.2s ease;
-  will-change: transform, opacity;
-}
-
-.weather-scrim {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(120% 80% at 30% 30%, rgba(255, 251, 251, 0.10) 0%, rgba(255, 251, 251, 0.72) 100%);
-  pointer-events: none;
 }
 
 .hero-wrapper {
@@ -204,38 +176,6 @@ a {
 
 .hero-left {
   max-width: 650px;
-}
-
-/* Live Time & Current Weather Single Pill */
-.sky-widget {
-  display: inline-flex;
-  margin-bottom: 1.5rem;
-}
-
-.widget-current {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255, 251, 251, 0.85);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(28, 28, 28, 0.06);
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: var(--font-size-sm);
-  color: var(--text-dark);
-  font-weight: 400;
-}
-
-.sky-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--color-green-accent);
-  box-shadow: 0 0 8px var(--color-green-accent);
-}
-
-.widget-divider {
-  color: var(--text-light);
 }
 
 .hero-headline {
@@ -295,7 +235,7 @@ a {
   align-items: center;
   margin-bottom: 3.5rem;
   position: sticky;
-  top: 100px; 
+  top: 80px;
   z-index: 40; 
   background-color: var(--bg-canvas);  
   padding-top: 1.5rem;  
@@ -735,162 +675,6 @@ a {
   color: #d3a0a0;
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   DEEP NIGHT SKY, FAINT CLOUDS & TWINKLING STARS
-   ═══════════════════════════════════════════════════════════════ */
-
-/* Night Background & Typography Colors */
-.hero.night-mode {
-  background-color: #0b0f19 !important;
-  color: #f1f5f9;
-}
-
-/* Deep midnight radial backdrop scrim */
-.hero.night-mode .weather-scrim {
-  background: radial-gradient(
-    120% 80% at 30% 30%,
-    rgba(11, 15, 25, 0.20) 0%,
-    rgba(11, 15, 25, 0.92) 100%
-  ) !important;
-}
-
-/* Subdue and dim all bright cloud clusters at night */
-.hero.night-mode .sky-clouds-layer {
-  opacity: 0.12 !important;
-  filter: blur(45px);
-  transition: opacity 1.4s ease, filter 1.4s ease;
-}
-
-/* Darken atmospheric background blobs */
-.hero.night-mode .sky-blob {
-  fill: #161f30 !important;
-  opacity: 0.25 !important;
-  transition: fill 1.4s ease, opacity 1.4s ease;
-}
-
-/* Glowing Moon Configuration */
-.hero.night-mode #celestial-halo {
-  fill: url(#moon-ambient-halo) !important;
-  r: 170px;
-}
-
-.hero.night-mode #celestial-bloom,
-.hero.night-mode #celestial-body,
-.hero.night-mode #celestial-disc {
-  fill: url(#moon-glow-grad) !important;
-}
-
-.hero.night-mode #sun-glare-rays,
-.hero.night-mode #lens-flare-elements {
-  opacity: 0 !important; /* Hide strong daytime solar glare lines */
-}
-
-/* Night Weather Pill Styling */
-.hero.night-mode .widget-current {
-  background: rgba(18, 24, 38, 0.78);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #f1f5f9;
-}
-
-.hero.night-mode .hero-tagline {
-  color: #94a3b8;
-}
-
-.hero.night-mode .matrix-label {
-  color: #64748b;
-}
-
-.hero.night-mode .matrix-value {
-  color: #e2e8f0;
-}
-
-/* ── Starfield Layer & Animations ── */
-.sky-stars-group {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 1.4s ease-in-out;
-}
-
-.hero.night-mode .sky-stars-group {
-  opacity: 1;
-}
-
-.svg-star {
-  fill: #ffffff;
-}
-
-.star-pulse-1 {
-  animation: starTwinkle 2.4s ease-in-out infinite alternate;
-}
-
-.star-pulse-2 {
-  animation: starTwinkle 3.6s ease-in-out infinite 0.9s alternate;
-}
-
-.star-pulse-3 {
-  animation: starTwinkle 3.0s ease-in-out infinite 1.7s alternate;
-}
-
-/* ── STATIONARY NIGHT STARS GLOW EFFECT ── */
-.sky-stars-group {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 1.2s ease-in-out;
-}
-
-/* Activate only when .night-mode is added to #weather-hero */
-.night-mode .sky-stars-group {
-  opacity: 1;
-}
-
-.night-mode .svg-star {
-  fill: #ffffff;
-  transform: none !important; /* Locks stars strictly in position */
-}
-
-/* Staggered soft pulsing glow */
-.night-mode .star-pulse-1 {
-  animation: starPulse 2.8s ease-in-out infinite alternate;
-}
-
-.night-mode .star-pulse-2 {
-  animation: starPulse 3.6s ease-in-out infinite alternate 0.8s;
-}
-
-.night-mode .star-pulse-3 {
-  animation: starPulse 4.2s ease-in-out infinite alternate 1.6s;
-}
-
-@keyframes starPulse {
-  0% {
-    opacity: 0.2;
-    filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.3));
-  }
-  50% {
-    opacity: 0.75;
-    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 5px rgba(186, 215, 255, 0.5));
-  }
-  100% {
-    opacity: 1;
-    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 1)) drop-shadow(0 0 7px rgba(197, 222, 255, 0.7));
-  }
-}
-
-@keyframes starTwinkle {
-  0% {
-    opacity: 0.2;
-    transform: scale(0.85);
-  }
-  50% {
-    opacity: 0.85;
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1.18);
-    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.95));
-  }
-}
-
 /* RESPONSIVENESS */
 @media (max-width: 1024px) {
   .container, .hero-wrapper, .gallery-wrapper, .footer-container, .nav-container, .about-layout {
@@ -907,7 +691,7 @@ a {
     flex-direction: column;
     align-items: flex-start;
     gap: 1.5rem;
-    top: 100px;
+    top: 80px;
   }
   
   .works-matrix {
@@ -968,7 +752,7 @@ a {
 
   .main-nav {
     position: absolute;
-    top: 100px;
+    top: 80px;
     left: 0;
     width: 100%;
     background-color: var(--bg-canvas);
@@ -1109,16 +893,6 @@ a {
     padding-right: 1.75rem !important;
   }
 
-  .sky-widget {
-    margin-bottom: 2.25rem !important;
-    display: inline-flex;
-  }
-
-  .widget-current {
-    font-size: 13px;
-    padding: 7px 15px;
-  }
-
   .hero-headline {
     font-size: 38px!important;
     line-height: 1.25 !important;
@@ -1196,11 +970,6 @@ a {
 }
 
 @media (max-width: 640px) {
-  .hero-weather-bg svg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
 
   .filter-controls {
     display: flex;

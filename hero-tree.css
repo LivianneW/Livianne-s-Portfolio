@@ -1,0 +1,97 @@
+/* Homepage hero: the apple-tree canvas sits behind the existing hero text.
+   Load AFTER index.css. ID selectors + !important beat the .hero rules (and the mobile overrides) in index.css. */
+#home-hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  min-height: max(560px, 100svh) !important;
+  padding: 0 !important;
+  margin-bottom: 0 !important;
+  background: var(--bg-canvas);
+  color: var(--text-dark);
+  font-family: var(--font-main);
+}
+body.homepage .site-header {
+  margin-bottom: -80px;
+  background-color: var(--bg-canvas);
+  transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+body.homepage .gallery-header {
+  top: 0;
+}
+body.homepage .site-header.scrolled {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+body.homepage .site-header.over-hero {
+  background-color: transparent;
+  border-bottom-color: transparent;
+  backdrop-filter: none;
+}
+body.homepage .site-header.over-hero .site-brand,
+body.homepage .site-header.over-hero .nav-link {
+  color: var(--text-grey);
+}
+body.homepage .site-header.over-hero .nav-link:hover,
+body.homepage .site-header.over-hero .nav-link.current {
+  color: var(--accent-pink);
+}
+body.homepage .site-header.over-hero .site-brand {
+  color: var(--text-dark);
+}
+body.homepage .site-header.over-hero .hamburger-icon span {
+  background-color: var(--text-dark);
+}
+body.homepage .site-header.over-hero .main-nav {
+  background-color: var(--bg-canvas);
+}
+body.homepage .site-brand {
+  padding: 0.75rem 1rem;
+}
+body.homepage .site-header .nav-link {
+  padding: 0 !important;
+}
+#hero-tree-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 80px, #000 160px);
+  mask-image: linear-gradient(to bottom, transparent 80px, #000 160px);
+}
+#home-hero .tree-caption {
+  position: absolute;
+  right: clamp(88px, 18vw, 300px);
+  bottom: 150px;
+  z-index: 1;
+  margin: 0;
+  color: var(--text-grey);
+  font-family: var(--font-main);
+  font-size: 12px;
+  line-height: 1.4;
+  pointer-events: none;
+}
+#home-hero .hero-wrapper {
+  padding-top: 6vh;
+  padding-bottom: 28vh;
+  pointer-events: none;          /* text never blocks the cursor; the tree reacts to it */
+}
+#home-hero .hero-headline,
+#home-hero .hero-tagline,
+#home-hero .matrix-label,
+#home-hero .matrix-value { font-family: inherit; font-weight: 400; }
+#home-hero .hero-headline { color: var(--text-dark); }
+#home-hero .hero-tagline  { color: var(--text-dark); }
+#home-hero .matrix-label  { color: var(--text-light); }
+#home-hero .matrix-value  { color: var(--text-grey); }
+#home-hero .matrix-item:last-child .matrix-value { color: var(--text-dark); }
+
+@media (max-width: 920px) {
+  #hero-tree-canvas {
+    -webkit-mask-image: linear-gradient(to bottom, transparent 80px, #000 150px);
+    mask-image: linear-gradient(to bottom, transparent 80px, #000 150px);
+  }
+}
