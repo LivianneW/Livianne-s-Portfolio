@@ -433,33 +433,6 @@
     </main>
   </div>
 
-  <footer class="footer">
-    <div class="footer-row">
-      <p class="footer-thank-you">Thank you for viewing! :-)</p>
-      <button class="scroll-up-btn" id="scrollUpBtn">
-        <span>Scroll up</span>
-        <svg fill="none" preserveAspectRatio="none" viewBox="0 0 9.51388 7.36396" aria-hidden="true">
-          <path d="M0.146447 3.32843C-0.0488155 3.52369 -0.0488155 3.84027 0.146447 4.03553L3.32843 7.21751C3.52369 7.41278 3.84027 7.41278 4.03553 7.21751C4.2308 7.02225 4.2308 6.70567 4.03553 6.51041L1.20711 3.68198L4.03553 0.853553C4.2308 0.658291 4.2308 0.341709 3.32843 0.146447L0.146447 3.32843ZM0.5 3.68198V4.18198H9.51388V3.68198V3.18198H0.5V3.68198Z" fill="#A29FA0" />
-        </svg>
-      </button>
-    </div>
-    <div class="footer-row">
-      <nav class="footer-nav" aria-label="Footer navigation">
-        <a href="https://www.linkedin.com/in/livianne-wong-b3b724205/" target="_blank" rel="noreferrer" class="footer-social-link">
-          <span class="footer-label">LinkedIn</span>
-        </a>
-        <a href="https://drive.google.com/file/d/1uY5DvgihQv_6BxHrdHPwktoVfEQGerwh/view" target="_blank" rel="noreferrer" class="footer-social-link">
-          <span class="footer-label">Resume</span>
-        </a>
-        <a href="https://github.com/LivianneW" target="_blank" rel="noreferrer" class="footer-social-link">
-          <span class="footer-label">Github</span>
-        </a>
-      </nav>
-      <a href="mailto:liviwong123@gmail.com" class="footer-email">
-        <span>liviwong123@gmail.com</span>
-      </a>
-    </div>
-  </footer>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -476,14 +449,9 @@
       }, { rootMargin: '-15% 0px -75% 0px', threshold: 0 });
 
       sections.forEach(section => observer.observe(section));
-
-      const scrollUpBtn = document.getElementById('scrollUpBtn');
-      if (scrollUpBtn) {
-        scrollUpBtn.addEventListener('click', () => {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-      }
     });
   </script>
+  <script src="../footer.js"></script>
+  <script src="../footer-scene.js"></script>
 </body>
 </html>

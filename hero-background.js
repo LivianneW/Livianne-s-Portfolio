@@ -9,10 +9,10 @@
   const octx = off.getContext("2d", { willReadFrequently: true });
   const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const TAU = Math.PI * 2;
-  const FPS = 30;                                           // dot-matrix look doesn't need 60fps; halves the work
+  const FPS = 30;                                           
 
   let PITCH = 4, GAP_X = 3, GAP_Y = 3, DOT = 2, CELL_W = 11, CELL_H = 19, ds = 1;
-  const DOT_COLOR = "#3a3a3a", ACCENT_PINK = "#d3a0a0", BG = "#fffbfb";
+  const DOT_COLOR = "#534740", ACCENT_PINK = "#d3a0a0", BG = "#fffbfb";
   const RED = "#d9272e", LEAF = "#70b074";                 // apples and their leaves
   const CAT_COLOR = "#1c1c1c";
   const BAYER = [0,8,2,10,12,4,14,6,3,11,1,9,15,7,13,5].map(v => (v + 0.5) / 16);
@@ -22,6 +22,7 @@
   const brush = { x: -999, y: -999, vx: 0 };
   const rnd = (a, b) => a + Math.random() * (b - a);
   const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  const groundLevel = () => H * (W <= 768 ? 0.93 : 0.965);
 
   const PETAL = [[0,1],[.45,.8],[.8,.3],[.85,-.3],[.55,-.85],[.28,-1],[0,-.6],[-.28,-1],[-.55,-.85],[-.85,-.3],[-.8,.3],[-.45,.8]];
   const PETAL_P = (() => {
@@ -167,7 +168,7 @@
     if (wide) {
       // bigger tree: crown starts closer to the text and fills nearly the full remaining width and height
       const gx0 = m.right + W * 0.01, gx1 = W * 0.995, hw = (gx1 - gx0) / 2, cx = (gx0 + gx1) / 2;
-      const gy = H * 0.965, th = (gy - H * 0.02) * treeHeight;
+      const gy = groundLevel(), th = (gy - H * 0.02) * treeHeight;
       ox = cx; oy = gy; droop = 0.03; clumpN = 2; strandP = 0.1; subP = 0.35; hang = false;
       const crown = ([xn, yn]) => [cx + xn * hw * 0.97, gy - yn * th];
       const g = (P, w0, w1, gap, decor) => limb(P, w0 * 1.25, w1 * 1.15, gap, decor, crown);
@@ -192,7 +193,7 @@
   }
 
   function buildTree() {
-    groundY = H * 0.965;
+    groundY = groundLevel();
     const t = makeTree(W, H, u, measure());
     segs = t.segs; flowers = t.flowers; apples = t.apples;
     for (const s of segs) {

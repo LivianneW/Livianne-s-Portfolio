@@ -36,22 +36,7 @@ if (filterBtns.length > 0 && workCards.length > 0) {
 
 /**
  * ─────────────────────────────────────────────────────────────
- * 2. GLOBAL BACK TO TOP SCROLL ACTION
- * ─────────────────────────────────────────────────────────────
- */
-const scrollUpBtn = document.getElementById('scrollUpBtn') || document.querySelector('.scroll-up-btn');
-if (scrollUpBtn) {
-  scrollUpBtn.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  });
-}
-
-/**
- * ─────────────────────────────────────────────────────────────
- * 3. SUBDIRECTORY HEADER NAVIGATION
+ * 2. SUBDIRECTORY HEADER NAVIGATION
  * ─────────────────────────────────────────────────────────────
  */
 const headerBrand = document.querySelector('.site-brand') || document.querySelector('.header h1');
@@ -65,7 +50,7 @@ if (headerBrand && window.location.pathname.includes('/pages/')) {
 
 /**
  * ─────────────────────────────────────────────────────────────
- * 4. MOBILE / PANEL OVERLAY CONTROLS
+ * 3. MOBILE / PANEL OVERLAY CONTROLS
  * ─────────────────────────────────────────────────────────────
  */
 const hamburgerMenu = document.querySelector('.hamburger-menu');

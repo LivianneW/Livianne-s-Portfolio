@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Livianne — Product Designer</title>
-  <link rel="icon" type="image/x-icon" href="../Livianne-s-Portfolio/assets/favicon (3).ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="../Livianne-s-Portfolio/assets/favicon-32x32(3).png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../Livianne-s-Portfolio/assets/favicon-16x16(3).png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../Livianne-s-Portfolio/assets/apple-touch-icon (3).png">
+  <link rel="icon" type="image/x-icon" href="assets/favicon (3).ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32 (3).png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16 (3).png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon (3).png">
   <link rel="stylesheet" href="index.css">
   <link rel="stylesheet" href="hero-tree.css">
 </head>
@@ -16,44 +16,42 @@
   <header class="site-header">
     <div class="nav-container">
       <a href="index.html" class="site-brand">LIVIANNE</a>
-      
-      <input type="checkbox" id="menu-toggle" class="menu-toggle" style="display: none;">
-      
+      <input type="checkbox" id="menu-toggle" class="menu-toggle">
+
       <label for="menu-toggle" class="hamburger-icon">
         <span></span>
         <span></span>
         <span></span>
       </label>
-      
+
       <nav class="main-nav nav-links">
         <a href="index.html" class="nav-link current">Work</a>
         <a href="pages/about.html" class="nav-link">About</a>
         <a href="https://drive.google.com/file/d/1uY5DvgihQv_6BxHrdHPwktoVfEQGerwh/view?usp=sharing" target="_blank" rel="noreferrer" class="nav-link resume-highlight">Resume</a>
       </nav>
-      
     </div>
   </header>
 
-<section class="hero" id="home-hero">
-  <canvas id="hero-tree-canvas" aria-hidden="true"></canvas>
-  <p class="tree-caption">please do not click the tree</p>
-  <div class="hero-wrapper">
-    <div class="hero-left">
-      <h1 class="hero-headline">Hello! I'm Livianne</h1>
-      <p class="hero-tagline">Product Designer</p>
-      
-      <div class="scannable-matrix">
-        <div class="matrix-item">
-          <span class="matrix-value">Exploring what technology can make possible by understanding how people experience it</span>
-        </div>
-        <div class="matrix-item">
-          <span class="matrix-label">EDUCATION</span>
-          <span class="matrix-value">B.S. in Cognitive Science (Design & Interaction) @ UC San Diego</span>
+  <section class="hero" id="home-hero">
+    <canvas id="hero-tree-canvas" aria-hidden="true"></canvas>
+    <p class="tree-caption">please do not click the tree</p>
+    <div class="hero-wrapper">
+      <div class="hero-left">
+        <h1 class="hero-headline">Hello! I'm Livianne</h1>
+        <p class="hero-tagline">Product Designer</p>
+
+        <div class="scannable-matrix">
+          <div class="matrix-item">
+            <span class="matrix-value">Exploring what technology can make possible by understanding how people experience it</span>
+          </div>
+          <div class="matrix-item">
+            <span class="matrix-label">EDUCATION</span>
+            <span class="matrix-value">B.S. in Cognitive Science (Design &amp; Interaction) @ UC San Diego</span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <main class="gallery-wrapper">
     <div class="gallery-header">
@@ -92,7 +90,7 @@
       <article class="work-card itacho-card" data-cat="featured experience product-design">
         <a href="pages/itacho.html" class="card-inner-link">
           <div class="work-media-container">
-            <img src="assets/ITACHO.png" class="work-asset">
+            <img src="assets/ITACHO.png" alt="Itacho Sushi menu redesign" class="work-asset">
           </div>
           <div class="work-details">
             <div class="project-header-row">
@@ -104,8 +102,7 @@
               <span class="tag framework">Redesign</span>
               <span class="tag scope">Contract</span>
             </div>
-            <p class="work-summary">Restructuring a complex AYCE menu across three pricing tiers, balancing intuitive navigation
-               with the restaurant's established brand identity</p>
+            <p class="work-summary">Restructuring a complex AYCE menu across three pricing tiers, balancing intuitive navigation with the restaurant's established brand identity</p>
           </div>
         </a>
       </article>
@@ -133,7 +130,7 @@
       <article class="work-card" data-cat="redesign">
         <a href="pages/steam_navigation.html" class="card-inner-link">
           <div class="work-media-container">
-            <img src="assets/Steam-Showcase.png" alt="Steam Mobile Redesign Case Study" class="work-asset" style="width: 100%; height: 100%; display: block;"/> 
+            <img src="assets/Steam-Showcase.png" alt="Steam Mobile Redesign Case Study" class="work-asset work-asset--full">
           </div>
           <div class="work-details">
             <div class="project-header-row">
@@ -152,7 +149,7 @@
       <article class="work-card" data-cat="featured product-design">
         <a href="pages/cost&co.html" class="card-inner-link">
           <div class="work-media-container">
-            <img src="assets/COST&CO.png" alt="Cost&co Case Study" class="work-asset" style="width: 95%; height: 95%; display: block;"> 
+            <img src="assets/COST&CO.png" alt="Cost&co Case Study" class="work-asset work-asset--nearly-full">
           </div>
           <div class="work-details">
             <div class="project-header-row">
@@ -172,7 +169,7 @@
       <article class="work-card" data-cat="product-design">
         <a href="pages/resource_bridge.html" class="card-inner-link">
           <div class="work-media-container">
-            <img src="assets/RESOURCEBRIDGE.png" alt="Resource Bridge Kiosk Case Study" class="work-asset" style="width: 100%; height: 100%; display: block;"/> 
+            <img src="assets/RESOURCEBRIDGE.png" alt="Resource Bridge Kiosk Case Study" class="work-asset work-asset--full">
           </div>
           <div class="work-details">
             <div class="project-header-row">
@@ -192,7 +189,7 @@
       <article class="work-card" data-cat="redesign">
         <a href="pages/tastea.html" class="card-inner-link">
           <div class="work-media-container">
-            <img src="assets/TASTEA.png" alt="TASTEA Case Study" class="work-asset" style="width: 75%; height: 75%; display: block;"/>
+            <img src="assets/TASTEA.png" alt="TASTEA Case Study" class="work-asset work-asset--inset">
           </div>
           <div class="work-details">
             <div class="project-header-row">
@@ -211,38 +208,9 @@
     </div>
   </main>
 
-  <footer class="footer">
-    <div class="footer-row">
-      <p class="footer-thank-you">Thank you for viewing! :D</p>
-      
-      <button class="scroll-up-btn" id="scrollUpBtn">
-        <span>Scroll up</span>
-        <svg viewBox="0 0 9.51388 7.36396" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0.146447 3.32843C-0.0488155 3.52369 -0.0488155 3.84027 0.146447 4.03553L3.32843 7.21751C3.52369 7.41278 3.84027 7.41278 4.03553 7.21751C4.2308 7.02225 4.2308 6.70567 4.03553 6.51041L1.20711 3.68198L4.03553 0.853553C4.2308 0.658291 4.2308 0.341709 4.03553 0.146447C3.84027 -0.0488154 3.52369 -0.0488154 3.32843 0.146447L0.146447 3.32843ZM0.5 3.68198V4.18198H9.51388V3.68198V3.18198H0.5V3.68198Z" fill="#A29FA0"/>
-        </svg>
-      </button>
-    </div>
-
-    <div class="footer-row">
-      <nav class="footer-nav" aria-label="Global profile external channels directory">
-        <a href="https://www.linkedin.com/in/livianne-wong-b3b724205/" target="_blank" rel="noreferrer" class="footer-social-link">
-          <span class="footer-label">LinkedIn</span>
-        </a>
-        <a href="https://drive.google.com/file/d/1uY5DvgihQv_6BxHrdHPwktoVfEQGerwh/view" target="_blank" rel="noreferrer" class="footer-social-link">
-          <span class="footer-label">Resume</span>
-        </a>
-        <a href="https://github.com/LivianneW" target="_blank" rel="noreferrer" class="footer-social-link">
-          <span class="footer-label">Github</span>
-        </a>
-      </nav>
-
-      <a href="mailto:liviwong123@gmail.com" class="footer-email">
-        <span>liviwong123@gmail.com</span>
-      </a>
-    </div>
-  </footer>
-
   <script src="script.js"></script>
   <script src="hero-background.js"></script>
+  <script src="footer.js"></script>
+  <script src="footer-scene.js"></script>
 </body>
 </html>
