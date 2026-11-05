@@ -457,41 +457,6 @@ a {
   object-position: center 30%;
 }
 
-/* Doodle Asset Placement */
-.doodle-asset {
-  position: absolute;
-  pointer-events: none;
-  z-index: 3;
-}
-
-.doodle-blue-flower {
-  top: -30px;
-  left: -25px;
-  width: 70px;
-  height: auto;
-}
-
-.doodle-green-flower {
-  bottom: -20px;
-  right: -25px;
-  width: 65px;
-  height: auto;
-}
-
-.doodle-pink-flower {
-  top: 42%;
-  right: -25px;
-  width: 50px;
-  height: auto;
-}
-
-.doodle-seal {
-  bottom: -25px;
-  left: -20px;
-  width: 70px;
-  height: auto;
-}
-
 .about-narrative {
   display: flex;
   flex-direction: column;
@@ -566,41 +531,6 @@ a {
   object-fit: cover;
   display: block;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* Doodle Asset Positioning & Bounds */
-.doodle-asset {
-  position: absolute;
-  pointer-events: none;
-  z-index: 3;
-}
-
-.doodle-blue-flower {
-  top: -24px;
-  left: -28px;
-  width: 64px;
-  height: auto;
-}
-
-.doodle-green-flower {
-  bottom: -18px;
-  right: -24px;
-  width: 58px;
-  height: auto;
-}
-
-.doodle-pink-flower {
-  top: 35%;
-  right: -32px;
-  width: 52px;
-  height: auto;
-}
-
-.doodle-seal {
-  bottom: -75px;
-  left: -50%;
-  width: 220px;
-  height: 150px;
 }
 
 /* RESPONSIVENESS */
@@ -910,30 +840,8 @@ a {
     font-size: 36px;
   }
 
-  .about-greeting .doodle-cat {
-    left: auto !important;
-    right: -70px;
-    bottom: 0 !important;
-    width: 62px !important;
-  }
-
   .about-hero-image {
     max-width: 300px;
-  }
-
-  .doodle-blue-flower {
-    left: -20px;
-  }
-
-  .doodle-pink-flower {
-    right: -20px;
-  }
-
-  .doodle-seal {
-    width: 110px;
-    height: auto;
-    left: -16px;
-    bottom: -18px;
   }
 
   .about-narrative {

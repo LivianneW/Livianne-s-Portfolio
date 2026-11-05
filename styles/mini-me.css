@@ -1,0 +1,44 @@
+/* A little dot-matrix Livianne who walks along the "Hi there!" line (position is set by mini-me.js). */
+.mini-me {
+  position: absolute;
+  left: 0;
+  top: -60px;
+  width: 100%;
+  height: 150px;
+  z-index: 4;
+  pointer-events: none;
+}
+.about-hero { position: relative; }
+
+/* speech bubble above her head (shown while the egg tart is hovered) */
+.mini-bubble {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 6;
+  width: max-content;
+  max-width: 520px;
+  white-space: normal;
+  padding: 8px 16px;
+  border-radius: 14px;
+  background: rgba(255, 251, 251, .97);
+  border: 1px solid rgba(28, 28, 28, .08);
+  box-shadow: 0 6px 20px rgba(28, 28, 28, .06);
+  font-size: 15px;
+  line-height: 1.45;
+  color: #585858;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+.mini-bubble.show { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .mini-bubble { transition: none; } }
+
+/* a little headroom so she and her bubble clear the header */
+.about-layout { padding-top: 7rem; }
+@media (max-width: 1024px) { .about-layout { padding-top: 7.5rem; } .mini-me { height: 140px; } }
+@media (max-width: 640px) {
+  .about-layout { padding-top: 8rem; }
+  .mini-me { height: 130px; }
+  .mini-bubble { max-width: 210px; font-size: 13px; padding: 6px 12px; }
+}

@@ -1,0 +1,53 @@
+/* Dot-matrix Hong Kong egg tart, sitting on the corner of the portrait. */
+.about-hero-image { position: relative; }
+.photo-deco { position: absolute; left: 0; top: -32px; z-index: 1; pointer-events: none; }
+.egg-tart {
+  position: absolute;
+  left: -135px;
+  bottom: -46px;
+  width: 300px;
+  height: 300px;
+  z-index: 3;
+  cursor: pointer;
+  touch-action: manipulation;
+  outline: none;
+}
+.egg-tart:focus-visible { outline: 2px solid #d3a0a0; outline-offset: -6px; border-radius: 16px; }
+.tart-hint {
+  position: absolute;
+  left: -70px;
+  bottom: -76px;
+  z-index: 3;
+  font-size: 14px;
+  color: #a29fa0;
+  pointer-events: none;
+  transition: opacity .4s ease;
+}
+
+/* keep the tart from widening the page on narrow screens */
+.about-layout { overflow-x: clip; }
+.about-hero { margin-bottom: 2rem; }
+
+@media (max-width: 1024px) {
+  .egg-tart { left: -110px; }
+  .tart-hint { left: -48px; }
+}
+@media (max-width: 640px) {
+  .egg-tart { left: -56px; bottom: -40px; width: 230px; height: 230px; }
+  .tart-hint { left: -22px; bottom: -66px; }
+}
+
+/* intro text spacing + the pink headline above the last paragraph */
+.about-hero-text > .text-paragraph { margin-bottom: 1.25rem; }
+.about-hero-text > .text-paragraph:last-child { margin-bottom: 0; }
+.about-subhead { margin: 1.5rem 0 .5rem; font-size: 24px; font-weight: 500; letter-spacing: -0.01em; color: #d3a0a0; }
+@media (max-width: 640px) { .about-subhead { font-size: 21px; } }
+
+/* structured intro: lead line, then two blocks titled like "THE RIDICULOUS BURGER" (uppercase, light grey, subtitle-style text below) */
+.about-hero-text > .intro-pitch { max-width: 34em; margin-bottom: 0; font-size: 21px; line-height: 1.55; }
+.about-hero-text > .text-paragraph:not(.intro-pitch) { max-width: 34em; }
+.about-hero-text > .about-subhead {
+  margin: 2.5rem 0 .4rem; max-width: 34em;
+  font-size: 24px; font-weight: 400; letter-spacing: .02em; line-height: 1.2; text-transform: uppercase; color: #585858;
+}
+@media (max-width: 640px) { .about-hero-text > .about-subhead { font-size: 19px; margin-top: 2rem; } .about-hero-text > .intro-pitch { font-size: 18px; } }

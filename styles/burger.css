@@ -1,0 +1,33 @@
+/* "Ridiculous burger" section. Self-contained (classes prefixed "bs-"); uses your cream, grey and pink. */
+.bs {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  color: #1c1c1c;
+  font-family: var(--font-main, "Larsseit", -apple-system, "Helvetica Neue", Arial, sans-serif);
+}
+.bs *, .bs *::before, .bs *::after { box-sizing: border-box; }
+.bs-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 1.5rem; flex-wrap: wrap; margin-bottom: .75rem; }
+.bs-title { margin: 0 0 .5rem; font-size: 24px; font-weight: 400; letter-spacing: .02em; text-transform: uppercase; color: #585858; }
+.bs-hint { margin: 0; min-height: 1.5em; font-size: 17px; font-weight: 300; color: #585858; }
+.bs-side { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+.bs-stat { font-size: 14px; letter-spacing: .06em; text-transform: uppercase; color: #a29fa0; }
+.bs-stat b { margin-left: .35rem; font-weight: 500; color: #1c1c1c; }
+.bs-add {
+  padding: 6px 18px; border: 1.5px solid #d6d1d1; border-radius: 16px; background: none;
+  color: #585858; font: inherit; font-size: 16px; cursor: pointer;
+  transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+}
+.bs-add:hover, .bs-add:focus-visible { background: rgba(211, 160, 160, .2); border-color: #d3a0a0; color: #1c1c1c; outline: none; }
+.bs-stage { position: relative; cursor: pointer; }
+.bs-stage canvas { display: block; width: 100%; height: 420px; }
+.bs-pops { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.bs-pop {
+  position: absolute; transform: translate(-50%, 0); padding: 2px 12px; border-radius: 14px;
+  background: rgba(255, 251, 251, .92); border: 1px solid rgba(28, 28, 28, .08); color: #585858; font-size: 15px; white-space: nowrap;
+  animation: bs-rise 1.2s ease-out forwards;
+}
+@keyframes bs-rise { 0% { opacity: 0; margin-top: 8px; } 15% { opacity: 1; } 100% { opacity: 0; margin-top: -34px; } }
+@media (prefers-reduced-motion: reduce) { .bs-pop { animation: none; } }
+@media (max-width: 1024px) { .bs { padding: 0 2rem; } }
+@media (max-width: 640px) { .bs { padding: 0 1.5rem; } .bs-stage canvas { height: 360px; } .bs-title { font-size: 19px; } }

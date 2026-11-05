@@ -1,14 +1,19 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About — Livianne</title>
-  <link rel="icon" type="image/x-icon" href="../assets/favicon (3).ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32(3).png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16(3).png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon (3).png">
-  <link rel="stylesheet" href="../index.css">
+  <link rel="icon" type="image/x-icon" href="../assets/favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16.png">
+  <link rel="apple-touch-icon" href="../assets/favicon/apple-touch-icon.png">
+  <link rel="stylesheet" href="../styles/index.css">
+  <link rel="stylesheet" href="../styles/egg-tart.css">
+  <link rel="stylesheet" href="../styles/mini-me.css">
+  <link rel="stylesheet" href="../styles/burger.css">
+  <link rel="stylesheet" href="../styles/story.css">
+  <link rel="stylesheet" href="../styles/footer.css">
   <style>
     a {
       text-decoration: none;
@@ -26,7 +31,7 @@
       </a>
 
       <input type="checkbox" id="menu-toggle" class="menu-toggle" style="display: none;">
-      
+
       <label for="menu-toggle" class="hamburger-icon">
         <span></span>
         <span></span>
@@ -42,99 +47,149 @@
   </header>
 
   <div class="container about-layout">
-    
-<section class="about-hero" style="position: relative;">
-      
-      <div class="about-hero-text" style="position: relative;">
-        <h1 class="about-greeting" style="position: relative; display: inline-block;">
-          Hi there!
-          <img src="../assets/CAT.png" alt="" class="doodle-asset doodle-cat" style="position: absolute; left: 105%; bottom: 10%; width: 100px; height: auto; pointer-events: none;">
-        </h1>
-        
+
+    <section class="about-hero">
+
+      <canvas class="mini-me" aria-hidden="true"></canvas>
+      <span class="mini-bubble" id="tartCaption" role="tooltip">One of my favorite things to eat is a Daan Tat (Eggtart)</span>
+
+      <div class="about-hero-text">
+        <h1 class="about-greeting">Hi there!</h1>
+
         <p class="text-paragraph intro-pitch">
-          You probably already know my name by now, but I'm Livianne! I'm born and raised in Los Angeles, CA
-          and just recently graudated from UC San Diego. 
-        </p>
-        <p class="text-paragraph intro-pitch">
-          My perspective on design started at home. Growing up, I watched my older family members struggle with
-          technology, not because they couldn't use it, but because so many products weren't designed with them in mind. 
-          It made me realize how easily confusing design can become a barrier and sparked my interest in 
-          <span style="color: #8EBBC0; font-weight: 500;">accessibility</span>
-          and <span style="color: #8EBBC0; font-weight: 500;">information architecture</span>. 
+          You probably already know my name by now, but I'm Livianne! Born and raised in Los Angeles, CA,
+          I recently graduated from UC San Diego with a degree in Cognitive Science specializing in Design &amp; Interaction.
         </p>
 
+        <h2 class="about-subhead">Home</h2>
         <p class="text-paragraph">
-          I design by understanding how people experience technology and letting those experiences shape what I create. 
-          Technology can open up endless possibilities, but those possibilities mean little without the people who experience them. 
-          I hope the things I design can find a place and a home somewhere in the world.
+          My perspective on design started at home. Growing up, I watched older members of my family struggle with
+          technology, not because they couldn't use it, but because so many products weren't designed with them in mind.
+          Those experiences shaped how I think about design and sparked my interest in
+          <span style="color: #8EBBC0; font-weight: 500;">accessibility</span>
+          and <span style="color: #8EBBC0; font-weight: 500;">information architecture</span>,
+          particularly in how thoughtful design can make technology feel more intuitive and inclusive.
+        </p>
+
+        <h2 class="about-subhead">Somewhere in the world</h2>
+        <p class="text-paragraph">
+          I design by understanding how people experience technology and letting those experiences shape what I create.
+          I'm interested in exploring what technology can make possible while making those possibilities meaningful and
+          accessible to the people who use it. At the end of the day, I hope the things I design can find a place and a
+          home somewhere in the world.
         </p>
       </div>
-      
-      <div class="about-hero-image" style="position: relative;">
+
+      <div class="about-hero-image">
+        <canvas class="photo-deco" aria-hidden="true"></canvas>
         <div class="about-image-frame" style="position: relative; z-index: 2;">
           <img src="../assets/PROFILE.jpg" alt="Livianne Profile Snapshot">
         </div>
-        
-        <img src="../assets/BLUEFLOWER.png" alt="" class="doodle-asset doodle-blue-flower">
-        <img src="../assets/GREENFLOWER.png" alt="" class="doodle-asset doodle-green-flower">
-        <img src="../assets/PINKFLOWER.png" alt="" class="doodle-asset doodle-pink-flower">
-        <img src="../assets/SEAL.png" alt="" class="doodle-asset doodle-seal">
+
+        <canvas class="egg-tart" role="button" tabindex="0" aria-label="Hong Kong egg tart. Press to take a bite." aria-describedby="tartCaption"></canvas>
+        <span class="tart-hint" data-tart-hint aria-hidden="true">Click for a bite</span>
       </div>
+
 
     </section>
 
-    <section class="about-narrative">
-      <div class="narrative-row">
-        <div class="narrative-meta">
-          <h3 class="narrative-heading" style="color: #70b074">Learning by Doing</h3>
-        </div>
-        <div class="narrative-body text-block">
-          <p style="color: #1c1c1c;">I started my journey in community college with nothing but a computer and a dream. 
-            At the time, I barely knew how to zoom in on Figma, but through curiosity, YouTube tutorials, and countless TikToks, 
-            I slowly taught myself design and prototyping from the ground up.</p>
-          <p style="color: #1c1c1c;">I still remember making an absolutely ridiculous burger in Figma and feeling like a creative genius. 
-            I didn't fully understand product design yet, but I knew I loved the building, learning, and improving aspects of it.
-            That curiosity is still a big part of how I approach design today.</p>
-        </div>
-      </div>
+    <canvas class="story-divider" aria-hidden="true"></canvas>
 
-      <div class="narrative-row">
-        <div class="narrative-meta">
-          <h3 class="narrative-heading" style="color: #d3a0a0;">Outside the File</h3>
+    <div class="story-grid">
+      <section class="story" aria-labelledby="storyTitle">
+        <h2 class="story-title" id="storyTitle">In and Out the File</h2>
+
+        <div class="story-rows">
+          <article class="story-row">
+            <p class="story-lead">I started my journey in community college with nothing but a computer and a dream.</p>
+            <p class="story-body">At the time, I barely knew how to zoom in on Figma, but through curiosity, YouTube tutorials, and countless TikToks, 
+              I slowly taught myself design and prototyping from the ground up.</p>
+          </article>
+          <article class="story-row">
+            <p class="story-lead">I still remember making an absolutely ridiculous burger in Figma and feeling like a creative genius.</p>
+            <p class="story-body">I didn't fully understand product design yet, but I knew I loved the building, learning, and improving aspects of it. 
+              That curiosity is still a big part of how I approach design today.</p>
+          </article>
+          <article class="story-row">
+            <p class="story-lead">My love for food comes from the joy of bringing people together - something that also inspires the way I approach design 
+              and creativity.</p>
+            <p class="story-body">When I'm not building projects, you'll usually find me cooking, baking, or experimenting in the kitchen!
+               Whether through design, food, or music, I'm always exploring new ideas and turning them into meaningful, memorable experiences.</p>
+          </article>
         </div>
-        <div class="narrative-body text-block">
-          <p style="color: #1c1c1c;">When I'm not building projects, you'll usually find me cooking, baking, or experimenting in the kitchen! 
-            My love for food comes from the joy of bringing people together - something that also inspires the way I approach design and creativity. 
-            Whether through design, food, or music, I'm always exploring new ideas and turning them into meaningful, memorable experiences.</p>
+      </section>
+
+      <section class="bs">
+        <div class="bs-head">
+          <div>
+            <h2 class="bs-title">The ridiculous burger</h2>
+            <p class="bs-hint" data-bs-hint>Remember my Figma burger?  Click to stack one</p>
+          </div>
         </div>
+        <div class="bs-stage" role="button" tabindex="0" aria-label="Stack a burger layer">
+          <canvas id="burger-scene" aria-hidden="true"></canvas>
+          <div class="bs-pops" data-bs-pops aria-hidden="true"></div>
+        </div>
+        <canvas class="kitchen-scene" role="img" aria-label="A dotted me whisking a bowl in headphones, with a coffee beside her"></canvas>
+      </section>
+    </div>
+
+    <section class="photos">
+      <h2 class="story-title">A little bit of my life</h2>
+      <p class="photos-hint">Flip through the photos</p>
+      <div class="photo-strip" role="group" aria-label="Photo pile, press Enter to see the next photo">
+        <div class="photo-item"><img src="../assets/MUFFINS.jpg" alt="Homemade freshly baked muffins" loading="lazy" draggable="false"></div>
+        <div class="photo-item"><img src="../assets/MEIJI.jpg" alt="Meiji Shrine travel view" loading="lazy" draggable="false"></div>
+        <div class="photo-item"><img src="../assets/FRIENDS2.JPG" alt="Candid moments with friends" loading="lazy" draggable="false"></div>
+        <div class="photo-item"><img src="../assets/FRIENDS.JPG" alt="Group sunset photo" loading="lazy" draggable="false"></div>
+        <div class="photo-item"><img src="../assets/VIETNAM.JPG" alt="Scenery landscape view in Vietnam" loading="lazy" draggable="false"></div>
+        <div class="photo-item"><img src="../assets/FOCCACIA.jpg" alt="Homemade artisan rosemary focaccia bread" loading="lazy" draggable="false"></div>
+        <div class="photo-item"><img src="../assets/overwatch.jpg" alt="Another moment from my life" loading="lazy" draggable="false"></div>
       </div>
     </section>
 
-    <section class="about-gallery">
-      <h3 class="bits-header">A Little Bit of My Life</h3>
-      <div class="photo-gallery">
-        <div class="photo-item">
-          <img src="../assets/MUFFINS.jpg" alt="Homemade freshly baked muffins">
-        </div>
-        <div class="photo-item">
-          <img src="../assets/MEIJI.jpg" alt="Meiji Shrine travel view">
-        </div>
-        <div class="photo-item">
-          <img src="../assets/FRIENDS2.JPG" alt="Candid moments with friends">
-        </div>
-        <div class="photo-item">
-          <img src="../assets/FRIENDS.JPG" alt="Group sunset photo">
-        </div>
-        <div class="photo-item">
-          <img src="../assets/VIETNAM.JPG" alt="Scenery landscape view in Vietnam">
-        </div>
-        <div class="photo-item">
-          <img src="../assets/FOCCACIA.jpg" alt="Homemade artisan rosemary focaccia bread">
-        </div>
-      </div>
-    </section>
   </div>
-  <script src="../footer.js"></script>
-  <script src="../footer-scene.js"></script>
+
+<div class="apple-footer">
+  <div class="af-scene">
+    <canvas id="footer-scene" aria-hidden="true"></canvas>
+    <p class="af-warning">beware of jumping apples</p>
+  </div>
+
+  <div class="af-inner">
+    <p class="af-thanks">Thank you for viewing!</p>
+
+    <div class="af-cols">
+      <div class="af-col">
+        <span class="af-label">Contact</span>
+        <a class="af-email" href="mailto:liviwong123@gmail.com">liviwong123@gmail.com</a>
+      </div>
+      <nav class="af-col" aria-label="Profiles">
+        <span class="af-label">Elsewhere</span>
+        <a href="https://www.linkedin.com/in/livianne-wong-b3b724205/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="https://drive.google.com/file/d/1uY5DvgihQv_6BxHrdHPwktoVfEQGerwh/view" target="_blank" rel="noreferrer">Resume</a>
+        <a href="https://github.com/LivianneW" target="_blank" rel="noreferrer">Github</a>
+      </nav>
+    </div>
+
+    <div class="af-bottom">
+      <span class="af-copy">Designed by Livianne</span>
+      <button class="af-up" id="scrollUpBtn" type="button">Scroll up <span aria-hidden="true">↑</span></button>
+    </div>
+  </div>
+</div>
+
+  <script>
+    const scrollUpBtn = document.getElementById('scrollUpBtn');
+    if (scrollUpBtn) scrollUpBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+  <script src="../scripts/egg-tart.js"></script>
+  <script src="../scripts/mini-me.js"></script>
+  <script src="../scripts/photo-border.js"></script>
+  <script src="../scripts/divider.js"></script>
+  <script src="../scripts/kitchen-scene.js"></script>
+  <script src="../scripts/burger-scene.js"></script>
+  <script src="../scripts/photos.js"></script>
+  <script src="../scripts/footer-scene.js"></script>
 </body>
 </html>

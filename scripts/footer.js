@@ -1,7 +1,10 @@
 (() => {
   const footerMarkup = `
     <footer class="apple-footer">
-      <canvas id="footer-scene" aria-hidden="true"></canvas>
+      <div class="af-scene">
+        <canvas id="footer-scene" aria-hidden="true"></canvas>
+        <p class="af-warning">beware of jumping apples</p>
+      </div>
 
       <div class="af-inner">
         <p class="af-thanks">Thank you for viewing!</p>
