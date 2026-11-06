@@ -109,6 +109,18 @@
   transform: translateY(-2px);
 }
 
+@media (min-width: 821px) {
+  .af-cols {
+    grid-template-columns: minmax(0, max-content) max-content;
+    justify-self: end;
+    width: max-content;
+    max-width: 100%;
+    column-gap: 4rem;
+  }
+  .af-col { align-items: flex-end; }
+  .af-label { align-self: flex-start; }
+}
+
 @media (max-width: 820px) {
   #footer-scene { height: 170px; }
   .af-warning { left: 1.5rem; }

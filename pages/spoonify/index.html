@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spoonify - Livianne</title>
+    <link rel="icon" type="image/x-icon" href="../../assets/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon/favicon-32.png">
+     <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16.png">
+     <link rel="apple-touch-icon" sizes="180x180" href="../../assets/favicon/apple-touch-icon.png">
+    <link rel="stylesheet" href="../../styles/styles.css">
+<style>
+
+    a {
+        text-decoration: none;    
+        color: inherit;        
+    }
+
+    .spoonify-hero {
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 10px;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 22px 30px;
+        overflow: hidden;
+        position: relative;
+        margin-top: 70px;
+    }
+
+    .spoonify-hero img {
+        height: 95%;
+        width: auto;
+        object-fit: cover;
+    }
+
+    .figma-embed-container iframe {
+        max-width: 100%;
+    }
+
+    /* Base Grid Setup */
+    .comparison-images {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Always 2 columns */
+        gap: 4px; /* Space between images */
+        justify-items: center;
+        margin: 0 auto;
+    }
+
+    .comparison-image {
+        width: 100%;
+        max-width: 100%; /* Allows image to fill its 50% slot */
+        aspect-ratio: 9 / 16;
+        border-radius: 20px; /* Slightly smaller radius for mobile looks better */
+        overflow: hidden;
+    }
+
+    .comparison-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1.25);
+    }
+
+    .curious-images {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        margin-top: 20px;
+    }
+
+    .curious-images img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        display: block;
+    }
+
+    /* Mobile Specific Tweaks */
+    @media (max-width: 768px) {
+        .project-content {
+            padding: 0 16px;
+        }
+
+        .prototype-label {
+            padding: 10px 20px; 
+        }
+    }
+
+    @media (min-width: 1024px) {
+    .spoonify-hero {
+        height: 340px;
+    }
+    .spoonify-hero img {
+        height: 90%;
+    }
+    .comparison-images {
+        transform: none;
+        width: 80%;
+    }
+    .comparison-image img {
+        width: 100%;
+        height: 100%;
+        transform: none;
+    }
+    }
+
+</style>
+</head>
+<body>
+    <div class="container project-container">
+        <div class="header">
+            <h1><a href="../../">LIVIANNE</a></h1> 
+            <span class="page-indicator">/ Spoonify</span>
+
+        <nav class="header-nav">
+            <a href="../../">Works</a>
+            <a href="../about/">About</a>
+            <a href="https://drive.google.com/file/d/1uY5DvgihQv_6BxHrdHPwktoVfEQGerwh/view?usp=sharing" target="_blank">Resume</a>
+        </nav>
+
+        
+            <div class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <div class="spoonify-hero">
+            <img src="../../assets/Spoonify-Showcase.png" alt="Spoonify Home">
+        </div>
+
+        <div class="project-content">
+        <div class="project-header">
+            <h2 class="project-title">Spoonify</h2>
+            <p class="project-subtitle">Product Design</p>
+            <p class="project-description">Spoonify is an all-in-one recipe app designed to <span class="highlighter">simplify the recipe-finding process</span> and support users throughout the entire cooking experience. With a wide range of categories to explore, along with the ability to create personalized recipe lists and cookbooks, Spoonify helps indecisive cooks easily discover recipes that fit their preferences. The app adapts to each user’s needs, making it easier to find the right recipe for any mood, skill level, or occasion.</p>
+            <a href="https://www.figma.com/proto/ePbiIrBOflCd8Tg3Z2rnDi/spoonify-final?page-id=858%3A133&node-id=858-186&viewport=49%2C416%2C0.75&t=q1gvmffYu2jbYrCX-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=858%3A160" target="_blank" class="view-prototype-link">View the prototype</a>
+        </div>
+
+        <!-- Team Section -->
+        <div class="info-section">
+            <div class="info-tag">Team</div>
+            <div class="info-content">
+                <p class="team-lead">Livianne&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Product Designer</p>
+            </div>
+        </div>
+
+        <!-- Tools Section -->
+        <div class="info-section">
+            <div class="info-tag">Tools</div>
+            <div class="info-content">
+                <p>Figma</p>
+            </div>
+        </div>
+
+        <!-- Timeline Section -->
+        <div class="info-section">
+            <div class="info-tag">Timeline</div>
+            <div class="info-content">
+                <p>August 2024 - December 2024</p>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Problem Statement -->
+        <h3 class="section-heading">Problem Statement</h3>
+        <div class="section-content">
+            <p>As a home cooking enthusiast, I often run into the challenge of finding the perfect recipe. I find myself switching between multiple platforms like TikTok and Google to match recipes with my mood and cravings. While these efforts are well intentioned, they end up being time consuming and time that could be better spent actually cooking. After talking with friends and family, I realized this frustration is a shared experience for many home cooks.</p>
+        </div>
+
+        <!-- Research & Pain Points -->
+        <h3 class="section-heading">Research & Pain Points</h3>
+        <div class="section-content">
+            <p>To understand the gap with current recipe apps, I conducted a competitive analysis of popular cooking apps and interviewed users ranging from aspiring home cooks to professional chefs. This research revealed that while existing platforms offer utility, they often fail to address the lack of motivation and personalization that prevents people from cooking more often</p>     
+            <p style="margin-top: 16px; margin-bottom: 4px;"><strong>Key Insights & User Struggles</strong></p>
+            <p>Through my research, I identified three core frustrations that Spoonify aims to solve:</p>
+            <ul>
+                <li><strong>Decision Fatigue:</strong> Users reported that finding a recipe "takes forever" and that they often scroll through endless lists on Google only to give up without cooking.</li>
+                <li><strong>The "Motivation" Gap:</strong> Many individuals feel that cooking requires too much time and energy, leading to a complete lack of motivation to start.</li>
+                <li><strong>Inflexible Personalization: </strong> A lack of filters makes it difficult for users to narrow down recipes by specific skill levels, dietary restrictions, or ingredients they already have.</li>
+            </ul>
+            <p style="margin-top: 16px; margin-bottom: 4px;"><strong>The Competitive Analysis</strong></p>
+            <div class="section-content">
+            <p>My analysis of apps like Umami, Paprika 3, Pepper, and Mela showed a clear opportunity for Spoonify to stand out:</p>
+            <ul>
+                <li><strong>Umami/Paprika:</strong> Strong utility and recipe management	Lacks social interaction and community engagement.</li>
+                <li><strong>Pepper:</strong> Intuitive UI and social focus	Discovery process can feel cluttered without strong filters.</li>
+                <li><strong>Mela:</strong> Simple, elegant interface	Does not provide detailed nutritional information or calorie counts.</li>
+            </ul>
+            </div>
+        </div>
+
+        <!-- Design Features -->
+        <h3 class="section-heading">Design Features</h3>
+        <div class="section-content">
+            <p>Using everything I learned from my research, I narrowed Spoonify down to three key features.</p>
+            <ul>
+                <li><strong>Cooking Mode: </strong> Instead of constantly scrolling, rewinding, or losing your place, Cooking Mode provides a clear, step-by-step guide that helps users easily navigate the cooking process from start to finish.</li>
+                <li><strong>Streamlining Recipe Searching:</strong> Considered as one of the most time-consuming parts of cooking, this feature simplifies discovery by tailoring recipes to each user’s preferences. Through personalization, curated playlists, and shared collections from other users, the app makes finding the right recipe quick and intuitive.</li>
+                <li><strong>Fostering a Community: </strong> Unsure what to cook? Users can see what their friends are enjoying, track cooking streaks to stay motivated, and interact through comments, sharing feedback, tips, or even praising a “secret” ingredient someone added. This feature turns cooking into a shared and engaging experience rather than a solo task.</li>
+            </ul>
+        </div>
+
+        <!-- Prototype A -->
+        <div class="prototype-section">
+            <div class="prototype-label">Cooking Mode</div>
+            <div class="comparison-images">
+                <div class="comparison-image">
+                    <img src="../../assets/Spoonify-Instructions.png" alt="Spoonify Cooking Mode Screen">
+                </div>
+                <div class="comparison-image">
+                    <img src="../../assets/Spoonify-Instructions2.png" alt="Spoonify Recipe Screen">
+                </div>
+            </div>
+        </div>
+
+        <!-- Streamlining Recipe Searching -->
+        <div class="prototype-section">
+            <div class="prototype-label">Streamlining Recipe Searching</div>
+            <div class="comparison-images">
+                <div class="comparison-image">
+                    <img src="../../assets/Spoonify-Search1.png" alt="Spoonify Search Screen">
+                </div>
+                <div class="comparison-image">
+                    <img src="../../assets/Spoonify-Search2.png" alt="Spoonify Recipe Screen">
+                </div>
+                <div class="comparison-image">
+                    <img src="../../assets/Spoonify-HomeSearch.png" alt="Spoonify Search2 Screen">
+                </div>
+                <div class="comparison-image">
+                    <img src="../../assets/Spoonify-Recipe.png" alt="Spoonify Recipe Screen">
+                </div>
+            </div>
+        </div>
+
+        <!-- Fostering A Community -->
+        <div class="prototype-section">
+            <div class="prototype-label">Fostering A Community</div>
+            <div class="comparison-images">
+                <div class="comparison-image">
+                    <img src="../../assets/Spoonify-Profile.png" alt="Spoonify Profile Screen">
+                </div>
+                <div class="comparison-image">
+                    <img src="../../assets/Spoonify-Reviews.png" alt="Spoonify Reviews Screen">
+                </div>
+            </div>
+        </div>
+
+        <!-- Lessons Learned -->
+        <h3 class="section-heading">Lessons Learned</h3>
+        <div class="section-content">
+            <p><strong>Conducting competitive </strong>analyses played a key role in creating and ideating for Spoonify. This process allowed me address the gaps and user expectations for. It also helped me to understand the importance of aligning innovation with user needs, helping me distinguish the factors that elevate an app from being good to great.</p>
+            <p><strong>Small details make a big impact </strong>and it is the features like "Liked Recipes," easy sharing options, or clear nutritional information that make the app more practical and appealing. These thoughtful additions help ensure that the app is inclusive and appealing to everyone.</p>
+        </div>
+        <ul>
+            <p style="margin-top: 16px; margin-bottom: 4px; font-weight: 500; color: #95CF80;">Passion to Prototype</p>
+            <div class="section-content">
+            <p>All in all, I truly enjoyed creating this app from its start to finish. My love for cooking and hosting inspired this project, letting me explore a form of creativity rooted in creating experiences for others, not just designing interfaces.</p>
+        </ul>
+        </div>
+
+    <div class="figma-embed-container">
+          <iframe
+            src="https://embed.figma.com/proto/ePbiIrBOflCd8Tg3Z2rnDi/spoonify-final?page-id=858%3A133&node-id=858-186&viewport=133%2C242%2C0.26&scaling=scale-down&content-scaling=fixed&starting-point-node-id=858%3A160&embed-host=share"
+            allowfullscreen>
+            </iframe>
+        </div>
+        <div class="final-section-divider"></div>
+
+        <!-- For the Curious -->
+        <div class="curious-section">
+            <h3 class="curious-heading">For the Curious</h3>
+            <p class="curious-intro">I created the logo myself! I knew I wanted to include a spoon in the design and ended up fitting two into the design... see if you can spot them!</p>
+        </div>
+        <div class="curious-images">
+            <img src="../../assets/Spoonify-Logo2.png" alt="Spoonify logo concept 2">
+            <img src="../../assets/Spoonify-Logo1.png" alt="Spoonify logo concept 1">
+        </div>
+
+    </div>
+
+    <!-- Menu Overlay and Panel -->
+    <div class="menu-overlay"></div>
+    <div class="menu-panel">
+        <div class="menu-header">
+            <h3>Menu</h3>
+            <button class="close-menu">&times;</button>
+        </div>
+        <div class="menu-items">
+            <a href="../../">Home</a>
+            <a href="../about/">About</a>
+            <a href="https://drive.google.com/file/d/1uY5DvgihQv_6BxHrdHPwktoVfEQGerwh/view" target="_blank">Resume</a>
+        </div>
+    </div>
+
+    <script src="../../scripts/script.js"></script>
+  <script src="../../scripts/footer.js"></script>
+  <script src="../../scripts/footer-scene.js"></script>
+</body>
+</html>

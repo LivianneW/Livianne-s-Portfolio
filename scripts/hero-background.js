@@ -13,7 +13,7 @@
 
   let PITCH = 4, GAP_X = 3, GAP_Y = 3, DOT = 2, CELL_W = 11, CELL_H = 19, ds = 1;
   const DOT_COLOR = "#534740", ACCENT_PINK = "#d3a0a0", BG = "#fffbfb";
-  const RED = "#d9272e", LEAF = "#70b074";                 // apples and their leaves
+  const RED = "#d9272e", LEAF = "#70b074", LEAF_ACCENT = "#D2D79F"; // apples and their leaves
   const CAT_COLOR = "#1c1c1c";
   const BAYER = [0,8,2,10,12,4,14,6,3,11,1,9,15,7,13,5].map(v => (v + 0.5) / 16);
 
@@ -268,7 +268,7 @@
   }
 
   function makeSprites() {                                  // pre-rendered dots: drawImage is far cheaper than thousands of arc() paths
-    sprites = [DOT_COLOR, ACCENT_PINK, RED, LEAF, CAT_COLOR].map(col => [0, 1, 2, 3, 4].map(l => {
+    sprites = [DOT_COLOR, ACCENT_PINK, RED, LEAF, CAT_COLOR, LEAF_ACCENT].map(col => [0, 1, 2, 3, 4].map(l => {
       const rad = (0.6 + ((l + 0.5) / 5) * 1.1) * ds, size = Math.ceil(rad * 2 + 2);
       const c = document.createElement("canvas"); c.width = c.height = Math.ceil(size * dpr);
       const g = c.getContext("2d"); g.scale(dpr, dpr); g.fillStyle = col;
@@ -312,7 +312,7 @@
       const x1 = s.x + swayX(s.x, s.y, s.k0, t), cx = s.cx + swayX(s.cx, s.cy, s.kc, t), x2 = s.x2 + swayX(s.x2, s.y2, s.k1, t);
       octx.beginPath(); octx.moveTo(x1, s.y); octx.quadraticCurveTo(cx, s.cy, x2, s.y2);
       octx.strokeStyle = s.w > 12 ? `rgba(255,255,255,${s.b || 0.4})` : "rgba(255,255,255,0.95)";
-      octx.lineWidth = s.w; octx.stroke();
+      octx.lineWidth = s.w * (s.w < 12 * u ? 1.3 : 1.08); octx.stroke();
     }
     drawCat(t);
 
@@ -338,6 +338,35 @@
     for (const f of flowers) {                              // leaves: a dappled green cluster wherever a blossom used to be
       const fx = f.x + f.dx;
       for (let i = 0; i < 4; i++) { const an = f.ph + i * 1.6; disc(fx + Math.cos(an) * f.s * 0.6, f.y + Math.sin(an) * f.s * 0.55, f.s * 0.72, 3); }
+    }
+    const addGrassBlade = (x, height, lean) => {
+      const steps = Math.max(2, Math.ceil(height / (CELL_H / 4)));
+      for (let i = 0; i <= steps; i++) {
+        const progress = i / steps;
+        const gx = Math.round((x + lean * progress) * 2 / CELL_W);
+        const gy = Math.round((groundY - height * progress) * 4 / CELL_H);
+        if (gx >= 0 && gx < cols && gy >= 0 && gy < rows) {
+          const index = gy * cols + gx;
+          if (appleMask[index] === 0) appleMask[index] = 4;
+        }
+      }
+    };
+    for (let i = 0; i < 11; i++) {
+      const x = W * (0.04 + i * 0.092);
+      for (let blade = 0; blade < 2; blade++) {
+        const height = (9 + ((i + blade * 2) % 4) * 1.5) * u;
+        const lean = (blade === 0 ? -1 : 1) * (3 + ((i + blade) % 3) * 2) * u;
+        addGrassBlade(x + (blade - 0.5) * 5 * u, height, lean);
+      }
+    }
+    for (let i = 0; i < 6; i++) {
+      const x = W * (0.12 + i * 0.15);
+      const gx = Math.round(x * 2 / CELL_W);
+      const gy = Math.round((groundY - DOT) * 4 / CELL_H);
+      if (gx >= 0 && gx < cols && gy >= 0 && gy < rows) {
+        const index = gy * cols + gx;
+        if (appleMask[index] === 0) appleMask[index] = 4;
+      }
     }
     const appleMark = (x, y, rr, angle) => {
       disc(x, y, rr, 1);
@@ -376,14 +405,14 @@
     for (let y = 0; y < rows; y++) {
       const cy = y * PITCH + (y >> 2) * GAP_Y + DOT / 2, by = (y & 3) * 4, row = y * cols;
       for (let x = 0; x < cols; x++) {
-        const am = appleMask[row + x], leaf = am === 3, solid = am === 1 || am === 2;
+        const am = appleMask[row + x], leaf = am === 3, grass = am === 4, solid = am === 1 || am === 2;
         const pixel = (row + x) * 4;
         const isCat = catMask[row + x] === 1;
         const isFallingLeaf = !solid && !leaf &&
           data[pixel + 1] > data[pixel] * 1.2 && data[pixel + 1] > data[pixel + 2] * 1.15;
-        const v = solid ? 1 : leaf ? 0.45 + ((x * 5 + y * 11) % 7) / 14 : data[pixel] / 255;
+        const v = solid || grass ? 1 : leaf ? 0.45 + ((x * 5 + y * 11) % 7) / 14 : data[pixel] / 255;
         if (solid || (v > 0.06 && v > BAYER[by + (x & 3)] * 0.95)) {
-          const color = isCat ? 4 : solid ? am + 1 : leaf || isFallingLeaf ? 3 : (x * 7 + y * 13) % 9 === 0 ? 1 : 0;
+          const color = isCat ? 4 : grass ? 5 : solid ? am + 1 : leaf ? (x * 7 + y * 13) % 8 === 0 ? 5 : 3 : isFallingLeaf ? 3 : (x * 7 + y * 13) % 9 === 0 ? 1 : 0;
           const sp = sprites[color][Math.min(4, (v * 5) | 0)];
           ctx.drawImage(sp.c, Math.round(x * PITCH + (x >> 1) * GAP_X + DOT / 2 - sp.s / 2), Math.round(cy - sp.s / 2), sp.s, sp.s);
         }

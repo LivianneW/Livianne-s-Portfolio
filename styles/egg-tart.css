@@ -3,7 +3,7 @@
 .photo-deco { position: absolute; left: 0; top: -32px; z-index: 1; pointer-events: none; }
 .egg-tart {
   position: absolute;
-  left: -135px;
+  left: -225px;
   bottom: -46px;
   width: 300px;
   height: 300px;
@@ -15,7 +15,7 @@
 .egg-tart:focus-visible { outline: 2px solid #d3a0a0; outline-offset: -6px; border-radius: 16px; }
 .tart-hint {
   position: absolute;
-  left: -70px;
+  left: -100px;
   bottom: -76px;
   z-index: 3;
   font-size: 14px;
@@ -29,12 +29,12 @@
 .about-hero { margin-bottom: 2rem; }
 
 @media (max-width: 1024px) {
-  .egg-tart { left: -110px; }
-  .tart-hint { left: -48px; }
+  .egg-tart { left: -135px; }
+  .tart-hint { left: -73px; }
 }
 @media (max-width: 640px) {
-  .egg-tart { left: -56px; bottom: -40px; width: 230px; height: 230px; }
-  .tart-hint { left: -22px; bottom: -66px; }
+  .egg-tart { left: -98px; bottom: -40px; width: 230px; height: 230px; }
+  .tart-hint { left: -34px; bottom: -66px; }
 }
 
 /* intro text spacing + the pink headline above the last paragraph */

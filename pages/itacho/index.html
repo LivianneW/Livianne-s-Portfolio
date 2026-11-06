@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Itacho Sushi Redesign - Livianne</title>
+  <link rel="icon" type="image/x-icon" href="../../assets/favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/favicon/apple-touch-icon.png">
+  <link rel="stylesheet" href="../../styles/styles.css">
+  <style>
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    .comparison-row-side-by-side {
+      display: flex;
+      gap: 13px;
+      justify-content: center;
+      margin-bottom: 0;
+      width: 100%;
+    }
+
+    .final-image {
+      width: 170px;
+      height: 100%;
+      border-radius: 25px;
+      overflow: hidden;
+      position: relative;
+      flex-shrink: 0; 
+    }
+
+    .final-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      background: transparent;
+      transition: transform 0.3s ease;
+    }
+
+    .final-image img.bottom-focus {
+      object-position: bottom;
+    }
+
+    .comparison-labels-row {
+      display: flex;
+      gap: 13px;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+
+    .image-label {
+      background: rgba(0, 0, 0, 0.05);
+      padding: 8px 0;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 13px;
+      width: 175px; 
+      margin: 12px 0;
+      font-weight: 400;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .exploration-groups {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+      margin-top: 3rem;
+    }
+
+    .exploration-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .exploration-heading {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.4rem;
+      border-left: 3px solid rgba(124, 171, 176, 0.5);
+      padding-left: 1.25rem;
+    }
+
+    .exploration-heading h3 {
+      margin: 0;
+      color: var(--text-dark);
+      font-size: 21px;
+      font-weight: 500;
+      line-height: 1.35;
+    }
+
+    .exploration-heading p {
+      max-width: 68ch;
+      margin: 0;
+      color: var(--text-grey);
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .exploration-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 64px 24px;
+    }
+
+    .exploration-grid.hero-directions .exploration-figure {
+      width: 100%;
+      max-width: 380px;
+      justify-self: center;
+    }
+
+    .exploration-grid.menu-directions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .exploration-figure {
+      min-width: 0;
+      margin: 0;
+    }
+
+    .exploration-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 14px;
+    }
+
+    .exploration-grid.hero-directions .exploration-figure img {
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+
+    .exploration-grid.menu-directions .exploration-figure {
+      width: 100%;
+      max-width: 520px;
+    }
+
+    .exploration-grid.menu-directions .exploration-figure img {
+      border: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    .exploration-final {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+
+    .exploration-final-label {
+      color: #57925d;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .exploration-final img {
+      display: block;
+      width: 100%;
+      max-width: 520px;
+      height: auto;
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .exploration-final.hero-selected img {
+      aspect-ratio: 16 / 7.5;
+      object-fit: cover;
+    }
+
+    .insight-card {
+      gap: 0.75rem;
+    }
+
+    .user-goals-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem 2.5rem;
+      list-style: none;
+      margin: 1rem 0 0;
+      padding: 0;
+    }
+
+    .user-goal-card {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+
+    .user-goal-number {
+      flex: 0 0 24px;
+      color: var(--color-green-accent);
+      font-size: 14px;
+      font-weight: 500;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .user-goal-card h3 {
+      margin: 0;
+      color: var(--text-dark);
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.35;
+    }
+
+    .insight-title {
+      display: flex;
+      align-items: baseline;
+      gap: 0.55rem;
+      margin: 0;
+      color: var(--text-dark);
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 1.35;
+    }
+
+    .insight-number {
+      color: #70b074;
+      font-size: 16px;
+      font-weight: 500;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .insight-copy-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+      margin: 0.5rem 0 1rem;
+    }
+
+    .insight-detail {
+      border-top: 1px solid rgba(28, 28, 28, 0.12);
+      padding-top: 0.85rem;
+    }
+
+    .insight-detail.response {
+      border-top-color: rgba(112, 176, 116, 0.55);
+    }
+
+    .insight-detail-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--text-grey);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .insight-detail.response .insight-detail-label {
+      color: #57925d;
+    }
+
+    .insight-detail p {
+      margin: 0;
+      color: var(--text-grey);
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.65;
+    }
+
+    /* ── MOBILE OVERRIDES ONLY (Leaves Desktop Untouched) ── */
+    @media (max-width: 768px) {
+      .user-goals-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+      }
+
+      /* Disable touch/pointer hover artifacts on mobile */
+      .final-image, 
+      .final-image img {
+        pointer-events: none !important;
+        transform: none !important;
+        transition: none !important;
+      }
+
+      .hero-top-split {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+      }
+
+      .hero-img {
+        transform: scale(1) !important;
+        width: 100% !important;
+        height: auto !important;
+      }
+
+      /* Fix Validation & Comparison Frames on Mobile */
+      .comparison-row-side-by-side {
+        gap: 8px !important;
+        padding: 0;
+        justify-content: space-between !important;
+      }
+
+      .comparison-column-unit {
+        width: 48% !important;
+        max-width: 48% !important;
+      }
+
+      .comparison-column-unit .final-image {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 9 / 18 !important;
+      }
+
+      .insight-title {
+        font-size: 20px;
+      }
+
+      .insight-copy-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .image-label-badge {
+        width: 100% !important;
+        padding: 6px 4px !important;
+        font-size: 11px!important;
+        box-sizing: border-box !important;
+      }
+
+      /* Fix Insight 2 (Hero GIFs) on Mobile */
+      .insight-card div[style*="max-width: 540px"] {
+        max-width: 100% !important;
+        min-width: 100% !important;
+        width: 100% !important;
+      }
+
+      .insight-card div[style*="max-width: 540px"] .final-image {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16 / 9 !important;
+      }
+
+      .figma-embed-container iframe {
+        height: 460px !important;
+      }
+
+      .exploration-grid.hero-directions {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .exploration-heading h3 {
+        font-size: 19px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .figma-embed-container iframe {
+        height: 420px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="../../" class="logo-link">
+        <span class="logo">LIVIANNE</span>
+        <span class="page-indicator">/ Itacho Sushi Redesign</span>
+      </a>
+      
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" style="display: none;">
+      
+      <label for="menu-toggle" class="hamburger-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      
+      <nav class="nav-links">
+        <a href="../../" class="nav-link">Work</a>
+        <a href="../about/" class="nav-link">About</a>
+        <a href="https://drive.google.com/file/d/1uY5DvgihQv_6BxHrdHPwktoVfEQGerwh/view?usp=sharing" class="nav-link" target="_blank" rel="noreferrer">Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-banner case-hero-itacho">
+    <div class="container hero-container">
+      <div class="hero-top-split" style="display: flex; width: 100%; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 32px;">
+        <div class="hero-text-block">
+          <h1 class="hero-title">Itacho Sushi</h1>
+          <p class="hero-subtitle">Contract</p>
+        </div>
+        <div class="hero-image-wrapper">
+          <img src="../../assets/ITACHO2.png" alt="Pikmin Bloom characters illustration" class="hero-img" style="width: 100%; height: 100%; transform: scale(1.25); display: block;"/>
+        </div>
+      </div>
+    
+      <div class="project-meta-dashboard">
+        <div class="meta-dashboard-col">
+          <span class="meta-dashboard-label">Team</span>
+          <div class="meta-dashboard-list">
+            <div class="meta-dashboard-row">
+              <span class="meta-name" style="color: var(--color-team-pink); font-weight: 500;">Livianne</span>
+              <span class="meta-role" style="color: var(--color-team-pink); font-weight: 500;">Product Designer</span>
+            </div>
+            <div class="meta-dashboard-row">
+              <span class="meta-name">Magnolia</span>
+              <span class="meta-role">Product Designer</span>
+            </div>
+            <div class="meta-dashboard-row">
+              <span class="meta-name">Valerie</span>
+              <span class="meta-role">Product Designer</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="meta-dashboard-col skills-col">
+          <span class="meta-dashboard-label">Skills</span>
+          <p class="meta-dashboard-text">Branding, User Flows, Product Thinking, <br>Prototyping, Information Architecture,<br>Client Collaboration</p>
+        </div>
+
+        <div class="meta-dashboard-col">
+          <span class="meta-dashboard-label">Tools</span>
+          <p class="meta-dashboard-text">Figma</p>
+        </div>
+
+        <div class="meta-dashboard-col">
+          <span class="meta-dashboard-label">Timeline</span>
+          <p class="meta-dashboard-text">April 2026 - June 2026</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container body-container">
+    <aside class="sidebar">
+      <div class="toc-sticky-container">
+        <a href="../../" class="back-btn-sticky">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Back to Home
+        </a>
+
+        <nav class="toc">
+          <a href="#overview" class="toc-link active">Overview</a>
+          <a href="#problem-statement" class="toc-link">Problem Statement</a>
+          <a href="#the-solution" class="toc-link">My Approach</a>
+          <a href="#research-pain-points" class="toc-link">Research Goals</a>
+          <a href="#midfi-testing" class="toc-link">Validation and Iteration</a> 
+          <a href="#final-design" class="toc-link">Final Design</a>
+          <a href="#reflection" class="toc-link">Reflection</a>          
+          <a href="#prototype" class="toc-link">Interactive Prototype</a>  
+          <a href="#for-the-curious" class="toc-link">For the Curious</a>
+        </nav>
+
+        <a 
+          href="https://www.figma.com/proto/tYlReKyw2K6jx2DqpFyUkp/Itacho-Sushi?node-id=1668-1788&p=f&viewport=-344%2C-198%2C0.09&t=1mET9yMAwulJNbrw-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1668%3A1788&page-id=0%3A1" 
+          target="_blank" 
+          rel="noreferrer" 
+          class="prototype-btn"        
+          style="margin-top: 20px; width: 70%; box-sizing: border-box;">
+          <span class="btn-text">View Prototype</span>
+        </a>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <section id="overview" class="content-section">
+        <p class="section-label">OVERVIEW</p>
+        <h2 class="section-heading">Itacho Sushi Overhaul</h2>
+        <div class="text-block">
+          <p>
+            As part of a three-person design team, I partnered with Itacho Sushi to overhaul their digital web experience for both their desktop and mobile website. The restaurant's extensive all-you-can-eat (AYCE) menu and unclear information architecture made it difficult for customers to understand pricing, compare menu tiers, and quickly find dishes that fit their preferences.
+          </p>
+          <p>
+            My goal wasn't to just redesign the interface, but to restructure how information was presented in a way that better helps customers understand pricing, explore dishes, and make confident dining decisions while preserving Itacho Sushi's identity.
+          </p>
+        </div>
+      </section>
+
+      <section id="problem-statement" class="content-section">
+        <p class="section-label">PROBLEM STATEMENT</p>
+        <h2 class="section-heading text-h2"  style="color: #70b074;">A Better Way to Explore the Menu</h2>
+        <p class="text-paragraph">
+          The experience of browsing Itacho Sushi's website was negatively impacted by a complicated menu structure and unclear information architecture.
+          Customers struggled to distinguish between lunch and dinner offerings, understand three pricing tiers, and locate dishes that fit their dietary preferences. 
+          Rather than supporting quick decision-making, the website increased cognitive load and slowed the discovery experience.
+        </p>
+      </section>
+
+      <section id="the-solution" class="content-section">
+        <p class="section-label">MY APPROACH</p>
+        <h2 class="section-heading">Design Strategy & Objectives</h2>
+        <div class="text-block">
+          <p>
+            From the beginning, I recognized that Itacho Sushi's biggest challenge was not a lack of information, but how that information was presented. 
+            With an extensive lunch and dinner menu spanning three pricing tiers, my goal was to make the experience easier to navigate without overwhelming customers.
+          </p> 
+          <p> 
+            Guided by usability principles such as Hick's Law and Jakob's Law, I focused on simplifying the menu structure and organizing information in ways users already understood.
+            Instead of adding more interactions, I prioritized clear hierarchy and better scanability, with the intent of helping customers quickly compare options, explore dishes, 
+            and make confident decisions.
+          </p>
+        </div>  
+      </section>
+
+      <section id="research-pain-points" class="content-section">
+        <p class="section-label">RESEARCH GOALS</p>
+        <h2 class="section-heading">Validating the Experience</h2>
+        <p class="text-paragraph user-goals-intro">
+         Because the original website lacked clear structure, I used an iterative mid-fidelity prototype to validate the new information hierarchy and
+          layout before visual design. I evaluated the prototype based on four key user goals:
+        </p>
+        <ol class="user-goals-grid">
+          <li class="user-goal-card">
+            <span class="user-goal-number">01</span>
+            <h3>Compare AYCE pricing and tiers</h3>
+          </li>
+          <li class="user-goal-card">
+            <span class="user-goal-number">02</span>
+            <h3>Navigate lunch, dinner, and menu tiers</h3>
+          </li>
+          <li class="user-goal-card">
+            <span class="user-goal-number">03</span>
+            <h3>Find dishes by dietary needs</h3>
+          </li>
+          <li class="user-goal-card">
+            <span class="user-goal-number">04</span>
+            <h3>Locate hours, address, and key details</h3>
+          </li>
+        </ol>
+      </section>  
+
+      <section id="midfi-testing" class="content-section">
+        <p class="section-label">VALIDATION & ITERATION</p>
+        <h2 class="section-heading">Key Insights & Fixes</h2>
+        
+        <div class="text-block" style="display: flex; flex-direction: column; gap: 2.5rem; margin-top: 2rem;">
+          <!-- Insight 1 -->
+          <div class="insight-card"> 
+            <h3 class="insight-title"><span class="insight-number">01.</span><span>Connecting Pricing Tiers With Menu Options</span></h3>
+            <div class="insight-copy-grid">
+              <div class="insight-detail">
+                <span class="insight-detail-label">What I heard</span>
+                <p>Users understood the AYCE tiers, but couldn't tell which dishes each included. Clickable-looking pricing cards and the shared Platinum/Ultra menu made comparisons unclear.</p>
+              </div>
+              <div class="insight-detail response">
+                <span class="insight-detail-label">Design response</span>
+                <p>Pricing moved into the menu, with tier badges, an Ultra Exclusive section, and microcopy clarifying dish availability and ordering limits.</p>
+              </div>
+            </div>
+            
+            <!-- Insight 1 Images Frame (2x2 GRID FORMAT) -->
+            <div style="display: flex; flex-direction: column; gap: 24px; width: 100%; margin: 1.5rem 0 2.5rem 0;">
+              
+              <!-- 2x2 GRID FORMAT WITH CUSTOM SPACING -->
+              <div style="display: flex; flex-direction: column; gap: 64px; width: 100%; margin: 0.5rem 0 0.5rem 0;">
+                
+                <!-- ROW 1: BEFORE SECTION -->
+                <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+                  <div class="image-label-badge text-sm"  style="background-color: rgba(28, 28, 28, 0.04); color: #1c1c1c; padding: 6px 20px; border-radius: 8px;width: 180px; text-align: center; margin: 0 0 4px 0 !important; font-weight: 400;">
+                    Before
+                  </div>
+                  
+                  <div class="comparison-row-side-by-side" style="display: flex; justify-content: center; gap: 48px; width: 100%; flex-wrap: wrap;">
+                    <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center;">
+                      <div class="final-image" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 25px; overflow: hidden; margin: 0;">
+                        <img src="../../assets/validation1.png" alt="Original Menu Selection Flow" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
+                      </div>
+                    </div>
+
+                    <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center;">
+                      <div class="final-image" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 25px; overflow: hidden; margin: 0;">
+                        <img src="../../assets/validation2.png" alt="Original Pricing Structure" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- ROW 2: AFTER SECTION -->
+                <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+                  <div class="image-label-badge text-sm"  style="background-color: var(--color-btn-bg); color: var(--color-green-accent); padding: 6px 20px; border-radius: 8px;width: 180px; text-align: center; margin: 0 0 4px 0 !important; font-weight: 400;">
+                    After
+                  </div>
+
+                  <div class="comparison-row-side-by-side" style="display: flex; justify-content: center; gap: 48px; width: 100%; flex-wrap: wrap;">
+                    <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center;">
+                      <div class="final-image highlighted" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 25px; overflow: hidden; margin: 0;">
+                        <img src="../../assets/validation3.png" alt="Redesigned Meal Category Overhaul" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
+                      </div>
+                    </div>
+
+                    <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center;">
+                      <div class="final-image highlighted" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 25px; overflow: hidden; margin: 0;">
+                        <img src="../../assets/FINALMENU.png" alt="Redesigned Menu Item Tier Integration" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>   
+          
+          <!-- Insight 2 -->
+          <div class="insight-card">
+            <h3 class="insight-title"><span class="insight-number">02.</span><span>First Impressions</span></h3>
+            <div class="insight-copy-grid">
+              <div class="insight-detail">
+                <span class="insight-detail-label">What I heard</span>
+                <p>The generic interior carousel didn't reflect Itacho's identity or give visitors a reason to keep exploring.</p>
+              </div>
+              <div class="insight-detail response">
+                <span class="insight-detail-label">Design response</span>
+                <p>A focused hero now foregrounds craftsmanship, supported by a Home link, clearer buttons, and a subtle scroll cue.</p>
+              </div>
+            </div>
+
+            <!-- Insight 2 GIF Layout Frame -->
+            <div style="display: flex; justify-content: center; gap: 32px; width: 100%; margin: 1rem 0 2.5rem 0; flex-wrap: wrap;">
+              <!-- LEFT SIDE: BEFORE BLOCKS (DESKTOP GIF) -->
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 12px; flex: 1; min-width: 300px; max-width: 540px;">
+                <div class="image-label-badge text-xs"  style="background-color: rgba(28, 28, 28, 0.04); color: #1c1c1c; padding: 6px 16px; border-radius: 8px;width: 160px; text-align: center; margin: 0; font-weight: 400;">
+                  Before
+                </div>
+                <div class="final-image" style="width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: 16px; overflow: hidden; margin: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                  <img src="../../assets/ITACHOHERO1.gif" alt="Original Generic Carousel Landing Page" style="width: 100% !important; height: 100% !important; object-fit: cover !important; transform: scale(1);">
+                </div>
+              </div>
+
+              <!-- RIGHT SIDE: AFTER BLOCKS (DESKTOP GIF) -->
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 12px; flex: 1; min-width: 300px; max-width: 540px;">
+                <div class="image-label-badge text-xs"  style="background-color: var(--color-btn-bg); color: var(--color-green-accent); padding: 6px 16px; border-radius: 8px;width: 160px; text-align: center; margin: 0; font-weight: 400;">
+                  After
+                </div>
+                <div class="final-image highlighted" style="width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: 16px; overflow: hidden; margin: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                  <img src="../../assets/ITACHOHERO2.gif" alt="Redesigned Premium Chef-Driven Hero Identity" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="final-design" class="content-section padding-bottom-large">
+        <p class="section-label">FINAL DESIGN</p>
+        <h2 class="section-heading">Final Interface Design</h2>
+        <p class="text-paragraph" style="margin-bottom: 3rem;">
+          Through early testing, I identified and resolved key usability issues, strengthened content hierarchy, and established clearer connections between information. This foundation allowed my high-fidelity design decisions to be guided by validated user behaviors, ensuring the final experience was not only visually cohesive but also intuitive and functional.
+        </p>
+
+        <!-- 3-Column Comparison Row 1 -->
+        <div class="comparison-row-side-by-side" style="display: flex; justify-content: center; gap: 48px; width: 100%; margin: 2rem 0 2.5rem 0; flex-wrap: wrap;">
+          <!-- Column 1: Original App -->
+          <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
+            <div class="image-label-badge text-sm"  style="background-color: rgba(28, 28, 28, 0.04); color: #1c1c1c; padding: 8px 20px; border-radius: 10px;width: 210px; text-align: center; margin: 0;">
+              Original Layout
+            </div>
+            <div class="final-image" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 25px; overflow: hidden; margin: 0;">
+              <img src="../../assets/OGITACHO1.png" alt="Original Itacho Sushi App Layout" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
+            </div>
+          </div>
+
+          <!-- Column 2: Mid-Fidelity Wireframe -->
+          <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
+            <div class="image-label-badge text-sm"  style="background-color: rgba(28, 28, 28, 0.04); color: #1c1c1c; padding: 8px 20px; border-radius: 10px;width: 210px; text-align: center; margin: 0;">
+              Mid-Fidelity Wireframe
+            </div>
+            <div class="final-image" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 25px; overflow: hidden; margin: 0;">
+              <img src="../../assets/MFITACHO.png" alt="Itacho Sushi Mid-Fidelity Menu Wireframe" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
+            </div>
+          </div>
+
+          <!-- Column 3: High-Fidelity Interface -->
+          <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
+            <div class="image-label-badge text-sm"  style="background-color: var(--color-btn-bg); color: var(--color-green-accent); padding: 8px 20px; border-radius: 10px;width: 210px; font-weight: 400; text-align: center; margin: 0;">
+              High-Fidelity Redesign
+            </div>
+            <div class="final-image highlighted" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 25px; overflow: hidden; margin: 0;">
+              <img src="../../assets/FINALITACHO.png" alt="Itacho Sushi High-Fidelity Menu Redesign" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
+            </div>
+          </div>
+        </div>
+
+        <!-- 3-Column Comparison Row 2 -->
+        <div class="comparison-row-side-by-side" style="display: flex; justify-content: center; gap: 48px; width: 100%; margin: 2rem 0 2.5rem 0; flex-wrap: wrap;">
+          <!-- Column 1: Original App -->
+          <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
+            <div class="final-image" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 25px; overflow: hidden; margin: 0;">
+              <img src="../../assets/OGITACHO2.png" alt="Original Itacho Sushi App Layout" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
+            </div>
+          </div>
+
+          <!-- Column 2: Mid-Fidelity Wireframe -->
+          <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
+            <div class="final-image" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 25px; overflow: hidden; margin: 0;">
+              <img src="../../assets/MFMENU.png" alt="Itacho Sushi Mid-Fidelity Menu Wireframe" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
+            </div>
+          </div>
+
+          <!-- Column 3: High-Fidelity Interface -->
+          <div class="comparison-column-unit" style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
+            <div class="final-image highlighted" style="width: 235px; height: 475px; flex-shrink: 0; border-radius: 25px; overflow: hidden; margin: 0;">
+              <img src="../../assets/FINALMENU.png" alt="Itacho Sushi High-Fidelity Menu Redesign" style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="reflection" class="content-section padding-bottom-large">
+        <p class="section-label">REFLECTION</p>
+        <div class="text-block">
+          <p>
+            Working with Itacho Sushi helped me to understand that meaningful design is not created by having every answer, but by being willing 
+            <span style="color: #7cabb0; font-weight: 500;">to explore, question, and adapt</span> throughout the process. <u>Rather than something to avoid, 
+            uncertainty became an essential part of my design process</u>. It pushed me to challenge my assumptions, consider new perspectives, and iterate my ideas until I created an experience that better aligned with my client's vision and their users' needs. 
+          </p> 
+          <p> 
+            The hours I spent with my team exploring different directions, discussing my decisions, and revisiting my designs allowed me to develop my initial concepts into a more
+            thoughtful and intentional experience. Through each iteration, I gained a better understanding of the problem I was solving and learned that <u> strong design comes
+            from being open to change</u> rather than trying to find the perfect answer too early.
+          </p> 
+          <p>
+            Moving forward, I understand that my role as a designer is to approach each challenge with<span style="color: #7cabb0; font-weight: 500;"> empathy, curiosity, and patience</span>. By embracing uncertainty as part of the discovery process, I can continue creating solutions that better serve the people I design for.
+          </p> 
+        </div>
+      </section>
+
+      <section id="prototype" class="content-section">
+        <p class="section-label">INTERACTIVE PROTOTYPE</p>
+        <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 16px;">
+
+          <a 
+            href="https://www.figma.com/proto/tYlReKyw2K6jx2DqpFyUkp/Itacho-Sushi?page-id=198%3A515&node-id=1506-2054&p=f&viewport=2116%2C-572%2C0.11&t=uWQW9u6v0Z91BvAK-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1506%3A2054" 
+            target="_blank" 
+            rel="noreferrer" 
+            class="prototype-btn text-sm"
+             style="height: 36px; padding: 0 16px;">
+            <span class="btn-text">View Desktop Version</span>
+          </a>
+        </div>
+
+        <div class="figma-embed-container" style="margin-top: 16px;">
+          <iframe
+            width="100%"
+            height="650"
+            src="https://embed.figma.com/proto/tYlReKyw2K6jx2DqpFyUkp/Itacho-Sushi?node-id=1668-1788&p=f&viewport=-344%2C-198%2C0.09&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1668%3A1788&page-id=0%3A1&embed-host=share"
+            allowfullscreen
+            style="border: none; border-radius: 12px; background: rgba(0,0,0,0.02);">
+          </iframe> 
+        </div>
+      </section>
+
+      <section id="for-the-curious" class="content-section padding-bottom-large">
+        <p class="section-label">FOR THE CURIOUS</p>
+        <h2 class="section-heading">Design Explorations</h2>
+        <p class="text-paragraph" style="margin-bottom: 2.5rem; color: var(--color-muted-grey);">
+          A look at the visual directions explored before arriving at the final experience.
+        </p>
+
+        <div class="exploration-groups">
+          <article class="exploration-group">
+            <header class="exploration-heading">
+              <h3>Hero &amp; Visual Identity</h3>
+              <p style="color: var(--color-muted-grey);">
+                Exploring photography, calligraphy, and bold brand treatments.
+              </p>
+            </header>
+
+            <div class="exploration-grid hero-directions">
+              <figure class="exploration-figure">
+                <img src="../../assets/itacho1.png" alt="Dark wood ambient hero exploration">
+              </figure>
+              <figure class="exploration-figure">
+                <img src="../../assets/itacho2.0.png" alt="Red calligraphy hero exploration">
+              </figure>
+              <figure class="exploration-figure">
+                <img src="../../assets/itacho3.png" alt="White brushwork hero exploration">
+              </figure>
+              <figure class="exploration-figure">
+                <img src="../../assets/itacho4.png" alt="Food-focused hero exploration">
+              </figure>
+            </div>
+
+            <div class="exploration-final hero-selected">
+              <span class="exploration-final-label">Selected direction</span>
+              <img src="../../assets/itacho5.png" alt="Final Itacho Sushi hero banner design">
+            </div>
+          </article>
+
+          <article class="exploration-group">
+            <header class="exploration-heading">
+              <h3>Menu Header &amp; Tiers</h3>
+              <p style="color: var(--color-muted-grey);">
+                Testing hierarchy for tier selection, category navigation, and pricing.
+              </p>
+            </header>
+
+            <div class="exploration-grid menu-directions">
+              <figure class="exploration-figure">
+                <img src="../../assets/itachomenu1.png" alt="Menu header exploration with red accents">
+              </figure>
+              <figure class="exploration-figure">
+                <img src="../../assets/itachomenu2.png" alt="Menu header exploration with gold line accent">
+              </figure>
+              <figure class="exploration-figure">
+                <img src="../../assets/itachomenu3.png" alt="Centered menu header exploration">
+              </figure>
+            </div>
+
+            <div class="exploration-final">
+              <span class="exploration-final-label">Selected direction</span>
+              <img src="../../assets/itachomenu4.png" alt="Final menu header redesign">
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('.content-section');
+      const tocLinks = document.querySelectorAll('.toc-link');
+
+      const options = { root: null, rootMargin: '-15% 0px -75% 0px', threshold: 0 };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const currentId = entry.target.getAttribute('id');
+            tocLinks.forEach(link => {
+              const linkHref = link.getAttribute('href');
+              if (linkHref && linkHref.includes('#')) {
+                if (linkHref.split('#')[1] === currentId) {
+                  link.classList.add('active');
+                } else {
+                  link.classList.remove('active');
+                }
+              }
+            });
+          }
+        });
+      }, options);
+
+      sections.forEach(section => observer.observe(section));
+    });  
+  </script>
+  <script src="../../scripts/footer.js"></script>
+  <script src="../../scripts/footer-scene.js"></script>
+</body>
+</html>
