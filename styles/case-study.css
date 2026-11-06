@@ -1,0 +1,309 @@
+/* Case study body styles (used by pages/itacho/redesign.html).
+   Loaded AFTER styles.css, so it only styles the content column.
+   Type scale: 32 heading / 22 subheading / 17 body / 12 caps label. */
+
+.cs-main { flex: 1; min-width: 0; display: block; gap: 0; max-width: 840px; }
+/* styles.css makes .main-content a flex column with a 5rem gap; sections here set their own spacing */
+.cs-main .cs { padding: 0 0 104px; scroll-margin-top: 110px; }
+.cs-main .cs:last-child { padding-bottom: 0; }
+
+.cs-main .cs-label { margin: 0 0 14px; font-size: 16px; font-weight: 500; letter-spacing: .01em; text-transform: uppercase; color: var(--color-light-grey); }
+.cs-main h2 { margin: 0 0 24px; font-size: 32px; font-weight: 500; line-height: 1.22; letter-spacing: -.02em; color: var(--color-dark-charcoal); text-wrap: pretty; }
+.cs-main p { margin: 0 0 18px; font-size: 17px; font-weight: 300; line-height: 1.7; }
+.cs-main p:last-child { margin-bottom: 0; }
+.cs-main .hi { color: #7cabb0; font-weight: 500; }
+.cs-main u { text-decoration-line: underline; text-decoration-color: rgba(28,28,28,.2); text-decoration-thickness: 1.2px; text-underline-offset: 3px; }
+
+/* overview facts */
+.cs-facts { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 0 48px; margin: 36px 0 0; padding: 0; }
+.cs-facts div { padding: 12px 0; }
+.cs-facts dt { font-size: 12px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--color-light-grey); margin-bottom: 4px; }
+.cs-facts dd { margin: 0; font-size: 16px; font-weight: 300; line-height: 1.5; }
+
+/* approach principles + validation tasks */
+.cs-mini { margin: 36px 0 20px !important; font-size: 12px !important; font-weight: 500 !important; letter-spacing: .08em; text-transform: uppercase; color: var(--color-light-grey); }
+.cs-big3, .cs-big4 { display: grid; gap: 28px 40px; }
+.cs-big3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+.cs-big4 { grid-template-columns: repeat(4, minmax(0,1fr)); gap: 28px 32px; }
+.cs-big3 p, .cs-big4 p { margin: 0; }
+.cs-big3 .k { font-size: 12px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: #57925d; margin-bottom: 8px; }
+.cs-big3 .v, .cs-big4 .v { font-size: 26px; font-weight: 500; line-height: 1.2; letter-spacing: -.015em; margin-bottom: 8px; color: var(--color-dark-charcoal); }
+.cs-big3 .d, .cs-big4 .d { font-size: 15px; font-weight: 300; line-height: 1.55; color: #5f5b5c; }
+
+/* findings: story left, images right */
+.cs-finding { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.2fr); gap: 48px; align-items: start; }
+.cs-finding + .cs-finding { margin-top: 96px; }
+.cs-story { grid-column: 1; grid-row: 1; position: sticky; top: 130px; display: flex; flex-direction: column; gap: 24px; min-width: 0; padding-top: 4px; }
+.cs-media { grid-column: 2; grid-row: 1; display: flex; flex-direction: column; gap: 28px; min-width: 0; }
+.cs-num { margin: 0 0 10px !important; font-size: 14px !important; font-weight: 500 !important; letter-spacing: .08em; color: var(--color-green-accent); font-variant-numeric: tabular-nums; }
+.cs-story h3 { margin: 0; font-size: 22px; font-weight: 500; line-height: 1.3; letter-spacing: -.01em; text-wrap: pretty; color: var(--color-dark-charcoal); }
+.cs-story p { margin: 0; }
+.cs-lab { margin: 0 0 6px !important; font-size: 12px !important; font-weight: 500 !important; letter-spacing: .08em; text-transform: uppercase; color: var(--color-light-grey); }
+.cs-lab.g { color: #57925d; }
+.cs-heard { font-size: 16px !important; line-height: 1.6 !important; color: #5f5b5c; }
+.cs-changed { font-size: 17px !important; line-height: 1.6 !important; color: var(--color-dark-charcoal); }
+
+/* before / after labels (your pills) */
+.cs-cap { display: block; margin: 0 0 10px !important; padding: 0; background: none; border: 0; border-radius: 0; color: var(--color-light-grey); font-size: 12px !important; font-weight: 500 !important; letter-spacing: .08em; text-transform: uppercase; line-height: 1.4 !important; }
+.cs-cap.on { background: none; color: var(--color-dark-charcoal); }
+.cs-pair { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
+.cs-shot { margin: 0; border-radius: 18px; overflow: hidden; aspect-ratio: 235 / 475; background: none; }
+.cs-shot img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.cs-wide { margin: 0; border-radius: 16px; overflow: hidden; aspect-ratio: 16 / 9; box-shadow: 0 4px 12px rgba(0,0,0,.05); }
+.cs-wide img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* final design */
+.cs-trio-head { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 24px; margin: 40px 0 0; }
+.cs-trio-head .cs-cap { text-align: left; margin: 0 !important; }
+.cs-trio { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 24px; margin-top: 16px; }
+.cs-trio + .cs-trio { margin-top: 24px; }
+.cs-trio .cs-shot { border-radius: 22px; }
+
+/* prototype */
+.cs-embed { margin-top: 24px; }
+.cs-embed iframe { width: 100%; height: 650px; border: none; border-radius: 12px; background: rgba(0,0,0,.02); }
+
+/* appendix */
+.cs-group + .cs-group { margin-top: 72px; }
+.cs-xhead { border-left: 3px solid rgba(124,171,176,.5); padding-left: 20px; margin-bottom: 24px; }
+.cs-xhead h3 { margin: 0 0 6px; font-size: 21px; font-weight: 500; line-height: 1.35; color: var(--color-dark-charcoal); }
+.cs-xhead p { margin: 0; font-size: 15px; color: var(--color-muted-grey); line-height: 1.6; }
+.cs-xgrid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 24px; }
+.cs-xgrid.three { grid-template-columns: repeat(3, minmax(0,1fr)); }
+.cs-xgrid img, .cs-sel img { display: block; width: 100%; border-radius: 14px; }
+.cs-sel { margin-top: 32px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.cs-sel span { color: #57925d; font-size: 12px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; }
+.cs-sel img { max-width: 520px; box-shadow: 0 4px 12px rgba(0,0,0,.05); }
+
+@media (max-width: 1100px) { .cs-big4 { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width: 900px) {
+  .cs-main .cs { padding-bottom: 80px; }
+  .cs-main h2 { font-size: 27px; }
+  .cs-finding { grid-template-columns: 1fr; gap: 28px; }
+  .cs-story, .cs-media { grid-column: 1; }
+  .cs-story { position: static; grid-row: 1; }
+  .cs-media { grid-row: 2; }
+}
+@media (max-width: 640px) {
+  .cs-main p, .cs-list { font-size: 17px; }
+  .cs-facts, .cs-xgrid, .cs-xgrid.three { grid-template-columns: 1fr; }
+  .cs-big3 { grid-template-columns: 1fr; }
+  .cs-big3 .v, .cs-big4 .v { font-size: 22px; }
+  .cs-trio, .cs-trio-head { gap: 8px; }
+  .cs-trio-head .cs-cap { font-size: 10px !important; letter-spacing: .04em; }
+  .cs-trio .cs-shot { border-radius: 14px; }
+  .cs-embed iframe { height: 460px; }
+}
+
+/* v3: lighter, larger headings; plain-text prototype links instead of pill buttons */
+.cs-main h2 { font-size: 38px; font-weight: 400; line-height: 1.18; letter-spacing: -.025em; }
+.cs-big3 .v, .cs-big4 .v { font-weight: 400; font-size: 28px; }
+.cs-story h3 { font-weight: 400; font-size: 24px; }
+.cs-xhead h3 { font-weight: 400; }
+@media (max-width: 900px) { .cs-main h2 { font-size: 30px; } }
+@media (max-width: 640px) { .cs-main h2 { font-size: 27px; } .cs-big3 .v, .cs-big4 .v { font-size: 23px; } }
+
+/* Fonts live in site-type.css (shared by every page). */
+
+/* Hero details strip (Team / Skills / Tools / Timeline): one label style, one text style */
+.project-meta-dashboard { display: grid !important; grid-template-columns: minmax(0,1.15fr) minmax(0,1.5fr) minmax(0,.6fr) minmax(0,1fr) !important; gap: 0 48px !important; flex-direction: row !important; align-items: start !important; margin-top: 48px !important; padding-top: 32px !important; border-top: 1px solid rgba(0,0,0,.08) !important; }
+.project-meta-dashboard .meta-dashboard-col { flex: none !important; min-width: 0; gap: 14px !important; }
+.project-meta-dashboard .meta-dashboard-label { font-size: 12px !important; font-weight: 500 !important; letter-spacing: .08em; text-transform: uppercase; color: var(--color-light-grey) !important; }
+.project-meta-dashboard .meta-dashboard-text { margin: 0; font-size: 16px !important; font-weight: 400 !important; line-height: 1.6 !important; color: var(--color-dark-charcoal) !important; }
+.project-meta-dashboard .meta-dashboard-text br { display: none; }
+.project-meta-dashboard .meta-dashboard-list { display: flex; flex-direction: column; gap: 6px; }
+.project-meta-dashboard .meta-dashboard-row { display: grid !important; grid-template-columns: 84px minmax(0,1fr); column-gap: 12px; align-items: baseline; }
+.project-meta-dashboard .meta-name { font-size: 16px !important; font-weight: 400 !important; color: var(--color-dark-charcoal) !important; }
+.project-meta-dashboard .meta-role { font-size: 15px !important; font-weight: 300 !important; color: var(--color-light-grey) !important; }
+.project-meta-dashboard .meta-dashboard-row:first-child .meta-name { font-weight: 500 !important; }
+.project-meta-dashboard .meta-dashboard-row:first-child .meta-role { color: var(--color-muted-grey) !important; font-weight: 400 !important; }
+@media (max-width: 1000px) { .project-meta-dashboard { grid-template-columns: repeat(2, minmax(0,1fr)) !important; gap: 32px 40px !important; } }
+@media (max-width: 560px) { .project-meta-dashboard { grid-template-columns: 1fr !important; } }
+
+/* one-line project summary under the hero title */
+.hero-summary { margin: 20px 0 0; max-width: none; text-wrap: pretty; font-size: 20px; font-weight: 300; line-height: 1.5; color: var(--color-muted-grey); }
+@media (max-width: 640px) { .hero-summary { font-size: 18px; margin-top: 14px; text-wrap: balance; } }
+.hero-text-block { max-width: 680px !important; }
+
+/* ─────────────────────────────────────────────────────────────
+   Older case-study pages (Costco, Pikmin, NASA QUESST, Resource Bridge,
+   Steam, Tastea): same look as Itacho, applied to their existing markup.
+   Scoped to .main-content:not(.cs-main) so Itacho is not affected.
+   ───────────────────────────────────────────────────────────── */
+.main-content:not(.cs-main) { display: block; gap: 0; max-width: 840px; }
+.main-content:not(.cs-main) .content-section { margin-bottom: 0 !important; padding: 0 0 104px; scroll-margin-top: 110px; }
+.main-content:not(.cs-main) .content-section:last-child { padding-bottom: 0; }
+
+.main-content:not(.cs-main) .section-label { margin: 0 0 14px; font-size: 16px; font-weight: 500; letter-spacing: .01em; text-transform: uppercase; color: var(--color-light-grey); }
+
+/* section headline: big, light, Larsseit (font set in site-type.css) */
+.main-content:not(.cs-main) .section-heading { margin: 0 0 24px !important; font-size: 38px; font-weight: 400; line-height: 1.18; letter-spacing: -.025em; color: var(--color-dark-charcoal) !important; text-wrap: pretty; }
+
+.main-content:not(.cs-main) .text-block,
+.main-content:not(.cs-main) .text-paragraph,
+.main-content:not(.cs-main) .bullet-list,
+.main-content:not(.cs-main) .numbered-list { font-size: 17px; font-weight: 300; line-height: 1.7; }
+.main-content:not(.cs-main) .text-block { gap: 18px; }
+.main-content:not(.cs-main) .figma-embed-container iframe { border-radius: 12px; }
+
+@media (max-width: 900px) {
+  .main-content:not(.cs-main) .content-section,
+  .main-content:not(.cs-main) .content-section.padding-bottom-large { padding-bottom: 80px; }
+  .main-content:not(.cs-main) .section-heading { font-size: 30px; }
+}
+@media (max-width: 640px) {
+  .main-content:not(.cs-main) .section-heading { font-size: 27px; }
+}
+
+@media (max-width: 600px) { .project-meta-dashboard .meta-role { line-height: 1.3; } }
+
+/* two-up keyword grid and ruled rows (used on Pikmin Bloom) */
+.cs-big2 { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 28px 48px; }
+.cs-big2 p { margin: 0; }
+.cs-big2 .k { font-size: 12px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: #57925d; margin-bottom: 8px; }
+.cs-big2 .v { font-size: 28px; font-weight: 400; line-height: 1.2; letter-spacing: -.015em; margin-bottom: 8px; color: var(--color-dark-charcoal); }
+.cs-big2 .d { font-size: 15px; font-weight: 300; line-height: 1.55; color: #5f5b5c; }
+.cs-rows { margin: 32px 0 0; padding: 0; list-style: none; border-top: 1px solid rgba(28,28,28,.1); }
+.cs-rows li { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.4fr); gap: 16px 48px; padding: 24px 0; border-bottom: 1px solid rgba(28,28,28,.1); }
+.cs-rows .n { display: block; margin-bottom: 6px; font-size: 14px; font-weight: 500; letter-spacing: .08em; color: var(--color-green-accent); font-variant-numeric: tabular-nums; }
+.cs-rows .t { margin: 0; font-size: 22px; font-weight: 400; line-height: 1.3; letter-spacing: -.01em; color: var(--color-dark-charcoal); }
+.cs-rows .dsc { margin: 0; font-size: 16px; font-weight: 300; line-height: 1.65; color: #5f5b5c; }
+@media (max-width: 640px) { .cs-big2 { grid-template-columns: 1fr; } .cs-big2 .v { font-size: 23px; } .cs-rows li { grid-template-columns: 1fr; gap: 10px; } .cs-rows .t { font-size: 20px; } }
+
+/* findings whose images need to stay large and sharp (Pikmin GIFs): give the media column more room */
+.cs-finding.lg { grid-template-columns: minmax(0,.8fr) minmax(0,1.35fr); gap: 40px; }
+@media (max-width: 1180px) {
+  .cs-finding.lg { grid-template-columns: 1fr; gap: 28px; }
+  .cs-finding.lg .cs-story, .cs-finding.lg .cs-media { grid-column: 1; }
+  .cs-finding.lg .cs-story { position: static; grid-row: 1; }
+  .cs-finding.lg .cs-media { grid-row: 2; }
+  .cs-finding.lg .cs-pair { max-width: 520px; }
+}
+
+/* Cost&Co additions */
+.cs-main h3.cs-sub { margin: 72px 0 14px; font-size: 24px; font-weight: 400; line-height: 1.3; letter-spacing: -.01em; color: var(--color-dark-charcoal); }
+.cs-main .cs-hmw { margin: 0 0 8px; font-size: 20px; font-weight: 300; line-height: 1.55; color: var(--color-muted-grey); }
+.cs-main .cs-take { margin: 56px 0 0; font-size: 22px; font-weight: 400; line-height: 1.45; letter-spacing: -.01em; color: var(--color-dark-charcoal); }
+.cs-big3.sm .v, .cs-big2.sm .v { font-size: 22px; line-height: 1.25; }
+.cs-big3 .k:empty, .cs-big2 .k:empty { display: none; }
+.cs-rows .n.m { color: var(--color-light-grey); letter-spacing: .08em; text-transform: uppercase; font-size: 12px; }
+.cs-rows .t.s { font-size: 18px; line-height: 1.45; }
+.cs-quotes { margin-top: 32px; display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+.cs-quotes .cs-cap { margin: 0 0 -2px !important; }
+.cs-quotes img { display: block; max-width: 100%; height: auto; border-radius: 12px; border: 1px solid rgba(28,28,28,.08); background: #fff; }
+.cs-quotes .row2 { display: grid; grid-template-columns: repeat(2, minmax(0, 463px)); gap: 14px; max-width: 100%; }
+.cs-figure { margin: 28px 0 0; }
+.cs-figure img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid rgba(28,28,28,.08); background: #fff; }
+@media (max-width: 640px) { .cs-quotes .row2 { grid-template-columns: 1fr; } .cs-main h3.cs-sub { margin-top: 56px; font-size: 21px; } .cs-main .cs-take { font-size: 19px; margin-top: 40px; } }
+
+/* sidebar "View Prototype" button: only as wide as its label */
+.toc-sticky-container .prototype-btn { align-self: flex-start; width: auto !important; min-width: 0; padding: 0 24px; }
+.cs-rows .n.g { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: #57925d; }
+
+/* research insights: the insight leads, evidence in short columns, transcripts below */
+.cs-ins2 { padding: 48px 0 8px; border-top: 1px solid rgba(28,28,28,.1); }
+.cs-ins2:last-of-type { padding-bottom: 8px; }
+.cs-ins2 .n { display: block; margin: 0 0 10px; font-size: 14px; font-weight: 500; letter-spacing: .08em; color: var(--color-green-accent); font-variant-numeric: tabular-nums; }
+.cs-ins2 .big { margin: 0 0 14px; font-family: var(--cs-title-font); font-size: 28px; font-weight: 400; line-height: 1.3; letter-spacing: -.015em; color: var(--color-dark-charcoal); text-wrap: pretty; }
+.cs-ins2 .ttl { margin: 0 0 32px; font-size: 12px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--color-light-grey); }
+.cs-ins2 .ev { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 28px; margin-bottom: 8px; }
+.cs-ins2 .ev.two { grid-template-columns: repeat(2, minmax(0,1fr)); }
+.cs-ins2 .ev p { margin: 0; font-size: 15px; line-height: 1.55; color: #5f5b5c; }
+.cs-ins2 .ev .cs-lab { color: #57925d; margin-bottom: 6px; }
+.cs-ins2 .cs-quotes { margin-top: 32px; }
+.cs-ins2 .cs-quotes a { display: block; max-width: 100%; }
+.cs-ins2 .cs-quotes .row2 { grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }
+.cs-ins2 + .cs-take { margin-top: 56px; }
+@media (max-width: 640px) { .cs-ins2 .big { font-size: 23px; } .cs-ins2 .ev, .cs-ins2 .ev.two { grid-template-columns: 1fr; gap: 20px; } }
+
+/* paragraph beside a ruled list of key details (Cost&Co: Understanding) */
+.cs-split { display: grid; grid-template-columns: minmax(0,1.25fr) minmax(0,1fr); gap: 56px; align-items: start; margin-top: 8px; }
+.cs-split > p { margin: 0; }
+.cs-ruled { margin: 4px 0 0; padding: 0; border-top: 1px solid rgba(28,28,28,.1); }
+.cs-ruled div { padding: 14px 0; border-bottom: 1px solid rgba(28,28,28,.1); }
+.cs-ruled dt { margin: 0 0 3px; font-size: 12px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: #57925d; }
+.cs-ruled dd { margin: 0; font-size: 16px; font-weight: 300; line-height: 1.5; color: var(--color-dark-charcoal); }
+@media (max-width: 1000px) { .cs-split { grid-template-columns: 1fr; gap: 32px; } }
+
+/* Cost&Co: the Solution block: text and numbered features left, phone centred beside them (no tint, border or shadow) */
+.cs-solution { display: grid; grid-template-columns: minmax(0,1fr) 280px; gap: 56px; align-items: center; margin: 64px 0 0; }
+.cs-solution .cs-mini { margin: 0 0 12px !important; color: #57925d; }
+.cs-solution .sol-title { margin: 0 0 14px; font-family: var(--cs-title-font); font-size: 38px; font-weight: 400; line-height: 1.15; letter-spacing: -.025em; color: var(--color-dark-charcoal); }
+.cs-solution .sol-lead { margin: 0 0 40px; font-size: 17px; font-weight: 300; line-height: 1.7; }
+.cs-solution .sol-feats { margin: 0; padding: 0; list-style: none; border-top: 1px solid rgba(28,28,28,.12); }
+.cs-solution .sol-feats li { display: grid; grid-template-columns: 36px minmax(0,1fr); gap: 0 8px; padding: 18px 0; border-bottom: 1px solid rgba(28,28,28,.12); }
+.cs-solution .sol-feats .n { padding-top: 3px; font-size: 14px; font-weight: 500; letter-spacing: .08em; color: var(--color-green-accent); font-variant-numeric: tabular-nums; }
+.cs-solution .sol-feats h4 { margin: 0 0 4px; font-size: 20px; font-weight: 400; line-height: 1.3; letter-spacing: -.01em; color: var(--color-dark-charcoal); }
+.cs-solution .sol-feats p { margin: 0; font-size: 15px; font-weight: 300; line-height: 1.6; color: #5f5b5c; }
+.cs-solution .sol-demo { margin: 0; }
+.cs-solution .sol-demo img { display: block; width: 100%; height: auto; border: 0; border-radius: 0; box-shadow: none; background: none; mix-blend-mode: multiply; }
+.cs-solution .sol-demo .cs-cap { margin: 0 0 12px !important; text-align: center; }
+.cs-opp { margin: 56px 0 0; }
+.cs-opp .cs-mini { margin: 0 0 10px !important; }
+@media (max-width: 900px) { .cs-solution { grid-template-columns: 1fr; gap: 32px; } .cs-solution .sol-demo { max-width: 280px; } .cs-solution .sol-title { font-size: 30px; } }
+
+/* Expected user outcomes: large numerals, two columns */
+.cs-outcomes { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 40px 56px; margin-top: 32px; }
+.cs-outcomes .num { display: block; margin: 0 0 18px; font-family: var(--cs-title-font); font-size: 72px; font-weight: 300; line-height: .9; letter-spacing: -.03em; color: var(--color-green-accent); font-variant-numeric: tabular-nums; }
+.cs-outcomes .o { margin: 0 0 10px; font-size: 24px; font-weight: 400; line-height: 1.3; letter-spacing: -.01em; color: var(--color-dark-charcoal); text-wrap: pretty; }
+.cs-outcomes p:not(.o) { margin: 0; font-size: 16px; font-weight: 300; line-height: 1.65; color: #5f5b5c; }
+@media (max-width: 640px) { .cs-outcomes { grid-template-columns: 1fr; gap: 36px; } .cs-outcomes .num { font-size: 56px; } .cs-outcomes .o { font-size: 21px; } }
+
+/* ruled rows with lines only between rows (no top or bottom line) */
+.cs-rows.inner { border-top: 0; }
+.cs-rows.inner li:first-child { padding-top: 4px; }
+.cs-rows.inner li:last-child { border-bottom: 0; padding-bottom: 0; }
+
+/* Lines only between rows, never above the first or below the last (all ruled lists) */
+.cs-rows { border-top: 0; }
+.cs-rows li:first-child { padding-top: 4px; }
+.cs-rows li:last-child { border-bottom: 0; padding-bottom: 0; }
+.cs-ruled { border-top: 0; margin-top: 0; }
+.cs-ruled div:first-child { padding-top: 0; }
+.cs-ruled div:last-child { border-bottom: 0; padding-bottom: 0; }
+.cs-solution .sol-feats { border-top: 0; }
+.cs-solution .sol-feats li:first-child { padding-top: 0; }
+.cs-solution .sol-feats li:last-child { border-bottom: 0; padding-bottom: 0; }
+.cs-ins2:first-of-type { border-top: 0; padding-top: 0; }
+
+/* three numbered features in columns (Resource Bridge) */
+.cs-feats { margin: 36px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 32px; }
+.cs-feats .n { display: block; margin-bottom: 10px; font-size: 14px; font-weight: 500; letter-spacing: .08em; color: var(--color-green-accent); font-variant-numeric: tabular-nums; }
+.cs-feats h4 { margin: 0 0 8px; font-size: 20px; font-weight: 400; line-height: 1.3; letter-spacing: -.01em; color: var(--color-dark-charcoal); }
+.cs-feats p { margin: 0; font-size: 15px; font-weight: 300; line-height: 1.6; color: #5f5b5c; }
+.cs-ba { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 24px; margin-top: 24px; align-items: start; }
+.cs-ba .cs-cap { margin: 0 0 10px !important; }
+.cs-ba img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid rgba(28,28,28,.08); background: #fff; }
+.cs-xgrid img { aspect-ratio: 3 / 4; object-fit: cover; }
+@media (max-width: 900px) { .cs-feats { grid-template-columns: 1fr; gap: 28px; } }
+@media (max-width: 640px) { .cs-ba { grid-template-columns: 1fr; } }
+
+/* Images in case studies: no border, background or shadow (screenshots on a white background blend into the page) */
+.cs-main img, .cs-main figure, .cs-main .cs-shot, .cs-main .cs-wide,
+.main-content:not(.cs-main) img, .main-content:not(.cs-main) .final-image, .main-content:not(.cs-main) .media-frame {
+  border: 0 !important; box-shadow: none !important; background: none !important; outline: 0 !important;
+}
+.cs-figure img, .cs-ba img, .cs-quotes img { mix-blend-mode: multiply; }
+
+/* ruled rows whose description holds two short paragraphs (Steam findings) */
+.cs-rows .dsc p { margin: 0; }
+.cs-rows .dsc p + p { margin-top: 8px; }
+
+/* Steam strategy: heading + description above each prototype's phones */
+.cs-strat { align-items: start; }
+.cs-strat-t { display: flex; align-items: baseline; gap: 14px; margin-bottom: 12px; }
+.cs-strat-t h3 { margin: 0; font-size: 22px; font-weight: 500; line-height: 1.3; letter-spacing: -.01em; color: var(--color-dark-charcoal); }
+.cs-strat .cs-changed { margin: 0; }
+@media (max-width: 700px) { .cs-trio-head.cs-strat { grid-template-columns: 1fr; } .cs-trio-head.cs-strat > div { grid-column: auto !important; } }
+@media (min-width: 1181px) {
+  .cs-finding.lg.tight { grid-template-columns: minmax(0,1fr) minmax(0,460px); gap: 40px; }
+}
+.cs-finding.tight + .cs-finding.tight { margin-top: 48px; }
+.cs-finding.tight .cs-story { gap: 4px; }
+
+/* single-column ruled statements (Tastea lists) */
+.cs-rows.plain li { grid-template-columns: 1fr; padding: 14px 0; }
+.cs-rows.plain .t.s { font-weight: 300; color: #5f5b5c; font-size: 17px; line-height: 1.55; }
+
+/* laptop screenshots (Tastea): show whole image, no crop */
+.cs-xgrid.laptops img { height: auto; aspect-ratio: 16 / 11; object-fit: cover; object-position: center 45%; border-radius: 0; }

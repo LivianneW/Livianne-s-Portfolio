@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tastea Redesign - Livianne</title>
+  <link rel="icon" type="image/x-icon" href="../../assets/favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/favicon/apple-touch-icon.png">
+  <link rel="stylesheet" href="../../styles/styles.css">
+  <style>
+    a {
+      text-decoration: none;    
+      color: inherit;        
+    }
+
+    /* Local Image Frame Tuning */
+    .comparison-image.laptop-shot {
+      width: 100%;
+      max-width: 760px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 1rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+      border: 1px solid rgba(28, 28, 28, 0.04);
+    }
+
+    .comparison-image.laptop-shot img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .main-content .bullet-list {
+      list-style: none;
+      padding-left: 0;
+      gap: 0;
+    }
+
+    .main-content .bullet-list > li {
+      position: relative;
+      padding: 0.9rem 0 1rem 1.25rem;
+      border-top: 1px solid rgba(28, 28, 28, 0.08);
+    }
+
+    .main-content .bullet-list > li:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .main-content .bullet-list > li:last-child {
+      padding-bottom: 0;
+    }
+
+    .main-content .bullet-list > li::before {
+      content: "";
+      position: absolute;
+      top: calc(0.9rem + 0.7em);
+      left: 0;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #70b074;
+    }
+
+    .main-content .bullet-list > li:first-child::before {
+      top: 0.7em;
+    }
+
+    .main-content .bullet-list > li strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-weight: 500;
+    }
+
+    .research-results {
+      gap: 2rem;
+    }
+
+    .research-intro {
+      max-width: 70ch;
+    }
+
+    .research-group {
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(28, 28, 28, 0.1);
+    }
+
+    .research-group-title {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin: 0 0 0.85rem;
+      color: var(--color-dark-charcoal);
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.35;
+    }
+
+    .main-content .research-list {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .main-content .challenge-list {
+      counter-reset: challenge;
+    }
+
+    .main-content .challenge-list > li {
+      display: grid;
+      grid-template-columns: 2.25rem 1fr;
+      gap: 0.5rem;
+      padding: 0.75rem 0;
+    }
+
+    .main-content .challenge-list > li:first-child {
+      padding-top: 0;
+    }
+
+    .main-content .challenge-list > li::before {
+      position: static;
+      content: counter(challenge, decimal-leading-zero);
+      counter-increment: challenge;
+      width: auto;
+      height: auto;
+      border-radius: 0;
+      background: none;
+      color: #70b074;
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.55;
+    }
+
+    .main-content .highlight-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .main-content .highlight-list > li {
+      padding: 1rem 1rem 1rem 1.15rem;
+      border: 0;
+      border-left: 3px solid #70b074;
+      border-radius: 3px;
+      background: rgba(112, 176, 116, 0.08);
+    }
+
+    .main-content .highlight-list > li:first-child {
+      padding-top: 1rem;
+    }
+
+    .main-content .highlight-list > li:last-child {
+      padding-bottom: 1rem;
+    }
+
+    .main-content .highlight-list > li::before {
+      display: none;
+    }
+
+    .main-content .user-wants-list > li {
+      display: grid;
+      grid-template-columns: minmax(190px, 0.7fr) 1.3fr;
+      column-gap: 1.5rem;
+      align-items: baseline;
+      padding-left: 0;
+    }
+
+    .main-content .user-wants-list > li::before {
+      display: none;
+    }
+
+    .main-content .user-wants-list > li strong {
+      display: block;
+      margin: 0;
+      color: #70b074;
+    }
+
+    .main-content .user-wants-list > li span {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+  /* Center top split content and shrink max-width */
+  .hero-top-split {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 20px !important;
+  }
+
+  .hero-image-wrapper {
+    max-width: 280px !important; /* Constrains the wrapper width */
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .hero-img {
+    max-height: 180px !important; /* Reduces vertical height on mobile */
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+
+  .main-content .bullet-list {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .main-content .bullet-list > li {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .main-content .bullet-list > li:first-child {
+    padding-top: 0;
+  }
+
+  .main-content .bullet-list > li::before {
+    top: calc(0.75rem + 0.65em);
+  }
+
+  .main-content .bullet-list > li:first-child::before {
+    top: 0.65em;
+  }
+
+  .research-results {
+    gap: 1.5rem;
+  }
+
+  .research-group-title {
+    font-size: 18px;
+  }
+
+  .main-content .highlight-list {
+    grid-template-columns: 1fr;
+  }
+
+  .main-content .highlight-list > li:first-child {
+    padding-top: 0.75rem;
+  }
+
+  .main-content .highlight-list > li:last-child {
+    padding-bottom: 0.75rem;
+  }
+
+  .main-content .user-wants-list > li {
+    grid-template-columns: 1fr;
+    row-gap: 0.25rem;
+  }
+
+}
+
+    @media (max-width: 480px) {
+  .hero-image-wrapper {
+    max-width: 220px !important; /* Extra sizing pass for small screens */
+  }
+
+  .hero-img {
+    max-height: 150px !important; /* Keep hero image compact */
+  }
+
+  /* Adjust Figma Prototype height on narrow phones */
+  .figma-embed-container iframe {
+    height: 420px !important;
+  }
+}
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/site-type.css">
+  <link rel="stylesheet" href="../../styles/case-study.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="../../" class="logo-link">
+        <span class="logo">LIVIANNE</span>
+        <span class="page-indicator">/ Tastea</span>
+      </a>
+      
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" style="display: none;">
+      
+      <label for="menu-toggle" class="hamburger-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      
+      <nav class="nav-links">
+        <a href="../../" class="nav-link">Work</a>
+        <a href="../about/" class="nav-link">About</a>
+        <a href="https://drive.google.com/file/d/1uY5DvgihQv_6BxHrdHPwktoVfEQGerwh/view?usp=sharing" target="_blank" rel="noreferrer" class="nav-link">Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-banner case-hero-tastea">
+    <div class="container hero-container">
+      
+      <div class="hero-top-split" style="display: flex; width: 100%; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 32px;">
+        <div class="hero-text-block">
+          <h1 class="hero-title">Tastea</h1>
+          <p class="hero-subtitle">Redesign</p>
+          <p class="hero-summary">Bringing Tastea's many visual styles into one cohesive, still-playful website.</p>
+        </div>
+        <div class="hero-image-wrapper" style="max-width: 500px;">
+          <img src="../../assets/TASTEA.png" alt="Tastea Web Mockups Showcase" class="hero-img" style="max-height: 320px; width: auto; object-fit: contain;" />
+        </div>
+      </div>
+    
+      <div class="project-meta-dashboard">
+        
+        <div class="meta-dashboard-col">
+          <span class="meta-dashboard-label">Team</span>
+          <div class="meta-dashboard-list">
+            <div class="meta-dashboard-row">
+              <span class="meta-name" style="color: var(--color-team-pink); font-weight: 500;">Livianne</span>
+              <span class="meta-role" style="color: var(--color-team-pink); font-weight: 500;">Product Designer</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="meta-dashboard-col skills-col">
+          <span class="meta-dashboard-label">Skills</span>
+          <p class="meta-dashboard-text">UX Research, UI Design, User Interviews, Prototyping</p>
+        </div>
+
+        <div class="meta-dashboard-col">
+          <span class="meta-dashboard-label">Tools</span>
+          <p class="meta-dashboard-text">Figma, Feathery</p>
+        </div>
+
+        <div class="meta-dashboard-col">
+          <span class="meta-dashboard-label">Timeline</span>
+          <p class="meta-dashboard-text">February 2023 - November 2023</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="container body-container">
+    
+    <aside class="sidebar">
+      <div class="toc-sticky-container">
+        <a href="../../" class="back-btn-sticky">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Back to Home
+        </a>
+
+        <nav class="toc" aria-label="Case Study Page Framework Navigation">
+          <a href="#overview" class="toc-link active">Overview</a>
+          <a href="#problem-statement" class="toc-link">Problem Statement</a>
+          <a href="#research-pain-points" class="toc-link">Research & Pain Points</a>
+          <a href="#design-features" class="toc-link">Design Features</a>
+          <a href="#design-highlights" class="toc-link">Design Highlights</a>
+          <a href="#lessons-learned" class="toc-link">Lessons Learned</a>          
+          <a href="#prototype" class="toc-link">Interactive Prototype</a>          
+        </nav>
+
+        <a 
+          href="https://www.figma.com/proto/YJXCY5Sf453gQSshF7mxvy/Tastea?page-id=304%3A129&node-id=304-130&viewport=498%2C285%2C0.36&scaling=scale-down&content-scaling=fixed&starting-point-node-id=304%3A130&embed-host=share" 
+          target="_blank" 
+          rel="noreferrer" 
+          class="prototype-btn"
+          style="margin-top: 20px; width: 70%; box-sizing: border-box;">
+          <span class="btn-text">View Prototype</span>
+        </a>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      
+      <section id="overview" class="content-section">
+        <p class="section-label">OVERVIEW</p>
+        <h2 class="section-heading text-h2"  style="color: #70b074;">Tastea Refresh</h2>
+        <div class="text-block">
+          <p>
+          I reimagined Tastea's website by bringing its many different visual styles into one cleaner and more cohesive experience.
+          The redesign focused on making the site easier to navigate and more visually consistent, while still preserving the playful 
+          and recognizable personality of the brand.
+          </p>
+        </div>
+      </section>
+
+      <section id="problem-statement" class="content-section">
+        <p class="section-label">PROBLEM STATEMENT</p>
+        <h2 class="section-heading text-h2"  style="color: #70b074;">Delicious Drinks, Confusing Experience</h2>
+        <p class="text-paragraph">
+        I had always found Tastea's website frustrating to navigate because the experience felt visually outdated and
+        unnecessarily difficult to use. The menu, arguably their biggest selling point, was especially counterintuitive, 
+        making it harder than it should have been for users to browse drinks and explore options.
+        </p>
+      </section>
+
+      <section id="research-pain-points" class="content-section">
+        <p class="section-label">RESEARCH AND PAIN POINTS</p>
+        <h2 class="section-heading">Validating Challenges</h2>
+        <div class="text-block research-results">
+          <p class="research-intro">
+            While I was aware of these issues from my own experience, I wasn’t sure if other users felt the same way. To gain better insight and validate these concerns, I created a questionnaire to gather feedback and better understand the overall user experience.
+          </p>
+
+          <div class="research-group">
+            <h3 class="research-group-title">User Needs &amp; Challenges</h3>
+            <ul class="bullet-list research-list challenge-list">
+            <li>The page is functional, but not engaging enough to encourage users to spend more time on it</li>
+            <li>Overall visual appeal is fair, but lacks excitement and personality</li>
+            <li>Menu access should be quicker, with clearer descriptions and pricing</li>
+            <li>The menu feels static and unengaging, relying heavily on black-and-white text and images</li>
+            <li>The website feels outdated compared to other modern boba shop websites</li>
+            </ul>
+          </div>
+
+          <div class="research-group">
+            <h3 class="research-group-title">User Highlights</h3>
+            <ul class="bullet-list research-list highlight-list">
+            <li>Users like being able to slide through different images of the drink options</li>
+            <li>The site makes it easy for users to quickly find what they are looking for</li>
+            </ul>
+          </div>
+
+          <div class="research-group">
+            <h3 class="research-group-title">What Users Want</h3>
+            <ul class="bullet-list research-list user-wants-list">
+            <li><strong>Clear menu access</strong><span>with drink images, descriptions, and visible pricing is essential</span></li>
+            <li><strong>Visual menus</strong><span>with photos of drinks and food improve decision-making</span></li>
+            <li><strong>Customer favorites</strong><span>or “most ordered” sections help guide choices</span></li>
+            <li><strong>Easy and intuitive drink customization</strong><span>is highly valued</span></li>
+            <li><strong>Clear section titles</strong><span>help users quickly find what they’re looking for</span></li>
+            </ul>
+          </div>
+
+          <p style="margin-top: 32px;"><strong class="font-medium">Competitive Analysis</strong></p>
+          <p>
+            I then conducted a competitive analysis on popular boba shops in the area, including Sunright, Summerfield Tea Bar, and Bopomofo Cafe. By analyzing these brands, I was able to identify their strengths, weaknesses, and key differentiators, such as menu variety, branding, and overall customer experience, which helped inform my design decisions moving forward.
+          </p>
+
+          <ul class="bullet-list" style="margin-top: 1rem;">
+            <li><strong>Sunright</strong> offers the strongest overall experience, with a clean UI, strong branding, and a visually engaging design. Drink images, descriptions, flavor profiles, and customer favorites make browsing enjoyable and informative. However, the top navigation can feel cluttered, and some sizing and scrolling inconsistencies appear throughout the site.</li>
+            <li><strong>Bopomofo Café</strong> is clean and easy to navigate, with a particularly well-designed online ordering page. While functional, the experience feels visually bland, with small buttons and an inconsistent menu that lacks images, descriptions, and customer favorites in some areas.</li>
+            <li><strong>Summerfield Tea Bar</strong> is clean and on brand, with easy access to the menu and included drink images. Minor usability issues include small text for prices and titles, missing drink descriptions, occasional navigation glitches, and excess unused space.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="design-features" class="content-section">
+        <p class="section-label">DESIGN FEATURES</p>
+        <h2 class="section-heading">Audience + Need</h2>
+        <div class="text-block">
+          <p>
+            How might I streamline Tastea’s ordering experience by creating a visually engaging, easy-to-navigate menu that allows thirsty customers to quickly find, customize, and order their drinks all in one place?
+          </p>
+          
+          <p style="margin-top: 24px;"><strong class="font-medium">Goals</strong></p>
+          <ul class="bullet-list">
+            <li>Update Tastea’s UI while staying on brand</li>
+            <li>Improve key UX gaps around menu navigation and ordering</li>
+            <li>Make the website more efficient and engaging</li>
+            <li>Users can find and order drinks more easily</li>
+            <li>Clearer, smoother overall experience</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="design-highlights" class="content-section">
+        <p class="section-label">DESIGN HIGHLIGHTS</p>
+        <h2 class="section-heading">Before vs After</h2>
+        
+        <div class="prototype-showcase-block" style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; gap: 16px; margin-top: 2rem; margin-bottom: 5rem;">
+          <div class="image-label-badge text-sm"  style="background-color: rgba(28, 28, 28, 0.04); padding: 8px 20px; border-radius: 10px;width: 170px;">
+            Tastea's Version
+          </div>
+          <p class="text-paragraph text-body"  style="max-width: 650px; color: var(--text-grey);">
+            This is Tastea’s original design. While visually clean, it lacks several key elements necessary for improving the user experience and streamlining the ordering process. Missing features include prices, customer favorite items, and size options. Additionally, the layout lacked a navigation bar, requiring excessive scrolling.
+          </p>
+          
+          <div class="comparison-image laptop-shot">
+            <img src="../../assets/Tastea-Menu1.png" alt="Original Tastea Menu Screen Snapshot 1">
+          </div>
+          <div class="comparison-image laptop-shot">
+            <img src="../../assets/Tastea-Menu2.png" alt="Original Tastea Menu Screen Snapshot 2">
+          </div>
+        </div>
+
+        <div class="prototype-showcase-block" style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; gap: 16px; margin-bottom: 2rem;">
+          <div class="image-label-badge text-sm"  style="background-color: var(--color-btn-bg); color: var(--color-green-accent); padding: 8px 20px; border-radius: 10px;width: 170px; font-weight: 500;">
+            My Redesign
+          </div>
+          <p class="text-paragraph text-body"  style="max-width: 650px; color: var(--text-grey);">
+            In my redesign, I addressed these issues by refining the layout to better align with the brand’s visual identity. I introduced a sticky navigation menu bar to help customers quickly locate specific categories, smoothly scrolling users to the relevant section for a seamless experience.
+          </p>
+          
+          <div class="comparison-image laptop-shot">
+            <img src="../../assets/Tastea-Redesign2.png" alt="Tastea Redesign Desktop View 1">
+          </div>
+          <div class="comparison-image laptop-shot">
+            <img src="../../assets/Tastea-Redesign1.png" alt="Tastea Redesign Desktop View 2">
+          </div>
+        </div>
+      </section>
+
+      <section id="lessons-learned" class="content-section">
+        <p class="section-label">LESSONS LEARNED</p>
+        <h2 class="section-heading">Reflection</h2>
+        <div class="text-block">
+          <p><span class="font-medium">Consistency in branding:</span> One of the biggest challenges was aligning the website with the brand's identity. Staying true to the brand's voice and visual aesthetics across all platforms helped make the website feel more cohesive and recognizable.</p>
+          <p><span class="font-medium">Preserving What Works:</span> Since the core website already functioned well, there wasn’t a need for drastic changes, which made the design process a lot smoother. I learned to focus on preserving the aspects that are already working, while making thoughtful updates where necessary.</p>
+        </div>
+      </section>
+
+      <section id="prototype" class="content-section padding-bottom-large">
+        <p class="section-label">INTERACTIVE PROTOTYPE</p>
+        <div class="figma-embed-container" style="margin-top: 24px;">
+          <iframe 
+            width="100%"
+            height="650"
+            src="https://embed.figma.com/proto/YJXCY5Sf453gQSshF7mxvy/Tastea?page-id=304%3A129&node-id=304-130&viewport=498%2C285%2C0.36&scaling=scale-down&content-scaling=fixed&starting-point-node-id=304%3A130&embed-host=share" 
+            allowfullscreen
+            style="border: none; border-radius: 12px; background: rgba(0,0,0,0.02);">
+          </iframe>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Dynamic Highlighting Table of Contents Scroll Trackers
+      const sections = document.querySelectorAll('.content-section');
+      const tocLinks = document.querySelectorAll('.toc-link');
+
+      const options = { root: null, rootMargin: '-15% 0px -75% 0px', threshold: 0 };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const currentId = entry.target.getAttribute('id');
+            tocLinks.forEach(link => {
+              const linkHref = link.getAttribute('href');
+              if (linkHref && linkHref.includes('#')) {
+                if (linkHref.split('#')[1] === currentId) {
+                  link.classList.add('active');
+                } else {
+                  link.classList.remove('active');
+                }
+              }
+            });
+          }
+        });
+      }, options);
+      sections.forEach(section => observer.observe(section));
+
+      // Scroll Action Back To Top Hook
+    });  
+  </script>
+  <script src="../../scripts/footer.js"></script>
+  <script src="../../scripts/footer-scene.js"></script>
+</body>
+</html>

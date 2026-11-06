@@ -1,0 +1,36 @@
+/* Shared typography + site header for every page.
+   Figtree = body, small headings, labels, nav, footer. Larsseit = main titles only.
+   To change either font later, edit the two variables below.
+   Load AFTER the page's main stylesheet. Figtree comes from Google Fonts (see each page's <head>). */
+
+:root {
+  --cs-body-font: "Figtree", "Helvetica Neue", Arial, sans-serif;
+  --cs-title-font: "Larsseit", "Helvetica Neue", Arial, sans-serif;
+}
+
+body, body * { font-family: var(--cs-body-font); }
+
+/* main titles */
+.hero-title, .hero-subtitle, .logo, .site-brand, .site-brand span,                 /* case-study hero + logo */
+.cs-main h2, .main-content .section-heading,                     /* section headlines */
+.hero-headline, .gallery-title, .work-title,                     /* home (incl. project card titles) */
+.about-greeting, .about-subhead, .story-title, .bs-title,        /* about */
+.project-title                                                   /* spoonify */
+{ font-family: var(--cs-title-font); }
+
+/* Logo link: same alignment as the case-study pages */
+.site-header .logo-link { display: inline-flex; align-items: center; }
+.site-header .nav-link.current { color: var(--color-muted-grey); }
+
+/* Site header on Home and About: same height, padding and background as the case-study pages */
+.site-header { background-color: rgba(255, 251, 251, 0.92); backdrop-filter: blur(14px); }
+.site-header .nav-container { height: 100px; padding: 0 2rem; }
+.site-header .nav-link { font-weight: 400; }
+@media (max-width: 920px) {
+  .site-header .nav-container { padding: 0 1.5rem; }
+  .site-header .main-nav { top: 100px; }
+}
+
+/* the "/" in the header breadcrumb uses the title font */
+.page-indicator .sep { font-family: var(--cs-title-font); }
+.site-brand .page-indicator { font-family: var(--cs-body-font); }

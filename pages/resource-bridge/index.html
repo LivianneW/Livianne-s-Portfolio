@@ -9,186 +9,10 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../../assets/favicon/apple-touch-icon.png">
     <link rel="stylesheet" href="../../styles/styles.css">
-<style>
-    a {
-      text-decoration: none;    
-      color: inherit;        
-    }
-        
-    .green-highlight {
-      color: #70B074;
-      font-weight: 500;
-    }
-
-    .design-features-container {
-      position: relative;
-      margin: 20px 0 36px;
-    }
-
-    .design-features-container img {
-      width: 100%;
-      border-radius: 10px;
-      display: block;
-    }
-
-    .feature-label {
-      position: absolute;
-      background: rgba(0, 0, 0, 0.05);
-      padding: 8px 20px;
-      border-radius: 10px;
-      font-size: 13px;
-      color: #585858;
-      font-weight: 500;
-      text-align: center;
-      white-space: nowrap;
-    }
-
-    .feature-label.filtering {
-      top: 0;
-      left: 44px;
-    }
-
-    .feature-label.location {
-      bottom: 40px;
-      right: 20px;
-      line-height: 1.3;
-    }
-
-    .iteration-comparison {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      margin: 20px 0 16px;
-      align-items: center;
-    }
-
-    .iteration-comparison img {
-      width: 100%;
-      max-width: 300px;
-      border-radius: 10px;
-      height: auto;
-    }
-
-    .iteration-comparison img:last-child {
-      border: 2px solid #BFD999;
-    }
-
-    .notable-iteration-badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background-color: rgba(111, 157, 120, 0.06);
-      border: 1px solid rgba(111, 157, 120, 0.12);
-      border-radius: 10px;
-      padding: 8px 20px;
-      color: var(--color-dark-charcoal);
-      font-size: 14px;
-      font-weight: 400;
-      letter-spacing: -0.01em;
-      line-height: 1.4;
-      margin: 20px 0 16px;
-      width: fit-content;
-    }
-
-    .photo-gallery {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(2, 1fr);
-      gap: 12px;
-      margin: 0 0 24px 0;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .photo-gallery img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 10px;
-      scroll-snap-align: start;
-    }
-
-    .main-content .bullet-list {
-      list-style: none;
-      padding-left: 0;
-      gap: 0;
-    }
-
-    .main-content .bullet-list > li {
-      position: relative;
-      padding: 0.9rem 0 1rem 1.25rem;
-      border-top: 1px solid rgba(28, 28, 28, 0.08);
-    }
-
-    .main-content .bullet-list > li:first-child {
-      border-top: 0;
-      padding-top: 0;
-    }
-
-    .main-content .bullet-list > li:last-child {
-      padding-bottom: 0;
-    }
-
-    .main-content .bullet-list > li::before {
-      content: "";
-      position: absolute;
-      top: calc(0.9rem + 0.7em);
-      left: 0;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #70b074;
-    }
-
-    .main-content .bullet-list > li:first-child::before {
-      top: 0.7em;
-    }
-
-    .main-content .bullet-list > li strong {
-      display: block;
-      margin-bottom: 0.25rem;
-      font-weight: 500;
-    }
-
-    @media (max-width: 768px) {
-      .main-content .bullet-list {
-        font-size: 16px;
-        line-height: 1.6;
-      }
-
-      .main-content .bullet-list > li {
-        padding-top: 0.75rem;
-        padding-bottom: 0.75rem;
-      }
-
-      .main-content .bullet-list > li:first-child {
-        padding-top: 0;
-      }
-
-      .main-content .bullet-list > li::before {
-        top: calc(0.75rem + 0.65em);
-      }
-
-      .main-content .bullet-list > li:first-child::before {
-        top: 0.65em;
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .notable-iteration-badge {
-        font-size: 16px;
-        padding: 10px 60px;
-      }
-      .iteration-comparison img {
-        max-width: 400px;
-        height: auto;
-      }
-      .photo-gallery img {
-        height: 260px;
-      }
-    }
+  <link rel="stylesheet" href="../../styles/site-type.css">
+  <link rel="stylesheet" href="../../styles/case-study.css">
+  <style>
+    a { text-decoration: none; color: inherit; }
   </style>
 </head>
 <body>
@@ -197,7 +21,7 @@
     <div class="container nav-container">
       <a href="../../" class="logo-link">
         <span class="logo">LIVIANNE</span>
-        <span class="page-indicator">/ Resource Bridge</span>
+        <span class="page-indicator"><span class="sep">/</span> Resource Bridge</span>
       </a>
       
       <input type="checkbox" id="menu-toggle" class="menu-toggle" style="display: none;">
@@ -223,6 +47,7 @@
         <div class="hero-text-block">
           <h1 class="hero-title">Resource Bridge</h1>
           <p class="hero-subtitle">Product Design</p>
+          <p class="hero-summary">A community kiosk that helps San Diego's unhoused population find shelter and services in real time.</p>
         </div>
         <div class="hero-image-wrapper" style="max-width: 500px;">
           <img src="../../assets/RESOURCEBRIDGE.png" alt="Resource Bridge Kiosk" class="hero-img" style="max-height: 350px; width: auto; object-fit: contain;" />
@@ -302,140 +127,114 @@
       </div>
     </aside>
 
-    <main class="main-content">
-      
-      <section id="overview" class="content-section">
-        <p class="section-label">OVERVIEW</p>
-        <h2 class="section-heading text-h2"  style="color: #70b074;">Barriers to Bridges</h2>
-        <div class="text-block">
-          <p> I worked with my team to develop Resource Bridge, a community kiosk designed to address gaps in resource access for San Diego's 
-            unhoused population. Moving beyond standard city kiosks that prioritize business directories, 
-            building a human-centered platform focused on real-time shelter availability and essential service navigation.</p>
-          <p>
-            Resource Bridge was designed to tear down this barrier by providing a physical, reliable point of access 
-            in the heart of the community. By removing unnecessary steps and confusion, this kiosk helps people quickly find accurate,
-            up-to-date support in moments that really matters.
-          </p>
+    <main class="main-content cs-main">
+
+      <section id="overview" class="cs">
+        <p class="cs-label">Overview</p>
+        <h2>Barriers to Bridges</h2>
+        <p>I worked with my team to develop Resource Bridge, a community kiosk designed to address gaps in resource access for San Diego's unhoused population. Moving beyond standard city kiosks that prioritize business directories, building a human-centered platform focused on real-time shelter availability and essential service navigation.</p>
+        <p>Resource Bridge was designed to tear down this barrier by providing a physical, reliable point of access in the heart of the community. By removing unnecessary steps and confusion, this kiosk helps people quickly find accurate, up-to-date support in moments that really matters.</p>
+        <dl class="cs-facts">
+          <div><dt>Focus</dt><dd>Resource access for San Diego's unhoused population</dd></div>
+          <div><dt>Output</dt><dd>A community kiosk for real-time shelter availability and service navigation</dd></div>
+          <div><dt>Research</dt><dd>Desk research, competitive analysis, and interviews with unhoused individuals and a PATH program manager</dd></div>
+          <div><dt>Testing</dt><dd>In-person interviews with a high-fidelity prototype</dd></div>
+        </dl>
       </section>
 
-      <section id="problem-statement" class="content-section">
-        <p class="section-label">PROBLEM STATEMENT</p>
-        <h2 class="section-heading text-h2"  style="color: #70b074;">The Gap Between Need and Access</h2>
-        <p class="text-paragraph">San Diego faces a severe homelessness crisis with thousands of affected individuals, 
-          yet a <span style="color: #7cabb0; font-weight: 500;">massive gap exists</span> in how people access life-saving resources.
-           Current support systems rely heavily on inconsistent word-of-mouth or 2-1-1 referrals that suffer from long wait times
-           and outdated information. For an unhoused individual, the lack of digital access and proper documentation becomes a wall,
-            making it <span style="color: #7cabb0; font-weight: 500;">10x harder</span> to secure food, healthcare, and shelter compared to the general population.</p>
-      </section>
-
-      <section id="research-pain-points" class="content-section">
-        <p class="section-label">RESEARCH AND PAIN POINTS</p>
-        <h2 class="section-heading">My Insights</h2>
-        <div class="section-content text-block">
-          <p>I worked with my group to conduct extensive research through <span style="color: #7cabb0; font-weight: 500;">desk research, competitive analysis, and direct interviews</span> with both unhoused individuals in downtown San Diego and a program manager at PATH (People Assisting The Homeless)</p>
-          <ul class="bullet-list" style="margin-top: 1rem;">
-            <li><strong>Limitations in Accessing Resources:</strong> Interviews revealed limited awareness of available resources, heavy reliance on 2-1-1 and word of mouth, long travel distances, extended wait times, and outdated or inaccurate information online.</li>
-            <li><strong>Barriers to Support:</strong> Individuals are disadvantaged due to limited digital literacy, language barriers, lack of translations, and the burden of extensive paperwork.</li>
-            <li><strong>System Inefficiency:</strong> Manual logging processes contribute to long wait times, unclear document requirements, and misinformation. Combined with outdated information and language barriers, these issues often result in wasted trips and missed opportunities for support.</li>
-          </ul>
+      <section id="problem-statement" class="cs">
+        <p class="cs-label">Problem Statement</p>
+        <h2>The Gap Between Need and Access</h2>
+        <p>San Diego faces a severe homelessness crisis with thousands of affected individuals, yet a <span class="hi">massive gap exists</span> in how people access life-saving resources. Current support systems rely heavily on inconsistent word-of-mouth or 2-1-1 referrals that suffer from long wait times and outdated information. For an unhoused individual, the lack of digital access and proper documentation becomes a wall, making it <span class="hi">10x harder</span> to secure food, healthcare, and shelter compared to the general population.</p>
+        <p class="cs-mini">Where the gap shows up</p>
+        <div class="cs-big3 sm">
+          <div><p class="k"></p><p class="v">Word of mouth and 2-1-1</p><p class="d">Inconsistent referrals, long wait times, and outdated information.</p></div>
+          <div><p class="k"></p><p class="v">No digital access</p><p class="d">Help that lives online is out of reach.</p></div>
+          <div><p class="k"></p><p class="v">No documentation</p><p class="d">Missing paperwork becomes a wall to food, healthcare, and shelter.</p></div>
         </div>
       </section>
 
-      <section id="design-features" class="content-section">
-        <p class="section-label">DESIGN FEATURES</p>
-        <h2 class="section-heading">What I Designed</h2>
-        <div class="section-content text-block">
-          <p>After conducting peer reviews, I identified <span style="color: #7cabb0; font-weight: 500;">three core features</span> to focus on for the kiosk</p>
-          <ul class="bullet-list" style="margin-top: 1rem;">
-            <li><strong>User-Centered Experience:</strong> Prioritizes quick access to essential services such as shelter, food, and healthcare. Users can scan a QR code to revisit information later, and clear, step-by-step instructions ensure usability across all literacy levels.</li>
-            <li><strong>Efficiency & Accessibility:</strong> Filters allow users to sort resources based on their specific needs, supported by a streamlined and intuitive interface for easy navigation. Multilingual support helps reduce language barriers and expands access for diverse communities.</li>
-            <li><strong>Real-time Information & Availability Check:</strong> The system provides comprehensive, up-to-date listings of shelters and services, along with interactive maps that display locations, distances, and public transportation routes.</li>
-          </ul>
-        </div>
-        <div class="design-features-container" style="margin-top: 32px;">
-          <img src="../../assets/Design-Features.png" alt="Design Features" class="design-features-image">
+      <section id="research-pain-points" class="cs">
+        <p class="cs-label">Research and Pain Points</p>
+        <h2>Outdated information and paperwork turned help into wasted trips</h2>
+        <p>I worked with my group to conduct extensive research through <span class="hi">desk research, competitive analysis, and direct interviews</span> with both unhoused individuals in downtown San Diego and a program manager at PATH (People Assisting The Homeless).</p>
+        <ol class="cs-rows">
+          <li><div><span class="n">01</span><h3 class="t">Limitations in accessing resources</h3></div><p class="dsc">Interviews revealed limited awareness of available resources, heavy reliance on 2-1-1 and word of mouth, long travel distances, extended wait times, and outdated or inaccurate information online.</p></li>
+          <li><div><span class="n">02</span><h3 class="t">Barriers to support</h3></div><p class="dsc">Individuals are disadvantaged due to limited digital literacy, language barriers, lack of translations, and the burden of extensive paperwork.</p></li>
+          <li><div><span class="n">03</span><h3 class="t">System inefficiency</h3></div><p class="dsc">Manual logging processes contribute to long wait times, unclear document requirements, and misinformation. Combined with outdated information and language barriers, these issues often result in wasted trips and missed opportunities for support.</p></li>
+        </ol>
+      </section>
+
+      <section id="design-features" class="cs">
+        <p class="cs-label">Design Features</p>
+        <h2>What I Designed</h2>
+        <p>After conducting peer reviews, I identified <span class="hi">three core features</span> to focus on for the kiosk.</p>
+        <ol class="cs-feats">
+          <li><span class="n">01</span><h4>User-Centered Experience</h4><p>Prioritizes quick access to essential services such as shelter, food, and healthcare. Users can scan a QR code to revisit information later, and clear, step-by-step instructions ensure usability across all literacy levels.</p></li>
+          <li><span class="n">02</span><h4>Efficiency &amp; Accessibility</h4><p>Filters allow users to sort resources based on their specific needs, supported by a streamlined and intuitive interface for easy navigation. Multilingual support helps reduce language barriers and expands access for diverse communities.</p></li>
+          <li><span class="n">03</span><h4>Real-time Information &amp; Availability Check</h4><p>The system provides comprehensive, up-to-date listings of shelters and services, along with interactive maps that display locations, distances, and public transportation routes.</p></li>
+        </ol>
+        <figure class="cs-figure">
+          <img src="../../assets/Design-Features.png" alt="Design features" width="1222" height="993">
+        </figure>
+      </section>
+
+      <section id="user-interviews" class="cs">
+        <p class="cs-label">User Interviews</p>
+        <h2>Testing &amp; Improvements</h2>
+        <p>With the final set of design features, I created a high-fidelity prototype and conducted <span class="hi">in-person interviews</span> at a popular gathering area for unhoused individuals in downtown San Diego.</p>
+
+        <h3 class="cs-sub">Patterns identified</h3>
+        <ul class="cs-rows" style="margin-top:20px">
+          <li><div><p class="t s">Low filter discoverability</p></div><p class="dsc">Most participants struggled to find the filter button.</p></li>
+          <li><div><p class="t s">Conflicting affordances</p></div><p class="dsc">Users frequently mistook static information tags for interactive buttons and instinctively clicked on general content containers rather than specific action links.</p></li>
+          <li><div><p class="t s">Interaction friction</p></div><p class="dsc">Occasional responsiveness issues and "false affordances" led to user frustration and repeated clicking during navigation.</p></li>
+          <li><div><p class="t s">Positive aesthetic response</p></div><p class="dsc">Despite these usability issues, participants found the kiosk interface visually appealing and the content to be potentially helpful.</p></li>
+        </ul>
+
+        <h3 class="cs-sub">Design iterations</h3>
+        <ul class="cs-rows" style="margin-top:20px">
+          <li><div><p class="t s">Improve filter visibility</p></div><p class="dsc">Increase the visibility of the filter button to make it easier to discover.</p></li>
+          <li><div><p class="t s">Clarify action labels</p></div><p class="dsc">Remove "Learn More," as users instinctively clicked the entire card; replace it with "Details" to better indicate interactivity and intent.</p></li>
+        </ul>
+        <figure class="cs-figure">
+          <p class="cs-cap" style="margin-bottom:12px !important">Updated design features</p>
+          <img src="../../assets/UpdatedDesign-Features.png" alt="Updated design features" width="1217" height="970">
+        </figure>
+
+        <h3 class="cs-sub">Notable iteration</h3>
+        <p>Though not directly mentioned in user testing, I felt adjusting these sections would better clarify section differences. Revising the design and layout enhances visual hierarchy, helping users distinguish key information and navigate more intuitively.</p>
+        <div class="cs-ba">
+          <div><p class="cs-cap">Before</p><img src="../../assets/resource-before.png" alt="Before iteration" width="606" height="259"></div>
+          <div><p class="cs-cap on">After</p><img src="../../assets/resource-after.png" alt="After iteration" width="629" height="282"></div>
         </div>
       </section>
 
-      <section id="user-interviews" class="content-section">
-        <p class="section-label">USER INTERVIEWS</p>
-        <h2 class="section-heading">Testing & Improvements</h2>
-        <div class="section-content text-block">
-          <p>With the final set of design features, I created a high-fidelity prototype and conducted <span style="color: #7cabb0; font-weight: 500;">in-person interviews</span> at a popular gathering area for unhoused individuals in downtown San Diego</p>
-          
-          <p class="text-h3" style="margin-top: 24px;"><strong class="font-medium">Patterns Identified:</strong></p>
-          <ul class="bullet-list">
-            <li> <strong>Low Filter Discoverability:</strong> Most participants struggled to find the filter button. </li>
-            <li> <strong>Conflicting Affordances:</strong> Users frequently mistook static information tags for interactive buttons and instinctively clicked on general content containers rather than specific action links. </li>  
-            <li> <strong>Interaction Friction:</strong> Occasional responsiveness issues and "false affordances" led to user frustration and repeated clicking during navigation. </li>
-            <li> <strong>Positive Aesthetic Response:</strong> Despite these usability issues, participants found the kiosk interface visually appealing and the content to be potentially helpful.</li>
-          </ul>
+      <section id="lessons-learned" class="cs">
+        <p class="cs-label">Lessons Learned</p>
+        <h2>Collaboration and feedback shaped the product</h2>
+        <p><span class="hi">Collaboration was the backbone</span> of developing Resource Bridge. Working closely with other designers for the first time was both a challenge and a valuable learning experience. It showed me just how essential teamwork is, not just for dividing tasks, but for pushing ideas further and being able to create something truly impactful.</p>
+        <p><span class="hi">User testing and feedback</span> played a major role throughout this project, shaping the final product in ways I hadn't initially anticipated. It truly goes to show that no matter how polished a design may seem, there is always room for iteration and growth. More importantly, it showed me that individual perspectives can only go so far, especially when designing for experiences I may never fully understand on my own. Meaningful design can only happen through direct input from the people who navigate those challenges every day.</p>
+      </section>
 
-          <p class="text-h3" style="margin-top: 8px;"><strong class="font-medium">Design Iterations:</strong></p>
-          <ul class="bullet-list">
-            <li><strong>Improve Filter Visibility:</strong> Increase the visibility of the filter button to make it easier to discover.</li>
-            <li><strong>Clarify Action Labels:</strong> Remove "Learn More," as users instinctively clicked the entire card; replace it with "Details" to better indicate interactivity and intent.</li>
-            <li><strong>Remove "Learn More":</strong> Users clicked the box instinctively; replace it with "Details" for clarity.</li>
-          </ul>
-        </div>
-
-        <div class="design-features-container" style="margin-top: 32px;">
-          <img src="../../assets/UpdatedDesign-Features.png" alt="Updated Design Features" class="design-features-image">
-        </div>
-
-        <div style="margin-top: 48px;">
-        <div class="prototype-showcase-block" style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; gap: 16px; margin-bottom: 5rem;">
-          <div class="notable-iteration-badge">
-            Notable Iteration
-          </div>
-          <p class="text-paragraph text-body"  style="margin-top: 12px; margin-bottom: 24px; max-width: 800px;color: #585858">
-           Though not directly mentioned in user testing, I felt adjusting these sections would better clarify section differences. Revising the design and layout enhances visual hierarchy, helping users distinguish key information and navigate more intuitively</p>
-          <div class="iteration-comparison">
-            <img src="../../assets/resource-before.png" alt="Before Iteration">
-            <img src="../../assets/resource-after.png" alt="After Iteration">
-          </div>
+      <section id="prototype" class="cs">
+        <p class="cs-label">Interactive Prototype</p>
+        <div class="cs-embed figma-embed-container">
+          <iframe width="100%" height="650" src="https://embed.figma.com/proto/hq1XZFQ1SVw6yUW0Brr3H8/Resource-Bridge-Interface?page-id=64%3A48&node-id=414-1966&starting-point-node-id=414%3A1966&scaling=scale-down&content-scaling=fixed&embed-host=share" allowfullscreen></iframe>
         </div>
       </section>
 
-      <section id="lessons-learned" class="content-section">
-        <p class="section-label">LESSONS LEARNED</p>
-        <h2 class="section-heading">Reflection</h2>
-        <div class="text-block">
-          <p><span class="green-highlight">Collaboration was the backbone</span> of developing Resource Bridge. Working closely with other designers for the 
-            first time was both a challenge and a valuable learning experience. It showed me just how essential teamwork is, not just for dividing tasks, but 
-            for pushing ideas further and being able to create something truly impactful.</p>
-          <p><span class="green-highlight">User testing and feedback</span> played a major role throughout this project, shaping the final product in ways I
-             hadn't initially anticipated. It truly goes to show that no matter how polished a design may seem, there is always room for iteration and growth. 
-             More importantly, it showed me that individual perspectives can only go so far, especially when designing for experiences I may never fully understand on my own.
-             Meaningful design can only happen through direct input from the people who navigate those challenges every day.</p>
-        </div>
-      </section>
-
-      <section id="prototype" class="content-section">
-        <p class="section-label">INTERACTIVE PROTOTYPE</p>
-        <div class="figma-embed-container" style="margin-top: 24px;">
-          <iframe
-            width="100%"
-            height="650"
-            src="https://embed.figma.com/proto/hq1XZFQ1SVw6yUW0Brr3H8/Resource-Bridge-Interface?page-id=64%3A48&node-id=414-1966&starting-point-node-id=414%3A1966&scaling=scale-down&content-scaling=fixed&embed-host=share"
-            allowfullscreen
-            style="border: none; border-radius: 12px; background: rgba(0,0,0,0.02);">
-          </iframe>
-        </div>
-      </section>
-
-      <section id="curious" class="content-section padding-bottom-large">
-        <p class="section-label">FOR THE CURIOUS</p>
-        <h2 class="section-heading">Physical Prototype</h2>
-        <p class="text-paragraph" style="margin-bottom: 32px;">Beyond the digital design, my team and I were also tasked with building a physical kiosk prototype as part of the project.</p>
-
-        <div class="photo-gallery">
-          <img src="../../assets/resource-kiosk-front.png" style="height: 325px;" alt="Front View">
-          <img src="../../assets/resource-kiosk-side.png" style="height: 325px;" alt="Side View">
-          <img src="../../assets/resource-kiosk-back.png" style="height: 325px;" alt="Back View">
-          <img src="../../assets/resource-kiosk-detail1.png" style="height: 325px;" alt="Kiosk Detail 1">
-          <img src="../../assets/resource-kiosk-detail2.png" style="height: 325px;" alt="Kiosk Detail 2">
-          <img src="../../assets/resource-kiosk-detail3.png" style="height: 325px;" alt="Kiosk Detail 3">
+      <section id="curious" class="cs">
+        <p class="cs-label">For the Curious</p>
+        <h2>Physical Prototype</h2>
+        <p>Beyond the digital design, my team and I were also tasked with building a physical kiosk prototype as part of the project.</p>
+        <div class="cs-xgrid three" style="margin-top:32px">
+          <img src="../../assets/resource-kiosk-front.png" alt="Front view" width="462" height="616">
+          <img src="../../assets/resource-kiosk-side.png" alt="Side view" width="462" height="616">
+          <img src="../../assets/resource-kiosk-back.png" alt="Back view" width="462" height="616">
+          <img src="../../assets/resource-kiosk-detail1.png" alt="Kiosk detail 1" width="462" height="616">
+          <img src="../../assets/resource-kiosk-detail2.png" alt="Kiosk detail 2" width="462" height="616">
+          <img src="../../assets/resource-kiosk-detail3.png" alt="Kiosk detail 3" width="463" height="616">
         </div>
       </section>
 
@@ -447,7 +246,7 @@
     document.addEventListener('DOMContentLoaded', () => {
       
       // Dynamic Table of Contents Intersections
-      const sections = document.querySelectorAll('.content-section');
+      const sections = document.querySelectorAll('.cs');
       const tocLinks = document.querySelectorAll('.toc-link');
 
       const options = { root: null, rootMargin: '-15% 0px -75% 0px', threshold: 0 };

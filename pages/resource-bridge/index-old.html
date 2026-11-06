@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resource Bridge - Livianne</title>
+  <link rel="icon" type="image/x-icon" href="../../assets/favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/favicon/apple-touch-icon.png">
+    <link rel="stylesheet" href="../../styles/styles.css">
+<style>
+    a {
+      text-decoration: none;    
+      color: inherit;        
+    }
+        
+    .green-highlight {
+      color: #70B074;
+      font-weight: 500;
+    }
+
+    .design-features-container {
+      position: relative;
+      margin: 20px 0 36px;
+    }
+
+    .design-features-container img {
+      width: 100%;
+      border-radius: 10px;
+      display: block;
+    }
+
+    .feature-label {
+      position: absolute;
+      background: rgba(0, 0, 0, 0.05);
+      padding: 8px 20px;
+      border-radius: 10px;
+      font-size: 13px;
+      color: #585858;
+      font-weight: 500;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .feature-label.filtering {
+      top: 0;
+      left: 44px;
+    }
+
+    .feature-label.location {
+      bottom: 40px;
+      right: 20px;
+      line-height: 1.3;
+    }
+
+    .iteration-comparison {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 20px 0 16px;
+      align-items: center;
+    }
+
+    .iteration-comparison img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+      height: auto;
+    }
+
+    .iteration-comparison img:last-child {
+      border: 2px solid #BFD999;
+    }
+
+    .notable-iteration-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background-color: rgba(111, 157, 120, 0.06);
+      border: 1px solid rgba(111, 157, 120, 0.12);
+      border-radius: 10px;
+      padding: 8px 20px;
+      color: var(--color-dark-charcoal);
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      line-height: 1.4;
+      margin: 20px 0 16px;
+      width: fit-content;
+    }
+
+    .photo-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 12px;
+      margin: 0 0 24px 0;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .photo-gallery img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      scroll-snap-align: start;
+    }
+
+    .main-content .bullet-list {
+      list-style: none;
+      padding-left: 0;
+      gap: 0;
+    }
+
+    .main-content .bullet-list > li {
+      position: relative;
+      padding: 0.9rem 0 1rem 1.25rem;
+      border-top: 1px solid rgba(28, 28, 28, 0.08);
+    }
+
+    .main-content .bullet-list > li:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .main-content .bullet-list > li:last-child {
+      padding-bottom: 0;
+    }
+
+    .main-content .bullet-list > li::before {
+      content: "";
+      position: absolute;
+      top: calc(0.9rem + 0.7em);
+      left: 0;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #70b074;
+    }
+
+    .main-content .bullet-list > li:first-child::before {
+      top: 0.7em;
+    }
+
+    .main-content .bullet-list > li strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .main-content .bullet-list {
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      .main-content .bullet-list > li {
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+      }
+
+      .main-content .bullet-list > li:first-child {
+        padding-top: 0;
+      }
+
+      .main-content .bullet-list > li::before {
+        top: calc(0.75rem + 0.65em);
+      }
+
+      .main-content .bullet-list > li:first-child::before {
+        top: 0.65em;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .notable-iteration-badge {
+        font-size: 16px;
+        padding: 10px 60px;
+      }
+      .iteration-comparison img {
+        max-width: 400px;
+        height: auto;
+      }
+      .photo-gallery img {
+        height: 260px;
+      }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/site-type.css">
+  <link rel="stylesheet" href="../../styles/case-study.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="../../" class="logo-link">
+        <span class="logo">LIVIANNE</span>
+        <span class="page-indicator">/ Resource Bridge</span>
+      </a>
+      
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" style="display: none;">
+      
+      <label for="menu-toggle" class="hamburger-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      
+      <nav class="nav-links">
+        <a href="../../" class="nav-link">Work</a>
+        <a href="../about/" class="nav-link">About</a>
+        <a href="https://drive.google.com/file/d/1uY5DvgihQv_6BxHrdHPwktoVfEQGerwh/view?usp=sharing" class="nav-link" target="_blank" rel="noreferrer">Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-banner case-hero-resource">
+    <div class="container hero-container">
+      
+      <div class="hero-top-split" style="display: flex; width: 100%; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 32px;">
+        <div class="hero-text-block">
+          <h1 class="hero-title">Resource Bridge</h1>
+          <p class="hero-subtitle">Product Design</p>
+          <p class="hero-summary">A community kiosk that helps San Diego's unhoused population find shelter and services in real time.</p>
+        </div>
+        <div class="hero-image-wrapper" style="max-width: 500px;">
+          <img src="../../assets/RESOURCEBRIDGE.png" alt="Resource Bridge Kiosk" class="hero-img" style="max-height: 350px; width: auto; object-fit: contain;" />
+        </div>
+      </div>
+    
+      <div class="project-meta-dashboard">
+        
+        <div class="meta-dashboard-col">
+          <span class="meta-dashboard-label">Team</span>
+          <div class="meta-dashboard-list">
+            <div class="meta-dashboard-row">
+              <span class="meta-name" style="color: var(--color-team-pink); font-weight: 500;">Livianne</span>
+              <span class="meta-role" style="color: var(--color-team-pink); font-weight: 500;">Product Designer</span>
+            </div>
+            <div class="meta-dashboard-row">
+              <span class="meta-name">Wendy</span>
+              <span class="meta-role">Product Designer</span>
+            </div>
+            <div class="meta-dashboard-row">
+              <span class="meta-name">Stephanie</span>
+              <span class="meta-role">UX Strategist & Project Lead</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="meta-dashboard-col skills-col">
+          <span class="meta-dashboard-label">Skills</span>
+          <p class="meta-dashboard-text">UX Research, User Personas, <br>Product Thinking, User Testing, Prototyping</p>
+        </div>
+
+        <div class="meta-dashboard-col">
+          <span class="meta-dashboard-label">Tools</span>
+          <p class="meta-dashboard-text">Figma</p>
+        </div>
+
+        <div class="meta-dashboard-col">
+          <span class="meta-dashboard-label">Timeline</span>
+          <p class="meta-dashboard-text">February 2025 - April 2025</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="container body-container">
+    
+    <aside class="sidebar">
+      <div class="toc-sticky-container">
+        <a href="../../" class="back-btn-sticky">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Back to Home
+        </a>
+
+        <nav class="toc" aria-label="Project case directory framework">
+          <a href="#overview" class="toc-link active">Overview</a>
+          <a href="#problem-statement" class="toc-link">Problem Statement</a>
+          <a href="#research-pain-points" class="toc-link">Research & Pain Points</a>
+          <a href="#design-features" class="toc-link">Design Features</a>
+          <a href="#user-interviews" class="toc-link">User Interviews</a>
+          <a href="#lessons-learned" class="toc-link">Lessons Learned</a>          
+          <a href="#prototype" class="toc-link">Interactive Prototype</a>          
+          <a href="#curious" class="toc-link">For the Curious</a>          
+        </nav>
+
+        <a 
+          href="https://www.figma.com/proto/hq1XZFQ1SVw6yUW0Brr3H8/Resource-Bridge-Interface?page-id=64%3A48&node-id=414-1966&viewport=-1020%2C-741%2C0.4&t=7xVSNP8fFcIoeEIZ-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=414%3A1966&show-proto-sidebar=1" 
+          target="_blank" 
+          rel="noreferrer" 
+          class="prototype-btn"
+          style="margin-top: 20px; width: 70%; box-sizing: border-box;">
+          <span class="btn-text">View Prototype</span>
+        </a>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      
+      <section id="overview" class="content-section">
+        <p class="section-label">OVERVIEW</p>
+        <h2 class="section-heading text-h2"  style="color: #70b074;">Barriers to Bridges</h2>
+        <div class="text-block">
+          <p> I worked with my team to develop Resource Bridge, a community kiosk designed to address gaps in resource access for San Diego's 
+            unhoused population. Moving beyond standard city kiosks that prioritize business directories, 
+            building a human-centered platform focused on real-time shelter availability and essential service navigation.</p>
+          <p>
+            Resource Bridge was designed to tear down this barrier by providing a physical, reliable point of access 
+            in the heart of the community. By removing unnecessary steps and confusion, this kiosk helps people quickly find accurate,
+            up-to-date support in moments that really matters.
+          </p>
+      </section>
+
+      <section id="problem-statement" class="content-section">
+        <p class="section-label">PROBLEM STATEMENT</p>
+        <h2 class="section-heading text-h2"  style="color: #70b074;">The Gap Between Need and Access</h2>
+        <p class="text-paragraph">San Diego faces a severe homelessness crisis with thousands of affected individuals, 
+          yet a <span style="color: #7cabb0; font-weight: 500;">massive gap exists</span> in how people access life-saving resources.
+           Current support systems rely heavily on inconsistent word-of-mouth or 2-1-1 referrals that suffer from long wait times
+           and outdated information. For an unhoused individual, the lack of digital access and proper documentation becomes a wall,
+            making it <span style="color: #7cabb0; font-weight: 500;">10x harder</span> to secure food, healthcare, and shelter compared to the general population.</p>
+      </section>
+
+      <section id="research-pain-points" class="content-section">
+        <p class="section-label">RESEARCH AND PAIN POINTS</p>
+        <h2 class="section-heading">My Insights</h2>
+        <div class="section-content text-block">
+          <p>I worked with my group to conduct extensive research through <span style="color: #7cabb0; font-weight: 500;">desk research, competitive analysis, and direct interviews</span> with both unhoused individuals in downtown San Diego and a program manager at PATH (People Assisting The Homeless)</p>
+          <ul class="bullet-list" style="margin-top: 1rem;">
+            <li><strong>Limitations in Accessing Resources:</strong> Interviews revealed limited awareness of available resources, heavy reliance on 2-1-1 and word of mouth, long travel distances, extended wait times, and outdated or inaccurate information online.</li>
+            <li><strong>Barriers to Support:</strong> Individuals are disadvantaged due to limited digital literacy, language barriers, lack of translations, and the burden of extensive paperwork.</li>
+            <li><strong>System Inefficiency:</strong> Manual logging processes contribute to long wait times, unclear document requirements, and misinformation. Combined with outdated information and language barriers, these issues often result in wasted trips and missed opportunities for support.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="design-features" class="content-section">
+        <p class="section-label">DESIGN FEATURES</p>
+        <h2 class="section-heading">What I Designed</h2>
+        <div class="section-content text-block">
+          <p>After conducting peer reviews, I identified <span style="color: #7cabb0; font-weight: 500;">three core features</span> to focus on for the kiosk</p>
+          <ul class="bullet-list" style="margin-top: 1rem;">
+            <li><strong>User-Centered Experience:</strong> Prioritizes quick access to essential services such as shelter, food, and healthcare. Users can scan a QR code to revisit information later, and clear, step-by-step instructions ensure usability across all literacy levels.</li>
+            <li><strong>Efficiency & Accessibility:</strong> Filters allow users to sort resources based on their specific needs, supported by a streamlined and intuitive interface for easy navigation. Multilingual support helps reduce language barriers and expands access for diverse communities.</li>
+            <li><strong>Real-time Information & Availability Check:</strong> The system provides comprehensive, up-to-date listings of shelters and services, along with interactive maps that display locations, distances, and public transportation routes.</li>
+          </ul>
+        </div>
+        <div class="design-features-container" style="margin-top: 32px;">
+          <img src="../../assets/Design-Features.png" alt="Design Features" class="design-features-image">
+        </div>
+      </section>
+
+      <section id="user-interviews" class="content-section">
+        <p class="section-label">USER INTERVIEWS</p>
+        <h2 class="section-heading">Testing & Improvements</h2>
+        <div class="section-content text-block">
+          <p>With the final set of design features, I created a high-fidelity prototype and conducted <span style="color: #7cabb0; font-weight: 500;">in-person interviews</span> at a popular gathering area for unhoused individuals in downtown San Diego</p>
+          
+          <p class="text-h3" style="margin-top: 24px;"><strong class="font-medium">Patterns Identified:</strong></p>
+          <ul class="bullet-list">
+            <li> <strong>Low Filter Discoverability:</strong> Most participants struggled to find the filter button. </li>
+            <li> <strong>Conflicting Affordances:</strong> Users frequently mistook static information tags for interactive buttons and instinctively clicked on general content containers rather than specific action links. </li>  
+            <li> <strong>Interaction Friction:</strong> Occasional responsiveness issues and "false affordances" led to user frustration and repeated clicking during navigation. </li>
+            <li> <strong>Positive Aesthetic Response:</strong> Despite these usability issues, participants found the kiosk interface visually appealing and the content to be potentially helpful.</li>
+          </ul>
+
+          <p class="text-h3" style="margin-top: 8px;"><strong class="font-medium">Design Iterations:</strong></p>
+          <ul class="bullet-list">
+            <li><strong>Improve Filter Visibility:</strong> Increase the visibility of the filter button to make it easier to discover.</li>
+            <li><strong>Clarify Action Labels:</strong> Remove "Learn More," as users instinctively clicked the entire card; replace it with "Details" to better indicate interactivity and intent.</li>
+            <li><strong>Remove "Learn More":</strong> Users clicked the box instinctively; replace it with "Details" for clarity.</li>
+          </ul>
+        </div>
+
+        <div class="design-features-container" style="margin-top: 32px;">
+          <img src="../../assets/UpdatedDesign-Features.png" alt="Updated Design Features" class="design-features-image">
+        </div>
+
+        <div style="margin-top: 48px;">
+        <div class="prototype-showcase-block" style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; gap: 16px; margin-bottom: 5rem;">
+          <div class="notable-iteration-badge">
+            Notable Iteration
+          </div>
+          <p class="text-paragraph text-body"  style="margin-top: 12px; margin-bottom: 24px; max-width: 800px;color: #585858">
+           Though not directly mentioned in user testing, I felt adjusting these sections would better clarify section differences. Revising the design and layout enhances visual hierarchy, helping users distinguish key information and navigate more intuitively</p>
+          <div class="iteration-comparison">
+            <img src="../../assets/resource-before.png" alt="Before Iteration">
+            <img src="../../assets/resource-after.png" alt="After Iteration">
+          </div>
+        </div>
+      </section>
+
+      <section id="lessons-learned" class="content-section">
+        <p class="section-label">LESSONS LEARNED</p>
+        <h2 class="section-heading">Reflection</h2>
+        <div class="text-block">
+          <p><span class="green-highlight">Collaboration was the backbone</span> of developing Resource Bridge. Working closely with other designers for the 
+            first time was both a challenge and a valuable learning experience. It showed me just how essential teamwork is, not just for dividing tasks, but 
+            for pushing ideas further and being able to create something truly impactful.</p>
+          <p><span class="green-highlight">User testing and feedback</span> played a major role throughout this project, shaping the final product in ways I
+             hadn't initially anticipated. It truly goes to show that no matter how polished a design may seem, there is always room for iteration and growth. 
+             More importantly, it showed me that individual perspectives can only go so far, especially when designing for experiences I may never fully understand on my own.
+             Meaningful design can only happen through direct input from the people who navigate those challenges every day.</p>
+        </div>
+      </section>
+
+      <section id="prototype" class="content-section">
+        <p class="section-label">INTERACTIVE PROTOTYPE</p>
+        <div class="figma-embed-container" style="margin-top: 24px;">
+          <iframe
+            width="100%"
+            height="650"
+            src="https://embed.figma.com/proto/hq1XZFQ1SVw6yUW0Brr3H8/Resource-Bridge-Interface?page-id=64%3A48&node-id=414-1966&starting-point-node-id=414%3A1966&scaling=scale-down&content-scaling=fixed&embed-host=share"
+            allowfullscreen
+            style="border: none; border-radius: 12px; background: rgba(0,0,0,0.02);">
+          </iframe>
+        </div>
+      </section>
+
+      <section id="curious" class="content-section padding-bottom-large">
+        <p class="section-label">FOR THE CURIOUS</p>
+        <h2 class="section-heading">Physical Prototype</h2>
+        <p class="text-paragraph" style="margin-bottom: 32px;">Beyond the digital design, my team and I were also tasked with building a physical kiosk prototype as part of the project.</p>
+
+        <div class="photo-gallery">
+          <img src="../../assets/resource-kiosk-front.png" style="height: 325px;" alt="Front View">
+          <img src="../../assets/resource-kiosk-side.png" style="height: 325px;" alt="Side View">
+          <img src="../../assets/resource-kiosk-back.png" style="height: 325px;" alt="Back View">
+          <img src="../../assets/resource-kiosk-detail1.png" style="height: 325px;" alt="Kiosk Detail 1">
+          <img src="../../assets/resource-kiosk-detail2.png" style="height: 325px;" alt="Kiosk Detail 2">
+          <img src="../../assets/resource-kiosk-detail3.png" style="height: 325px;" alt="Kiosk Detail 3">
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      // Dynamic Table of Contents Intersections
+      const sections = document.querySelectorAll('.content-section');
+      const tocLinks = document.querySelectorAll('.toc-link');
+
+      const options = { root: null, rootMargin: '-15% 0px -75% 0px', threshold: 0 };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const currentId = entry.target.getAttribute('id');
+            tocLinks.forEach(link => {
+              const linkHref = link.getAttribute('href');
+              if (linkHref && linkHref.includes('#')) {
+                if (linkHref.split('#')[1] === currentId) {
+                  link.classList.add('active');
+                } else {
+                  link.classList.remove('active');
+                }
+              }
+            });
+          }
+        });
+      }, options);
+
+      sections.forEach(section => observer.observe(section));
+
+      // Scroll Action
+    });  
+  </script>
+  <script src="../../scripts/footer.js"></script>
+  <script src="../../scripts/footer-scene.js"></script>
+</body>
+</html>
+

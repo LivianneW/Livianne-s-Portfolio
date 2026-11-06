@@ -67,15 +67,7 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden; 
 }
-
-.text-xs { font-size: var(--font-size-xs); }
 .text-sm { font-size: var(--font-size-sm); }
-.text-body { font-size: var(--font-size-body); }
-.text-body-lg { font-size: var(--font-size-body-lg); }
-.text-h3 { font-size: var(--font-size-h3); }
-.text-h2 { font-size: var(--font-size-h2); }
-.text-h1 { font-size: var(--font-size-h1); }
-.text-display { font-size: var(--font-size-display); }
 
 a {
   text-decoration: none;
@@ -458,33 +450,12 @@ a {
   object-position: center 30%;
 }
 
-.about-narrative {
-  display: flex;
-  flex-direction: column;
-  gap: 4.5rem;
-}
-
-.narrative-row {
-  display: grid;
-  grid-template-columns: 240px 1fr;
-  gap: 2rem;
-  align-items: baseline;
-}
-
 .section-label {
   font-size: 18px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--text-light);
-}
-
-.narrative-heading {
-  font-size: 26px;
-  font-weight: 500;
-  color: var(--text-dark);
-  margin-bottom: 0rem;
-  letter-spacing: -0.01em;
 }
 
 .text-block {
@@ -495,26 +466,6 @@ a {
   line-height: 1.65;
   color: var(--text-grey);
   font-weight: 300;
-}
-
-/* About Photo Gallery */
-.about-gallery {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-}
-
-.bits-header {
-  font-size: 28px;
-  font-weight: 500;
-  color: var(--text-dark);
-  letter-spacing: -0.01em;
-}
-
-.photo-gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
 }
 
 .photo-item {
@@ -571,16 +522,6 @@ a {
 
   .about-image-frame {
     margin: 0 auto;
-  }
-
-  .narrative-row {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-  }
-
-  .photo-gallery {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
   }
 }
 
@@ -687,33 +628,13 @@ a {
     border-radius: 22px;
   }
 
-  .about-narrative {
-    gap: 3rem;
-  }
-
-  .narrative-row {
-    gap: 0.75rem;
-  }
-
   .section-label {
     font-size: 14px;
-  }
-
-  .narrative-heading {
-    font-size: 23px;
   }
 
   .text-block {
     font-size: 17px;
     line-height: 1.6;
-  }
-
-  .about-gallery {
-    gap: 1.5rem;
-  }
-
-  .photo-gallery {
-    gap: 1rem;
   }
 
   .photo-item {
@@ -843,18 +764,6 @@ a {
 
   .about-hero-image {
     max-width: 300px;
-  }
-
-  .about-narrative {
-    gap: 2.5rem;
-  }
-
-  .photo-gallery {
-    gap: 0.75rem;
-  }
-
-  .bits-header {
-    font-size: 24px;
   }
 
   .nav-container {
