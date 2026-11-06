@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&display=swap");
 @import url("footer.css");
 
 * {
@@ -44,7 +45,7 @@ html {
   --color-green-accent: #70b074;
   --accent-pink-bg: rgba(239, 214, 208, 0.25);
   --color-btn-bg: rgba(191, 217, 153, 0.5);
-  --font-main: "Larsseit", -apple-system, sans-serif;
+  --font-main: "Larsseit", "Figtree", -apple-system, sans-serif;
 
   --font-size-xs: 12px;
   --font-size-sm: 14px;

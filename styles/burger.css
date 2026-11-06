@@ -4,7 +4,7 @@
   margin: 0 auto;
   padding: 0 3rem;
   color: #1c1c1c;
-  font-family: var(--font-main, "Larsseit", -apple-system, "Helvetica Neue", Arial, sans-serif);
+  font-family: var(--font-main, "Larsseit", "Figtree", -apple-system, "Helvetica Neue", Arial, sans-serif);
 }
 .bs *, .bs *::before, .bs *::after { box-sizing: border-box; }
 .bs-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 1.5rem; flex-wrap: wrap; margin-bottom: .75rem; }

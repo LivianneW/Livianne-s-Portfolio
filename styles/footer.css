@@ -12,7 +12,7 @@
   margin-top: 4rem;
   background: var(--af-bg);
   color: var(--af-ink);
-  font-family: "Larsseit", -apple-system, "Helvetica Neue", Arial, sans-serif;
+  font-family: "Larsseit", "Figtree", -apple-system, "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 .apple-footer *, .apple-footer *::before, .apple-footer *::after { box-sizing: border-box; }
