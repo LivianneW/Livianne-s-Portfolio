@@ -64,13 +64,13 @@
     const yMax = H * 0.965 - H * 0.12;
     const inE = (x, y) => x > E.l && x < E.r && y > E.t;
     const bad = (x, y) => x < -30 || x > W + 30 || y < -H * 0.04 || y > yMax || inE(x, y);
-    let ox = -0.03 * W, oy = 0.5 * H, droop = 0.1, clumpN = 1, strandP = 0.3, subP = 0.3, hang = true;
+    let ox = -0.03 * W, oy = 0.5 * H, droop = 0.1, clumpN = 1, strandP = 0.3, subP = 0.3, hang = true, inStrand = false;
     const LS = 1.3;                                         // twig length multiplier: fuller, bigger canopy
     const kOf = (x, y) => clamp(Math.hypot(x - ox, y - oy) / (W * 0.5), 0, 1);
-    const add = (x, y, s) => { if (!bad(x, y)) flowers.push({ x, y, s: s * u, ph: r() * TAU, k: kOf(x, y), dx: 0 }); };
+    const add = (x, y, s) => { if (!bad(x, y)) flowers.push({ x, y, s: s * u, ph: r() * TAU, k: kOf(x, y), dx: 0, st: inStrand }); };
     const seg = (x, y, x2, y2, w, b) => {
       const cx = (x + x2) / 2, cy = (y + y2) / 2;
-      segs.push({ x, y, x2, y2, cx, cy, w, b, k0: kOf(x, y), kc: kOf(cx, cy), k1: kOf(x2, y2) });
+      segs.push({ x, y, x2, y2, cx, cy, w, b, k0: kOf(x, y), kc: kOf(cx, cy), k1: kOf(x2, y2), st: inStrand });
     };
     const lerp = (a, b, t) => a + (b - a) * t;
 
@@ -88,6 +88,7 @@
     };
 
     const strand = (x, y) => {
+      inStrand = true;
       let px = x, py = y, a = Math.PI + (r() - 0.5) * 0.3;
       const n = 3 + ((r() * 8) | 0);
       for (let i = 0; i < n; i++) {
@@ -99,6 +100,7 @@
         px = x2; py = y2;
       }
       add(px, py, 8 + r() * 4);
+      inStrand = false;
     };
 
     const twig = (x, y, a, len, w, d) => {
@@ -121,18 +123,18 @@
 
     const fy = clamp((tt - 0.06) / 0.18, 0.45, 1.15);
     const treeHeight = 1.15;
-    const limb = (P, w0, w1, gap, decor, map) => {
+    const limb = (P, w0, w1, gap, decor, map, calm) => {
       let pts = spline(P.map(map || (([x, y]) => [x * W, (0.66 + (y - 0.66) * treeHeight) * (1 + (fy - 1) * clamp((0.6 - x) / 0.2, 0, 1)) * H])), 20 * u);
       const n = pts.length, thick = w0 >= 14, ph = [r() * 6, r() * 6, r() * 6];
       const knots = [0.2, 0.45, 0.7].map(k => (k + (r() - 0.5) * 0.15) * n);
       const Wd = pts.map((_, i) => {
         let w = lerp(w0, w1, i / (n - 1)) * u;
-        if (thick) { w *= 1 + 0.14 * Math.sin(i * 0.6 + ph[0]) + 0.08 * Math.sin(i * 1.7 + ph[1]); for (const k of knots) w *= 1 + 0.32 * Math.exp(-(((i - k) / 1.6) ** 2)); }
+        if (thick) { w *= 1 + (calm ? 0.03 : 0.14) * Math.sin(i * 0.6 + ph[0]) + (calm ? 0.02 : 0.08) * Math.sin(i * 1.7 + ph[1]); if (!calm) for (const k of knots) w *= 1 + 0.32 * Math.exp(-(((i - k) / 1.6) ** 2)); }
         return Math.max(w, 2.6 * u);
       });
       const nrm = (i) => { const a = pts[Math.max(0, i - 1)], b = pts[Math.min(n - 1, i + 1)], L = Math.hypot(b[0] - a[0], b[1] - a[1]) || 1; return [-(b[1] - a[1]) / L, (b[0] - a[0]) / L]; };
       if (thick) pts = pts.map((p, i) => {
-        const q = nrm(i), o = (Math.sin(i * 0.5 + ph[1]) * 0.16 + Math.sin(i * 1.3 + ph[2]) * 0.07) * Wd[i] * Math.sin(Math.PI * i / (n - 1));
+        const q = nrm(i), o = (Math.sin(i * 0.5 + ph[1]) * 0.16 + Math.sin(i * 1.3 + ph[2]) * 0.07) * (calm ? 0.1 : 1) * Wd[i] * Math.sin(Math.PI * i / (n - 1));
         return [p[0] + q[0] * o, p[1] + q[1] * o];
       });
       let side = 1, since = 0, last = n - 1;
@@ -174,7 +176,14 @@
       const g = (P, w0, w1, gap, decor) => limb(P, w0 * 1.25, w1 * 1.15, gap, decor, crown);
       limb([[cx - 8 * u, gy - 20 * u], [cx - 32 * u, gy - 6 * u], [cx - 80 * u, gy + 2 * u]], 20, 5, 0, false, (p) => p);
       limb([[cx + 8 * u, gy - 20 * u], [cx + 32 * u, gy - 6 * u], [cx + 72 * u, gy + 2 * u]], 20, 5, 0, false, (p) => p);
-      g([[0, 0], [-0.04, 0.1], [0.04, 0.22], [-0.02, 0.33], [0.03, 0.43], [0.02, 0.47]], 36, 22, 0, false);
+      // Trunk: thick at the base, slimming as it rises, nearly straight. The curly trunk is still run (then discarded)
+      // so the random sequence, and therefore every branch, leaf and apple after it, stays exactly where it was.
+      const keepSegs = segs.length;
+      g([[0, 0], [-0.04, 0.1], [0.04, 0.22], [-0.02, 0.33], [0.03, 0.43], [0.02, 0.47]], 66, 15, 0, false);
+      segs.length = keepSegs;
+      const keepSeed = seed;
+      limb([[0, 0], [-0.004, 0.1], [0.004, 0.22], [0, 0.33], [0.008, 0.43], [0.02, 0.47]], 66 * 1.25, 15 * 1.15, 0, false, crown, true);
+      seed = keepSeed;
       g([[0.02, 0.47], [-0.16, 0.58], [-0.36, 0.7], [-0.58, 0.78], [-0.74, 0.8]], 16, 4, 52, true);
       g([[0.02, 0.47], [0.26, 0.55], [0.5, 0.68], [0.76, 0.76], [1.0, 0.72]], 17, 4, 52, true);
       g([[0.02, 0.47], [-0.06, 0.6], [0.05, 0.73], [-0.03, 0.87], [0.07, 0.97]], 14, 3.5, 52, true);
@@ -194,11 +203,43 @@
 
   function buildTree() {
     groundY = groundLevel();
-    const t = makeTree(W, H, u, measure());
-    segs = t.segs; flowers = t.flowers; apples = t.apples;
+    const m = measure(), t = makeTree(W, H, u, m);
+    // drop the long hanging strands (they made the canopy read as a willow); keep every branch, twig and apple where it was
+    // the left edge of the canopy (beside the intro text) keeps its drooping strands; elsewhere they're dropped
+    const zl = m.right + W * 0.045, zr = m.right + W * 0.115, inZ = (x) => x > zl && x < zr;
+    segs = t.segs.filter(s => !s.st || inZ(s.x)); flowers = t.flowers.filter(f => !f.st || inZ(f.x)); apples = t.apples;
     for (const s of segs) {
       const h2 = Math.abs(Math.sin(s.x * 0.53 + s.y * 0.29) * 9371.7) % 1;
       if (s.w >= 2.5 * u && s.w < 10 * u && h2 < 0.3) flowers.push({ x: s.x, y: s.y, s: (8 + h2 * 20) * u, ph: h2 * TAU * 3, k: s.k0, dx: 0 });
+    }
+    // fuller, rounder crown with depth: more leaf clusters beside the existing ones (front), plus a paler layer behind them (back).
+    // Both are position-based, so the branches and apples don't move.
+    const ok = (x, y) => !(x < -30 || x > W + 30 || y < -H * 0.04 || y > groundY - H * 0.12 || (x > m.left - W * 0.04 && x < m.right + W * 0.07 && y > m.top - H * 0.06));
+    const base = flowers.length, extra = [];
+    for (let i = 0; i < base; i++) {
+      const f = flowers[i]; if (f.k < 0.08) continue;
+      const h = Math.abs(Math.sin(f.x * 0.71 + f.y * 1.37) * 24634.6) % 1, h2 = Math.abs(Math.sin(f.x * 1.93 + f.y * 0.57) * 51731.3) % 1;
+      if (h < 0.55) { const an = h * TAU * 9, d = (20 + h * 28) * u, nx = f.x + Math.cos(an) * d, ny = f.y + Math.sin(an) * d * 0.85;
+        if (ok(nx, ny)) extra.push({ x: nx, y: ny, s: (10 + h * 12) * u, ph: h * TAU * 5, k: f.k, dx: 0 }); }
+      if (h2 < 0.75) { const an = h2 * TAU * 7, d = (34 + h2 * 50) * u, nx = f.x + Math.cos(an) * d, ny = f.y + Math.sin(an) * d * 0.8;
+        if (ok(nx, ny)) extra.push({ x: nx, y: ny, s: (14 + h2 * 14) * u, ph: h2 * TAU * 4, k: f.k, dx: 0, back: true }); }
+    }
+    flowers = flowers.concat(extra);
+    // extra drooping strands along the left edge, hanging from the outer leaf clusters
+    for (let i = 0; i < base; i++) {
+      const f = flowers[i]; if (f.st || !inZ(f.x) || f.k < 0.08) continue;
+      const h = Math.abs(Math.sin(f.x * 1.13 + f.y * 0.83) * 33721.9) % 1;
+      if (h > 0.42) continue;
+      let px = f.x, py = f.y, a = (h - 0.5) * 0.4; const n = 4 + ((h * 20) | 0) % 6;
+      for (let j = 0; j < n; j++) {
+        a += (Math.sin(j * 1.7 + h * 9) * 0.18); const L = (22 + ((h * 97 + j * 13) % 14)) * u;
+        const x2 = px + Math.sin(a) * L, y2 = py + Math.cos(a) * L;
+        if (!ok(x2, y2) || y2 > groundY - H * 0.14) break;
+        segs.push({ x: px, y: py, x2, y2, cx: (px + x2) / 2, cy: (py + y2) / 2, w: 2.2 * u, b: undefined, k0: f.k, kc: f.k, k1: f.k });
+        if (j % 2 === 1) flowers.push({ x: x2, y: y2, s: (7 + h * 4) * u, ph: h * TAU * (j + 2), k: f.k, dx: 0 });
+        px = x2; py = y2;
+      }
+      flowers.push({ x: px, y: py, s: (10 + h * 5) * u, ph: h * TAU * 6, k: f.k, dx: 0 });
     }
   }
 
@@ -335,7 +376,13 @@
         if (dx * dx + dy * dy <= rad * rad) appleMask[yy * cols + xx] = val;
       }
     };
+    for (const f of flowers) {                              // back layer first (paler, set behind), then the front leaves on top
+      if (!f.back) continue;
+      const fx = f.x + f.dx;
+      for (let i = 0; i < 4; i++) { const an = f.ph + i * 1.6; disc(fx + Math.cos(an) * f.s * 0.6, f.y + Math.sin(an) * f.s * 0.55, f.s * 0.72, 6); }
+    }
     for (const f of flowers) {                              // leaves: a dappled green cluster wherever a blossom used to be
+      if (f.back) continue;
       const fx = f.x + f.dx;
       for (let i = 0; i < 4; i++) { const an = f.ph + i * 1.6; disc(fx + Math.cos(an) * f.s * 0.6, f.y + Math.sin(an) * f.s * 0.55, f.s * 0.72, 3); }
     }
@@ -405,12 +452,12 @@
     for (let y = 0; y < rows; y++) {
       const cy = y * PITCH + (y >> 2) * GAP_Y + DOT / 2, by = (y & 3) * 4, row = y * cols;
       for (let x = 0; x < cols; x++) {
-        const am = appleMask[row + x], leaf = am === 3, grass = am === 4, solid = am === 1 || am === 2;
+        const am0 = appleMask[row + x], peek = x < cols * 0.6 && data[(row + x) * 4] > 100 && data[(row + x) * 4 + 1] <= data[(row + x) * 4] * 1.2, back = am0 === 6 && data[(row + x) * 4] < 40, am = am0 === 6 ? 0 : am0, leaf = (am === 3 && !peek) || back, grass = am === 4, solid = am === 1 || am === 2;
         const pixel = (row + x) * 4;
         const isCat = catMask[row + x] === 1;
         const isFallingLeaf = !solid && !leaf &&
           data[pixel + 1] > data[pixel] * 1.2 && data[pixel + 1] > data[pixel + 2] * 1.15;
-        const v = solid || grass ? 1 : leaf ? 0.45 + ((x * 5 + y * 11) % 7) / 14 : data[pixel] / 255;
+        const v = solid || grass ? 1 : back ? 0.3 + ((x * 5 + y * 11) % 7) / 24 : leaf ? 0.45 + ((x * 5 + y * 11) % 7) / 14 : data[pixel] / 255;
         if (solid || (v > 0.06 && v > BAYER[by + (x & 3)] * 0.95)) {
           const color = isCat ? 4 : grass ? 5 : solid ? am + 1 : leaf ? (x * 7 + y * 13) % 8 === 0 ? 5 : 3 : isFallingLeaf ? 3 : (x * 7 + y * 13) % 9 === 0 ? 1 : 0;
           const sp = sprites[color][Math.min(4, (v * 5) | 0)];
