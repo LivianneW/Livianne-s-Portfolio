@@ -193,6 +193,9 @@
 .cs-quotes .cs-cap { margin: 0 0 -2px !important; }
 .cs-quotes img { display: block; max-width: 100%; height: auto; border-radius: 12px; border: 1px solid rgba(28,28,28,.08); background: #fff; }
 .cs-quotes .row2 { display: grid; grid-template-columns: repeat(2, minmax(0, 463px)); gap: 14px; max-width: 100%; }
+/* one interview: its label plus its transcripts. Wider gap between interviews than within one */
+.cs-quotes .cs-q { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; width: 100%; }
+.cs-quotes .cs-q + .cs-q { margin-top: 26px; }
 .cs-figure { margin: 28px 0 0; }
 .cs-figure img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid rgba(28,28,28,.08); background: #fff; }
 @media (max-width: 640px) { .cs-quotes .row2 { grid-template-columns: 1fr; } .cs-main h3.cs-sub { margin-top: 56px; font-size: 21px; } .cs-main .cs-take { font-size: 19px; margin-top: 40px; } }
@@ -205,11 +208,14 @@
 .cs-rows.inline .n { flex: none; margin-bottom: 0; }
 
 /* research insights: the insight leads, evidence in short columns, transcripts below */
-.cs-ins2 { padding: 48px 0 8px; border-top: 1px solid rgba(28,28,28,.1); }
+.cs-ins2 { padding: 48px 0; border-top: 1px solid rgba(28,28,28,.2); }
 .cs-ins2:last-of-type { padding-bottom: 8px; }
-.cs-ins2 .n { display: block; margin: 0 0 10px; font-size: 14px; font-weight: 500; letter-spacing: .08em; color: var(--color-green-accent); font-variant-numeric: tabular-nums; }
-.cs-ins2 .big { margin: 0 0 14px; font-family: var(--cs-title-font); font-size: 28px; font-weight: 400; line-height: 1.3; letter-spacing: -.015em; color: var(--color-dark-charcoal); text-wrap: pretty; }
-.cs-ins2 .ttl { margin: 0 0 32px; font-size: 12px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--color-light-grey); }
+.cs-ins2 .hd { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; margin: 0 0 12px; }
+.cs-ins2 .hd .sep { color: var(--color-light-grey); font-weight: 300; }
+@media (max-width: 640px) { .cs-ins2 .hd { flex-direction: column; } .cs-ins2 .hd .sep { display: none; } } /* stacks on phones, without the divider */
+.cs-ins2 .n { display: block; margin: 0; font-size: 19px; font-weight: 500; letter-spacing: .01em; color: var(--color-muted-grey); font-variant-numeric: tabular-nums; }
+.cs-ins2 .big { margin: 0 0 32px; font-family: var(--cs-title-font); font-size: 28px; font-weight: 400; line-height: 1.3; letter-spacing: -.015em; color: var(--color-dark-charcoal); text-wrap: pretty; }
+.cs-ins2 .ttl { margin: 0; font-size: 12px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--color-light-grey); }
 .cs-ins2 .ev { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 28px; margin-bottom: 8px; }
 .cs-ins2 .ev.two { grid-template-columns: repeat(2, minmax(0,1fr)); }
 .cs-ins2 .ev p { margin: 0; font-size: 15px; line-height: 1.55; color: #5f5b5c; }
@@ -268,7 +274,6 @@
 .cs-solution .sol-feats { border-top: 0; }
 .cs-solution .sol-feats li:first-child { padding-top: 0; }
 .cs-solution .sol-feats li:last-child { border-bottom: 0; padding-bottom: 0; }
-.cs-ins2:first-of-type { border-top: 0; padding-top: 0; }
 
 /* three numbered features in columns (Resource Bridge) */
 .cs-feats { margin: 36px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 32px; }
@@ -278,7 +283,7 @@
 .cs-ba { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 24px; margin-top: 24px; align-items: start; }
 .cs-ba .cs-cap { margin: 0 0 10px !important; }
 .cs-ba img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid rgba(28,28,28,.08); background: #fff; }
-.cs-xgrid img { aspect-ratio: 3 / 4; object-fit: cover; }
+.cs-xgrid img { height: auto; aspect-ratio: 3 / 4; object-fit: cover; } /* height:auto overrides the img height attribute, which would otherwise stretch the box and crop the sides */
 @media (max-width: 900px) { .cs-feats { grid-template-columns: 1fr; gap: 28px; } }
 @media (max-width: 640px) { .cs-ba { grid-template-columns: 1fr; } }
 
@@ -311,6 +316,11 @@
 
 /* laptop screenshots (Tastea): show whole image, no crop */
 .cs-xgrid.laptops img { height: auto; aspect-ratio: 16 / 11; object-fit: cover; object-position: center 45%; border-radius: 0; }
+
+/* wide banners (Itacho explorations): keep each image's own shape, no crop */
+.cs-xgrid.full { align-items: start; }
+.cs-xgrid.full img { height: auto; aspect-ratio: auto; object-fit: contain; }
+.cs-xgrid.full.one { grid-template-columns: minmax(0,420px); justify-content: center; } /* stays smaller than .cs-sel (520px) */
 
 /* QUESST: numbered app parts, each with its screen */
 .cs-core { margin: 32px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 36px 20px; }
