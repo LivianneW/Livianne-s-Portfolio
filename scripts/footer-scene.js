@@ -10,8 +10,8 @@
   const octx = off.getContext("2d", { willReadFrequently: true });
   const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const TAU = Math.PI * 2, FPS = 30;
-  const COLORS = ["#3a3a3a", "#d3a0a0", "#d9272e", "#70b074", "#a51d24", "#4f8f55", "#f2c94c", "#E7CFCD", "#D4E1E9", "#D2D79F", "#D5D9A3"];
-  // grid values: 1 ink, 2 pink (apple highlight), 3 apple red, 4 leaf green, 5 (unused), 6 deep green, 7 flower centre, 8-10 flower petals, 11 floor / soil dots
+  const COLORS = ["#3a3a3a", "#d3a0a0", "#d9272e", "#70b074", "#a51d24", "#4f8f55", "#f2c94c", "#E7CFCD", "#D4E1E9", "#D2D79F", "#D5D9A3", "#7a5a3c"];
+  // grid values: 1 ink, 2 pink (unused), 3 apple red, 4 leaf green, 5 (unused), 6 deep green, 7 flower centre, 8-10 flower petals, 11 floor / soil dots, 12 apple stem
   const BAYER = [0,8,2,10,12,4,14,6,3,11,1,9,15,7,13,5].map(v => (v + 0.5) / 16);
   const rnd = (a, b) => a + Math.random() * (b - a);
   const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
@@ -58,12 +58,17 @@
   }
 
 
-  function drawApple(arr, ci, cj, r) {
-    for (let dj = -5; dj <= 5; dj++) for (let di = -5; di <= 5; di++) if (di * di + dj * dj <= r * r) put(arr, ci + di, cj + dj, 3);
-    put(arr, ci - Math.round(r * 0.45), cj - Math.round(r * 0.45), 2);          // highlight
-    const top = cj - Math.round(r);
-    put(arr, ci, top - 1, 4); put(arr, ci, top - 2, 4); put(arr, ci + 1, top - 3, 4);   // stem
-    put(arr, ci + 2, top - 2, 4); put(arr, ci + 3, top - 2, 4);                          // leaf
+  // apple bodies, top row to bottom row: dots across each row. Drawn by hand because a computed circle turns boxy on this grid.
+  const BIG_APPLE = [4, 6, 8, 8, 8, 8, 8, 8, 6], SMALL_APPLE = [4, 6, 6, 6, 6, 6, 4];
+  // [columns right of the stem, rows above the apple]: a pointed leaf growing up and out from the stem
+  const LEAF = [[1, 1], [2, 1], [1, 2], [2, 2], [3, 2], [2, 3], [3, 3], [4, 3], [3, 4], [4, 4]];
+  // where the apples fell: [across the footer 0-1, body, rows down into the grass, leaf side]. Uneven on purpose, so they read as dropped rather than spaced.
+  const APPLE_SPOTS = [[0.035, SMALL_APPLE, 2, 1], [0.185, BIG_APPLE, 0, -1], [0.47, SMALL_APPLE, 1, -1], [0.79, BIG_APPLE, 3, 1], [0.955, SMALL_APPLE, 0, -1]];
+  function drawApple(arr, ci, bottom, body, side) {                              // solid red like the hero's, flat base, brown stem and a leaf
+    const top = bottom - body.length + 1;
+    body.forEach((w, k) => { for (let d = 1 - w / 2; d <= w / 2; d++) put(arr, ci + d, top + k, 3); });
+    for (let k = 1; k <= 3; k++) put(arr, ci, top - k, 12);
+    for (const [di, dj] of LEAF) put(arr, ci + di * side, top - dj, 4);
   }
 
   function makeSprites() {                                                       // pre-rendered dots: drawImage is much cheaper than arcs
@@ -105,10 +110,14 @@
       tufts.push({ i, px: dotX(i), lean: (r() - 0.5) * (h > 8 ? 0.5 : 0.9), ph: r() * TAU, flower,
         col: Array.from({ length: h }, () => { const z = r(); return z < 0.65 ? 4 : 6; }) });
     }
-    apples = [0.08, 0.26, 0.5, 0.72, 0.9].map((fx, n) => {
-      const rad = n % 2 ? 3.4 : 4.2, ci = Math.round(fx * cols + (r() - 0.5) * 6), cj = g - Math.round(rad);
-      return { ci, cj, r: rad, wob: 0, hop: 0, hover: false, px: dotX(ci), py: dotY(cj), pr: rad * PITCH * 1.15 + 6 };
-    });
+    apples = [];
+    for (const [fx, body, drop, side] of APPLE_SPOTS) {
+      const ci = clamp(Math.round(fx * cols + (r() - 0.5) * 6), 6, cols - 8) & ~1;   // even column, so the body centres on a dot pair; clamped so edge apples stay whole
+      if (apples.length && ci - apples[apples.length - 1].ci < 14) continue;          // narrow screens: leave out an apple that would bump its neighbour
+      const rad = Math.max(...body) * CELL_W / 4, px = dotX(ci) + PITCH / 2, py = dotY(g - 1 + drop) - body.length * CELL_H / 8;
+      apples.push({ ci, body, drop, side, r: rad, wob: 0, hop: 0, hover: false, px, py, pr: rad * 1.15 + 6 });
+    }
+    tufts = tufts.filter(tf => !apples.some(a => tf.px > a.px - a.r - (a.side < 0 ? 16 : 8) * u && tf.px < a.px + a.r + (a.side < 0 ? 8 : 16) * u));   // no grass tangled in the apple or its leaf
     cat.x = clamp(cat.x || W * 0.4, 40, W - 40); cat.target = cat.x;
   }
 
@@ -128,7 +137,7 @@
       a.wob = Math.max(0, a.wob - dt * 1.5);
       let lift = 0;
       if (a.hop > 0) { const p = 1 - a.hop; lift = Math.round(4 * p * (1 - p) * 7); a.hop = Math.max(0, a.hop - dt * 2.2); }
-      drawApple(dyn, a.ci + Math.round(Math.sin(t * 18) * a.wob * 1.2), a.cj - lift, a.r);
+      drawApple(dyn, a.ci + Math.round(Math.sin(t * 18) * a.wob * 1.2), g - 1 + a.drop - lift, a.body, a.side);
     }
     updateCat(dt);
     octx.setTransform(1, 0, 0, 1, 0, 0); octx.globalCompositeOperation = "source-over"; octx.fillStyle = "#000"; octx.fillRect(0, 0, cols, rows);

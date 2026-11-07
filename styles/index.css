@@ -517,7 +517,10 @@ a {
   .about-hero {
     grid-template-columns: 1fr;
     gap: 3rem;
-    text-align: center;
+  }
+
+  .about-hero-image {
+    margin-right: auto;
   }
 
   .about-image-frame {
@@ -599,7 +602,7 @@ a {
   }
 
   .about-hero {
-    gap: 2rem;
+    gap: 2.75rem;
   }
 
   .about-greeting {

@@ -4,274 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="A case study about Livianne's information visualization work for NASA QUESST and the X-59.">
-  <title>NASA QUESST - Livianne</title>
+  <title>NASA QUESST — Livianne</title>
   <link rel="icon" type="image/x-icon" href="../../assets/favicon/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../../assets/favicon/apple-touch-icon.png">
   <link rel="stylesheet" href="../../styles/styles.css">
-  <style>
-    .navbar {
-      background: rgba(255, 251, 251, 0.92);
-      backdrop-filter: blur(14px);
-    }
-
-    .case-hero-nasa {
-      background:
-        radial-gradient(circle at 82% 18%, rgba(52, 103, 173, 0.22), transparent 30%),
-        linear-gradient(135deg, #edf3fa 0%, #fbfcfe 68%) !important;
-    }
-
-    .case-hero-nasa .hero-subtitle {
-      color: #315d91 !important;
-    }
-
-    .hero-container {
-      max-width: 1400px;
-      padding: 64px 2rem;
-    }
-
-    .hero-top-split {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 32px;
-      min-height: 0;
-      text-align: left;
-    }
-
-    .hero-title {
-      font-size: 48px;
-      line-height: 1.2;
-      letter-spacing: normal;
-    }
-
-    .hero-subtitle {
-      margin-top: 12px;
-      font-size: 24px;
-    }
-
-    .hero-image-wrapper {
-      max-width: 500px;
-      justify-content: flex-end;
-    }
-
-    .hero-img {
-      max-height: 380px;
-      filter: none;
-    }
-
-    .project-meta-dashboard {
-      max-width: 1400px;
-      margin: 40px auto 0;
-      padding: 32px 0 0;
-      display: flex;
-      gap: normal;
-    }
-
-    .meta-dashboard-label {
-      font-size: 14px;
-      letter-spacing: normal;
-    }
-
-    .meta-dashboard-text,
-    .meta-name {
-      font-size: 16px;
-    }
-
-    .meta-role {
-      font-size: 15px;
-    }
-
-    .body-container {
-      max-width: 1400px;
-      padding-top: 4rem;
-      gap: 4rem;
-    }
-
-    .sidebar {
-      width: 280px;
-    }
-
-    .toc-sticky-container {
-      top: 130px;
-      display: flex;
-      gap: 2rem;
-    }
-
-    .toc {
-      gap: 1rem;
-      padding-left: 1rem;
-    }
-
-    .toc-link {
-      font-size: 18px;
-    }
-
-    .toc-link.active {
-      color: #315d91;
-    }
-
-    .main-content {
-      gap: 5rem;
-    }
-
-    .section-label {
-      margin-bottom: 2rem;
-      font-size: 20px;
-      letter-spacing: normal;
-      font-weight: 300;
-    }
-
-    .section-heading {
-      max-width: none;
-      font-size: 28px;
-      line-height: normal;
-      letter-spacing: normal;
-    }
-
-    .text-block,
-    .text-paragraph {
-      max-width: none;
-      font-size: 18px;
-      line-height: 1.625;
-    }
-
-    .nasa-feature-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.25rem;
-      margin-top: 2rem;
-    }
-
-    .nasa-feature-card {
-      padding: 1.5rem;
-      border: 1px solid rgba(28, 28, 28, 0.08);
-      border-radius: 14px;
-      background: rgba(28, 28, 28, 0.015);
-    }
-
-    .nasa-feature-card h3 {
-      margin: 0 0 0.65rem;
-      color: #315d91;
-      font-size: 18px;
-      font-weight: 500;
-    }
-
-    .nasa-feature-card p {
-      margin: 0;
-      color: var(--color-muted-grey);
-      font-size: 16px;
-      line-height: 1.6;
-    }
-
-    .nasa-process-list {
-      margin: 1.25rem 0 0;
-      padding-left: 1.25rem;
-      color: var(--color-muted-grey);
-      font-size: 17px;
-      line-height: 1.7;
-    }
-
-    .nasa-process-list li + li {
-      margin-top: 0.6rem;
-    }
-
-    .nasa-project-figure {
-      margin: 2rem 0 0;
-    }
-
-    .nasa-project-figure img {
-      display: block;
-      width: 100%;
-      height: auto;
-      border: 1px solid rgba(28, 28, 28, 0.08);
-      border-radius: 12px;
-      box-shadow: 0 12px 28px rgba(28, 28, 28, 0.06);
-    }
-
-    .nasa-project-figure figcaption {
-      margin-top: 0.75rem;
-      color: var(--color-muted-grey);
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    @media (max-width: 920px) {
-      .hero-top-split {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .hero-text-block {
-        align-items: center;
-      }
-
-      .hero-title {
-        font-size: 36px;
-      }
-
-      .hero-image-wrapper {
-        max-width: 320px;
-        justify-content: center;
-      }
-
-      .hero-img {
-        max-height: 260px;
-      }
-
-      .project-meta-dashboard {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 24px;
-        padding-top: 32px;
-        margin-top: 32px;
-      }
-
-      .body-container {
-        gap: 3rem;
-      }
-
-      .toc-sticky-container {
-        display: none;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .hero-title {
-        font-size: 36px;
-      }
-
-      .project-meta-dashboard {
-        flex-direction: column;
-      }
-
-      .nasa-feature-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../styles/site-type.css">
   <link rel="stylesheet" href="../../styles/case-study.css">
+  <style>
+    a { text-decoration: none; color: inherit; }
+    .case-hero-nasa { background: radial-gradient(circle at 82% 18%, rgba(240,160,90,.24), transparent 30%), linear-gradient(135deg, #f1edf5 0%, #fdfbfa 68%) !important; }
+    .case-hero-nasa .hero-subtitle { color: #5b5079 !important; }
+  </style>
 </head>
 <body>
+
   <header class="navbar">
     <div class="container nav-container">
       <a href="../../" class="logo-link">
         <span class="logo">LIVIANNE</span>
         <span class="page-indicator"><span class="sep">/</span> NASA QUESST</span>
       </a>
-
       <input type="checkbox" id="menu-toggle" class="menu-toggle" style="display: none;">
-      <label for="menu-toggle" class="hamburger-icon" aria-label="Toggle navigation menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-
+      <label for="menu-toggle" class="hamburger-icon" aria-label="Toggle navigation menu"><span></span><span></span><span></span></label>
       <nav class="nav-links" aria-label="Main navigation">
         <a href="../../" class="nav-link">Work</a>
         <a href="../about/" class="nav-link">About</a>
@@ -282,24 +41,36 @@
 
   <section class="hero-banner case-hero-nasa">
     <div class="container hero-container">
-      <div class="hero-top-split">
+      <div class="hero-top-split" style="display: flex; width: 100%; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 32px;">
         <div class="hero-text-block">
           <h1 class="hero-title">NASA QUESST</h1>
-          <p class="hero-subtitle">Information Visualization</p>
-          <p class="hero-summary">A smartphone concept that connects X-59 flights with what people on the ground actually hear.</p>
+          <p class="hero-subtitle">Internship</p>
+          <p class="hero-summary">A smartphone app concept that connects X-59 flight activity with community reports of what people hear and feel during each flyover</p>
         </div>
         <div class="hero-image-wrapper" style="max-width: 500px;">
-          <img src="../../assets/QUESST.png" alt="NASA's X-59 aircraft outside its hangar" class="hero-img" style="max-height: 320px; width: auto; object-fit: contain;">
+          <img src="../../assets/quesst-logo-black.png" alt="NASA QUESST logo" class="hero-img" style="max-height: 320px; width: auto; object-fit: contain; filter: none;">
         </div>
       </div>
 
       <div class="project-meta-dashboard">
         <div class="meta-dashboard-col">
-          <span class="meta-dashboard-label">Role</span>
+          <span class="meta-dashboard-label">Team</span>
           <div class="meta-dashboard-list">
             <div class="meta-dashboard-row">
               <span class="meta-name" style="color: #315d91; font-weight: 500;">Livianne</span>
-              <span class="meta-role" style="color: #315d91; font-weight: 500;">Design Lead</span>
+              <span class="meta-role" style="color: #315d91; font-weight: 500;">Product Design Lead</span>
+            </div>
+            <div class="meta-dashboard-row">
+              <span class="meta-name">Yoto</span>
+              <span class="meta-role">Software Engineer</span>
+            </div>
+            <div class="meta-dashboard-row">
+              <span class="meta-name">Dishita</span>
+              <span class="meta-role">Software Engineer</span>
+            </div>
+            <div class="meta-dashboard-row">
+              <span class="meta-name">Kento</span>
+              <span class="meta-role">Aerospace Engineer</span>
             </div>
           </div>
         </div>
@@ -308,8 +79,8 @@
           <p class="meta-dashboard-text">NASA's X-59 Quiet Supersonic Project</p>
         </div>
         <div class="meta-dashboard-col">
-          <span class="meta-dashboard-label">Focus</span>
-          <p class="meta-dashboard-text">Information Visualization</p>
+          <span class="meta-dashboard-label">Tools</span>
+          <p class="meta-dashboard-text">Figma, Swift, React</p>
         </div>
         <div class="meta-dashboard-col">
           <span class="meta-dashboard-label">Timeline</span>
@@ -323,142 +94,148 @@
     <aside class="sidebar">
       <div class="toc-sticky-container">
         <a href="../../" class="back-btn-sticky">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="19" y1="12" x2="5" y2="12"></line>
-            <polyline points="12 19 5 12 12 5"></polyline>
-          </svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
           Back to Home
         </a>
-
         <nav class="toc" aria-label="Case study sections">
           <a href="#overview" class="toc-link active">Overview</a>
           <a href="#challenge" class="toc-link">Challenge</a>
-          <a href="#role" class="toc-link">My Role</a>
-          <a href="#process" class="toc-link">Process</a>
+          <a href="#research" class="toc-link">Research</a>
+          <a href="#design" class="toc-link">Design</a>
           <a href="#outcome" class="toc-link">Outcome</a>
           <a href="#reflection" class="toc-link">Reflection</a>
         </nav>
-
         <a href="https://www.nasa.gov/mission/quesst/" target="_blank" rel="noreferrer" class="prototype-btn" style="margin-top: 20px; width: 70%; box-sizing: border-box;">
           <span class="btn-text">NASA Mission</span>
         </a>
       </div>
     </aside>
 
-    <main class="main-content">
-      <section id="overview" class="content-section">
-        <p class="section-label">OVERVIEW</p>
-        <h2 class="section-heading">Making the X-59 Story Clear</h2>
-        <div class="text-block">
-          <p>NASA's QUESST mission is exploring how the X-59 can make supersonic flight quieter. The concept I developed with my team focused on the people beneath its flight path: how might they know when an aircraft was nearby, understand what they experienced, and share useful feedback?</p>
-          <p>As design lead, I helped shape a smartphone experience that connects aircraft activity with community responses. The concept brings together a map, flight history, and a short experience report, making it easier to relate a flight to when and where someone heard it.</p>
+    <main class="main-content cs-main">
+
+      <section id="overview" class="cs">
+        <p class="cs-label">Overview</p>
+        <h2>Bringing the X-59 Mission Closer to the Ground</h2>
+        <p>During my internship, I collaborated with two software engineers, an aerospace engineer, and the NASA CaSGC director on a smartphone app concept for NASA's QUESST 
+          mission. The X-59 is designed to make supersonic flight quieter and our goal was to create a way for communities along its flight path to 
+          share how they experienced each flyover.</p>
+        <p>As design lead, I shaped the app's core experience from defining user flows and researching existing products to developing wireframes and 
+          exploring key features. I worked closely with the engineering team to understand technical possibilities and translate them into an experience
+           that would be useful and accessible to the public.</p>
+        <dl class="cs-facts">
+          <div><dt>Role</dt><dd>Design Lead</dd></div>
+          <div><dt>Focus</dt><dd>Mobile app concept for community response</dd></div>
+          <div><dt>Output</dt><dd>Competitive analysis, user flow, and two rounds of wireframes</dd></div>
+          <div><dt>Note</dt><dd>Conceptual design developed for the NASA QUESST</dd></div>
+        </dl>
+      </section>
+
+      <section id="challenge" class="cs">
+        <p class="cs-label">The Challenge</p>
+        <h2>Build a community response app</h2>
+        <p>The challenge was to design a community response app that <span class="hi">makes it easier for people to share their experiences</span> as the X-59 flies overhead. 
+          We wanted to minimize the effort required to participate, creating an experience that could connect residents to nearby flyovers without relying on them to constantly track the aircraft flying.</p>
+        <p>This led us to explore ways to make participation more seamless - from detecting and notifying residents of an incoming flyover to 
+          providing a simple way to report what they heard and felt. The goal was to capture community feedback while keeping the experience as straightforward as possible.</p>
+        <div class="cs-big3 sm">
+          <div><p class="k"></p><p class="v">Hands-off</p><p class="d">Make participation simple and require as little manual input as possible</p></div>
+          <div><p class="k"></p><p class="v">Detect and alert</p><p class="d">Help residents recognize when an aircraft is nearby</p></div>
+          <div><p class="k"></p><p class="v">Log the response</p><p class="d">Give people a quick way to share how each flyover sounded and felt</p></div>
         </div>
       </section>
 
-      <section id="challenge" class="content-section">
-        <p class="section-label">THE CHALLENGE</p>
-        <h2 class="section-heading">Connect a Flight With What People Hear</h2>
-        <div class="text-block">
-          <p>A useful community response depends on context. Someone reporting a sound needs a simple way to say where they were, when it happened, and how strong it felt. At the same time, a map showing many flights or long time ranges can quickly become crowded and difficult to interpret.</p>
-          <p>I framed the design around two connected needs: help people find relevant aircraft activity, then make it straightforward to submit a timely report about their experience.</p>
-        </div>
+      <section id="research" class="cs">
+        <p class="cs-label">Research</p>
+        <h2>Learning from existing experiences</h2>
+        <p>I began by looking at apps that help people stay informed about events happening around them. I explored MyShake for its earthquake alerts,
+           Watch Duty for its real-time wildfire updates, and BeReal for its use of location-based maps and timely notifications. Each offered a 
+           different perspective on how to communicate nearby activity, deliver relevant alerts, and encourage people to respond while an experience 
+           was still fresh.</p>
+        <figure class="cs-figure">
+          <img src="../../assets/quesst-competitive-v2.png" alt="Competitive analysis board comparing earthquake, wildfire, and social apps, with notes on alerts, maps, location, and event history.">
+        </figure>
+        <p class="cs-cap" style="margin-top:12px !important">Competitive review of MyShake, Watch Duty, and BeReal</p>
       </section>
 
-      <section id="role" class="content-section">
-        <p class="section-label">MY ROLE</p>
-        <h2 class="section-heading">Design Lead · Information Visualization</h2>
-        <div class="text-block">
-          <p>I helped translate the project goal into a mobile product concept, organized the core information architecture, and mapped the paths people could take through the app. I also explored how aircraft activity and community reports could be presented together without overwhelming the map.</p>
-          <p>The work shown here represents a design concept and prototype—not a released NASA product.</p>
-        </div>
+      <section id="design" class="cs">
+        <p class="cs-label">Design</p>
+        <h2>Designing around the flight journey</h2>
+        <p>From there, I mapped a flow from onboarding and location setup to the map, flight details, and an experience report. It organized the product 
+          around a clear sequence: <span class="hi">find a flight, understand its context, and report what you experienced.</span></p>
+        <figure class="cs-figure">
+          <img src="../../assets/quesst-user-flow-v2.png" alt="User-flow diagram connecting onboarding, the map, profile and settings, flight reports, and the flight log.">
+        </figure>
+        <p class="cs-cap" style="margin-top:12px !important">User flow from account setup to flight details, reports, and settings</p>
+
+        <h3 class="cs-sub">Mapping Out the Core Experience</h3>
+        <ol class="cs-core">
+          <li><div class="shot"><img src="../../assets/quesst-screen-map.png" alt="QuesstSight map showing a flight path and color-coded reports around Los Angeles." width="396" height="867" loading="lazy"></div><div class="h"><span class="n">01</span><p class="t">
+            Map and location</p></div><p class="dsc">View aircraft activity in relation to a person's location with controls for exploring a selected flight</p></li>
+          <li><div class="shot"><img src="../../assets/quesst-screen-log.png" alt="Flight log listing past X-59 flights by date, with takeoff and landing locations." width="396" height="867" loading="lazy"></div><div class="h"><span class="n">02</span><p class="t">Flight log</p></div><p class="dsc">
+            Browse past flights and use filters to narrow the list instead of showing every data point at once</p></li>
+          <li><div class="shot"><img src="../../assets/quesst-screen-details.png" alt="Flight information screen with route, travel time, perceived intensity, and measured vibration." width="396" height="867" loading="lazy"></div><div class="h"><span class="n">03</span><p class="t">Flight details</p></div><p class="dsc">
+            Inspect route, altitude, distance, and travel time for an individual flight</p></li>
+          <li><div class="shot"><img src="../../assets/quesst-screen-report.png" alt="First step of the experience report, asking where the person was when they felt the plane fly over." width="396" height="867" loading="lazy"></div><div class="h"><span class="n">04</span><p class="t">Experience report</p></div><p class="dsc">
+            Record where and when a sound was heard, rate its perceived strength, and optionally add context</p></li>
+        </ol>
+
+        <h3 class="cs-sub">First Wireframes</h3>
+        <p>My first pass explored the core screens: a map with a time filter, filtering by distance and strength, a flight log, the two-step 
+          experience report, and flight information with two ways to show how strong a flight felt.</p>
+        <figure class="cs-figure">
+          <a href="../../assets/quesst-wireframes-v1.png" target="_blank" rel="noreferrer"><img src="../../assets/quesst-wireframes-v1.png" alt="First-iteration wireframes for the map, filters, flight log, menu, settings, flight information, and experience report."></a>
+        </figure>
+
+        <h3 class="cs-sub">Second Iteration</h3>
+        <p>In the second round, the map became more focused, allowing users to follow an individual flight path and see community reports along the route through color-coded markers.</p>
+        <p>I  also reworked the reporting flow into three simple steps: identifying where the user was, when the flyover happened, 
+          and how strongly they experienced it. To capture more than a numerical rating, I explored the option of attaching a short 
+          audio recording to each report.</p>  
+        <figure class="cs-figure">
+          <a href="../../assets/quesst-wireframes-v2.png" target="_blank" rel="noreferrer"><img src="../../assets/quesst-wireframes-v2.png" alt="Second-iteration QuesstSight screens: map with flight path, flight log, flight information, a three-step experience report, filters, menu, settings, recording, and your reports."></a>
+        </figure>
       </section>
 
-      <section id="process" class="content-section">
-        <p class="section-label">PROCESS</p>
-        <h2 class="section-heading">Designing Around the Flight Journey</h2>
-        <div class="text-block">
-          <p>I began by reviewing patterns in adjacent location-based products, including earthquake and wildfire alert tools. Their maps, location settings, notifications, and saved history offered useful references for helping people understand events around them. I also considered how a lightweight, timely prompt could make it easier to share an experience while it was still fresh.</p>
-          <p>From there, I mapped a flow from onboarding and location setup to the map, flight details, and an experience report. That flow helped me organize the product around a clear sequence: find a flight, understand its context, and report what you experienced.</p>
-        </div>
-
-        <ul class="nasa-process-list">
-          <li><strong>Map and location:</strong> View aircraft activity in relation to a person's location, with controls for exploring a selected flight.</li>
-          <li><strong>Flight log:</strong> Browse past flights and use filters to narrow the list instead of showing every data point on the map at once.</li>
-          <li><strong>Flight details:</strong> Inspect information such as route, altitude, distance, and travel time for an individual flight.</li>
-          <li><strong>Experience report:</strong> Record where and when a sound was heard, rate its perceived strength, and optionally add more context.</li>
+      <section id="outcome" class="cs">
+        <p class="cs-label">Outcome</p>
+        <h2>One flow for data and experience</h2>
+        <p>The concept brings flight information and community feedback into one mobile flow. The map and flight log help people explore aircraft activity and the report flow gives them a structured way to connect what they heard to a time and place.</p>
+        <ul class="cs-feats">
+          <li><span class="n">01</span><h4>See nearby activity</h4><p>A location-aware map gives people a starting point</p></li>
+          <li><span class="n">02</span><h4>Focus on one flight</h4><p>Selecting a flight keeps its details in focus, not buried in a crowded map</p></li>
+          <li><span class="n">03</span><h4>Share an experience</h4><p>A guided report captures time, location, and perceived intensity</p></li>
         </ul>
-
-        <div class="nasa-feature-grid">
-          <article class="nasa-feature-card">
-            <h3>See nearby activity</h3>
-            <p>A location-aware map gives people a starting point for understanding aircraft activity around them.</p>
-          </article>
-          <article class="nasa-feature-card">
-            <h3>Focus on one flight</h3>
-            <p>Selecting a flight keeps its details in focus and avoids asking people to interpret an overloaded map of simultaneous or historical activity.</p>
-          </article>
-          <article class="nasa-feature-card">
-            <h3>Share an experience</h3>
-            <p>A guided report collects the time, location, and perceived intensity of a sound, with an optional comment for additional context.</p>
-          </article>
-        </div>
-
-        <figure class="nasa-project-figure">
-          <img src="../../assets/quesst-user-flow.png" alt="User-flow diagram connecting onboarding, the map, profile and settings, flight reports, and the flight log.">
-          <figcaption>I mapped the main paths through the app, from account setup and the map to flight details, reports, and settings.</figcaption>
-        </figure>
-
-        <figure class="nasa-project-figure">
-          <img src="../../assets/quesst-competitive-analysis.png" alt="Competitive analysis board comparing earthquake, wildfire, and social apps, with notes on alerts, maps, location, and event history.">
-          <figcaption>My competitive review looked at how adjacent apps communicate location-based events, notifications, maps, and history.</figcaption>
-        </figure>
-
-        <figure class="nasa-project-figure">
-          <img src="../../assets/quesst-prototype-screens.png" alt="Early mobile wireframes for a flight map, filters, flight log, experience report, flight details, and settings.">
-          <figcaption>Early screen explorations for the map, flight log, report flow, flight information, and settings.</figcaption>
-        </figure>
       </section>
 
-      <section id="outcome" class="content-section">
-        <p class="section-label">OUTCOME</p>
-        <h2 class="section-heading">A Concept for Connecting Data and Experience</h2>
-        <div class="text-block">
-          <p>The resulting concept brings flight information and community feedback into one mobile flow. The map and flight log help people explore aircraft activity; the report flow gives them a structured way to describe what they heard and connect that response to a time and place.</p>
-          <p>The screens explored different ways to make flight details more legible, including flight paths and measures such as distance, altitude, time, and reported sound intensity. Together, these ideas established a foundation for a more focused prototype and future evaluation.</p>
-        </div>
+      <section id="reflection" class="cs">
+        <p class="cs-label">Reflection</p>
+        <h2>What I Took Away From This Project</h2>
+        <p>Although we didn't get to take this project as far as we initially envisioned, it was still a valuable learning experience. Working alongside
+           engineers, program director, and learning about the challenges of the X-59 mission pushed me outside my usual design perspective. I gained a better 
+           understanding of how to approach unfamiliar subject matter, translate technical information into something more approachable, and 
+           collaborate across different areas of expertise.</p>
+        <p>More importantly, it reminded me that not every project is defined by its final outcome. Sometimes, the most meaningful growth comes 
+          from the questions you learn to ask and the challenges you learn to navigate as the project grows.</p>
       </section>
 
-      <section id="reflection" class="content-section">
-        <p class="section-label">REFLECTION</p>
-        <h2 class="section-heading">What I Learned</h2>
-        <div class="text-block">
-          <p>This project reminded me that information visualization is as much about deciding what not to show as it is about presenting data. A map that tries to display every flight at once can obscure the one a person is trying to understand. Letting people move from an overview to a selected flight gave the information a clearer structure.</p>
-          <p>I also learned to treat the report flow as part of the information system, not an add-on. Capturing a response is most useful when people can connect it to a specific time, place, and flight—and when sharing it feels simple in the moment.</p>
-        </div>
-      </section>
     </main>
   </div>
 
-
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const sections = document.querySelectorAll('.content-section');
+      const sections = document.querySelectorAll('.cs');
       const tocLinks = document.querySelectorAll('.toc-link');
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            tocLinks.forEach(link => {
-              link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`);
-            });
+            tocLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id));
           }
         });
       }, { rootMargin: '-15% 0px -75% 0px', threshold: 0 });
-
-      sections.forEach(section => observer.observe(section));
+      sections.forEach(s => observer.observe(s));
     });
   </script>
   <script src="../../scripts/footer.js"></script>
   <script src="../../scripts/footer-scene.js"></script>
 </body>
 </html>
-

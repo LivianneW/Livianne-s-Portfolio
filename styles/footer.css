@@ -68,7 +68,17 @@
   transition: color 0.2s ease;
 }
 .af-col a:hover { color: var(--af-pink); }
-.af-col a:not(.af-email)::after { content: "↗"; margin-left: 6px; font-size: 14px; color: var(--af-light); }
+/* drawn with a mask, not the "↗" character: phones swap that character for an emoji */
+.af-col a:not(.af-email)::after {
+  content: "";
+  flex: none;
+  width: 10px;
+  height: 10px;
+  margin-left: 6px;
+  background-color: var(--af-light);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10' fill='none' stroke='%23000' stroke-width='1.1'%3E%3Cpath d='M1.5 8.5 8.5 1.5M2.5 1.5h6v6'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10' fill='none' stroke='%23000' stroke-width='1.1'%3E%3Cpath d='M1.5 8.5 8.5 1.5M2.5 1.5h6v6'/%3E%3C/svg%3E") center / contain no-repeat;
+}
 .af-col a.af-email { color: var(--af-ink); }
 .af-col a.af-email:hover { color: var(--af-pink); }
 .af-email {
@@ -90,8 +100,10 @@
 .af-copy { font-size: 15px; font-weight: 300; color: var(--af-light); }
 .af-up {
   display: inline-flex;
+  flex: none;
   align-items: center;
   gap: 8px;
+  white-space: nowrap;
   padding: 6px 18px;
   border: 1.5px solid #d6d1d1;
   border-radius: 16px;
@@ -126,4 +138,12 @@
   .af-warning { left: 1.5rem; }
   .af-inner { grid-template-columns: 1fr; padding: 1rem 1.5rem 2rem; gap: 2.25rem; }
   .af-bottom { grid-column: 1; }
+}
+
+/* keep the email on one line: its column fits the address, Elsewhere takes the rest */
+@media (max-width: 480px) {
+  .af-cols { grid-template-columns: max-content minmax(0, 1fr); gap: 1.5rem; }
+}
+@media (max-width: 359px) {
+  .af-cols { grid-template-columns: 1fr; }
 }

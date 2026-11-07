@@ -13,11 +13,11 @@
 .story-rows { display: flex; flex-direction: column; gap: 2rem; max-width: 40em; }
 .story-lead { margin: 0 0 .7rem; font-size: 21px; font-weight: 400; line-height: 1.4; letter-spacing: -.005em; color: #1c1c1c; }
 .story-body { margin: 0; font-size: 16px; font-weight: 300; line-height: 1.65; color: #585858; }
-@media (max-width: 1024px) { .about-hero { margin-bottom: 3rem; } .story-grid { grid-template-columns: 1fr; gap: 3rem; } .story-grid .bs-stage canvas { height: 280px; } }
+@media (max-width: 1024px) { .about-hero { margin-bottom: 3rem; } .story-grid { grid-template-columns: 1fr; gap: 3rem; } .story-grid .bs { margin: 0; } .story-grid .bs-stage canvas { height: 280px; } }
 @media (max-width: 640px) { .story-lead { font-size: 19px; } .about-layout { gap: 1.5rem; } .story-grid .bs-stage canvas { height: 280px; } }
 
 .kitchen-scene { display: block; width: 100%; height: 270px; margin-top: .5rem; pointer-events: none; }
-@media (max-width: 640px) { .kitchen-scene { height: 230px; } }
+@media (max-width: 640px) { .kitchen-scene { height: 230px; margin-top: -1.25rem; } .bs-hint { text-wrap: pretty; } }
 
 /* photos: a loose pile; click to send the top one to the back */
 .photos { display: block; }

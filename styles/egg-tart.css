@@ -30,11 +30,11 @@
 
 @media (max-width: 1024px) {
   .egg-tart { left: -135px; }
-  .tart-hint { left: -73px; }
+  .tart-hint { left: -35px; bottom: -44px; }
 }
 @media (max-width: 640px) {
-  .egg-tart { left: -98px; bottom: -40px; width: 230px; height: 230px; }
-  .tart-hint { left: -34px; bottom: -66px; }
+  .egg-tart { left: -50px; bottom: -40px; width: 230px; height: 230px; }
+  .tart-hint { left: 30px; bottom: -44px; }
 }
 
 /* intro text spacing + the pink headline above the last paragraph */
