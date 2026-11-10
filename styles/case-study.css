@@ -286,6 +286,9 @@
 .cs-xgrid img { height: auto; aspect-ratio: 3 / 4; object-fit: cover; } /* height:auto overrides the img height attribute, which would otherwise stretch the box and crop the sides */
 @media (max-width: 900px) { .cs-feats { grid-template-columns: 1fr; gap: 28px; } }
 @media (max-width: 640px) { .cs-ba { grid-template-columns: 1fr; } }
+.cs-photos { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; margin-top: 28px; }
+.cs-photos img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 12px; }
+@media (max-width: 640px) { .cs-photos { gap: 8px; } }
 
 /* Images in case studies: no border, background or shadow (screenshots on a white background blend into the page) */
 .cs-main img, .cs-main figure, .cs-main .cs-shot, .cs-main .cs-wide,
